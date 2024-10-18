@@ -1,0 +1,1 @@
+<?php /**PATH D:\doan\doannhoml\resources\views/admin/product/data.blade.php ENDPATH**/ ?>
