@@ -53,3 +53,4 @@ Route::get('account-index',[AccountController::class,'ShowAccount']);
 Route::POST('login/loginrun',[LoginRegisterController::class,'LoginPage']);
 
 //Register
+Route::POST('register/registerrun',[LoginRegisterController::class,'RegisterPage']);
