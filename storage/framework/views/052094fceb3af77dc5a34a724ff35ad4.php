@@ -84,4 +84,4 @@
     <!-- Bootstrap 5 JS and dependencies (Popper and JS) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+</html><?php /**PATH D:\CNTT\ChuyenDePhatTrienWeb\DoAn\DoAnNhomL\resources\views/User/homepage.blade.php ENDPATH**/ ?>

@@ -21,8 +21,15 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'role_id'
     ];
 
+    // Hàm kiểm tra vai trò
+    public function isAdmin()
+    {
+        return $this->role_id == 1;
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

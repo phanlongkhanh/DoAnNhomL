@@ -25,8 +25,8 @@
 
 <div class="register-container">
     <h2 class="text-center">Đăng Ký Tài Khoản</h2>
-    <form action="{{url('register/registerrun')}}" method="POST">
-        @csrf <!-- Thêm mã CSRF ở đây -->
+    <form action="<?php echo e(url('register/registerrun')); ?>" method="POST">
+        <?php echo csrf_field(); ?> <!-- Thêm mã CSRF ở đây -->
         <div class="form-group">
             <label for="name">Tên đăng nhập:</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên đăng nhập" required>
@@ -60,4 +60,4 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-</html>
+</html><?php /**PATH D:\CNTT\ChuyenDePhatTrienWeb\DoAn\DoAnNhomL\resources\views/User/register_user.blade.php ENDPATH**/ ?>

@@ -5,6 +5,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminCategoryProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\LoginRegisterController;
+use App\Http\Controllers\AccountController;
+
+//Giao Diện
 
 //Show Home Page User
 Route::get('homepage',[UserController::class,'ShowHomePage']);
@@ -16,7 +20,7 @@ Route::get('login',[UserController::class,'ShowUserLogin']);
 Route::get('register',[UserController::class,'ShowUserRegister']);
 
 //Show Screen Admin
-Route::get('admin-controller',[AdminController::class,'ShowDashBoardAdmin']);
+Route::get('admin-controller',[AdminController::class,'ShowDashBoardAdmin'])->middleware('admin');
 
 // Category Screen Index Category
 Route::get('category',[AdminCategoryProductController::class,'showCategory'])->name('indexcategory');
@@ -35,3 +39,17 @@ Route::get('create-product',[AdminProductController::class,'ShowCreateProduct'])
 
 // Show Screen Update-Product
 Route::get('update-product',[AdminProductController::class,'ShowUpdateProduct']);
+// Show Screen Account Index
+Route::get('account-index',[AccountController::class,'ShowAccount']);
+
+
+
+
+
+
+//Tính năng
+
+//Login
+Route::POST('login/loginrun',[LoginRegisterController::class,'LoginPage']);
+
+//Register

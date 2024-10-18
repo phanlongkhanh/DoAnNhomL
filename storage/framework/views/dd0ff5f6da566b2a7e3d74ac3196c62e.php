@@ -25,16 +25,17 @@
 
     <div class="login-container">
         <h2 class="text-center">Đăng Nhập</h2>
-        <form action="{{url('login/loginrun')}}" method="POST">
-            @csrf 
-            @if (session('success'))
+        <form action="<?php echo e(url('login/loginrun')); ?>" method="POST">
+            <?php echo csrf_field(); ?> 
+            <?php if(session('success')): ?>
             <div class="alert alert-success">
-                {{ session('success') }}
+                <?php echo e(session('success')); ?>
+
             </div>
-            @endif
+            <?php endif; ?>
 
             <!-- CSRF Token (Laravel bảo mật yêu cầu) -->
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Nhập email" required>
@@ -44,17 +45,33 @@
                 <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu" required>
             </div>
 
-            @error('email')
+            <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
             <div class="alert alert-danger">
-                {{ $message }}
-            </div>
-            @enderror
+                <?php echo e($message); ?>
 
-            @error('password')
-            <div class="alert alert-danger">
-                {{ $message }}
             </div>
-            @enderror
+            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+
+            <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+            <div class="alert alert-danger">
+                <?php echo e($message); ?>
+
+            </div>
+            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
 
             <button type="submit" class="btn btn-primary btn-block">Đăng Nhập</button>
         </form>
@@ -70,4 +87,4 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-</html>
+</html><?php /**PATH D:\CNTT\ChuyenDePhatTrienWeb\DoAn\DoAnNhomL\resources\views/User/login_user.blade.php ENDPATH**/ ?>

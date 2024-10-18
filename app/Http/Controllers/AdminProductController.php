@@ -23,4 +23,6 @@ class AdminProductController extends Controller
     {
         return view('Admin.product.update');
     }
+
+    
 }
