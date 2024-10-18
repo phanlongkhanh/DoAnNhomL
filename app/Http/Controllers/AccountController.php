@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AccountController extends Controller
 {
     public function ShowAccount() {
-        return view('Admin.account.index');
+        $users = User::all();
+        return view('Admin.account.index',compact('users'));
     }
 }

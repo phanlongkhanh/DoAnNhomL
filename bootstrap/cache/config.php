@@ -197,7 +197,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'D:\\CNTT\\ChuyenDePhatTrienWeb\\DoAn\\DoAn_NhomL\\storage\\framework/cache/data',
+        'path' => 'D:\\doan\\doannhoml\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -370,13 +370,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\CNTT\\ChuyenDePhatTrienWeb\\DoAn\\DoAn_NhomL\\storage\\app',
+        'root' => 'D:\\doan\\doannhoml\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\CNTT\\ChuyenDePhatTrienWeb\\DoAn\\DoAn_NhomL\\storage\\app/public',
+        'root' => 'D:\\doan\\doannhoml\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
         'throw' => false,
@@ -396,7 +396,7 @@
     ),
     'links' => 
     array (
-      'D:\\CNTT\\ChuyenDePhatTrienWeb\\DoAn\\DoAn_NhomL\\public\\storage' => 'D:\\CNTT\\ChuyenDePhatTrienWeb\\DoAn\\DoAn_NhomL\\storage\\app/public',
+      'D:\\doan\\doannhoml\\public\\storage' => 'D:\\doan\\doannhoml\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -435,13 +435,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'D:\\CNTT\\ChuyenDePhatTrienWeb\\DoAn\\DoAn_NhomL\\storage\\logs/laravel.log',
+        'path' => 'D:\\doan\\doannhoml\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'D:\\CNTT\\ChuyenDePhatTrienWeb\\DoAn\\DoAn_NhomL\\storage\\logs/laravel.log',
+        'path' => 'D:\\doan\\doannhoml\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -493,7 +493,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'D:\\CNTT\\ChuyenDePhatTrienWeb\\DoAn\\DoAn_NhomL\\storage\\logs/laravel.log',
+        'path' => 'D:\\doan\\doannhoml\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -559,7 +559,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'D:\\CNTT\\ChuyenDePhatTrienWeb\\DoAn\\DoAn_NhomL\\resources\\views/vendor/mail',
+        0 => 'D:\\doan\\doannhoml\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -666,7 +666,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'D:\\CNTT\\ChuyenDePhatTrienWeb\\DoAn\\DoAn_NhomL\\storage\\framework/sessions',
+    'files' => 'D:\\doan\\doannhoml\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -686,9 +686,9 @@
   array (
     'paths' => 
     array (
-      0 => 'D:\\CNTT\\ChuyenDePhatTrienWeb\\DoAn\\DoAn_NhomL\\resources\\views',
+      0 => 'D:\\doan\\doannhoml\\resources\\views',
     ),
-    'compiled' => 'D:\\CNTT\\ChuyenDePhatTrienWeb\\DoAn\\DoAn_NhomL\\storage\\framework\\views',
+    'compiled' => 'D:\\doan\\doannhoml\\storage\\framework\\views',
   ),
   'flare' => 
   array (
@@ -774,7 +774,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => 'D:\\CNTT\\ChuyenDePhatTrienWeb\\DoAn\\DoAn_NhomL',
+    'remote_sites_path' => 'D:\\doan\\doannhoml',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',

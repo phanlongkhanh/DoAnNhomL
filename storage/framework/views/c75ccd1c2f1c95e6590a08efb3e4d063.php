@@ -1,5 +1,4 @@
-@extends('ControllerAdmin.dashboard_admin')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <section class="content-header">
         <h1>
             Account
@@ -44,49 +43,40 @@
                                 <th>Ngày cập nhật</th>
                                 <th>Chỉnh sửa</th>
                             </tr>             
-                            @php
+                            <?php
                                 $count = 0;
-                            @endphp
-                            @if(isset($status))
+                            ?>
+                            <?php if(isset($status)): ?>
                                 <tr>
-                                    <td>{{$status}}</td>
+                                    <td><?php echo e($status); ?></td>
                                 </tr>
-                            @endif
+                            <?php endif; ?>
 
 
 
-                            @if(isset($users))
-                                @foreach ($users as $users)
-                                    @php
+                            <?php if(isset($users)): ?>
+                                <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $users): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php
                                         $count ++;
-                                    @endphp
+                                    ?>
 
                                     <tr>
-                                        <td>{{ $count }}</td>
-                                        <td>{{ $users->id }}</td>
-                                        {{--                                        hinh anh--}}
-                                        {{-- <td><img src="{{ parse_url($item->image)['path'] }}" alt="" width="150px"
-                                                 height="100px"></td> --}}
-                                        <td>{{ $users->name}}</td>
-                                        <td>{{ $users->email }}</td>
-                                        <td>{{ $users->role_id }}</td>
-                                        {{--                                        check ative--}}
-                                        {{-- <td>
-                                            @if ($item->checkactive==1)
-                                                <a href="{{ route('activecategory',['id'=>$item->id_category]) }}"
-                                                   class="label label-info status-active">Show</a>
-                                            @else
-                                                <a href="{{ route('activecategory',['id'=>$item->id_category]) }}"
-                                                   class="label label-default status-active">Hide</a>
-                                            @endif
-                                        </td> --}}
-                                        {{--                                        ngay them--}}
-                                        <td>{{ $users->created_at }}</td>
-                                        {{--                                        ngay cap nhat--}}
-                                        <td>{{ $users->updated_at }}</td>
-                                        {{--                                        nguoi them--}}
-                                         {{-- <td>{{ $item->admin->name }}</td> --}}
-                                        {{--                                        hanh dong--}}
+                                        <td><?php echo e($count); ?></td>
+                                        <td><?php echo e($users->id); ?></td>
+                                        
+                                        
+                                        <td><?php echo e($users->name); ?></td>
+                                        <td><?php echo e($users->email); ?></td>
+                                        <td><?php echo e($users->role_id); ?></td>
+                                        
+                                        
+                                        
+                                        <td><?php echo e($users->created_at); ?></td>
+                                        
+                                        <td><?php echo e($users->updated_at); ?></td>
+                                        
+                                         
+                                        
                                         <td>
                                             <a href="#"
                                                class="btn btn-xs btn-primary"
@@ -98,35 +88,23 @@
                                                     class="fa fa-trash"></i> Delete</a>
                                         </td>
                                     </tr>
-                                @endforeach
-                            @endif
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endif; ?>
                             </tbody>                     
                         </table>
                         
-                        {{-- {!! $categorys->appends($query ?? [])->links('pagination::bootstrap-4') !!} --}}
+                        
                         <!-- Phân trang  bắt đầu-->
                         <div id="pageNavPosition" class="text-right">
                             <ul class="pagination">
                                 <!-- Hiển thị link đến trang trước (Previous Page) -->
-                                {{-- @if ($category->onFirstPage())
-                                    <li class="disabled"><span>&laquo;</span></li>
-                                @else
-                                    <li><a href="{{ $category->previousPageUrl() }}" rel="prev">&laquo;</a></li>
-                                @endif --}}
+                                
 
                                 <!-- Hiển thị các số trang đã có -->
-                                {{-- @for ($i = 1; $i <= $category->lastPage(); $i++)
-                                    <li class="{{ $i == $category->currentPage() ? 'active' : '' }}">
-                                        <a href="{{ $category->url($i) }}">{{ $i }}</a>
-                                    </li>
-                                @endfor --}}
+                                
 
                                 <!-- Hiển thị link đến trang tiếp theo (Next Page) -->
-                                {{-- @if ($category->hasMorePages())
-                                    <li><a href="{{ $category->nextPageUrl() }}" rel="next">&raquo;</a></li>
-                                @else
-                                    <li class="disabled"><span>&raquo;</span></li>
-                                @endif --}}
+                                
                                 
                             </ul>
                             
@@ -142,7 +120,7 @@
             <!-- /.row (main row) -->
     </section>
     <!-- /.content -->
-@endsection
-{{-- @section('script')
+<?php $__env->stopSection(); ?>
 
-@endsection --}}
+
+<?php echo $__env->make('ControllerAdmin.dashboard_admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\doan\doannhoml\resources\views/Admin/account/index.blade.php ENDPATH**/ ?>
