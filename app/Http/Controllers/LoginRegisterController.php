@@ -39,7 +39,7 @@ class LoginRegisterController extends Controller
         'phone' => 'required|string|max:15',
     ]);
 
-    $roleId = $request->input('role_id', 1);
+    $roleId = $request->input('role_id', 2);
     // Kiểm tra nếu lỗi trả về lỗi 
     if ($validator->fails()) {
         return redirect('/register')
