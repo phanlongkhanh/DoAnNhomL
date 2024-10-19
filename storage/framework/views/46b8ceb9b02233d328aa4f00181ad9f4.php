@@ -51,42 +51,38 @@
                                     <td><?php echo e($status); ?></td>
                                 </tr>
                             <?php endif; ?>
-                            <?php if(isset($category)): ?>
-                                <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+
+
+                            <?php if(isset($users)): ?>
+                                <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $users): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <?php
                                         $count ++;
                                     ?>
+
                                     <tr>
                                         <td><?php echo e($count); ?></td>
-                                        <td><?php echo e($item->id_category); ?></td>
+                                        <td><?php echo e($users->id); ?></td>
                                         
-                                        <td><img src="<?php echo e(parse_url($item->image)['path']); ?>" alt="" width="150px"
-                                                 height="100px"></td>
-                                        <td><?php echo e($item->name); ?></td>
-                                        <td><?php echo e($item->discription); ?></td>
                                         
-                                        <td>
-                                            <?php if($item->checkactive==1): ?>
-                                                <a href="<?php echo e(route('activecategory',['id'=>$item->id_category])); ?>"
-                                                   class="label label-info status-active">Show</a>
-                                            <?php else: ?>
-                                                <a href="<?php echo e(route('activecategory',['id'=>$item->id_category])); ?>"
-                                                   class="label label-default status-active">Hide</a>
-                                            <?php endif; ?>
-                                        </td>
+                                        <td><?php echo e($users->name); ?></td>
+                                        <td><?php echo e($users->email); ?></td>
+                                        <td><?php echo e($users->role_id); ?></td>
                                         
-                                        <td><?php echo e($item->created_at); ?></td>
                                         
-                                        <td><?php echo e($item->updated_at); ?></td>
                                         
-                                         <td><?php echo e($item->admin->name); ?></td>
+                                        <td><?php echo e($users->created_at); ?></td>
+                                        
+                                        <td><?php echo e($users->updated_at); ?></td>
+                                        
+                                         
                                         
                                         <td>
-                                            <a href="<?php echo e(route('editcategory',['id'=>$item->id_category])); ?>"
+                                            <a href="#"
                                                class="btn btn-xs btn-primary"
                                                onclick="return confirm('Bạn chắc chắn là sửa chứ')"><i
                                                     class="fa fa-pencil"></i> Edit</a>
-                                            <a href="<?php echo e(route('deletecategory',['id'=>$item->id_category])); ?>"
+                                            <a href="#"
                                                class="btn btn-xs btn-danger js-delete-confirm"
                                                onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
                                                     class="fa fa-trash"></i> Delete</a>
