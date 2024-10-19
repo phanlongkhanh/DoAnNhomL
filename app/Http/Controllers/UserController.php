@@ -24,6 +24,10 @@ class UserController extends Controller
     {
         return view('User.register_user');
     }
+
+    public function ShowForgotPassword(){
+        return view('User.forgot.forgot_user');
+    }
     
 
 }

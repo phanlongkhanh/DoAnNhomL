@@ -7,6 +7,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\LoginRegisterController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\ForgotPassController;
+use App\Http\Controllers\ResetPassWordController;
 
 //Giao Diện
 
@@ -41,7 +43,10 @@ Route::get('create-product',[AdminProductController::class,'ShowCreateProduct'])
 Route::get('update-product',[AdminProductController::class,'ShowUpdateProduct']);
 // Show Screen Account Index
 Route::get('account-index',[AccountController::class,'ShowAccount']);
-
+// Show Screen Forgot
+Route::get('forgot_password',[UserController::class,'ShowForgotPassword']);
+//Show Screen CheckMail
+Route::get('checkmail',[ForgotPassController::class, 'showNotificationEmail'])->name('checkmail');
 
 
 
@@ -54,3 +59,10 @@ Route::POST('login/loginrun',[LoginRegisterController::class,'LoginPage']);
 
 //Register
 Route::POST('register/registerrun',[LoginRegisterController::class,'RegisterPage']);
+
+//ForgotPass
+Route::POST('forgot_password',[ForgotPassController::class,'sendResetLinkEmail'])->name('getpass');
+
+//Reset PassWord
+Route::get('password/reset/{token}',[ResetPasswordController::class,'showResetForm'])->name('password.reset');
+Route::post('password/reset', [ResetPasswordController::class, 'resetPassword'])->name('password.update');

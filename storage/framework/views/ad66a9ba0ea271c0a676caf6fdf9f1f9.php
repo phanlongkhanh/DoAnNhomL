@@ -79,7 +79,7 @@ unset($__errorArgs, $__bag); ?>
             <a href="/register">Bạn chưa có tài khoản? Đăng ký</a>
         </div>
         <div class="text-center mt-3">
-            <a href="#">Quên mật khẩu?</a>
+            <a href="/forgot_password">Quên mật khẩu?</a>
         </div>
     </div>
 
