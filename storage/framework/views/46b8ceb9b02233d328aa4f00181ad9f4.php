@@ -36,9 +36,11 @@
                             <tr>
                                 <th>STT</th>
                                 <th>ID</th>
+                                <th>Hình Ảnh</th>
                                 <th>Họ Tên</th>
                                 <th>Email</th>
                                 <th>Role</th>
+                                <th>Active</th>
                                 <th>Ngày thêm</th>
                                 <th>Ngày cập nhật</th>
                                 <th>Chỉnh sửa</th>
@@ -64,12 +66,22 @@
                                         <td><?php echo e($count); ?></td>
                                         <td><?php echo e($users->id); ?></td>
                                         
-                                        
+                                        <td><img src="<?php echo e(parse_url($users->image)['path']); ?>" alt="" width="150px"
+                                                 height="100px"></td>
                                         <td><?php echo e($users->name); ?></td>
                                         <td><?php echo e($users->email); ?></td>
                                         <td><?php echo e($users->role_id); ?></td>
                                         
                                         
+                                        <td>
+                                            <?php if($users->checkactive==1): ?>
+                                                <a href="#"
+                                                   class="label label-info status-active">Show</a>
+                                            <?php else: ?>
+                                                <a href="#}"
+                                                   class="label label-default status-active">Hide</a>
+                                            <?php endif; ?>
+                                        </td>
                                         
                                         <td><?php echo e($users->created_at); ?></td>
                                         
