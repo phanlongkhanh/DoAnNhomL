@@ -183,7 +183,7 @@
               </li>
 
               <li class="{{ Request::is('admin-datn/transaction*') ? 'active' : '' }}">
-                <a href="#">
+                <a href="{{url('product-type-index')}}">
                     <i class="fa fa-cart-arrow-down"></i> <span>Loại sản phẩm</span>
                 </a>
             </li>
@@ -199,7 +199,7 @@
           
 
             <li class="{{ Request::is('admin-datn/transaction*') ? 'active' : '' }}">
-                <a href="#">
+                <a href="{{'oders-index'}}">
                     <i class="fa fa-cart-arrow-down"></i> <span>Đơn hàng</span>
                 </a>
             </li>

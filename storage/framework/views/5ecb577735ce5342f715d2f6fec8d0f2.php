@@ -127,9 +127,7 @@
               <img src="<?php echo e(asset('admin/dist/img/user2-160x160.jpg')); ?>" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-            
-             
-            
+          
               
           </div>
           </div>
@@ -174,7 +172,7 @@
               </li>
 
               <li class="<?php echo e(Request::is('admin-datn/transaction*') ? 'active' : ''); ?>">
-                <a href="#">
+                <a href="<?php echo e(url('product-type-index')); ?>">
                     <i class="fa fa-cart-arrow-down"></i> <span>Loại sản phẩm</span>
                 </a>
             </li>
@@ -186,7 +184,7 @@
           
 
             <li class="<?php echo e(Request::is('admin-datn/transaction*') ? 'active' : ''); ?>">
-                <a href="#">
+                <a href="<?php echo e('oders-index'); ?>">
                     <i class="fa fa-cart-arrow-down"></i> <span>Đơn hàng</span>
                 </a>
             </li>
