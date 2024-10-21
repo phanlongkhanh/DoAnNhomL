@@ -9,6 +9,8 @@ use App\Http\Controllers\LoginRegisterController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ForgotPassController;
 use App\Http\Controllers\ResetPassWordController;
+use App\Http\Controllers\ProductTypeController;
+use App\Http\Controllers\OdersController;
 
 //Giao Diện
 
@@ -47,6 +49,16 @@ Route::get('account-index',[AccountController::class,'ShowAccount']);
 Route::get('forgot_password',[UserController::class,'ShowForgotPassword']);
 //Show Screen CheckMail
 Route::get('checkmail',[ForgotPassController::class, 'showNotificationEmail'])->name('checkmail');
+//Show Screen ProductType
+Route::get('product-type-index',[ProductTypeController::class,'ShowProductType']);
+//Show Screen Product-Type Create
+Route::get('product-type-create',[ProductTypeController::class,'ShowCreateTypeProduct']);
+//Show Screen Produdct-Type Update
+Route::get('product-type-update',[ProductTypeController::class,'ShowUpdateTypeProduct']);
+//Show Screen Oders Index
+Route::get('oders-index',[OdersController::class,'ShowIndexOders']);
+//Show Screen Views Index
+Route::get('oders-views',[OdersController::class,'ShowViewOders']);
 
 
 
