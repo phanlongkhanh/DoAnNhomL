@@ -42,9 +42,9 @@
         <!-- Logo -->
         
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>A</b>LT</span>
+          <span class="logo-mini"><b></b></span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Admin</b>LTE</span>
+          <span class="logo-lg"><b>Admin</b></span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
@@ -127,6 +127,9 @@
               <img src="<?php echo e(asset('admin/dist/img/user2-160x160.jpg')); ?>" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
+            
+             
+            
               
           </div>
           </div>
@@ -154,7 +157,7 @@
 
           <li class="<?php echo e(Request::is('admin-datn/menu*') ? 'active' : ''); ?>">
             <a href="<?php echo e('account-index'); ?>">
-                <i class="fa fa-dashboard"></i> <span>Tài Khoản</span>
+                <i class="fa fa-asterisk"></i> <span>Tài Khoản</span>
             </a>
           </li>
 
@@ -170,12 +173,15 @@
                   </a>
               </li>
 
-        
-            <li class="<?php echo e(Request::is('admin-datn/attribute*') ? 'active' : ''); ?>">
+              <li class="<?php echo e(Request::is('admin-datn/transaction*') ? 'active' : ''); ?>">
                 <a href="#">
-                    <i class="glyphicon glyphicon-asterisk"></i> <span>Phân loại</span>
+                    <i class="fa fa-cart-arrow-down"></i> <span>Loại sản phẩm</span>
                 </a>
             </li>
+  
+
+        
+            
 
           
 
@@ -185,10 +191,7 @@
                 </a>
             </li>
 
-            <li class="<?php echo e(Request::is('admin-datn/transaction*') ? 'active' : ''); ?>">
-              
-          </li>
-
+          
           <li class="<?php echo e(Request::is('admin-datn/article*') ? 'active' : ''); ?>">
             
           </li>

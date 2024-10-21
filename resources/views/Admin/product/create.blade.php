@@ -114,46 +114,26 @@
                             </div>
 
 
-                        </div>
-                    </div>
-                    <div class="box box-success">
+                            
+                <div class="col-md-12">
+                    <div class="box box-warning">
                         <div class="box-header">
-                            <h3 class="box-title">Attribute</h3>
+                            <h3 class="box-title">Thuộc Tính</h3>
                         </div>
-
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <h5>Loại dây</h5>
+                        <div class="box-body">
+                        
+                            <div class="form-group col-sm-6">
+                                <label>Số Lượng</label>
+                                <input type="number" name="amount" class="form-control" placeholder="0">
                             </div>
-                            <div class="col-sm-4">
-                                <h5>Đường kính mặt</h5>
-
-                            </div>
-                            <div class="col-sm-4">
-                                <h5>Năng lượng</h5>
-                            </div>
-                        </div>
-                        <div class="box-body js-attribute">
-                            {{-- @if ($attributes)  
-                                    <div class="row">
-                                        @foreach ($attributes as $attribute)
-                                        @if ($attribute->checkactive == 1)
-                                            <div class="col-sm-4">
-                                                <div class="form-group">
-                                                    <div class="checkbox">
-                                                        <label>
-                                                            <input type="checkbox" name="attribute[]"
-                                                                value="{{ $attribute->id_attribute }}">{{ $attribute->name }}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            @endif
-                                        @endforeach
-                                    </div>
-                            @endif --}}
                         </div>
                     </div>
+                </div>
+
+                          
+
+                        </div>
+                    </div>      
                 </div>
                 <div class="col-md-5">
                     <div class="box box-success">
@@ -202,40 +182,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-5">
-                    <div class="box box-warning">
-                        <div class="box-header">
-                            <h3 class="box-title">Thuộc Tính</h3>
-                        </div>
-                        <div class="box-body">
-                            {{-- <div class="form-group col-sm-6">
-                                <label>Xuất sứ</label>
-                                <select name="origin" class="form-control">
-                                    <option value="1">Việt Nam</option>
-                                    <option value="2">Anh</option>
-                                    <option value="3">Thụy Sỹ</option>
-                                    <option value="4">Mỹ</option>
-                                </select>
-
-                            </div> --}}
-
-                            {{-- <div class="form-group col-sm-6">
-                                <label>Năng Lượng</label>
-                                <input type="text" name="energy" class="form-control" placeholder="Năng lượng">
-                            </div> --}}
-
-                            {{-- <div class="form-group col-sm-6">
-                                <label>Độ chịu nước</label>
-                                <input type="text" name="waterproof" class="form-control" placeholder="Độ chịu nước">
-                            </div> --}}
-
-                            <div class="form-group col-sm-6">
-                                <label>Số Lượng</label>
-                                <input type="number" name="amount" class="form-control" placeholder="0">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="col-md-12">
                     <div class="box-footer" style="text-align: center;">
                         <a href="{{ 'product' }}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở
