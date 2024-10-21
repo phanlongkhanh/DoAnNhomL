@@ -11,6 +11,7 @@ use App\Http\Controllers\ForgotPassController;
 use App\Http\Controllers\ResetPassWordController;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\OdersController;
+use App\Http\Controllers\DashBoardController;
 
 //Giao Diện
 
@@ -59,6 +60,9 @@ Route::get('product-type-update',[ProductTypeController::class,'ShowUpdateTypePr
 Route::get('oders-index',[OdersController::class,'ShowIndexOders']);
 //Show Screen Views Index
 Route::get('oders-views',[OdersController::class,'ShowViewOders']);
+//Show Screen Index DashBoard
+Route::get('index-dashboard',[DashBoardController::class,'ShowIndexDashBoard']);
+
 
 
 
