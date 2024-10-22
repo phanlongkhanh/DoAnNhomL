@@ -62,15 +62,11 @@ Route::get('oders-index',[OdersController::class,'ShowIndexOders']);
 Route::get('oders-views',[OdersController::class,'ShowViewOders']);
 //Show Screen Index DashBoard
 Route::get('index-dashboard',[DashBoardController::class,'ShowIndexDashBoard']);
-<<<<<<< HEAD
-=======
 //Show Screen Dashboard
 Route::get('dashboard',[DashBoardController::class,'ShowDashBoard']);
 //Show Screen View Dashboard
 Route::get('view-dashboard',[DashBoardController::class,'ShowViewDashBoard']);
 
-
->>>>>>> add_dashboard
 
 
 
