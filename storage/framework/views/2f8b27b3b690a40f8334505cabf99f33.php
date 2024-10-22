@@ -1,5 +1,4 @@
-@extends('ControllerAdmin.dashboard_admin')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <section class="content-header">
         <h1>
             CateGory
@@ -14,38 +13,38 @@
     <section class="content">
         <div class="row">
             <div class="box box-primary">
-                <form role="form" action="{{ route('store-category') }}" method="post" enctype="multipart/form-data"> <!-- **Cập nhật action để lưu danh mục** -->
-                    @csrf
+                <form role="form" action="<?php echo e(route('store-category')); ?>" method="post" enctype="multipart/form-data"> <!-- **Cập nhật action để lưu danh mục** -->
+                    <?php echo csrf_field(); ?>
                     <div class="box-body">
                         <div class="col-sm-8">
-                            <div class="form-group {{ $errors->first('category_name') ? 'has-error' : '' }}">
+                            <div class="form-group <?php echo e($errors->first('category_name') ? 'has-error' : ''); ?>">
                                 <label for="name">Name<span class="text-danger">(*)</span></label>
                                 <input type="text" class="form-control" name="category_name" placeholder="Name ......"
                                        required>
-                                @if ($errors->first('category_name'))
-                                    <span class="text-danger">{{ $errors->first('category_name') }}</span>
-                                @endif
+                                <?php if($errors->first('category_name')): ?>
+                                    <span class="text-danger"><?php echo e($errors->first('category_name')); ?></span>
+                                <?php endif; ?>
                             </div>
-                            <div class="form-group {{ $errors->first('category_description') ? 'has-error' : '' }}">
+                            <div class="form-group <?php echo e($errors->first('category_description') ? 'has-error' : ''); ?>">
                                 <label>Description<span class="text-danger">(*)</span></label>
                                 <textarea class="form-control" name="category_description" rows="3"
                                           placeholder="Enter ..." required></textarea>
-                                @if ($errors->first('category_description'))
-                                    <span class="text-danger">{{ $errors->first('category_description') }}</span>
-                                @endif
+                                <?php if($errors->first('category_description')): ?>
+                                    <span class="text-danger"><?php echo e($errors->first('category_description')); ?></span>
+                                <?php endif; ?>
                             </div>
-                            <div class="form-group {{ $errors->first('category_image') ? 'has-error' : '' }}">
+                            <div class="form-group <?php echo e($errors->first('category_image') ? 'has-error' : ''); ?>">
                                 <label for="fileInput">Image<span class="text-danger">(*)</span></label>
                                 <input type="file" class="form-control-file" id="fileInput" name="category_image"
                                        required>
-                                @if ($errors->first('category_image'))
-                                    <span class="text-danger">{{ $errors->first('category_image') }}</span>
-                                @endif
+                                <?php if($errors->first('category_image')): ?>
+                                    <span class="text-danger"><?php echo e($errors->first('category_image')); ?></span>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
                     <div class="box-footer">
-                        <a href="{{ route('indexcategory') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
+                        <a href="<?php echo e(route('indexcategory')); ?>" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
                         <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Submit</button>
                     </div>
                 </form>
@@ -55,8 +54,8 @@
         <!-- Main row -->
         <!-- /.row (main row) -->
     </section>
-@endsection
-@section('script')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
     <script>
         $(function () {
             $('#image').change(function () {
@@ -68,9 +67,5 @@
             });
         });
     </script>
-<<<<<<< HEAD
-@endsection
-=======
-@endsection
->>>>>>> Add_account
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('ControllerAdmin.dashboard_admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\doan\DoAnNhomL\resources\views/Admin/category/create.blade.php ENDPATH**/ ?>

@@ -87,3 +87,42 @@ Route::POST('forgot_password',[ForgotPassController::class,'sendResetLinkEmail']
 //Reset PassWord
 Route::get('password/reset/{token}',[ResetPasswordController::class,'showResetForm'])->name('password.reset');
 Route::post('password/reset', [ResetPasswordController::class, 'resetPassword'])->name('password.update');
+
+
+
+// Van
+// Hiển thị trang thêm tài khoản
+Route::get('add-account', [AccountController::class, 'ShowAddAccount']);
+Route::post('add-account', [AccountController::class, 'AddAccount']);
+
+// Hiển thị trang chỉnh sửa tài khoản
+Route::get('edit-account/{id}', [AccountController::class, 'ShowEditAccount']);
+
+// Cập nhật tài khoản
+Route::post('update-account/{id}', [AccountController::class, 'update']);
+
+// Xóa tài khoản
+Route::delete('delete-account/{id}', [AccountController::class, 'destroy']);
+
+
+// Route hiển thị trang thêm danh mục
+Route::get('/admin/categories/add', [AdminCategoryProductController::class, 'showAddCategory'])->name('add-category');
+
+// Route lưu danh mục mới
+Route::post('/admin/categories/store', [AdminCategoryProductController::class, 'storeCategory'])->name('store-category');
+
+
+// Route thay đổi trạng thái active của danh mục
+Route::get('/admin/categories/active/{id}', [AdminCategoryProductController::class, 'toggleActiveCategory'])->name('activecategory');
+
+
+// Hiển thị form chỉnh sửa danh mục
+Route::get('edit-category/{id}', [AdminCategoryProductController::class, 'showEditCategory'])->name('editcategory');
+
+
+// // Lưu danh mục đã chỉnh sửa
+Route::post('update-category/{id}', [AdminCategoryProductController::class, 'updateCategory'])->name('update-category');
+
+
+// Route xóa danh mục
+Route::delete('/admin/categories/delete/{id}', [AdminCategoryProductController::class, 'destroyCategory'])->name('deletecategory');

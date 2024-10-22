@@ -18,13 +18,21 @@ return new class extends Migration
             $table->boolean('checkactive')->default(true)->comment('Check hoạt động');
             $table->string('image');
             $table->timestamps();
+            $table->unsignedBigInteger('user_id');
         });
     }
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    // public function down(): void
+    // {
+    //     Schema::dropIfExists('categories');
+    // }
+
+    public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::table('categories', function (Blueprint $table) {
+            $table->dropColumn('user_id');
+        });
     }
 };
