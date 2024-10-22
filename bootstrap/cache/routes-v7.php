@@ -102,7 +102,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::D6e1NQxWlJRTg7WJ',
+=======
+<<<<<<< Updated upstream
+            '_route' => 'generated::1SlUSFxxKtAOyNsH',
+=======
+            '_route' => 'generated::kAfuT2IRUUBIu6A2',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -122,7 +130,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::ANlkNjq1lmoqIyui',
+=======
+<<<<<<< Updated upstream
+            '_route' => 'generated::q51t7vuXGv5cauSv',
+=======
+            '_route' => 'generated::6PhCpIFMt54XVQwZ',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -142,7 +158,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::mqkEHkqo2LPBcZuV',
+=======
+<<<<<<< Updated upstream
+            '_route' => 'generated::daeR3UCyF7LSXicp',
+=======
+            '_route' => 'generated::zn8ZfPzkwaqSpNop',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -162,7 +186,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::ANP4sHcUB7dFA0gU',
+=======
+<<<<<<< Updated upstream
+            '_route' => 'generated::FtfQYLgESQ6YWYl6',
+=======
+            '_route' => 'generated::4UQN59PD5BBJkkuS',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -182,7 +214,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::GwLPk06TRPmzcJyt',
+=======
+<<<<<<< Updated upstream
+            '_route' => 'generated::UFWMj53BEVB8Ew2i',
+=======
+            '_route' => 'generated::Q8pLuFzKmqsWH81C',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -222,7 +262,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::1xdvLYdgNvcQEptv',
+=======
+<<<<<<< Updated upstream
+            '_route' => 'generated::waY9CmjkzxlDvRfr',
+=======
+            '_route' => 'generated::cB9llXIWLTg8NGua',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -242,7 +290,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::VY3n2umLXJG3xZfs',
+=======
+<<<<<<< Updated upstream
+            '_route' => 'generated::pCcAuP14gz8ad7gQ',
+=======
+            '_route' => 'generated::BGMymOqRTMHo1Vl4',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -262,7 +318,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::NCmT8COKPPGkN2Iy',
+=======
+<<<<<<< Updated upstream
+            '_route' => 'generated::uDJL8KWLdke7v6H8',
+=======
+            '_route' => 'generated::oGrhByXTxLO6C474',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -282,7 +346,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::jVe5rUNVPSd57wDc',
+=======
+<<<<<<< Updated upstream
+            '_route' => 'generated::74HymoNfAeKhxWZX',
+=======
+            '_route' => 'generated::6gAMjMx37tNkRAsB',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -302,7 +374,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::Ig2be71Cwtz2V91j',
+=======
+<<<<<<< Updated upstream
+            '_route' => 'generated::T3HBgN8nY5M1Cyht',
+=======
+            '_route' => 'generated::flqPOEHK5AtRZLPq',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -322,7 +402,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::SoZ8UauSFIQRLn6G',
+=======
+<<<<<<< Updated upstream
+            '_route' => 'generated::fKYUgaW7vj10GUCO',
+=======
+            '_route' => 'generated::BLyDLQw65eXTxqd8',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -342,7 +430,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::iT3QlUWbysCaku07',
+=======
+<<<<<<< Updated upstream
+            '_route' => 'generated::5sHCfssdF6N6twWh',
+=======
+            '_route' => 'generated::Adpz0Kslcoc35hV3',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -398,7 +494,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::1sKm6dOnXjKPqfw2',
+=======
+<<<<<<< Updated upstream
+            '_route' => 'generated::YwTaPPldcIuSGuYh',
+=======
+            '_route' => 'generated::1IEZKo2eNghfAZbZ',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -418,7 +522,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::ZCjM3tCCnPnwFrFm',
+=======
+<<<<<<< Updated upstream
+            '_route' => 'generated::jGA3oXfd8G6AnZPI',
+=======
+            '_route' => 'generated::XY5X8gMLkYQuLAzt',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -438,7 +550,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::tcZPougJgfuKgQ3Y',
+=======
+<<<<<<< Updated upstream
+            '_route' => 'generated::93Gu5jgzHABs8ViQ',
+=======
+            '_route' => 'generated::ndvoe1qgL5FsstAf',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -458,7 +578,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::ICSqjIzBg5ibO2pF',
+=======
+<<<<<<< Updated upstream
+            '_route' => 'generated::H98Wpgsr27a83s0F',
+=======
+            '_route' => 'generated::AtBpJCP3BQi0rzV6',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -478,7 +606,14 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::BDcy0kxj3JvjvQLy',
+=======
+<<<<<<< Updated upstream
+            '_route' => 'generated::IiQU5uEu2ToGvAmL',
+=======
+            '_route' => 'generated::Xpk8uQ57CyXo62hy',
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -498,7 +633,52 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::cGMfZcBVw7P7P3Pu',
+=======
+            '_route' => 'generated::iQ7iHCS3txXtfKKJ',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/dashboard' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::YZLJJjEEd8hCadBr',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/view-dashboard' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::SAiZDdai3abGP2ly',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -518,7 +698,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::FKkpuuv0OO5rlkBj',
+=======
+<<<<<<< Updated upstream
+            '_route' => 'generated::1pjLZAYJ8jp8gEmX',
+=======
+            '_route' => 'generated::sKxuuVyxNcFbPyxg',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -537,7 +725,15 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::dyw1LyrZ0unw62T4',
+=======
+<<<<<<< Updated upstream
+            '_route' => 'generated::Cwi8g9V5ZVKiMkPi',
+=======
+            '_route' => 'generated::URChkElzxHBYkzSN',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
           ),
           1 => NULL,
           2 => 
@@ -760,7 +956,15 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::D6e1NQxWlJRTg7WJ' => 
+=======
+<<<<<<< Updated upstream
+    'generated::1SlUSFxxKtAOyNsH' => 
+=======
+    'generated::kAfuT2IRUUBIu6A2' => 
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -783,7 +987,15 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::D6e1NQxWlJRTg7WJ',
+=======
+<<<<<<< Updated upstream
+        'as' => 'generated::1SlUSFxxKtAOyNsH',
+=======
+        'as' => 'generated::kAfuT2IRUUBIu6A2',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 
@@ -799,7 +1011,15 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::ANlkNjq1lmoqIyui' => 
+=======
+<<<<<<< Updated upstream
+    'generated::q51t7vuXGv5cauSv' => 
+=======
+    'generated::6PhCpIFMt54XVQwZ' => 
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -820,7 +1040,15 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::ANlkNjq1lmoqIyui',
+=======
+<<<<<<< Updated upstream
+        'as' => 'generated::q51t7vuXGv5cauSv',
+=======
+        'as' => 'generated::6PhCpIFMt54XVQwZ',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 
@@ -836,7 +1064,15 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::mqkEHkqo2LPBcZuV' => 
+=======
+<<<<<<< Updated upstream
+    'generated::daeR3UCyF7LSXicp' => 
+=======
+    'generated::zn8ZfPzkwaqSpNop' => 
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -857,7 +1093,15 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::mqkEHkqo2LPBcZuV',
+=======
+<<<<<<< Updated upstream
+        'as' => 'generated::daeR3UCyF7LSXicp',
+=======
+        'as' => 'generated::zn8ZfPzkwaqSpNop',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 
@@ -873,7 +1117,15 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::ANP4sHcUB7dFA0gU' => 
+=======
+<<<<<<< Updated upstream
+    'generated::FtfQYLgESQ6YWYl6' => 
+=======
+    'generated::4UQN59PD5BBJkkuS' => 
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -894,7 +1146,15 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::ANP4sHcUB7dFA0gU',
+=======
+<<<<<<< Updated upstream
+        'as' => 'generated::FtfQYLgESQ6YWYl6',
+=======
+        'as' => 'generated::4UQN59PD5BBJkkuS',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 
@@ -910,7 +1170,15 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::GwLPk06TRPmzcJyt' => 
+=======
+<<<<<<< Updated upstream
+    'generated::UFWMj53BEVB8Ew2i' => 
+=======
+    'generated::Q8pLuFzKmqsWH81C' => 
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -932,7 +1200,15 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::GwLPk06TRPmzcJyt',
+=======
+<<<<<<< Updated upstream
+        'as' => 'generated::UFWMj53BEVB8Ew2i',
+=======
+        'as' => 'generated::Q8pLuFzKmqsWH81C',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 
@@ -985,7 +1261,15 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::1xdvLYdgNvcQEptv' => 
+=======
+<<<<<<< Updated upstream
+    'generated::waY9CmjkzxlDvRfr' => 
+=======
+    'generated::cB9llXIWLTg8NGua' => 
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -1006,7 +1290,15 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::1xdvLYdgNvcQEptv',
+=======
+<<<<<<< Updated upstream
+        'as' => 'generated::waY9CmjkzxlDvRfr',
+=======
+        'as' => 'generated::cB9llXIWLTg8NGua',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 
@@ -1022,7 +1314,15 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::VY3n2umLXJG3xZfs' => 
+=======
+<<<<<<< Updated upstream
+    'generated::pCcAuP14gz8ad7gQ' => 
+=======
+    'generated::BGMymOqRTMHo1Vl4' => 
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -1043,7 +1343,15 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::VY3n2umLXJG3xZfs',
+=======
+<<<<<<< Updated upstream
+        'as' => 'generated::pCcAuP14gz8ad7gQ',
+=======
+        'as' => 'generated::BGMymOqRTMHo1Vl4',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 
@@ -1059,7 +1367,15 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::NCmT8COKPPGkN2Iy' => 
+=======
+<<<<<<< Updated upstream
+    'generated::uDJL8KWLdke7v6H8' => 
+=======
+    'generated::oGrhByXTxLO6C474' => 
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -1080,7 +1396,15 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::NCmT8COKPPGkN2Iy',
+=======
+<<<<<<< Updated upstream
+        'as' => 'generated::uDJL8KWLdke7v6H8',
+=======
+        'as' => 'generated::oGrhByXTxLO6C474',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 
@@ -1096,7 +1420,15 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::jVe5rUNVPSd57wDc' => 
+=======
+<<<<<<< Updated upstream
+    'generated::74HymoNfAeKhxWZX' => 
+=======
+    'generated::6gAMjMx37tNkRAsB' => 
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -1117,7 +1449,15 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::jVe5rUNVPSd57wDc',
+=======
+<<<<<<< Updated upstream
+        'as' => 'generated::74HymoNfAeKhxWZX',
+=======
+        'as' => 'generated::6gAMjMx37tNkRAsB',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 
@@ -1133,7 +1473,15 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::Ig2be71Cwtz2V91j' => 
+=======
+<<<<<<< Updated upstream
+    'generated::T3HBgN8nY5M1Cyht' => 
+=======
+    'generated::flqPOEHK5AtRZLPq' => 
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -1154,7 +1502,15 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::Ig2be71Cwtz2V91j',
+=======
+<<<<<<< Updated upstream
+        'as' => 'generated::T3HBgN8nY5M1Cyht',
+=======
+        'as' => 'generated::flqPOEHK5AtRZLPq',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 
@@ -1170,7 +1526,15 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::SoZ8UauSFIQRLn6G' => 
+=======
+<<<<<<< Updated upstream
+    'generated::fKYUgaW7vj10GUCO' => 
+=======
+    'generated::BLyDLQw65eXTxqd8' => 
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -1191,7 +1555,15 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::SoZ8UauSFIQRLn6G',
+=======
+<<<<<<< Updated upstream
+        'as' => 'generated::fKYUgaW7vj10GUCO',
+=======
+        'as' => 'generated::BLyDLQw65eXTxqd8',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 
@@ -1207,7 +1579,15 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::iT3QlUWbysCaku07' => 
+=======
+<<<<<<< Updated upstream
+    'generated::5sHCfssdF6N6twWh' => 
+=======
+    'generated::Adpz0Kslcoc35hV3' => 
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -1228,7 +1608,15 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::iT3QlUWbysCaku07',
+=======
+<<<<<<< Updated upstream
+        'as' => 'generated::5sHCfssdF6N6twWh',
+=======
+        'as' => 'generated::Adpz0Kslcoc35hV3',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 
@@ -1281,7 +1669,15 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::1sKm6dOnXjKPqfw2' => 
+=======
+<<<<<<< Updated upstream
+    'generated::YwTaPPldcIuSGuYh' => 
+=======
+    'generated::1IEZKo2eNghfAZbZ' => 
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -1302,7 +1698,15 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::1sKm6dOnXjKPqfw2',
+=======
+<<<<<<< Updated upstream
+        'as' => 'generated::YwTaPPldcIuSGuYh',
+=======
+        'as' => 'generated::1IEZKo2eNghfAZbZ',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 
@@ -1318,7 +1722,15 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::ZCjM3tCCnPnwFrFm' => 
+=======
+<<<<<<< Updated upstream
+    'generated::jGA3oXfd8G6AnZPI' => 
+=======
+    'generated::XY5X8gMLkYQuLAzt' => 
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -1339,7 +1751,15 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::ZCjM3tCCnPnwFrFm',
+=======
+<<<<<<< Updated upstream
+        'as' => 'generated::jGA3oXfd8G6AnZPI',
+=======
+        'as' => 'generated::XY5X8gMLkYQuLAzt',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 
@@ -1355,7 +1775,15 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::tcZPougJgfuKgQ3Y' => 
+=======
+<<<<<<< Updated upstream
+    'generated::93Gu5jgzHABs8ViQ' => 
+=======
+    'generated::ndvoe1qgL5FsstAf' => 
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -1376,7 +1804,15 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::tcZPougJgfuKgQ3Y',
+=======
+<<<<<<< Updated upstream
+        'as' => 'generated::93Gu5jgzHABs8ViQ',
+=======
+        'as' => 'generated::ndvoe1qgL5FsstAf',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 
@@ -1392,7 +1828,15 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::ICSqjIzBg5ibO2pF' => 
+=======
+<<<<<<< Updated upstream
+    'generated::H98Wpgsr27a83s0F' => 
+=======
+    'generated::AtBpJCP3BQi0rzV6' => 
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -1413,7 +1857,15 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::ICSqjIzBg5ibO2pF',
+=======
+<<<<<<< Updated upstream
+        'as' => 'generated::H98Wpgsr27a83s0F',
+=======
+        'as' => 'generated::AtBpJCP3BQi0rzV6',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 
@@ -1429,7 +1881,15 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::BDcy0kxj3JvjvQLy' => 
+=======
+<<<<<<< Updated upstream
+    'generated::IiQU5uEu2ToGvAmL' => 
+=======
+    'generated::Xpk8uQ57CyXo62hy' => 
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -1450,7 +1910,15 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::BDcy0kxj3JvjvQLy',
+=======
+<<<<<<< Updated upstream
+        'as' => 'generated::IiQU5uEu2ToGvAmL',
+=======
+        'as' => 'generated::Xpk8uQ57CyXo62hy',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 
@@ -1466,7 +1934,14 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::cGMfZcBVw7P7P3Pu' => 
+=======
+<<<<<<< Updated upstream
+    'generated::1pjLZAYJ8jp8gEmX' => 
+=======
+    'generated::iQ7iHCS3txXtfKKJ' => 
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -1487,7 +1962,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::cGMfZcBVw7P7P3Pu',
+=======
+        'as' => 'generated::iQ7iHCS3txXtfKKJ',
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 
@@ -1503,7 +1982,86 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::FKkpuuv0OO5rlkBj' => 
+=======
+    'generated::YZLJJjEEd8hCadBr' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'dashboard',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\DashBoardController@ShowDashBoard',
+        'controller' => 'App\\Http\\Controllers\\DashBoardController@ShowDashBoard',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::YZLJJjEEd8hCadBr',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::SAiZDdai3abGP2ly' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'view-dashboard',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\DashBoardController@ShowViewDashBoard',
+        'controller' => 'App\\Http\\Controllers\\DashBoardController@ShowViewDashBoard',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::SAiZDdai3abGP2ly',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::sKxuuVyxNcFbPyxg' => 
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -1523,7 +2081,15 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::FKkpuuv0OO5rlkBj',
+=======
+<<<<<<< Updated upstream
+        'as' => 'generated::1pjLZAYJ8jp8gEmX',
+=======
+        'as' => 'generated::sKxuuVyxNcFbPyxg',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 
@@ -1539,7 +2105,15 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::dyw1LyrZ0unw62T4' => 
+=======
+<<<<<<< Updated upstream
+    'generated::Cwi8g9V5ZVKiMkPi' => 
+=======
+    'generated::URChkElzxHBYkzSN' => 
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
     array (
       'methods' => 
       array (
@@ -1559,7 +2133,15 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::dyw1LyrZ0unw62T4',
+=======
+<<<<<<< Updated upstream
+        'as' => 'generated::Cwi8g9V5ZVKiMkPi',
+=======
+        'as' => 'generated::URChkElzxHBYkzSN',
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
       ),
       'fallback' => false,
       'defaults' => 

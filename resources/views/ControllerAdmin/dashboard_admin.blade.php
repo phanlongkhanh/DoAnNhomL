@@ -158,7 +158,15 @@
           <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
             <li class="{{ Request::is('admin-datn') ? 'active' : '' }}">
+<<<<<<< HEAD
                 <a href="{{url('index-dashboard')}}">
+=======
+<<<<<<< Updated upstream
+                <a href="#">
+=======
+                <a href="{{url('dashboard')}}">
+>>>>>>> Stashed changes
+>>>>>>> add_dashboard
                     <i class="fa fa-dashboard"></i> <span>Bảng điều khiển</span>
                 </a>
             </li>
