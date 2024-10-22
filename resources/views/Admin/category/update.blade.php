@@ -15,6 +15,7 @@
     <section class="content">
         <!-- Small boxes (Stat box) -->
         <div class="row">
+            @if(isset($category))
             <div class="box box-primary">
                 <form role="form" action="{{ route('update-category', $category->id) }}" method="POST"
                       enctype="multipart/form-data">
@@ -23,7 +24,7 @@
                         <div class="col-sm-8">
                             <div class="form-group {{ $errors->first('category_name') ? 'has-error' : '' }}">
                                 <label for="name">Name<span class="text-danger">(*)</span></label>
-                                <input type="text" class="form-control" name="category_name" value="Danh Mục 1"
+                                <input type="text" class="form-control" name="category_name" value="{{$category->name}}"
                                        placeholder="Name ......"
                                        required>
                                 @if ($errors->first('category_name'))
@@ -33,7 +34,7 @@
                             <div class="form-group {{ $errors->first('category_description') ? 'has-error' : '' }}">
                                 <label>Description<span class="text-danger">(*)</span></label>
                                 <textarea class="form-control" name="category_description" rows="3"
-                                          placeholder="Enter ..." required>Mô Tả</textarea>
+                                          placeholder="Enter ..." required>{{$category->description}}</textarea>
                                 @if ($errors->first('category_description'))
                                     <span class="text-danger">{{ $errors->first('category_description') }}</span>
                                 @endif
@@ -47,6 +48,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                     <div class="box-footer">
                         <a href="{{ route('indexcategory') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
                         <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Submit</button>

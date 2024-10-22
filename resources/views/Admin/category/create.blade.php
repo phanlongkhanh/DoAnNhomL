@@ -68,9 +68,4 @@
             });
         });
     </script>
-<<<<<<< HEAD
-@endsection
-=======
-@endsection
->>>>>>> Add_account
 @endsection
