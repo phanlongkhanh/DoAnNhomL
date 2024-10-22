@@ -14,7 +14,7 @@ use App\Http\Controllers\OdersController;
 use App\Http\Controllers\DashBoardController;
 
 //Giao Diện
-
+Route::get('/',[UserController::class,'ShowUserLogin']);
 //Show Home Page User
 Route::get('homepage',[UserController::class,'ShowHomePage']);
 
