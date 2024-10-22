@@ -115,30 +115,8 @@
                                 <tr>
                                     <td colspan="10" class="text-center">Không có danh mục nào.</td>
                                 </tr>
-                            @endif
-                            
-                            </tbody>
-                            <tr>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>Hình ảnh 1</th>
-                                <th>Sản Phẩm 1</th>
-                                <th>Sản Phẩm 1</th>
-                                <th>active</th>   
-                                <th>02/10/2024</th>
-                                <th>03/10/2024</th>
-                                <th>PhanLongKhanh</th>
-                                <th>                                  
-                                    <a href="{{"edit-category"}}"
-                                       class="btn btn-xs btn-primary"
-                                       onclick="return confirm('Bạn chắc chắn là sửa chứ')"><i
-                                         class="fa fa-pencil"></i> Edit</a>
-                                    <a href="#"
-                                       class="btn btn-xs btn-danger js-delete-confirm"
-                                       onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
-                                         class="fa fa-trash"></i> Delete</a>  
-                                </th>
-                            </tr>   
+                            @endif                    
+                            </tbody>                
                         </table>
                         
                         {{-- {!! $categorys->appends($query ?? [])->links('pagination::bootstrap-4') !!} --}}

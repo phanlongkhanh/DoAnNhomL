@@ -17,7 +17,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title"><a href="#" class="btn btn-primary">Thêm mới </a>
+                        <h3 class="box-title"><a href="/add-account" class="btn btn-primary">Thêm mới </a>
                         </h3>
                         <div class="box-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
@@ -88,14 +88,19 @@
                                          
                                         
                                         <td>
-                                            <a href="#"
+                                            <a href="<?php echo e(url('edit-account/' . $users->id)); ?>"
                                                class="btn btn-xs btn-primary"
                                                onclick="return confirm('Bạn chắc chắn là sửa chứ')"><i
                                                     class="fa fa-pencil"></i> Edit</a>
-                                            <a href="#"
-                                               class="btn btn-xs btn-danger js-delete-confirm"
-                                               onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
-                                                    class="fa fa-trash"></i> Delete</a>
+                                            
+
+                                            <form action="<?php echo e(url('delete-account/' . $users->id)); ?>" method="POST" style="display:inline;">
+                                                <?php echo csrf_field(); ?>
+                                                <?php echo method_field('DELETE'); ?>
+                                                    <button type="submit" class="btn btn-xs btn-danger"
+                                                        onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
+                                                        class="fa fa-trash"></i> Delete</button>
+                                            </form>        
                                         </td>
                                     </tr>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
