@@ -2,12 +2,12 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Account
+            CateGory
             <small>index</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="">Account</a></li>
+            <li><a href="">Category</a></li>
             <li class="active">list</li>
         </ol>
     </section>
@@ -18,7 +18,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title"><a href="/add-account" class="btn btn-primary">Thêm mới </a>
+                        <h3 class="box-title"><a href="{{ 'add-category' }}" class="btn btn-primary">Thêm mới </a>
                         </h3>
                         <div class="box-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
@@ -37,78 +37,108 @@
                             <tr>
                                 <th>STT</th>
                                 <th>ID</th>
-                                <th>Họ Tên</th>
-                                <th>Email</th>
-                                <th>Role</th>
+                                <th>Hình ảnh</th>
+                                <th>Tên</th>
+                                <th>Mô tả</th>
+                                <th>Trạng thái</th>
                                 <th>Ngày thêm</th>
                                 <th>Ngày cập nhật</th>
+                                <th>Người thêm</th>
                                 <th>Chỉnh sửa</th>
                             </tr>             
                             @php
                                 $count = 0;
                             @endphp
-                            @if(isset($status))
-                                <tr>
-                                    <td>{{$status}}</td>
-                                </tr>
-                            @endif
 
 
-
-                            @if(isset($users))
-                                @foreach ($users as $users)
+                            @if(isset($categories))
+                                @foreach ($categories as $item)
                                     @php
-                                        $count ++;
+                                        $count++;
                                     @endphp
-
                                     <tr>
                                         <td>{{ $count }}</td>
-                                        <td>{{ $users->id }}</td>
-                                        {{--                                        hinh anh--}}
-                                        {{-- <td><img src="{{ parse_url($item->image)['path'] }}" alt="" width="150px"
-                                                 height="100px"></td> --}}
-                                        <td>{{ $users->name}}</td>
-                                        <td>{{ $users->email }}</td>
-                                        <td>{{ $users->role_id }}</td>
-                                        {{--                                        check ative--}}
-                                        {{-- <td>
-                                            @if ($item->checkactive==1)
-                                                <a href="{{ route('activecategory',['id'=>$item->id_category]) }}"
-                                                   class="label label-info status-active">Show</a>
-                                            @else
-                                                <a href="{{ route('activecategory',['id'=>$item->id_category]) }}"
-                                                   class="label label-default status-active">Hide</a>
-                                            @endif
-                                        </td> --}}
-                                        {{--                                        ngay them--}}
-                                        <td>{{ $users->created_at }}</td>
-                                        {{--                                        ngay cap nhat--}}
-                                        <td>{{ $users->updated_at }}</td>
-                                        {{--                                        nguoi them--}}
-                                         {{-- <td>{{ $item->admin->name }}</td> --}}
-                                        {{--                                        hanh dong--}}
+                                        <td>{{ $item->id }}</td> 
+                                        <td><img src="{{ asset('storage/images/categories/' . $item->image) }}" alt="Category Image" width="150px" height="150px"></td>
+
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->description }}</td>
                                         <td>
-                                            <a href="{{ url('edit-account/' . $users->id) }}"
+                                            @if ($item->checkactive)
+                                                <a href="{{ route('activecategory', ['id' => $item->id]) }}" class="label label-info status-active">Show</a>
+                                            @else
+                                                <a href="{{ route('activecategory', ['id' => $item->id]) }}" class="label label-default status-active">Hide</a>
+                                            @endif
+                                        </td>
+                                        <td>{{ $item->created_at }}</td>
+                                        <td>{{ $item->updated_at }}</td>
+                                        {{-- <td>{{ $item->admin->name }}</td> --}}
+                                        <td>{{ $item->admin ? $item->admin->name : 'N/A' }}</td>
+
+                                        {{-- <td>
+                                            <a href="{{ route('editcategory',['id'=>$item->id_category]) }}"
                                                class="btn btn-xs btn-primary"
                                                onclick="return confirm('Bạn chắc chắn là sửa chứ')"><i
                                                     class="fa fa-pencil"></i> Edit</a>
-                                            {{-- <a href="{{ url('delete-account/' . $users->id) }}"
+                                            <a href="{{ route('deletecategory',['id'=>$item->id_category]) }}"
                                                class="btn btn-xs btn-danger js-delete-confirm"
                                                onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
-                                                    class="fa fa-trash"></i> Delete</a> --}}
+                                                    class="fa fa-trash"></i> Delete</a>
+                                        </td> --}}
 
-                                            <form action="{{ url('delete-account/' . $users->id) }}" method="POST" style="display:inline;">
+                                        <td>
+                                            <a href="{{ route('editcategory', ['id' => $item->id]) }}" 
+                                                class="btn btn-xs btn-primary" 
+                                                onclick="return confirm('Bạn chắc chắn là sửa chứ?')">
+                                                <i class="fa fa-pencil"></i> Edit
+                                            </a>
+                                            
+                                             
+                                            
+                                            
+
+
+                                            <form action="{{ route('deletecategory', ['id' => $item->id]) }}" method="POST" style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')
-                                                    <button type="submit" class="btn btn-xs btn-danger"
-                                                        onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
+                                                <button type="submit" class="btn btn-xs btn-danger js-delete-confirm"
+                                                        onclick="return confirm('Bạn chắc chắn là xóa chứ?')"><i
                                                         class="fa fa-trash"></i> Delete</button>
-                                            </form>        
+                                            </form>
+
+                                            
                                         </td>
+                                        
                                     </tr>
                                 @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="10" class="text-center">Không có danh mục nào.</td>
+                                </tr>
                             @endif
-                            </tbody>                     
+                            
+                            </tbody>
+                            <tr>
+                                <th>1</th>
+                                <th>1</th>
+                                <th>Hình ảnh 1</th>
+                                <th>Sản Phẩm 1</th>
+                                <th>Sản Phẩm 1</th>
+                                <th>active</th>   
+                                <th>02/10/2024</th>
+                                <th>03/10/2024</th>
+                                <th>PhanLongKhanh</th>
+                                <th>                                  
+                                    <a href="{{"edit-category"}}"
+                                       class="btn btn-xs btn-primary"
+                                       onclick="return confirm('Bạn chắc chắn là sửa chứ')"><i
+                                         class="fa fa-pencil"></i> Edit</a>
+                                    <a href="#"
+                                       class="btn btn-xs btn-danger js-delete-confirm"
+                                       onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
+                                         class="fa fa-trash"></i> Delete</a>  
+                                </th>
+                            </tr>   
                         </table>
                         
                         {{-- {!! $categorys->appends($query ?? [])->links('pagination::bootstrap-4') !!} --}}
