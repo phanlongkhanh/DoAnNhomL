@@ -59,6 +59,15 @@ Route::get('product-type-update',[ProductTypeController::class,'ShowUpdateTypePr
 Route::get('oders-index',[OdersController::class,'ShowIndexOders']);
 //Show Screen Views Index
 Route::get('oders-views',[OdersController::class,'ShowViewOders']);
+//Show Screen Index DashBoard
+Route::get('index-dashboard',[DashBoardController::class,'ShowIndexDashBoard']);
+//Show Screen Dashboard
+Route::get('dashboard',[DashBoardController::class,'ShowDashBoard']);
+//Show Screen View Dashboard
+Route::get('view-dashboard',[DashBoardController::class,'ShowViewDashBoard']);
+
+
+
 
 
 

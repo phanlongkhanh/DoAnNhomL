@@ -37,7 +37,6 @@
                             <tr>
                                 <th>STT</th>
                                 <th>ID</th>
-                                <th>Hình Ảnh</th>
                                 <th>Họ Tên</th>
                                 <th>Email</th>
                                 <th>Role</th>
@@ -67,8 +66,8 @@
                                         <td>{{ $count }}</td>
                                         <td>{{ $users->id }}</td>
                                         {{--                                        hinh anh--}}
-                                        <td><img src="{{ parse_url($users->image)['path'] }}" alt="" width="150px"
-                                                 height="100px"></td>
+                                        {{-- <td><img src="{{ parse_url($users->image)['path'] }}" alt="" width="150px"
+                                                 height="100px"></td> --}}
                                         <td>{{ $users->name}}</td>
                                         <td>{{ $users->email }}</td>
                                         <td>{{ $users->role_id }}</td>
