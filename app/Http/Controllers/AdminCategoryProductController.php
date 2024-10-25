@@ -27,33 +27,31 @@ class AdminCategoryProductController extends Controller
     public function storeCategory(Request $request)
     {
         // Xác thực dữ liệu
-        $request->validate([
-            'category_name' => 'required|string|max:255',
-            'category_description' => 'required|string',
-            'category_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-        
+    $request->validate([
+        'category_name' => 'required|string|max:255',
+        'category_description' => 'required|string',
+        'category_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
 
-        // Lưu danh mục vào cơ sở dữ liệu
-        $category = new Category();
-        $category->name = $request->category_name;
-        $category->description = $request->category_description;
+    // Lưu danh mục vào cơ sở dữ liệu
+    $category = new Category();
+    $category->name = $request->category_name;
+    $category->description = $request->category_description;
 
+    // Lưu hình ảnh vào thư mục public/images
+    if ($request->hasFile('category_image')) {
+        $image = $request->file('category_image');
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('images'), $imageName);
+        $category->image = $imageName; // Lưu tên file vào cơ sở dữ liệu
+    }
 
+    // Gán user_id
+    $category->user_id = auth()->id(); // Thêm ID admin
+    
+    $category->save(); // Lưu vào cơ sở dữ liệu
 
-        // Lưu hình ảnh
-        if ($request->hasFile('category_image')) {
-            $imagePath = $request->file('category_image')->store('images/categories', 'public');
-            $category->image = $imagePath; // Cập nhật đường dẫn hình ảnh
-
-        }
-
-        // Gán user_id
-        $category->user_id = auth()->id(); // Thêm ID admin
-        
-        $category->save(); // Lưu vào cơ sở dữ liệu
-
-        return redirect()->route('indexcategory')->with('success', 'Category created successfully.'); // Thông báo thành công
+    return redirect()->route('indexcategory')->with('success', 'Category created successfully.'); // Thông báo thành công
     }
 
     // Trạng thái danh mục
