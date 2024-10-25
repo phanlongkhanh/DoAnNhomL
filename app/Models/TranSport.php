@@ -13,5 +13,6 @@ class TranSport extends Model
         'name',
         'description',
         'id',
+        'image',
     ];
 }

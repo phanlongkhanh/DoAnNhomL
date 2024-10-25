@@ -23,7 +23,7 @@ class Suppliers extends Model
 
     ];
 
-     //thiết lập mối quan nhà cung cấp và sản phẩm
+     //thiết lập mối quan hệ nhà cung cấp và sản phẩm
      public function product()
      {
          return $this->hasMany(Product::class,'id_supplier');

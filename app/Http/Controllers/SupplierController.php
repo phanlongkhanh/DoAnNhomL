@@ -1,8 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Product;
+use App\Models\Suppliers;
+use App\Models\ProductType;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 
 class SupplierController extends Controller
 {
@@ -18,4 +26,5 @@ class SupplierController extends Controller
     {
         return view('Admin.suppliers.update');
     }
+
 }
