@@ -18,7 +18,7 @@
     <div class="row">
 
     <div class="box box-primary">
-        <form action="#" method="GET" enctype="multipart/form-data">
+        <form action="{{url('add-product-type')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="box-body">
                 <div class="col-sm-8">

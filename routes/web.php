@@ -100,3 +100,10 @@ Route::get('edit-category/{id}', [AdminCategoryProductController::class, 'showEd
 Route::post('update-category/{id}', [AdminCategoryProductController::class, 'updateCategory'])->name('update-category');
 // Route xóa danh mục
 Route::delete('/admin/categories/delete/{id}', [AdminCategoryProductController::class, 'destroyCategory'])->name('deletecategory');
+
+
+//Thêm loại Sản Phẩm
+Route::POST('add-product-type', [ProductTypeController::class, 'AddProductType']);
+//active loại sản phẩm
+Route::get('active-product-type/{id}', [ProductTypeController::class, 'ActiveProductType']);
+

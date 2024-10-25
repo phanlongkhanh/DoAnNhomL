@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('product_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('description');
-            $table->string('checkstatus');
+            $table->text('description');
+            $table->boolean('checkactive')->default(true)->comment('Check hoạt động');
             $table->timestamps();
         });
     }
