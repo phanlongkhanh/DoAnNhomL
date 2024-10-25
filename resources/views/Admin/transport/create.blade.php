@@ -18,7 +18,7 @@
     <div class="row">
 
     <div class="box box-primary">
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="{{url('add-tranport')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="box-body">
                 <div class="col-sm-8">
@@ -38,12 +38,12 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="form-group {{ $errors->first('category_image') ? 'has-error' : '' }}">
+                    <div class="form-group {{ $errors->first('image') ? 'has-error' : '' }}">
                         <label for="fileInput">Image<span class="text-danger">(*)</span></label>
-                        <input type="file" class="form-control-file" id="fileInput" name="category_image"
+                        <input type="file" class="form-control-file" id="fileInput" name="image"
                             required>
-                        @if ($errors->first('category_image'))
-                            <span class="text-danger">{{ $errors->first('category_image') }}</span>
+                        @if ($errors->first('image'))
+                            <span class="text-danger">{{ $errors->first('image') }}</span>
                         @endif
                     </div>
                 </div>

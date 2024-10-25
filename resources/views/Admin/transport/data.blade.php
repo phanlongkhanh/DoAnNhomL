@@ -19,30 +19,32 @@
       <tbody>
         <tr>
           <th>ID</th>
-          <th>Name</th>
+          <th class="text-center">Name</th>
           <th>Image</th>
-          <th>Description</th>
+          <th class="text-center">Description</th>
           <th>Active</th>
           <th>Time</th>
+          <th>Update</th>
           <th>Action</th>
         </tr>
-        @if(isset($productTypes))
-            @foreach ($productTypes as $item)
+        @if(isset($transports))
+            @foreach ($transports as $item)
                 <tr>
-                    <td>{{ $item->id }}</td>
-                    <td>{{ $item->name }}</td>       
-                    <td>{{ $item->description  }}</td>
-
+                    <td class="text-center h4" style="line-height: 100px;">{{ $item->id }}</td>
+                    <td class="text-center align-middle" style="height: 100px;"><div class="font-weight-bold h4 text-danger" style="line-height: 100px;">{{ $item->name }}</div></td>
+                    <td><img src="transport-image/<?= $item->image ?>" alt="" width="200px" height="150px"></td>
+                    <td class="text-center align-middle" style="height: 100px;"><div style="line-height: 100px;">{{ $item->description }}</div></td>
                     <td>
-                        @if ($item->checkstatus)
-                            <a href="#" class="label label-info status-active">Show</a>
+                        @if ($item->checkactive == 1)
+                            <a href="#" class="label label-info status-active" style="line-height: 100px;" >Show</a>
                         @else
-                             <a href="#" class="label label-default status-active">Hide</a>
+                            <a href="#" class="label label-default status-active" style="line-height: 100px;">Hide</a>
                         @endif
                     </td>
-                   
-                    <td>{{ $item->created_at }}</td>
-                    <td>
+                  
+                    <td style="line-height: 100px;">{{ $item->created_at }}</td>
+                    <td style="line-height: 100px;">{{ $item->updated_at }}</td>
+                    <td style="line-height: 100px;">
                         <a href="{{ url('editProductType', ['id' => $item->id_producttype]) }}" class="btn btn-xs btn-primary" onclick="return confirm('Bạn có chắc muốn sửa không')"><i class="fa fa-pencil"></i> Edit</a>
                         <a href="{{ url('deleteproducttype', ['id' => $item->id_producttype]) }}" class="btn btn-xs btn-danger js-delete-confirm" onclick="return confirm('Bạn có chắc muốn xoá không')"><i class="fa fa-trash"></i> Delete</a>
                     </td>

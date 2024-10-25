@@ -125,3 +125,5 @@ Route::get('edit-producttype/{id}', [ProductTypeController::class, 'EditProductT
 Route::delete('product-type-remove/{id}', [ProductTypeController::class, 'RemoveProductType'])->name('remove-product-type');
 //Update ProductType
 Route::put('product-type-update/{id}', [ProductTypeController::class, 'UpdateProductType'])->name('product-type-update');
+//Add TranSport
+Route::POST('add-tranport', [TranSportController::class, 'AddProductType']);

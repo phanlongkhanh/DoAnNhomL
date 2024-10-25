@@ -32,7 +32,6 @@
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->name }}</td>       
                     <td>{{ $item->description  }}</td>
-
                     <td>
                         @if ($item->checkactive == 1)
                             <a href="{{ route('active-product-type', $item->id) }}" class="label label-info status-active">Show</a>
