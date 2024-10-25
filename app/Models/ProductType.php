@@ -20,7 +20,7 @@ class ProductType extends Model
     //thiết lập mối quan hệ giữa loại sản phẩm và sản phẩm 1-n
     public function product()
     {
-        return $this->hasMany(Product::class,'id');
+        return $this->hasMany(Product::class,'id_product');
     }
   
 }

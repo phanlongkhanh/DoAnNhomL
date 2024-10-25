@@ -203,7 +203,7 @@
                     </li>
 
                     <li class="<?php echo e(Request::is('admin-datn/article*') ? 'active' : ''); ?>">
-                        <a href="#">
+                        <a href="<?php echo e('index-suppliers'); ?>">
                             <i class="fa fa-truck"></i> <span>Nhà Cung Cấp</span>
                         </a>
                     </li>

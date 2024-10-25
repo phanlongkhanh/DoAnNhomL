@@ -1,4 +1,4 @@
-@extends('LayOut.admin-dashboard.master_admin')
+@extends('ControllerAdmin.dashboard_admin')
 @section('content')
     <section class="content-header">
 
@@ -21,17 +21,16 @@
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title"><a href="{{ route('addsupplier') }}" class="btn btn-primary">Thêm
+                            <h3 class="box-title"><a href="{{'create-suppliers'}}" class="btn btn-primary">Thêm
                                     mới </a>
                             </h3>
                             <div class="box-tools">
                                 <form action="#">
                                     <div class="input-group input-group-sm" style="width: 150px;">
                                         <input type="text" name="key" value="{{ request()->input('key') }}"
-                                               class="form-control pull-right" placeholder="Search">
+                                            class="form-control pull-right" placeholder="Search">
                                         <div class="input-group-btn">
-                                            <button type="submit" class="btn btn-default"><i
-                                                    class="fa fa-search"></i>
+                                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i>
                                             </button>
                                         </div>
                                     </div>
@@ -42,52 +41,52 @@
                         <div class="box-body table-responsive no-padding">
                             <table class="table table-hover">
                                 <tbody>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Image</th>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Time</th>
-                                    <th>Action</th>
-                                </tr>
-                                @php
-                                    $count = 0;
-                                @endphp
-                                @if(isset($suppliers))
-                                    @foreach ($suppliers as $item)
-                                        @php
-                                            $count ++;
-                                        @endphp
-                                        <tr>
-                                            <td>{{ $count }}</td>
-                                            <td><img src="{{ asset($item->image) }}" alt=""
-                                                     style="width: 50px; height: 50px;"></td>
-                                            <td>{{ $item->name }}</td>
-                                            <td>{{ $item->description }}</td>
-                                            <td>{{ $item->email }}</td>
-                                            <td>{{ $item->phone }}</td>
-                                            <td>{{ $item->created_at }}</td>
-                                            <td>
-                                                <a href="{{ route('updatesupplier',['id'=>$item->id_supplier]) }}"
-                                                   class="btn btn-xs btn-primary"
-                                                   onclick="return confirm('Bạn chắc chắn là sửa chứ')"><i
-                                                        class="fa fa-pencil"></i> Edit</a>
-                                                <a href="{{ route('deletesupllers',['id'=>$item->id_supplier]) }}"
-                                                   class="btn btn-xs btn-danger js-delete-confirm"
-                                                   onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
-                                                        class="fa fa-trash"></i> Delete</a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                @endif
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Image</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Time</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    @php
+                                        $count = 0;
+                                    @endphp
+                                    @if (isset($suppliers))
+                                        @foreach ($suppliers as $item)
+                                            @php
+                                                $count++;
+                                            @endphp
+                                            <tr>
+                                                <td>{{ $count }}</td>
+                                                <td><img src="{{ asset($item->image) }}" alt=""
+                                                        style="width: 50px; height: 50px;"></td>
+                                                <td>{{ $item->name }}</td>
+                                                <td>{{ $item->description }}</td>
+                                                <td>{{ $item->email }}</td>
+                                                <td>{{ $item->phone }}</td>
+                                                <td>{{ $item->created_at }}</td>
+                                                <td>
+                                                    <a href="{{ route('updatesupplier', ['id' => $item->id_supplier]) }}"
+                                                        class="btn btn-xs btn-primary"
+                                                        onclick="return confirm('Bạn chắc chắn là sửa chứ')"><i
+                                                            class="fa fa-pencil"></i> Edit</a>
+                                                    <a href="{{ route('deletesupllers', ['id' => $item->id_supplier]) }}"
+                                                        class="btn btn-xs btn-danger js-delete-confirm"
+                                                        onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
+                                                            class="fa fa-trash"></i> Delete</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                             <div id="pageNavPosition" class="text-right">
                                 <ul class="pagination">
                                     <!-- Hiển thị link đến trang trước (Previous Page) -->
-                                    @if ($suppliers->onFirstPage())
+                                    {{-- @if ($suppliers->onFirstPage())
                                         <li class="disabled"><span>&laquo;</span></li>
                                     @else
                                         <li><a href="{{ $suppliers->previousPageUrl() }}" rel="prev">&laquo;</a>
@@ -104,7 +103,7 @@
                                         <li><a href="{{ $suppliers->nextPageUrl() }}" rel="next">&raquo;</a></li>
                                     @else
                                         <li class="disabled"><span>&raquo;</span></li>
-                                    @endif
+                                    @endif --}}
                                 </ul>
                             </div>
                         </div>
@@ -120,4 +119,4 @@
             <!-- /.row (main row) -->
         </section>
         <!-- /.content -->
-@endsection
+    @endsection

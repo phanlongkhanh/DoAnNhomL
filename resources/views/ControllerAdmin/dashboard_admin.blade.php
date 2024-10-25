@@ -215,7 +215,7 @@
                     </li>
 
                     <li class="{{ Request::is('admin-datn/article*') ? 'active' : '' }}">
-                        <a href="#">
+                        <a href="{{'index-suppliers'}}">
                             <i class="fa fa-truck"></i> <span>Nhà Cung Cấp</span>
                         </a>
                     </li>

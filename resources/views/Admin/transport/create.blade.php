@@ -23,7 +23,7 @@
             <div class="box-body">
                 <div class="col-sm-8">
                     <div class="form-group">
-                        <label for="name">Names <span class="text-danger">(*)</span></label>
+                        <label for="name">Name<span class="text-danger">(*)</span></label>
                         <input type="text" class="form-control" name="name" placeholder="Name ......" required>
                         @error('name')
                         <div class="text-danger">{{ $message }}</div>
