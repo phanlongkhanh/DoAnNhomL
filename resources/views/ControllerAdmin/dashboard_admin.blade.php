@@ -200,11 +200,11 @@
 
 
 
-                    <li class="{{ Request::is('admin-datn/attribute*') ? 'active' : '' }}">
+                    {{-- <li class="{{ Request::is('admin-datn/attribute*') ? 'active' : '' }}">
                         <a href="#">
                             <i class="glyphicon glyphicon-asterisk"></i> <span>Nhà Cung Cấp</span>
                         </a>
-                    </li>
+                    </li> --}}
 
 
 
@@ -223,7 +223,7 @@
 
 
                     <li class="{{ Request::is('admin-datn/article*') ? 'active' : '' }}">
-                        <a href="#">
+                        <a href="{{'index-transport'}}">
                             <i class="fa fa-circle-o-notch"></i> <span>Đơn vị vận chuyển</span>
                         </a>
                     </li>

@@ -12,6 +12,7 @@ use App\Http\Controllers\ResetPassWordController;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\OdersController;
 use App\Http\Controllers\DashBoardController;
+use App\Http\Controllers\TranSportController;
 
 //Giao Diện
 Route::get('/', [UserController::class, 'ShowUserLogin']);
@@ -57,6 +58,10 @@ Route::get('index-dashboard', [DashBoardController::class, 'ShowIndexDashBoard']
 Route::get('dashboard', [DashBoardController::class, 'ShowDashBoard']);
 //Show Screen View Dashboard
 Route::get('view-dashboard', [DashBoardController::class, 'ShowViewDashBoard']);
+//Show Screen TranSport Index
+Route::get('index-transport', [TranSportController::class, 'ShowIndexTranSport']);
+//Show Screen TranSport Create
+Route::get('create-transport', [TranSportController::class, 'ShowCreateTranSport']);
 
 
 
