@@ -23,7 +23,7 @@
                         <div class="box-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
                                 <input type="text" name="table_search" class="form-control pull-right ajax-search-table"
-                                       placeholder="Search" data-url="">
+                                    placeholder="Search" data-url="">
                                 <div class="input-group-btn">
                                     <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                                 </div>
@@ -34,78 +34,82 @@
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover ">
                             <tbody>
-                            <tr>
-                                <th>STT</th>
-                                <th>ID</th>
-                                <th>Hình ảnh</th>
-                                <th>Tên</th>
-                                <th>Mô tả</th>
-                                <th>Trạng thái</th>
-                                <th>Ngày thêm</th>
-                                <th>Ngày cập nhật</th>
-                                <th>Người thêm</th>
-                                <th>Chỉnh sửa</th>
-                            </tr>             
-                            @php
-                                $count = 0;
-                            @endphp
-
-
-                            @if(isset($categories))
-                                @foreach ($categories as $item)
-                                    @php
-                                        $count++;
-                                    @endphp
-                                    <tr>
-                                        <td>{{ $count }}</td>
-                                        <td>{{ $item->id }}</td> 
-                            
-                                        <td><img src="images/<?=$item->image?>" alt="" width="200px" height="150px"></td>
-
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->description }}</td>
-                                        <td>
-                                            @if ($item->checkactive)
-                                                <a href="{{ route('activecategory', ['id' => $item->id]) }}" class="label label-info status-active">Show</a>
-                                            @else
-                                                <a href="{{ route('activecategory', ['id' => $item->id]) }}" class="label label-default status-active">Hide</a>
-                                            @endif
-                                        </td>
-                                        <td>{{ $item->created_at }}</td>
-                                        <td>{{ $item->updated_at }}</td>
-                                        {{-- <td>{{ $item->admin->name }}</td> --}}
-                                        <td>{{ $item->admin ? $item->admin->name : 'N/A' }}</td>
-
-                            
-
-                                        <td>
-                                            <a href="{{ route('editcategory', ['id' => $item->id]) }}" 
-                                                class="btn btn-xs btn-primary" 
-                                                onclick="return confirm('Bạn chắc chắn là sửa chứ?')">
-                                                <i class="fa fa-pencil"></i> Edit
-                                            </a>
-                                                                                                                                 
-                                            <form action="{{ route('deletecategory', ['id' => $item->id]) }}" method="POST" style="display:inline;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-xs btn-danger js-delete-confirm"
-                                                        onclick="return confirm('Bạn chắc chắn là xóa chứ?')"><i
-                                                        class="fa fa-trash"></i> Delete</button>
-                                            </form>
-
-                                            
-                                        </td>
-                                        
-                                    </tr>
-                                @endforeach
-                            @else
                                 <tr>
-                                    <td colspan="10" class="text-center">Không có danh mục nào.</td>
+                                    <th>STT</th>
+                                    <th>ID</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Tên</th>
+                                    <th>Mô tả</th>
+                                    <th>Trạng thái</th>
+                                    <th>Ngày thêm</th>
+                                    <th>Ngày cập nhật</th>
+                                    <th>Người thêm</th>
+                                    <th>Chỉnh sửa</th>
                                 </tr>
-                            @endif                    
-                            </tbody>                
+                                @php
+                                    $count = 0;
+                                @endphp
+
+
+                                @if (isset($categories))
+                                    @foreach ($categories as $item)
+                                        @php
+                                            $count++;
+                                        @endphp
+                                        <tr>
+                                            <td>{{ $count }}</td>
+                                            <td>{{ $item->id }}</td>
+
+                                            <td><img src="images/<?= $item->image ?>" alt="" width="200px"
+                                                    height="150px"></td>
+
+                                            <td>{{ $item->name }}</td>
+                                            <td>{{ $item->description }}</td>
+                                            <td>
+                                                @if ($item->checkactive)
+                                                    <a href="{{ route('activecategory', ['id' => $item->id]) }}"
+                                                        class="label label-info status-active">Show</a>
+                                                @else
+                                                    <a href="{{ route('activecategory', ['id' => $item->id]) }}"
+                                                        class="label label-default status-active">Hide</a>
+                                                @endif
+                                            </td>
+                                            <td>{{ $item->created_at }}</td>
+                                            <td>{{ $item->updated_at }}</td>
+                                            {{-- <td>{{ $item->admin->name }}</td> --}}
+                                            <td>{{ $item->admin ? $item->admin->name : 'N/A' }}</td>
+
+
+
+                                            <td>
+                                                <a href="{{ route('editcategory', ['id' => $item->id]) }}"
+                                                    class="btn btn-xs btn-primary"
+                                                    onclick="return confirm('Bạn chắc chắn là sửa chứ?')">
+                                                    <i class="fa fa-pencil"></i> Edit
+                                                </a>
+
+                                                <form action="{{ route('deletecategory', ['id' => $item->id]) }}"
+                                                    method="POST" style="display:inline;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-xs btn-danger js-delete-confirm"
+                                                        onclick="return confirm('Bạn chắc chắn là xóa chứ?')"><i
+                                                            class="fa fa-trash"></i> Delete</button>
+                                                </form>
+
+
+                                            </td>
+
+                                        </tr>
+                                    @endforeach
+                                @else
+                                    <tr>
+                                        <td colspan="10" class="text-center">Không có danh mục nào.</td>
+                                    </tr>
+                                @endif
+                            </tbody>
                         </table>
-                        
+
                         {{-- {!! $categorys->appends($query ?? [])->links('pagination::bootstrap-4') !!} --}}
                         <!-- Phân trang  bắt đầu-->
                         <div id="pageNavPosition" class="text-right">
@@ -130,13 +134,13 @@
                                 @else
                                     <li class="disabled"><span>&raquo;</span></li>
                                 @endif --}}
-                                
+
                             </ul>
-                            
+
                         </div>
-                        
+
                     </div>
-                    
+
 
                 </div>
             </div>
