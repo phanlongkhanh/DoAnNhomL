@@ -31,7 +31,7 @@ class LoginRegisterController extends Controller
 
     function RegisterPage(Request $request)
     {
-           // Hàm kiểm tra dữ liệu nhập vào
+  
       $validator = Validator::make($request->all(), [
         'name' => 'required|string|max:255',
         'email' => 'required|string|email|max:255|unique:users',
@@ -40,13 +40,13 @@ class LoginRegisterController extends Controller
     ]);
 
     $roleId = $request->input('role_id', 2);
-    // Kiểm tra nếu lỗi trả về lỗi 
+   
     if ($validator->fails()) {
         return redirect('/register')
                     ->withErrors($validator)
                     ->withInput();
     }
-    // Tạo mới người dùng
+   
         User::create([
         'name' => $request->name,
         'email' => $request->email,
@@ -55,7 +55,6 @@ class LoginRegisterController extends Controller
         'role_id' => $roleId,
     ]);
 
-    // Trả về trang login
     return redirect('login')->with('success', 'Registration successful. Please log in.');
     }
 

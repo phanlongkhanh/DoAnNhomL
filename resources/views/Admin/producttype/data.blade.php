@@ -9,6 +9,11 @@
         {{ Session::get('error') }}
     </div>
 @endif
+
+@if ($errors->has('description'))
+    <div class="alert alert-danger">{{ $errors->first('description') }}</div>
+@endif
+
 <div class="box-body table-responsive no-padding">
     <table class="table table-hover">
       <tbody>
@@ -20,18 +25,18 @@
           <th>Time</th>
           <th>Action</th>
         </tr>
-        @if(isset($producttypes))
-            @foreach ($producttypes as $item)
+        @if(isset($productTypes))
+            @foreach ($productTypes as $item)
                 <tr>
-                    <td>{{ $item->id_producttype }}</td>
+                    <td>{{ $item->id }}</td>
                     <td>{{ $item->name }}</td>       
                     <td>{{ $item->description  }}</td>
 
                     <td>
-                        @if ($item->checktype==1)
-                            <a href="" class="label label-info status-active">Show</a>
+                        @if ($item->checkstatus)
+                            <a href="#" class="label label-info status-active">Show</a>
                         @else
-                             <a href="" class="label label-default status-active">Hide</a>
+                             <a href="#" class="label label-default status-active">Hide</a>
                         @endif
                     </td>
                    
