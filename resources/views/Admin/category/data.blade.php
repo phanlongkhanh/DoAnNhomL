@@ -11,22 +11,23 @@
                 <th>Time</th>
                 <th>Action</th>
             </tr>
-            @if(isset($categorys))
+            @if (isset($categorys))
                 @foreach ($categorys as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->c_name }}</td>
-                        <td>{{ ($item->parent['c_name'] ?? '[N\A]') }}</td>
-                        <td><img src="{{ pare_url_file($item->c_avatar) }}" alt="" width="150px" height="100px"> </td>
+                        <td>{{ $item->parent['c_name'] ?? '[N\A]' }}</td>
+                        <td><img src="{{ pare_url_file($item->c_avatar) }}" alt="" width="150px" height="100px">
+                        </td>
                         <td>
-                            @if ($item->c_status==1)
+                            @if ($item->c_status == 1)
                                 <a href="#" class="label label-info status-active">show</a>
                             @else
                                 <a href="#" class="label label-default status-active">hide</a>
                             @endif
                         </td>
                         <td>
-                            @if ($item->c_hot==1)
+                            @if ($item->c_hot == 1)
                                 <a href="#" class="label label-info status-active">Hot</a>
                             @else
                                 <a href="#" class="label label-default status-active">None</a>
@@ -35,7 +36,8 @@
                         <td>{{ $item->created_at }}</td>
                         <td>
                             <a href="#" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Edit</a>
-                            <a href="#" class="btn btn-xs btn-danger js-delete-confirm"><i class="fa fa-trash"></i> Delete</a>
+                            <a href="#" class="btn btn-xs btn-danger js-delete-confirm"><i
+                                    class="fa fa-trash"></i> Delete</a>
                         </td>
                     </tr>
                 @endforeach

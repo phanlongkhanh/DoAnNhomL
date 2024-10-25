@@ -1,133 +1,154 @@
 @extends('ControllerAdmin.dashboard_admin')
 @section('content')
-<section class="content-header">
-    <h1>
-      Quản lý đơn hàng
-      <small>index</small>
-    </h1>
-    <ol class="breadcrumb">
-      <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="">transaction</a></li>
-      <li class="active">list</li>
+    <section class="content-header">
+        <h1>
+            Quản lý đơn hàng
+            <small>index</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="">transaction</a></li>
+            <li class="active">list</li>
 
-    </ol>
-  </section>
-  <!-- Main content -->
-  <section class="content">
-    <!-- Small boxes (Stat box) -->
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="box">
-              <div class="box-header">
-                    <div class="box-title">
-                        <form action="" method="GET" class="form-inline">
-                            <input type="text" value="{{ Request::get('id') }}" class="form-control" name="id" placeholder="ID">
-                            <input type="text" value="{{ Request::get('email') }}" class="form-control" name="email" placeholder="Email ...">
-                            {{-- <select name="type" class="form-control">
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <div class="box-title">
+                            <form action="" method="GET" class="form-inline">
+                                <input type="text" value="{{ Request::get('id') }}" class="form-control" name="id"
+                                    placeholder="ID">
+                                <input type="text" value="{{ Request::get('email') }}" class="form-control"
+                                    name="email" placeholder="Email ...">
+                                {{-- <select name="type" class="form-control">
                                 <option value="0">__Phân Loại Khách__</option>
                                 <option value="1" {{ Request::get('type') == 1 ? "selected='selected'" : "" }}>Thành Viên</option>
                                 <option value="2" {{ Request::get('type') == 2 ? "selected='selected'" : "" }}>Khách</option>
                             </select> --}}
-                            <select name="status" class="form-control">
-                                <option value="0">__Trạng Thái__</option>
-                                <option value="1" {{ Request::get('status') == 1 ? "selected='selected'" : "" }}>Tiếp Nhận</option>
-                                <option value="2" {{ Request::get('status') == 2 ? "selected='selected'" : "" }}>Đang Vận Chuyển</option>
-                                <option value="3" {{ Request::get('status') == 3 ? "selected='selected'" : "" }}>Đã Bàn Giao</option>
-                                <option value="-1" {{ Request::get('status') == -1 ? "selected='selected'" : "" }}>Hủy Bỏ</option>
-                            </select>
-                            <button type="submit" class="btn btn-success"><i class="fa fa-search"> </i> Search</button>
-                        </form>
+                                <select name="status" class="form-control">
+                                    <option value="0">__Trạng Thái__</option>
+                                    <option value="1" {{ Request::get('status') == 1 ? "selected='selected'" : '' }}>
+                                        Tiếp Nhận</option>
+                                    <option value="2" {{ Request::get('status') == 2 ? "selected='selected'" : '' }}>
+                                        Đang Vận Chuyển</option>
+                                    <option value="3" {{ Request::get('status') == 3 ? "selected='selected'" : '' }}>Đã
+                                        Bàn Giao</option>
+                                    <option value="-1" {{ Request::get('status') == -1 ? "selected='selected'" : '' }}>
+                                        Hủy Bỏ</option>
+                                </select>
+                                <button type="submit" class="btn btn-success"><i class="fa fa-search"> </i> Search</button>
+                            </form>
+                        </div>
                     </div>
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body table-responsive no-padding">
-                <table class="table table-hover">
-                  <tbody>
-                    <tr>
-                      <th>ID</th>
-                      <th>Info</th>
-                      <th>Money</th>
-                      <th>Status</th>
-                      <th>Phương thức TT</th>
-                      <th>Time</th>
-                      <th>Action</th>
-                    </tr>
-                    @if(isset($listOder))
-                        @foreach ($listOder as $item)
-                            <tr>
-                                <td>{{ $item->id_oder }}</td>
-                                <td>
-                                    <ul>
-                                        <li>Name: {{ $item->name }}</li>
-                                        <li>Email: {{ $item->email }}</li>
-                                        <li>Phone: {{ $item->phone }}</li>
-                                        <li>Address: {{ $item->district }}</li>
-                                    </ul>
-                                </td>
-                                
-                                <td>{{ number_format($item->intomoney,0,',','.') }}</td>
-                                <td>
-                                    @if($item->status == 'Huỷ')
-                                        <span class="label label-danger" style="cursor: default; pointer-events: none;">
-                                            {{ $item->status }}
-                                        </span>
-                                    @else
-                                        <span class="label label-success" style="cursor: default; pointer-events: none;">
-                                            {{ $item->status }}
-                                        </span>
-                                    @endif
-                                </td>                                
-                                {{-- <td>đây là thanh toán</td> --}}    
-                                <td>
-                                    <span class="label label-warning" style="cursor: default; pointer-events: none;">
-                                        {{ $item->payoftype->name }}
-                                    </span>
-                                </td>
-                                
-                                <td>{{ date("d/m/Y H:i:s", strtotime($item->created_at)) }}</td>
-                                <td>
-                                    <a href="{{ route('viewdetailuser',['id_oder'=>$item->id_oder]) }}" class="btn btn-xs btn-info js-preview-view"><i class="fa fa-eye"></i>View</a>
+                    <!-- /.box-header -->
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <tbody>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Info</th>
+                                    <th>Money</th>
+                                    <th>Status</th>
+                                    <th>Phương thức TT</th>
+                                    <th>Time</th>
+                                    <th>Action</th>
+                                </tr>
+                                @if (isset($listOder))
+                                    @foreach ($listOder as $item)
+                                        <tr>
+                                            <td>{{ $item->id_oder }}</td>
+                                            <td>
+                                                <ul>
+                                                    <li>Name: {{ $item->name }}</li>
+                                                    <li>Email: {{ $item->email }}</li>
+                                                    <li>Phone: {{ $item->phone }}</li>
+                                                    <li>Address: {{ $item->district }}</li>
+                                                </ul>
+                                            </td>
 
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-success btn-xs">Action</button>
-                                        <button type="button" class="btn btn-success btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                            <span class="caret"></span>
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a href="{{ route('deletelistoder',['id_oder'=>$item->id_oder]) }}" class=""><i class="fa fa-trash js-delete-confirm" onclick="return confirm('Bạn chắc chắn là xoá chứ')"></i> Delete</a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li>
-                                                <a href="{{ route('updatelisroder',['id_oder'=>$item->id_oder,'status' => 'Đang vận chuyển']) }}"><i class="fa fa-ban"> Đang Vận Chuyển</i></a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('updatelisroder',['id_oder'=>$item->id_oder,'status' => 'Đã bàn giao']) }}"><i class="fa fa-ban"> Đã Bàn Giao</i></a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('updatelisroder',['id_oder'=>$item->id_oder,'status' => 'Huỷ']) }}"><i class="fa fa-ban"> Hủy</i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
-                    @endif
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.box-body -->
-              {{-- {!! $listOder->links() !!} --}}
-              <div></div>
+                                            <td>{{ number_format($item->intomoney, 0, ',', '.') }}</td>
+                                            <td>
+                                                @if ($item->status == 'Huỷ')
+                                                    <span class="label label-danger"
+                                                        style="cursor: default; pointer-events: none;">
+                                                        {{ $item->status }}
+                                                    </span>
+                                                @else
+                                                    <span class="label label-success"
+                                                        style="cursor: default; pointer-events: none;">
+                                                        {{ $item->status }}
+                                                    </span>
+                                                @endif
+                                            </td>
+                                            {{-- <td>đây là thanh toán</td> --}}
+                                            <td>
+                                                <span class="label label-warning"
+                                                    style="cursor: default; pointer-events: none;">
+                                                    {{ $item->payoftype->name }}
+                                                </span>
+                                            </td>
+
+                                            <td>{{ date('d/m/Y H:i:s', strtotime($item->created_at)) }}</td>
+                                            <td>
+                                                <a href="{{ route('viewdetailuser', ['id_oder' => $item->id_oder]) }}"
+                                                    class="btn btn-xs btn-info js-preview-view"><i
+                                                        class="fa fa-eye"></i>View</a>
+
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-success btn-xs">Action</button>
+                                                    <button type="button" class="btn btn-success btn-xs dropdown-toggle"
+                                                        data-toggle="dropdown" aria-expanded="false">
+                                                        <span class="caret"></span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li>
+                                                            <a href="{{ route('deletelistoder', ['id_oder' => $item->id_oder]) }}"
+                                                                class=""><i class="fa fa-trash js-delete-confirm"
+                                                                    onclick="return confirm('Bạn chắc chắn là xoá chứ')"></i>
+                                                                Delete</a>
+                                                        </li>
+                                                        <li class="divider"></li>
+                                                        <li>
+                                                            <a
+                                                                href="{{ route('updatelisroder', ['id_oder' => $item->id_oder, 'status' => 'Đang vận chuyển']) }}"><i
+                                                                    class="fa fa-ban"> Đang Vận Chuyển</i></a>
+                                                        </li>
+                                                        <li>
+                                                            <a
+                                                                href="{{ route('updatelisroder', ['id_oder' => $item->id_oder, 'status' => 'Đã bàn giao']) }}"><i
+                                                                    class="fa fa-ban"> Đã Bàn Giao</i></a>
+                                                        </li>
+                                                        <li>
+                                                            <a
+                                                                href="{{ route('updatelisroder', ['id_oder' => $item->id_oder, 'status' => 'Huỷ']) }}"><i
+                                                                    class="fa fa-ban"> Hủy</i></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                    {{-- {!! $listOder->links() !!} --}}
+                    <div></div>
+                </div>
+                <!-- /.box -->
             </div>
-            <!-- /.box -->
-          </div>
-    </div>
-    <!-- /.row -->
-    <!-- Main row -->
-    <!-- /.row (main row) -->
-  </section>
+        </div>
+        <!-- /.row -->
+        <!-- Main row -->
+        <!-- /.row (main row) -->
+    </section>
     {{--  <div class="modal fade fade" id="modal-preview-transaction" >
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -150,7 +171,7 @@
         </div>
         <!-- /.modal-dialog -->
     </div>  --}}
-  <!-- /.content -->
+    <!-- /.content -->
 @endsection
 {{--  @section('script')
     <script>

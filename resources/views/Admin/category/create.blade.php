@@ -14,22 +14,22 @@
     <section class="content">
         <div class="row">
             <div class="box box-primary">
-                <form role="form" action="{{ route('store-category') }}" method="post" enctype="multipart/form-data"> <!-- **Cập nhật action để lưu danh mục** -->
+                <form role="form" action="{{ route('store-category') }}" method="post" enctype="multipart/form-data">
+                    <!-- **Cập nhật action để lưu danh mục** -->
                     @csrf
                     <div class="box-body">
                         <div class="col-sm-8">
                             <div class="form-group {{ $errors->first('category_name') ? 'has-error' : '' }}">
                                 <label for="name">Name<span class="text-danger">(*)</span></label>
                                 <input type="text" class="form-control" name="category_name" placeholder="Name ......"
-                                       required>
+                                    required>
                                 @if ($errors->first('category_name'))
                                     <span class="text-danger">{{ $errors->first('category_name') }}</span>
                                 @endif
                             </div>
                             <div class="form-group {{ $errors->first('category_description') ? 'has-error' : '' }}">
                                 <label>Description<span class="text-danger">(*)</span></label>
-                                <textarea class="form-control" name="category_description" rows="3"
-                                          placeholder="Enter ..." required></textarea>
+                                <textarea class="form-control" name="category_description" rows="3" placeholder="Enter ..." required></textarea>
                                 @if ($errors->first('category_description'))
                                     <span class="text-danger">{{ $errors->first('category_description') }}</span>
                                 @endif
@@ -37,7 +37,7 @@
                             <div class="form-group {{ $errors->first('category_image') ? 'has-error' : '' }}">
                                 <label for="fileInput">Image<span class="text-danger">(*)</span></label>
                                 <input type="file" class="form-control-file" id="fileInput" name="category_image"
-                                       required>
+                                    required>
                                 @if ($errors->first('category_image'))
                                     <span class="text-danger">{{ $errors->first('category_image') }}</span>
                                 @endif
@@ -58,8 +58,8 @@
 @endsection
 @section('script')
     <script>
-        $(function () {
-            $('#image').change(function () {
+        $(function() {
+            $('#image').change(function() {
                 let reader = new FileReader();
                 reader.onload = (e) => {
                     $('#image_preview_container').attr('src', e.target.result);
