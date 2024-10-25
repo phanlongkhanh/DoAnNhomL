@@ -1,4 +1,4 @@
-@extends('LayOut.admin-dashboard.master_admin')
+@extends('ControllerAdmin.dashboard_admin')
 @section('content')
     <section class="content-header">
         <h1>
