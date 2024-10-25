@@ -59,7 +59,8 @@
                                     <tr>
                                         <td>{{ $count }}</td>
                                         <td>{{ $item->id }}</td> 
-                                        <td><img src="{{ asset('storage/images/categories/' . $item->image) }}" alt="Category Image" width="150px" height="150px"></td>
+                            
+                                        <td><img src="images/<?=$item->image?>" alt="" width="200px" height="150px"></td>
 
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->description }}</td>
@@ -75,16 +76,7 @@
                                         {{-- <td>{{ $item->admin->name }}</td> --}}
                                         <td>{{ $item->admin ? $item->admin->name : 'N/A' }}</td>
 
-                                        {{-- <td>
-                                            <a href="{{ route('editcategory',['id'=>$item->id_category]) }}"
-                                               class="btn btn-xs btn-primary"
-                                               onclick="return confirm('Bạn chắc chắn là sửa chứ')"><i
-                                                    class="fa fa-pencil"></i> Edit</a>
-                                            <a href="{{ route('deletecategory',['id'=>$item->id_category]) }}"
-                                               class="btn btn-xs btn-danger js-delete-confirm"
-                                               onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
-                                                    class="fa fa-trash"></i> Delete</a>
-                                        </td> --}}
+                            
 
                                         <td>
                                             <a href="{{ route('editcategory', ['id' => $item->id]) }}" 
@@ -92,12 +84,7 @@
                                                 onclick="return confirm('Bạn chắc chắn là sửa chứ?')">
                                                 <i class="fa fa-pencil"></i> Edit
                                             </a>
-                                            
-                                             
-                                            
-                                            
-
-
+                                                                                                                                 
                                             <form action="{{ route('deletecategory', ['id' => $item->id]) }}" method="POST" style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')

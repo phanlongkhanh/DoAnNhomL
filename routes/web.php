@@ -17,31 +17,22 @@ use App\Http\Controllers\DashBoardController;
 Route::get('/',[UserController::class,'ShowUserLogin']);
 //Show Home Page User
 Route::get('homepage',[UserController::class,'ShowHomePage']);
-
 // Show Login User
 Route::get('login',[UserController::class,'ShowUserLogin']);
-
 // Show Register User
 Route::get('register',[UserController::class,'ShowUserRegister']);
-
 //Show Screen Admin
 Route::get('admin-controller',[AdminController::class,'ShowDashBoardAdmin'])->middleware('admin');
-
 // Category Screen Index Category
 Route::get('category',[AdminCategoryProductController::class,'showCategory'])->name('indexcategory');
-
 // Show Screen Create-category
 Route::get('add-category',[AdminCategoryProductController::class,'showAddCategory']);
-
 // Show Screen Edit-category
 Route::get('edit-category',[AdminCategoryProductController::class,'showEditCategory']);
-
 // Show Screen Index Product
 Route::get('product',[AdminProductController::class,'ShowIndexProduct']);
-
 // Show Screen Create-Product
 Route::get('create-product',[AdminProductController::class,'ShowCreateProduct']);
-
 // Show Screen Update-Product
 Route::get('update-product',[AdminProductController::class,'ShowUpdateProduct']);
 // Show Screen Account Index
@@ -77,52 +68,35 @@ Route::get('view-dashboard',[DashBoardController::class,'ShowViewDashBoard']);
 
 //Login
 Route::POST('login/loginrun',[LoginRegisterController::class,'LoginPage']);
-
 //Register
 Route::POST('register/registerrun',[LoginRegisterController::class,'RegisterPage']);
-
 //ForgotPass
 Route::POST('forgot_password',[ForgotPassController::class,'sendResetLinkEmail'])->name('getpass');
-
 //Reset PassWord
 Route::get('password/reset/{token}',[ResetPasswordController::class,'showResetForm'])->name('password.reset');
 Route::post('password/reset', [ResetPasswordController::class, 'resetPassword'])->name('password.update');
-
-
 
 // Van
 // Hiển thị trang thêm tài khoản
 Route::get('add-account', [AccountController::class, 'ShowAddAccount']);
 Route::post('add-account', [AccountController::class, 'AddAccount']);
-
 // Hiển thị trang chỉnh sửa tài khoản
 Route::get('edit-account/{id}', [AccountController::class, 'ShowEditAccount']);
-
 // Cập nhật tài khoản
 Route::post('update-account/{id}', [AccountController::class, 'update']);
-
 // Xóa tài khoản
 Route::delete('delete-account/{id}', [AccountController::class, 'destroy']);
 
 
 // Route hiển thị trang thêm danh mục
 Route::get('/admin/categories/add', [AdminCategoryProductController::class, 'showAddCategory'])->name('add-category');
-
 // Route lưu danh mục mới
 Route::post('/admin/categories/store', [AdminCategoryProductController::class, 'storeCategory'])->name('store-category');
-
-
 // Route thay đổi trạng thái active của danh mục
 Route::get('/admin/categories/active/{id}', [AdminCategoryProductController::class, 'toggleActiveCategory'])->name('activecategory');
-
-
 // Hiển thị form chỉnh sửa danh mục
 Route::get('edit-category/{id}', [AdminCategoryProductController::class, 'showEditCategory'])->name('editcategory');
-
-
 // // Lưu danh mục đã chỉnh sửa
 Route::post('update-category/{id}', [AdminCategoryProductController::class, 'updateCategory'])->name('update-category');
-
-
 // Route xóa danh mục
 Route::delete('/admin/categories/delete/{id}', [AdminCategoryProductController::class, 'destroyCategory'])->name('deletecategory');

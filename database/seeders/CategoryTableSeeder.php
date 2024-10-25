@@ -18,14 +18,14 @@ class CategoryTableSeeder extends Seeder
             'user_id' => 1,
             'name' => 'Ao Thun',
             'description' => 'Ao Thun Cao Cap',
-            'image' => 'public/image/hinhanh.png',
+            'image' => 'image1.jpg',
         ]);
 
         DB::table('categories')->insert([
             'user_id' => 2,
             'name' => 'Giay The Thao',
             'description' => 'Giay The Thao Cao Cap',
-            'image' => 'public/image/hinhanh.png',
+            'image' => 'image2.jpg',
         ]);
     }
 }
