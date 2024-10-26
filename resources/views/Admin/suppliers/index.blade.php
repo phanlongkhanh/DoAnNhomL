@@ -21,7 +21,7 @@
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title"><a href="{{'create-suppliers'}}" class="btn btn-primary">Thêm
+                            <h3 class="box-title"><a href="{{ 'create-suppliers' }}" class="btn btn-primary">Thêm
                                     mới </a>
                             </h3>
                             <div class="box-tools">
@@ -37,6 +37,22 @@
                                 </form>
                             </div>
                         </div>
+
+                        @if (Session::has('success'))
+                            <div class="alert alert-success">
+                                {{ Session::get('success') }}
+                            </div>
+                        @endif
+
+                        @if (Session::has('error'))
+                            <div class="alert alert-danger">
+                                {{ Session::get('error') }}
+                            </div>
+                        @endif
+
+                        @if ($errors->has('description'))
+                            <div class="alert alert-danger">{{ $errors->first('description') }}</div>
+                        @endif
                         <!-- /.box-header -->
                         <div class="box-body table-responsive no-padding">
                             <table class="table table-hover">
@@ -45,7 +61,7 @@
                                         <th>STT</th>
                                         <th>Image</th>
                                         <th>Name</th>
-                                        <th>Description</th>
+                                        <th class="text-center">Description</th>
                                         <th>Email</th>
                                         <th>Phone</th>
                                         <th>Time</th>
@@ -60,23 +76,28 @@
                                                 $count++;
                                             @endphp
                                             <tr>
-                                                <td>{{ $count }}</td>
-                                                <td><img src="{{ asset($item->image) }}" alt=""
-                                                        style="width: 50px; height: 50px;"></td>
-                                                <td>{{ $item->name }}</td>
-                                                <td>{{ $item->description }}</td>
-                                                <td>{{ $item->email }}</td>
-                                                <td>{{ $item->phone }}</td>
-                                                <td>{{ $item->created_at }}</td>
-                                                <td>
-                                                    <a href="{{ route('updatesupplier', ['id' => $item->id_supplier]) }}"
+                                                <td class="h3 text-center" style="line-height: 150px">{{ $count }}</td>
+                                                <td><img src="suppliers-image/<?= $item->image ?>" alt=""
+                                                        width="150px" height="150px"></td>
+                                                <td style="line-height: 150px" class="h4 text-danger">{{ $item->name }}</td>
+                                                <td style="line-height: 150px">{{ $item->description }}</td>
+                                                <td style="line-height: 150px">{{ $item->email }}</td>
+                                                <td style="line-height: 150px">{{ $item->phone }}</td>
+                                                <td style="line-height: 150px">{{ $item->created_at }}</td>
+                                                <td style="line-height: 150px">
+                                                    <a href="{{ url('edit-suppliers', ['id' => Crypt::encrypt($item->id)]) }}"
                                                         class="btn btn-xs btn-primary"
                                                         onclick="return confirm('Bạn chắc chắn là sửa chứ')"><i
-                                                            class="fa fa-pencil"></i> Edit</a>
-                                                    <a href="{{ route('deletesupllers', ['id' => $item->id_supplier]) }}"
-                                                        class="btn btn-xs btn-danger js-delete-confirm"
-                                                        onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
-                                                            class="fa fa-trash"></i> Delete</a>
+                                                            class="fa fa-pencil"></i> Edit
+                                                    </a>
+                                                    <form action="{{ route('suppliers-remove', ['id' => $item->id]) }}"
+                                                        method="POST" style="display:inline;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-xs btn-danger"
+                                                            onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
+                                                                class="fa fa-trash"></i> Delete</button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @endforeach
