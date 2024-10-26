@@ -17,11 +17,6 @@ class AccountController extends Controller
         return view('Admin.account.create');
     }
 
-    // public function ShowEditAccount() {
-    //     $users = User::all();
-    //     return view('Admin.account.create');
-    // }
-
     public function ShowEditAccount($id)
     {
         // Tìm tài khoản theo id
