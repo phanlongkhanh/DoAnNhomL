@@ -48,4 +48,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Mối quan hệ giữa thằng Users và Role
+    public function role() {
+        return $this->belongsTo(Role::class);
+    }
 }

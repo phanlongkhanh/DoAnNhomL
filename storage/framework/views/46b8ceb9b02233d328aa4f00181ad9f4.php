@@ -22,7 +22,7 @@
                         <div class="box-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
                                 <input type="text" name="table_search" class="form-control pull-right ajax-search-table"
-                                       placeholder="Search" data-url="">
+                                    placeholder="Search" data-url="">
                                 <div class="input-group-btn">
                                     <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                                 </div>
@@ -33,81 +33,78 @@
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover ">
                             <tbody>
-                            <tr>
-                                <th>STT</th>
-                                <th>ID</th>
-                                <th>Họ Tên</th>
-                                <th>Email</th>
-                                <th>Role</th>
-                                <th>Active</th>
-                                <th>Ngày thêm</th>
-                                <th>Ngày cập nhật</th>
-                                <th>Chỉnh sửa</th>
-                            </tr>             
-                            <?php
-                                $count = 0;
-                            ?>
-                            <?php if(isset($status)): ?>
                                 <tr>
-                                    <td><?php echo e($status); ?></td>
+                                    <th>STT</th>
+                                    <th>ID</th>
+                                    <th>Họ Tên</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Active</th>
+                                    <th>Ngày thêm</th>
+                                    <th>Ngày cập nhật</th>
+                                    <th>Chỉnh sửa</th>
                                 </tr>
-                            <?php endif; ?>
-
-
-
-                            <?php if(isset($users)): ?>
-                                <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $users): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <?php
-                                        $count ++;
-                                    ?>
-
+                                <?php
+                                    $count = 0;
+                                ?>
+                                <?php if(isset($status)): ?>
                                     <tr>
-                                        <td><?php echo e($count); ?></td>
-                                        <td><?php echo e($users->id); ?></td>
-                                        
-                                        
-                                        <td><?php echo e($users->name); ?></td>
-                                        <td><?php echo e($users->email); ?></td>
-                                        <td><?php echo e($users->role_id); ?></td>
-                                        
-                                        
-                                        <td>
-                                            <?php if($users->checkactive==1): ?>
-                                                <a href="#"
-                                                   class="label label-info status-active">Show</a>
-                                            <?php else: ?>
-                                                <a href="#}"
-                                                   class="label label-default status-active">Hide</a>
-                                            <?php endif; ?>
-                                        </td>
-                                        
-                                        <td><?php echo e($users->created_at); ?></td>
-                                        
-                                        <td><?php echo e($users->updated_at); ?></td>
-                                        
-                                         
-                                        
-                                        <td>
-                                            <a href="<?php echo e(url('edit-account/' . $users->id)); ?>"
-                                               class="btn btn-xs btn-primary"
-                                               onclick="return confirm('Bạn chắc chắn là sửa chứ')"><i
-                                                    class="fa fa-pencil"></i> Edit</a>
-                                            
+                                        <td><?php echo e($status); ?></td>
+                                    </tr>
+                                <?php endif; ?>
 
-                                            <form action="<?php echo e(url('delete-account/' . $users->id)); ?>" method="POST" style="display:inline;">
-                                                <?php echo csrf_field(); ?>
-                                                <?php echo method_field('DELETE'); ?>
+                                <?php if(isset($users)): ?>
+                                    <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $users): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php
+                                            $count++;
+                                        ?>
+
+                                        <tr>
+                                            <td><?php echo e($count); ?></td>
+                                            <td><?php echo e($users->id); ?></td>
+                                            
+                                            
+                                            <td><?php echo e($users->name); ?></td>
+                                            <td><?php echo e($users->email); ?></td>
+                                            <td><?php echo e($users->role->name); ?></td>
+
+                                            
+                                            <td>
+                                                <?php if($users->checkactive == 1): ?>
+                                                    <a href="#" class="label label-info status-active">Show</a>
+                                                <?php else: ?>
+                                                    <a href="#}" class="label label-default status-active">Hide</a>
+                                                <?php endif; ?>
+                                            </td>
+                                            
+                                            <td><?php echo e($users->created_at); ?></td>
+                                            
+                                            <td><?php echo e($users->updated_at); ?></td>
+                                            
+                                            
+                                            
+                                            <td>
+                                                <a href="<?php echo e(url('edit-account/' . $users->id)); ?>"
+                                                    class="btn btn-xs btn-primary"
+                                                    onclick="return confirm('Bạn chắc chắn là sửa chứ')"><i
+                                                        class="fa fa-pencil"></i> Edit</a>
+                                                
+
+                                                <form action="<?php echo e(url('delete-account/' . $users->id)); ?>" method="POST"
+                                                    style="display:inline;">
+                                                    <?php echo csrf_field(); ?>
+                                                    <?php echo method_field('DELETE'); ?>
                                                     <button type="submit" class="btn btn-xs btn-danger"
                                                         onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
-                                                        class="fa fa-trash"></i> Delete</button>
-                                            </form>        
-                                        </td>
-                                    </tr>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <?php endif; ?>
-                            </tbody>                     
+                                                            class="fa fa-trash"></i> Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endif; ?>
+                            </tbody>
                         </table>
-                        
+
                         
                         <!-- Phân trang  bắt đầu-->
                         <div id="pageNavPosition" class="text-right">
@@ -120,13 +117,13 @@
 
                                 <!-- Hiển thị link đến trang tiếp theo (Next Page) -->
                                 
-                                
+
                             </ul>
-                            
+
                         </div>
-                        
+
                     </div>
-                    
+
 
                 </div>
             </div>

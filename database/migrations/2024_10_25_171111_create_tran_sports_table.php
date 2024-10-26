@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_types', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('tran_sports', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
+            $table->string('image');
             $table->text('description');
             $table->boolean('checkactive')->default(true)->comment('Check hoạt động');
             $table->timestamps();
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_types');
+        Schema::dropIfExists('tran_sports');
     }
 };

@@ -19,40 +19,34 @@
       <tbody>
         <tr>
           <th>ID</th>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Check</th>
+          <th class="text-center">Name</th>
+          <th>Image</th>
+          <th class="text-center">Description</th>
+          <th>Active</th>
           <th>Time</th>
           <th>Update</th>
           <th>Action</th>
         </tr>
-        @if(isset($productTypes))
-            @foreach ($productTypes as $item)
+        @if(isset($transports))
+            @foreach ($transports as $item)
                 <tr>
-                    <td>{{ $item->id }}</td>
-                    <td>{{ $item->name }}</td>       
-                    <td>{{ $item->description  }}</td>
+                    <td class="text-center h4" style="line-height: 100px;">{{ $item->id }}</td>
+                    <td class="text-center align-middle" style="height: 100px;"><div class="font-weight-bold h4 text-danger" style="line-height: 100px;">{{ $item->name }}</div></td>
+                    <td><img src="transport-image/<?= $item->image ?>" alt="" width="200px" height="150px"></td>
+                    <td class="text-center align-middle" style="height: 100px;"><div style="line-height: 100px;">{{ $item->description }}</div></td>
                     <td>
                         @if ($item->checkactive == 1)
-                            <a href="{{ route('active-product-type', $item->id) }}" class="label label-info status-active">Show</a>
+                            <a href="#" class="label label-info status-active" style="line-height: 100px;" >Show</a>
                         @else
-                            <a href="{{ route('active-product-type', $item->id) }}" class="label label-default status-active">Hide</a>
+                            <a href="#" class="label label-default status-active" style="line-height: 100px;">Hide</a>
                         @endif
                     </td>
-                    <td>{{ $item->created_at }}</td>
-                    <td>{{ $item->updated_at }}</td>
-                    <td>
-                        <a href="{{ url('edit-producttype', ['id' => Crypt::encrypt($item->id)]) }}" class="btn btn-xs btn-primary" onclick="return confirm('Bạn có chắc muốn sửa không ?')">
-                            <i class="fa fa-pencil"></i> Edit
-                        </a>
-                        <form action="{{ route('remove-product-type', $item->id) }}" method="POST"
-                            style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-xs btn-danger"
-                                onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
-                                    class="fa fa-trash"></i> Delete</button>
-                        </form>          
+                  
+                    <td style="line-height: 100px;">{{ $item->created_at }}</td>
+                    <td style="line-height: 100px;">{{ $item->updated_at }}</td>
+                    <td style="line-height: 100px;">
+                        <a href="{{ url('editProductType', ['id' => $item->id_producttype]) }}" class="btn btn-xs btn-primary" onclick="return confirm('Bạn có chắc muốn sửa không')"><i class="fa fa-pencil"></i> Edit</a>
+                        <a href="{{ url('deleteproducttype', ['id' => $item->id_producttype]) }}" class="btn btn-xs btn-danger js-delete-confirm" onclick="return confirm('Bạn có chắc muốn xoá không')"><i class="fa fa-trash"></i> Delete</a>
                     </td>
                 </tr>
             @endforeach

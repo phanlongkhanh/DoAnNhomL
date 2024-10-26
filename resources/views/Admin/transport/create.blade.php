@@ -2,12 +2,12 @@
 @section('content')
 <section class="content-header">
     <h1>
-      Product Type
-      <small>Edit</small>
+        TranSport
+      <small>Create</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="">TyPe Pro</a></li>
+      <li><a href="">TyPe</a></li>
       <li class="active">Create</li>
 
     </ol>
@@ -18,26 +18,33 @@
     <div class="row">
 
     <div class="box box-primary">
-        <form action="{{ route('product-type-update', ['id' => $producttypes->id]) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{url('add-tranport')}}" method="POST" enctype="multipart/form-data">
             @csrf
-            @method('PUT')
             <div class="box-body">
                 <div class="col-sm-8">
                     <div class="form-group">
                         <label for="name">Name<span class="text-danger">(*)</span></label>
-                        <input type="text" class="form-control" name="name" placeholder="Name ......" required  value="{{$producttypes->name}}">
+                        <input type="text" class="form-control" name="name" placeholder="Name ......" required>
                         @error('name')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
-                    </div>
+                    </div>              
                     <div class="form-group">
                         <div class="form-group">
                             <label for="description">Description <span class="text-danger">(*)</span></label>
-                            <textarea class="form-control" name="description" placeholder="Description ....." required>{{$producttypes->description}}</textarea>
+                            <textarea class="form-control" name="description" placeholder="Description ....." required></textarea>
                             @error('description')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+                    </div>
+                    <div class="form-group {{ $errors->first('image') ? 'has-error' : '' }}">
+                        <label for="fileInput">Image<span class="text-danger">(*)</span></label>
+                        <input type="file" class="form-control-file" id="fileInput" name="image"
+                            required>
+                        @if ($errors->first('image'))
+                            <span class="text-danger">{{ $errors->first('image') }}</span>
+                        @endif
                     </div>
                 </div>
             </div>

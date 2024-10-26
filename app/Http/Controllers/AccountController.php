@@ -9,8 +9,8 @@ use App\Models\User;
 class AccountController extends Controller
 {
     public function ShowAccount() {
-        $users = User::all();
-        return view('Admin.account.index',compact('users'));
+        $users = User::with('role')->get(); 
+        return view('Admin.account.index', compact('users'));
     }
 
     public function ShowAddAccount() {
