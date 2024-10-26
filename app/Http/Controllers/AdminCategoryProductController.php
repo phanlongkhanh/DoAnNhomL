@@ -79,24 +79,27 @@ class AdminCategoryProductController extends Controller
             'category_description' => 'required|string',
             'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-
+    
         $category = Category::findOrFail($id);
         $category->name = $request->category_name;
         $category->description = $request->category_description;
-
+    
         // Cập nhật hình ảnh
         if ($request->hasFile('category_image')) {
             // Xóa hình ảnh cũ nếu có
             if ($category->image) {
                 Storage::disk('public')->delete($category->image);
             }
-            
-            $imagePath = $request->file('category_image')->store('images/categories', 'public');
-            $category->image = $imagePath; // Cập nhật đường dẫn hình ảnh
+    
+            // Lưu hình ảnh mới
+            $image = $request->file('category_image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+            $category->image = $imageName; 
         }
-
-        $category->save(); // **Lưu vào cơ sở dữ liệu**
-
+    
+        $category->save();
+    
         return redirect()->route('indexcategory')->with('success', 'Category updated successfully.'); // Thông báo thành công
     }
 
