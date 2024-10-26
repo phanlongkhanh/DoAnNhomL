@@ -139,8 +139,9 @@
 
                         <?php if($user && $user->role_id == 1): ?>
                             <p class="m-0"><?php echo e($user->name); ?></p>
-                            <h5 class="m-0"><?php echo e($user->email); ?></h5>
+                            <h5 class="m-0"><?php echo e($user->email); ?></h5>                       
                         <?php endif; ?>
+                       
                     </div>
                 </div>
                 <!-- search form -->
@@ -203,7 +204,7 @@
                     </li>
 
                     <li class="<?php echo e(Request::is('admin-datn/article*') ? 'active' : ''); ?>">
-                        <a href="#">
+                        <a href="<?php echo e('index-suppliers'); ?>">
                             <i class="fa fa-truck"></i> <span>Nhà Cung Cấp</span>
                         </a>
                     </li>
@@ -231,16 +232,13 @@
                             <i class="fa fa-rocket"></i> <span>Thống Kê</span>
                         </a>
                     </li>
-
-                    <li class="<?php echo e(Request::is('admin-datn/slide*') ? 'active' : ''); ?>">
-                        <a href="">
-                            <i class="fa fa-circle-o text-red"></i> <span>Slide</span>
-                        </a>
-                    </li>
+             
                     <li class="<?php echo e(Request::is('admin-datn/user*') ? 'active' : ''); ?>">
-                        <a href="">
-                            <i class="fa fa-users"></i> <span>Chi Tiết</span>
+
+                        <a href="<?php echo e('logout'); ?>">
+                            <i class="fa fa-circle-o text-red"></i> <span>LogOut</span>
                         </a>
+                       
                     </li>
 
 
@@ -255,7 +253,12 @@
 
             <?php echo $__env->yieldContent('content'); ?>
             <h1 class="text-center text-primary ">Quản lý Shop Bán Hàng Pink Store</h1>
+            <?php if(session('message')): ?>
+                <div class="alert alert-success h1 text-center" role="alert">
+                    <?php echo e(session('message')); ?>
 
+                </div>
+            <?php endif; ?>
         </div>
 
         <!-- /.content-wrapper -->

@@ -18,13 +18,14 @@
     <div class="row">
 
     <div class="box box-primary">
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('product-type-update', ['id' => $producttypes->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="box-body">
                 <div class="col-sm-8">
                     <div class="form-group">
-                        <label for="name">Names <span class="text-danger">(*)</span></label>
-                        <input type="text" class="form-control" name="name" placeholder="Name ......" required  value="#">
+                        <label for="name">Name<span class="text-danger">(*)</span></label>
+                        <input type="text" class="form-control" name="name" placeholder="Name ......" required  value="{{$producttypes->name}}">
                         @error('name')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -32,7 +33,7 @@
                     <div class="form-group">
                         <div class="form-group">
                             <label for="description">Description <span class="text-danger">(*)</span></label>
-                            <textarea class="form-control" name="description" placeholder="Description ....." required>#</textarea>
+                            <textarea class="form-control" name="description" placeholder="Description ....." required>{{$producttypes->description}}</textarea>
                             @error('description')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror

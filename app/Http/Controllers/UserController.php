@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -10,7 +10,14 @@ class UserController extends Controller
     // Hiển Thị màn hình Mua Hàng
     public function ShowHomePage()
     {
-        return view('User.homepage');
+        $users = Auth::check() ? Auth::user()->name : null;
+        return view('User.homepage',compact('users'));
+    }
+
+    public function ShowProductDetails()
+    {
+        $users = Auth::check() ? Auth::user()->name : null;
+        return view('User.product.details',compact('users'));
     }
 
     // Hiển Thị Trang Đăng Nhập
@@ -28,6 +35,6 @@ class UserController extends Controller
     public function ShowForgotPassword(){
         return view('User.forgot.forgot_user');
     }
-    
 
+ 
 }

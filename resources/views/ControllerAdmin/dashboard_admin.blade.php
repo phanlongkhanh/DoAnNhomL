@@ -147,8 +147,9 @@
 
                         @if ($user && $user->role_id == 1)
                             <p class="m-0">{{ $user->name }}</p>
-                            <h5 class="m-0">{{ $user->email }}</h5>
+                            <h5 class="m-0">{{ $user->email }}</h5>                       
                         @endif
+                       
                     </div>
                 </div>
                 <!-- search form -->
@@ -215,7 +216,7 @@
                     </li>
 
                     <li class="{{ Request::is('admin-datn/article*') ? 'active' : '' }}">
-                        <a href="#">
+                        <a href="{{ 'index-suppliers' }}">
                             <i class="fa fa-truck"></i> <span>Nhà Cung Cấp</span>
                         </a>
                     </li>
@@ -223,7 +224,7 @@
 
 
                     <li class="{{ Request::is('admin-datn/article*') ? 'active' : '' }}">
-                        <a href="{{'index-transport'}}">
+                        <a href="{{ 'index-transport' }}">
                             <i class="fa fa-circle-o-notch"></i> <span>Đơn vị vận chuyển</span>
                         </a>
                     </li>
@@ -243,16 +244,13 @@
                             <i class="fa fa-rocket"></i> <span>Thống Kê</span>
                         </a>
                     </li>
-
-                    <li class="{{ Request::is('admin-datn/slide*') ? 'active' : '' }}">
-                        <a href="">
-                            <i class="fa fa-circle-o text-red"></i> <span>Slide</span>
-                        </a>
-                    </li>
+             
                     <li class="{{ Request::is('admin-datn/user*') ? 'active' : '' }}">
-                        <a href="">
-                            <i class="fa fa-users"></i> <span>Chi Tiết</span>
+
+                        <a href="{{ 'logout' }}">
+                            <i class="fa fa-circle-o text-red"></i> <span>LogOut</span>
                         </a>
+                       
                     </li>
 
 
@@ -267,7 +265,11 @@
 
             @yield('content')
             <h1 class="text-center text-primary ">Quản lý Shop Bán Hàng Pink Store</h1>
-
+            @if (session('message'))
+                <div class="alert alert-success h1 text-center" role="alert">
+                    {{ session('message') }}
+                </div>
+            @endif
         </div>
 
         <!-- /.content-wrapper -->

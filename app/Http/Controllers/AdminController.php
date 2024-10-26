@@ -14,9 +14,7 @@ class AdminController extends Controller
         $user = Auth::user(); 
         return view('ControllerAdmin.dashboard_admin', compact('user')); 
     } else {
-        return redirect()->route('login');
+        return redirect('login');
     }
     }
-
-
 }

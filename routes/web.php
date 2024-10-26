@@ -13,6 +13,7 @@ use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\OdersController;
 use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\TranSportController;
+use App\Http\Controllers\SupplierController;
 
 //Giao Diện
 Route::get('/', [UserController::class, 'ShowUserLogin']);
@@ -62,7 +63,16 @@ Route::get('view-dashboard', [DashBoardController::class, 'ShowViewDashBoard']);
 Route::get('index-transport', [TranSportController::class, 'ShowIndexTranSport']);
 //Show Screen TranSport Create
 Route::get('create-transport', [TranSportController::class, 'ShowCreateTranSport']);
-
+//Show Screen TranSport Update
+Route::get('update-transport', [TranSportController::class, 'ShowUpdateTranSport']);
+//Show Screen Supplier Index
+Route::get('index-suppliers', [SupplierController::class, 'ShowIndexSuppliers']);
+//Show Screen Supplier Create
+Route::get('create-suppliers', [SupplierController::class, 'ShowCreateSuppliers']);
+//Show Screen Supplier Update
+Route::get('update-suppliers', [SupplierController::class, 'ShowUpdateSuppliers']);
+//Show ProductDetails
+Route::get('details-product', [UserController::class, 'ShowProductDetails']);
 
 
 
@@ -75,10 +85,13 @@ Route::get('create-transport', [TranSportController::class, 'ShowCreateTranSport
 Route::POST('login/loginrun', [LoginRegisterController::class, 'LoginPage']);
 //Register
 Route::POST('register/registerrun', [LoginRegisterController::class, 'RegisterPage']);
+//LogOut
+Route::GET('logout', [LoginRegisterController::class, 'LogOutUser']);
 //ForgotPass
 Route::POST('forgot_password', [ForgotPassController::class, 'sendResetLinkEmail'])->name('getpass');
 //Reset PassWord
 Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+//Update PassWord
 Route::post('password/reset', [ResetPasswordController::class, 'resetPassword'])->name('password.update');
 
 // Van
@@ -107,8 +120,23 @@ Route::post('update-category/{id}', [AdminCategoryProductController::class, 'upd
 Route::delete('/admin/categories/delete/{id}', [AdminCategoryProductController::class, 'destroyCategory'])->name('deletecategory');
 
 
-//Thêm loại Sản Phẩm
+//Add ProductType
 Route::POST('add-product-type', [ProductTypeController::class, 'AddProductType']);
 //active loại sản phẩm
-Route::get('active-product-type/{id}', [ProductTypeController::class, 'ActiveProductType']);
-
+Route::get('/product-type/active/{id}', [ProductTypeController::class, 'ActiveProductType'])->name('active-product-type');
+//Edit ProductType
+Route::get('edit-producttype/{id}', [ProductTypeController::class, 'EditProductType']);
+//Remove ProductType
+Route::delete('product-type-remove/{id}', [ProductTypeController::class, 'RemoveProductType'])->name('remove-product-type');
+//Update ProductType
+Route::put('product-type-update/{id}', [ProductTypeController::class, 'UpdateProductType'])->name('product-type-update');
+//Add TranSport
+Route::POST('add-tranport', [TranSportController::class, 'AddProductType']);
+//Edit TranSport
+Route::get('edit-transports/{id}', [TranSportController::class, 'EditTranSport']);
+//Update TranSprot
+Route::put('transport-update/{id}', [TranSportController::class, 'UpdateTranSport'])->name('transport-update');
+//Remove TranSport
+Route::delete('transport-remove/{id}', [TranSportController::class, 'RemoveTranSport'])->name('transport-remove');
+//Active TranSport
+Route::get('transport/active/{id}', [TranSportController::class, 'ActiveTranSport'])->name('transport-active');
