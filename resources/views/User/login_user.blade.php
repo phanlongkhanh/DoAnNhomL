@@ -22,6 +22,17 @@
     </style>
 </head>
 <body>
+    @if (session('message'))
+    <div class="alert alert-success h1 text-center" role="alert">
+        {{ session('message') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="alert alert-danger h1 text-center" role="alert">
+        {{ session('error') }}
+    </div>
+@endif
 
     <div class="login-container">
         <h2 class="text-center">Đăng Nhập</h2>

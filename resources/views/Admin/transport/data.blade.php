@@ -36,17 +36,26 @@
                     <td class="text-center align-middle" style="height: 100px;"><div style="line-height: 100px;">{{ $item->description }}</div></td>
                     <td>
                         @if ($item->checkactive == 1)
-                            <a href="#" class="label label-info status-active" style="line-height: 100px;" >Show</a>
+                            <a style="line-height: 100px;" href="{{ route('transport-active', $item->id) }}" class="label label-info status-active">Show</a>
                         @else
-                            <a href="#" class="label label-default status-active" style="line-height: 100px;">Hide</a>
+                            <a style="line-height: 100px;" href="{{ route('transport-active', $item->id) }}" class="label label-default status-active">Hide</a>
                         @endif
                     </td>
                   
                     <td style="line-height: 100px;">{{ $item->created_at }}</td>
                     <td style="line-height: 100px;">{{ $item->updated_at }}</td>
                     <td style="line-height: 100px;">
-                        <a href="{{ url('editProductType', ['id' => $item->id_producttype]) }}" class="btn btn-xs btn-primary" onclick="return confirm('Bạn có chắc muốn sửa không')"><i class="fa fa-pencil"></i> Edit</a>
-                        <a href="{{ url('deleteproducttype', ['id' => $item->id_producttype]) }}" class="btn btn-xs btn-danger js-delete-confirm" onclick="return confirm('Bạn có chắc muốn xoá không')"><i class="fa fa-trash"></i> Delete</a>
+                        <a href="{{ url('edit-transports', ['id' => Crypt::encrypt($item->id)]) }}" class="btn btn-xs btn-primary" onclick="return confirm('Bạn có chắc muốn sửa không ?')">
+                            <i class="fa fa-pencil"></i> Edit
+                        </a>
+                        <form action="{{ url('transport-remove', ['id' => $item->id]) }}" method="POST"
+                            style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-xs btn-danger"
+                                onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
+                                    class="fa fa-trash"></i> Delete</button>
+                        </form>                  
                     </td>
                 </tr>
             @endforeach

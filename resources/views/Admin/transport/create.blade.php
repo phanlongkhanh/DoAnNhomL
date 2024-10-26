@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="box-footer">
-                <a href="{{ url('product-type-index') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
+                <a href="{{ url('index-transport') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
                 <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Submit</button>
             </div>
             </div>

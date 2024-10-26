@@ -18,7 +18,7 @@ class LoginRegisterController extends Controller
             // Kiểm tra vai trò của người dùng
             if (Auth::user()->isAdmin()) {
                 // Nếu là admin, chuyển hướng đến trang admin
-                return redirect('/admin-controller');
+                return redirect('/admin-controller')->with('message','Đăng Nhập Thành Công !!!');
             } else {
                 // Nếu là user, chuyển hướng đến trang người dùng
                 return redirect('/homepage');
@@ -59,9 +59,14 @@ class LoginRegisterController extends Controller
     }
 
     //viết hàm logout
-    public function logoutUser()
+    public function LogOutUser()
     {
-        Auth::logout();
-        return redirect('login')->with('message', 'Đăng Xuất Thành Công !');
+        try {
+            Auth::logout();
+            return redirect('login')->with('message', 'Đăng Xuất Thành Công !');
+        } catch (\Exception $e) {
+            // Xử lý lỗi nếu có
+            return redirect('login')->with('error', 'Có lỗi xảy ra trong quá trình đăng xuất!');
+        }
     }
 }
