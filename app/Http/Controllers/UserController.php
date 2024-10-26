@@ -14,6 +14,12 @@ class UserController extends Controller
         return view('User.homepage',compact('users'));
     }
 
+    public function ShowProductDetails()
+    {
+        $users = Auth::check() ? Auth::user()->name : null;
+        return view('User.product.details',compact('users'));
+    }
+
     // Hiển Thị Trang Đăng Nhập
     public function ShowUserLogin()
     {

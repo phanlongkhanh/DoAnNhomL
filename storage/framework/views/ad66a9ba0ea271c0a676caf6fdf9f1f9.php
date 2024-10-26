@@ -22,6 +22,19 @@
     </style>
 </head>
 <body>
+    <?php if(session('message')): ?>
+    <div class="alert alert-success h1 text-center" role="alert">
+        <?php echo e(session('message')); ?>
+
+    </div>
+<?php endif; ?>
+
+<?php if(session('error')): ?>
+    <div class="alert alert-danger h1 text-center" role="alert">
+        <?php echo e(session('error')); ?>
+
+    </div>
+<?php endif; ?>
 
     <div class="login-container">
         <h2 class="text-center">Đăng Nhập</h2>

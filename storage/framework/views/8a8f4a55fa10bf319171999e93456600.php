@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <!-- Basic -->
     <meta charset="utf-8" />
@@ -12,7 +11,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <link rel="shortcut icon" href="<?php echo e(asset('homepage-images/favicon.png')); ?>" type="image/x-icon">
-
+    <?php echo $__env->yieldContent('title'); ?>
     <title>
         Pink Store
     </title>
@@ -97,7 +96,7 @@
 
                         <div style="margin-left: 30px;">
                             <?php if($users): ?>
-                                <a href="<?php echo e('login'); ?>">
+                                <a href="<?php echo e('logout'); ?>">
                                     <span>LogOut</span>
                                 </a>
                             <?php else: ?>
@@ -112,6 +111,7 @@
                 </div>
             </nav>
         </header>
+
         <!-- end header section -->
         <!-- slider section -->
 
@@ -220,7 +220,7 @@
                 </div>
             </div>
         </section>
-
+       
         <!-- end slider section -->
     </div>
     <!-- end hero area -->
@@ -231,20 +231,24 @@
         <div class="container">
             <div class="heading_container heading_center">
                 <h2>
-                    Latest Products
+                    List Products
                 </h2>
             </div>
             <div class="row">
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="product-box">
-                        <a href="#">
-                            <div class="img-box" style="width: 100%; height: 300px; overflow: hidden; position: relative;">
-                                <img src="images/aothun.jpg" alt="Product Image" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
-                                <div class="new" style="position: absolute; top: 10px; left: 10px; background: red; color: white; padding: 5px; font-size: 12px; border-radius: 3px;">
+                        <a href="details-product">
+                            <div class="img-box"
+                                style="border:2px solid black; width: 100%; height: 350px; overflow: hidden; position: relative;">
+                                <img src="images/aothun.jpg" alt="Product Image"
+                                    style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                <div class="new"
+                                    style="position: absolute; top: 10px; left: 10px; background: red; color: white; padding: 5px; font-size: 12px; border-radius: 3px;">
                                     New
                                 </div>
-                                <div class="product-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.8); padding: 10px; text-align: center;">
-                                    <h6 style="margin: 0; font-weight: bold;">                 
+                                <div class="product-info"
+                                    style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.8); padding: 10px; text-align: center;">
+                                    <h6 style="margin: 0; font-weight: bold;">
                                         <span style="color: rgb(246, 4, 4); font-size: 20px;">Tên Sản Phẩm</span>
                                     </h6>
                                     <h6 style="margin: 0; font-weight: bold;">
@@ -253,10 +257,12 @@
                                     </h6>
                                     <div class="detail-box">
                                         <form action="" method="post" style="display: inline;">
-                                            <button type="submit" class="btn btn-danger" style="margin-top: 5px;">Add to cart</button>
+                                            <button type="submit" class="btn btn-danger"
+                                                style="margin-top: 5px;">Add to cart</button>
                                         </form>
                                         <form action="" method="post" style="display: inline;">
-                                            <button type="submit" class="btn btn-danger" style="margin-top: 5px; margin-left: 10px;">
+                                            <button type="submit" class="btn btn-danger"
+                                                style="margin-top: 5px; margin-left: 10px;">
                                                 <p class="fa fa-heart" style="margin: 0;"></p>
                                             </button>
                                         </form>
@@ -641,7 +647,7 @@
                     <div class="map_container">
                         <div class="map-responsive">
                             <iframe
-                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France"
+                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Thành+phố+Hồ+Chí+Minh,+Thủ+Đức,+Võ+Văn+Ngân,+Trường+Cao+Đẳng+Công+Nghệ+Thủ+Đức"
                                 width="600" height="300" frameborder="0"
                                 style="border:0; width: 100%; height:100%" allowfullscreen></iframe>
                         </div>

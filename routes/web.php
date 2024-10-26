@@ -64,13 +64,16 @@ Route::get('index-transport', [TranSportController::class, 'ShowIndexTranSport']
 //Show Screen TranSport Create
 Route::get('create-transport', [TranSportController::class, 'ShowCreateTranSport']);
 //Show Screen TranSport Update
-
+Route::get('update-transport', [TranSportController::class, 'ShowUpdateTranSport']);
 //Show Screen Supplier Index
 Route::get('index-suppliers', [SupplierController::class, 'ShowIndexSuppliers']);
 //Show Screen Supplier Create
 Route::get('create-suppliers', [SupplierController::class, 'ShowCreateSuppliers']);
 //Show Screen Supplier Update
 Route::get('update-suppliers', [SupplierController::class, 'ShowUpdateSuppliers']);
+//Show ProductDetails
+Route::get('details-product', [UserController::class, 'ShowProductDetails']);
+
 
 
 
@@ -82,6 +85,8 @@ Route::get('update-suppliers', [SupplierController::class, 'ShowUpdateSuppliers'
 Route::POST('login/loginrun', [LoginRegisterController::class, 'LoginPage']);
 //Register
 Route::POST('register/registerrun', [LoginRegisterController::class, 'RegisterPage']);
+//LogOut
+Route::GET('logout', [LoginRegisterController::class, 'LogOutUser']);
 //ForgotPass
 Route::POST('forgot_password', [ForgotPassController::class, 'sendResetLinkEmail'])->name('getpass');
 //Reset PassWord
@@ -127,3 +132,11 @@ Route::delete('product-type-remove/{id}', [ProductTypeController::class, 'Remove
 Route::put('product-type-update/{id}', [ProductTypeController::class, 'UpdateProductType'])->name('product-type-update');
 //Add TranSport
 Route::POST('add-tranport', [TranSportController::class, 'AddProductType']);
+//Edit TranSport
+Route::get('edit-transports/{id}', [TranSportController::class, 'EditTranSport']);
+//Update TranSprot
+Route::put('transport-update/{id}', [TranSportController::class, 'UpdateTranSport'])->name('transport-update');
+//Remove TranSport
+Route::delete('transport-remove/{id}', [TranSportController::class, 'RemoveTranSport'])->name('transport-remove');
+//Active TranSport
+Route::get('transport/active/{id}', [TranSportController::class, 'ActiveTranSport'])->name('transport-active');
