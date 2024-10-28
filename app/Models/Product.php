@@ -31,4 +31,16 @@ class Product extends Model
         'list_images' => 'array',
     ];
 
+     // Liên kết một sản phẩm với nhiều giỏ hàng
+     public function carts()
+     {
+         return $this->hasMany(Cart::class, 'id_product', 'id_product');
+     }
+
+       // Liên kết nhiều sản phẩm với một danh mục
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'id_category', 'id'); // Tham chiếu đến id của bảng categories
+    }
+
 }
