@@ -73,6 +73,10 @@ Route::get('create-suppliers', [SupplierController::class, 'ShowCreateSuppliers'
 Route::get('update-suppliers', [SupplierController::class, 'ShowUpdateSuppliers']);
 //Show ProductDetails
 Route::get('details-product', [UserController::class, 'ShowProductDetails']);
+//Show User Category
+Route::get('category-user-product', [UserController::class, 'ShowUserCategory']);
+//Show User Cart
+Route::get('cart-user-product', [UserController::class, 'ShowUserCart']);
 
 
 

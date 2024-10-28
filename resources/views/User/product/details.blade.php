@@ -1,339 +1,227 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 
 <head>
-    <!-- Basic -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!-- Site Metas -->
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <link rel="shortcut icon" href="{{ asset('homepage-images/favicon.png') }}" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink Store - Chi Tiết Sản Phẩm</title>
+    
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-
-    @yield('title')
-    <title>
-        Pink Store
-    </title>
-
-    <!-- slider stylesheet -->
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-
-    <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap1.css') }}" />
-
-    <!-- Custom styles for this template -->
-    <link href="{{ asset('css/style1.css') }}" rel="stylesheet" />
-
-    <!-- responsive style -->
-    <link href="{{ asset('css/responsive1.css') }}" rel="stylesheet" />
-    <title>Chi Tiết Sản Phẩm</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('css/style1.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive1.css') }}">
+    <link rel="shortcut icon" href="{{ asset('homepage-images/favicon.png') }}" type="image/x-icon">
 
     <style>
+        /* Background gradient for entire body */
         body {
-            background-color: pink
+            background: linear-gradient(135deg, #f0f4f8, #dff0ea);
+            color: #333;
+        }
+        
+        /* Header with soft shadow */
+        .header_section {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer background color */
+        .footer_section {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+
+        /* Product Detail Card */
+        .card {
+            border: none;
+            background-color: #f8f9fa;
+        }
+
+        /* Carousel text and control style */
+        .carousel-item p {
+            color: #555;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: #333;
+            border-radius: 50%;
+        }
+        
+        .rating .fa {
+            font-size: 20px;
+            color: #f1c40f; /* Màu vàng cho các sao */
+        }
+
+        .rating .fa.checked {
+            color: #f39c12; /* Màu vàng đậm cho các sao đã được chọn */
         }
     </style>
 </head>
 
 <body>
-
-    <header class="header_section">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand" href="index.html">
-                <span class="h1 text-danger">
-                    Pink Store
-                </span>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class=""></span>
+    <!-- Header -->
+    <header class="header_section py-3">
+        <nav class="navbar navbar-expand-lg navbar-light container">
+            <a class="navbar-brand text-danger" href="homepage"><h3 style="margin-right: 40px">Pink Store</h3></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav  ">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="homepage">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shop">
-                            Shop
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="why.html">
-                            Why Us
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="testimonial.html">
-                            Testimonial
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact Us</a>
-                    </li>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="homepage">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="category-user-product">Danh Mục</a></li>
+                    <li class="nav-item"><a class="nav-link" href="why.html">Live</a></li>
+                    <li class="nav-item"><a class="nav-link" href="testimonial.html">Testimonial</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Fanpage</a></li>
                 </ul>
-                <div class="user_option">
-
-                    <a href="">
-                        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                    </a>
-
-                    <form class="form-inline ">
-                        <button class="btn nav_search-btn" type="submit">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </button>
+                <div class="d-flex">
+                    <a href="{{'cart-user-product'}}" class="btn btn-outline-danger me-2"><i class="fas fa-shopping-bag"></i></a>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search">
+                        <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
                     </form>
-
-                    <div style="margin-left: 80px;">
-                        @if ($users)
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            <span>{{ $users }}</span>
-                        @else
-                            <a href="{{ 'login' }}">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                <span>Login</span>
-                            </a>
-                        @endif
-                    </div>
-
-                    <div style="margin-left: 30px;">
-                        @if ($users)
-                            <a href="{{ 'login' }}">
-                                <span>LogOut</span>
-                            </a>
-                        @else
-                            <a href="#">
-
-                                <span></span>
-                            </a>
-                        @endif
-                    </div>
-
                 </div>
             </div>
         </nav>
     </header>
 
-
-    <div class="container mt-5">
-        <h2>Chi Tiết Sản Phẩm</h2>
-        <div class="card mb-3">
+    <!-- Product Detail Section -->
+    <div class="container my-5">
+        <h2 class="mb-4 text-center text-danger">Chi Tiết Sản Phẩm</h2>
+        <div class="card mb-3 shadow-lg">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="https://via.placeholder.com/300" class="img-fluid rounded-start" alt="Tên Sản Phẩm">
+                    <img src="images/aothun.jpg" style="height: 400px" class="img-fluid rounded-start" alt="Tên Sản Phẩm">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title" id="productName">Tên Sản Phẩm</h5>
                         <p class="card-text"><strong>Giá:</strong> <span id="productPrice">500,000 VNĐ</span></p>
                         <p class="card-text"><strong>Số Lượng:</strong> <span id="productQuantity">10</span></p>
-                        <p class="card-text"><strong>Mô Tả:</strong></p>
-                        <p class="card-text" id="productDescription">Đây là mô tả chi tiết về sản phẩm. Nó có thể bao
-                            gồm thông tin về tính năng, chất liệu, và công dụng.</p>
-                        <button class="btn btn-primary">Add to cart</button>
+
+                        <!-- Kích Cỡ và Màu Sắc -->
+                        <p class="card-text"><strong>Kích Cỡ:</strong></p>
+                        <select class="form-select mb-3" id="productSize">
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                        </select>
+
+                        <p class="card-text"><strong>Màu Sắc:</strong></p>
+                        <select class="form-select mb-3" id="productColor">
+                            <option value="red">Đỏ</option>
+                            <option value="blue">Xanh</option>
+                            <option value="green">Xanh Lá</option>
+                        </select>
+
+                        <p class="card-text"><strong>Mô Tả:</strong> Đây là mô tả chi tiết về sản phẩm.</p>
+                        <button class="btn btn-danger">Thêm vào giỏ</button>
+                        
+                        <!-- Đánh Giá -->
+                        <div class="mt-4">
+                            <h5>Đánh Giá:</h5>
+                            <div class="rating">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <textarea class="form-control mt-2" rows="3" placeholder="Viết nhận xét của bạn ở đây..."></textarea>
+                            <button class="btn btn-primary mt-2">Gửi Nhận Xét</button>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Sản Phẩm Tương Tự -->
+        <div class="similar-products mt-5">
+            <h4 class="text-secondary">Sản Phẩm Tương Tự</h4>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <img src="images/aothun.jpg" class="card-img-top" alt="Sản Phẩm Tương Tự 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Sản Phẩm 1</h5>
+                            <p class="card-text">Giá: 400,000 VNĐ</p>
+                            <button class="btn btn-danger">Thêm vào giỏ</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <img src="images/aothun.jpg" class="card-img-top" alt="Sản Phẩm Tương Tự 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Sản Phẩm 2</h5>
+                            <p class="card-text">Giá: 600,000 VNĐ</p>
+                            <button class="btn btn-danger">Thêm vào giỏ</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Thêm các sản phẩm khác ở đây -->
+            </div>
+        </div>
+
+        <!-- Thông Tin Khác -->
+        <div class="mt-4">
+            <h5>Chính Sách Bảo Hành</h5>
+            <p>Chúng tôi cung cấp chính sách bảo hành 1 năm cho tất cả sản phẩm.</p>
+            <h5>Chính Sách Đổi Trả</h5>
+            <p>Bạn có thể đổi hoặc trả hàng trong vòng 30 ngày.</p>
         </div>
     </div>
 
-    
-    <!-- client section -->
-    <section class="client_section layout_padding">
-        <div class="container">
-            <div class="heading_container heading_center">
-                <h2>
-                    Testimonial
-                </h2>
-            </div>
-        </div>
-        <div class="container px-0">
-            <div id="customCarousel2" class="carousel  carousel-fade" data-ride="carousel">
+    <!-- Testimonial Section -->
+    <section class="client_section py-5" style="background-color: #f0f4f8;">
+        <div class="container text-center">
+            <h2 class="mb-4 text-secondary">Testimonial</h2>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="box">
-                            <div class="client_info">
-                                <div class="client_name">
-                                    <h5>
-                                        Pink Store
-                                    </h5>
-                                    <h6>
-                                        Default model text
-                                    </h6>
-                                </div>
-                                <i class="fa fa-quote-left" aria-hidden="true"></i>
-                            </div>
-                            <p>
-                                Quần Áo Pink Store
-                            </p>
-                        </div>
+                        <p class="lead">"Sản phẩm tại Pink Store rất đa dạng và chất lượng."</p>
+                        <small>- Khách hàng A</small>
                     </div>
                     <div class="carousel-item">
-                        <div class="box">
-                            <div class="client_info">
-                                <div class="client_name">
-                                    <h5>
-                                        Rochak
-                                    </h5>
-                                    <h6>
-                                        Default model text
-                                    </h6>
-                                </div>
-                                <i class="fa fa-quote-left" aria-hidden="true"></i>
-                            </div>
-                            <p>
-                                Variouseditors now use Lorem Ipsum as their default model text, and a search for 'lorem
-                                ipsum' will uncover many web sites still in their infancy. Variouseditors now use Lorem
-                                Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web
-                                sites still in their infancy. editors now use Lorem Ipsum as their default model text,
-                                and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="box">
-                            <div class="client_info">
-                                <div class="client_name">
-                                    <h5>
-                                        Brad Johns
-                                    </h5>
-                                    <h6>
-                                        Default model text
-                                    </h6>
-                                </div>
-                                <i class="fa fa-quote-left" aria-hidden="true"></i>
-                            </div>
-                            <p>
-                                Variouseditors now use Lorem Ipsum as their default model text, and a search for 'lorem
-                                ipsum' will uncover many web sites still in their infancy, editors now use Lorem Ipsum
-                                as their default model text, and a search for 'lorem ipsum' will uncover many web sites
-                                still in their infancy. Variouseditors now use Lorem Ipsum as their default model text,
-                                and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
-                                Various
-                            </p>
-                        </div>
+                        <p class="lead">"Dịch vụ khách hàng tuyệt vời!"</p>
+                        <small>- Khách hàng B</small>
                     </div>
                 </div>
-                <div class="carousel_btn-box">
-                    <a class="carousel-control-prev" href="#customCarousel2" role="button" data-slide="prev">
-                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#customCarousel2" role="button" data-slide="next">
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- info section -->
-    <section class="info_section  layout_padding2-top">
-        <div class="social_container">
-            <div class="social_box">
-                <a href="">
-                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                    <i class="fa fa-youtube" aria-hidden="true"></i>
-                </a>
+    <!-- Footer -->
+    <footer class="footer_section text-center py-4">
+        <div class="container">
+            <div class="social-icons mb-3">
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-youtube"></i></a>
             </div>
+            <p>&copy; <span id="displayYear"></span> Pink Store. All Rights Reserved.</p>
         </div>
-        <div class="info_container ">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-3">
-                        <h6>
-                            ABOUT US
-                        </h6>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
-                            consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
-                        </p>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="info_form ">
-                            <h5>
-                                Newsletter
-                            </h5>
-                            <form action="#">
-                                <input type="email" placeholder="Enter your email">
-                                <button>
-                                    Subscribe
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h6>
-                            NEED HELP
-                        </h6>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
-                            consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
-                        </p>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h6>
-                            CONTACT US
-                        </h6>
-                        <div class="info_link-box">
-                            <a href="">
-                                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                <span> Gb road 123 london Uk </span>
-                            </a>
-                            <a href="">
-                                <i class="fa fa-phone" aria-hidden="true"></i>
-                                <span>+01 12345678901</span>
-                            </a>
-                            <a href="">
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <span> demo@gmail.com</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- footer section -->
-        <footer class=" footer_section">
-            <div class="container">
-                <p>
-                    &copy; <span id="displayYear"></span> All Rights Reserved By
-                    <a href="https://html.design/">Free Html Templates</a>
-                </p>
-            </div>
-        </footer>
-        <!-- footer section -->
-    </section>
+    </footer>
 
-
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('css/jquery-3.4.1.min.js') }}"></script>
-    <script src="{{ asset('css/bootstrap1.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script src="{{ asset('css/custom.js') }}"></script>
-
+    <script>
+        document.getElementById('displayYear').textContent = new Date().getFullYear();
+        document.querySelector('.btn-danger').addEventListener('click', function() {
+            alert("Sản phẩm đã được thêm vào giỏ hàng!");
+        });
+    </script>
 </body>
-
 </html>

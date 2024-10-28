@@ -11,7 +11,7 @@ class UserController extends Controller
     public function ShowHomePage()
     {
         $users = Auth::check() ? Auth::user()->name : null;
-        return view('User.homepage',compact('users'));
+        return view('User.crud_user.homepage',compact('users'));
     }
 
     public function ShowProductDetails()
@@ -23,17 +23,25 @@ class UserController extends Controller
     // Hiển Thị Trang Đăng Nhập
     public function ShowUserLogin()
     {
-        return view('User.login_user');
+        return view('User.crud_user.login_user');
     }
 
     // Hiển Thị Trang Đăng Ký
     public function ShowUserRegister()
     {
-        return view('User.register_user');
+        return view('User.crud_user.register_user');
     }
 
     public function ShowForgotPassword(){
         return view('User.forgot.forgot_user');
+    }
+
+    public function ShowUserCategory(){
+        return view('User.category.index');
+    }
+
+    public function ShowUserCart(){
+        return view('User.cart.index');
     }
 
  
