@@ -52,8 +52,8 @@
                             <a class="nav-link" href="homepage">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="shop">
-                                Shop
+                            <a class="nav-link" href="{{'category-user-product'}}">
+                                Danh Mục
                             </a>
                         </li>
                         <li class="nav-item">
@@ -72,7 +72,7 @@
                     </ul>
                     <div class="user_option">
 
-                        <a href="">
+                        <a href="{{'cart-user-product'}}">
                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                         </a>
 
@@ -237,7 +237,7 @@
             <div class="row">
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="product-box">
-                        <a href="details-product">
+                        <a href="details-product"> <!-- nơi dẫn link  -->
                             <div class="img-box"
                                 style="border:2px solid black; width: 100%; height: 350px; overflow: hidden; position: relative;">
                                 <img src="images/aothun.jpg" alt="Product Image"

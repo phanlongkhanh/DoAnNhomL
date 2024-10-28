@@ -73,6 +73,10 @@ Route::get('create-suppliers', [SupplierController::class, 'ShowCreateSuppliers'
 Route::get('update-suppliers', [SupplierController::class, 'ShowUpdateSuppliers']);
 //Show ProductDetails
 Route::get('details-product', [UserController::class, 'ShowProductDetails']);
+//Show User Category
+Route::get('category-user-product', [UserController::class, 'ShowUserCategory']);
+//Show User Cart
+Route::get('cart-user-product', [UserController::class, 'ShowUserCart']);
 
 
 
@@ -140,3 +144,12 @@ Route::put('transport-update/{id}', [TranSportController::class, 'UpdateTranSpor
 Route::delete('transport-remove/{id}', [TranSportController::class, 'RemoveTranSport'])->name('transport-remove');
 //Active TranSport
 Route::get('transport/active/{id}', [TranSportController::class, 'ActiveTranSport'])->name('transport-active');
+//Add Suppliers
+Route::POST('add-suppliers', [SupplierController::class, 'AddSuppliers']);
+//Edit Suppliers
+Route::get('edit-suppliers/{id}', [SupplierController::class, 'ShowEditSuppliers']);
+//Update Suppliers
+Route::put('suppliers-update/{id}', [SupplierController::class, 'UpdateSuppliers'])->name('suppliers-update');
+//Remove Suppliers
+Route::delete('suppliers-remove/{id}', [SupplierController::class, 'RemoveSuppliers'])->name('suppliers-remove');
+
