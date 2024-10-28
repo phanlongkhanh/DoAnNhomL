@@ -77,6 +77,8 @@ Route::get('details-product', [UserController::class, 'ShowProductDetails']);
 Route::get('category-user-product', [UserController::class, 'ShowUserCategory']);
 //Show User Cart
 Route::get('cart-user-product', [UserController::class, 'ShowUserCart']);
+//Show Product HomePage
+Route::get('products-homepage', [UserController::class, 'ShowProductToHomepage']);
 
 
 

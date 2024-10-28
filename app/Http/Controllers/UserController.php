@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class UserController extends Controller
 {
@@ -11,13 +12,14 @@ class UserController extends Controller
     public function ShowHomePage()
     {
         $users = Auth::check() ? Auth::user()->name : null;
-        return view('User.crud_user.homepage',compact('users'));
+        $products = Product::all(); // Lấy tất cả sản phẩm
+        return view('User.crud_user.homepage', compact('users', 'products')); // Truyền cả users và products
     }
 
     public function ShowProductDetails()
     {
         $users = Auth::check() ? Auth::user()->name : null;
-        return view('User.product.details',compact('users'));
+        return view('User.product.details', compact('users'));
     }
 
     // Hiển Thị Trang Đăng Nhập
@@ -32,17 +34,28 @@ class UserController extends Controller
         return view('User.crud_user.register_user');
     }
 
-    public function ShowForgotPassword(){
+    public function ShowForgotPassword()
+    {
         return view('User.forgot.forgot_user');
     }
 
-    public function ShowUserCategory(){
+    public function ShowUserCategory()
+    {
         return view('User.category.index');
     }
 
-    public function ShowUserCart(){
+    public function ShowUserCart()
+    {
         return view('User.cart.index');
     }
 
- 
+    public function ShowProductToHomepage()
+    {
+        $products = Product::all();
+        if ($products->isEmpty()) {
+            return "Không có sản phẩm nào.";
+        }
+        return view('User.crud_user.homepage', compact('products'));
+    }
+
 }

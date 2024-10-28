@@ -17,30 +17,53 @@ class ProductTableSeeder extends Seeder
     {
         DB::table('products')->insert([
             [
-                'name' => 'Sản phẩm A',
+                'name' => 'Áo Thun Nam Cá Tính',
                 'price' => 200000,
-                'description' => 'Mô tả sản phẩm A',
+                'description' => 'Áo thun với chất liệu vải siêu thấm hút mùi hôi tạo cảm giác thoải mái cho người mặc',
                 'discount' => 0,
                 'image' => 'aothun.jpg',
-                'id_category' => 1, // Thay đổi theo danh mục thực tế
-                'id_producttype' => 1, // Thay đổi theo loại sản phẩm thực tế
+                'id_category' => 1, 
+                'id_producttype' => 2,
                 'checkactive' => true,
                 'amount' => 100,
-                'id' => 1, // ID người bán hàng
+                'id' => 1,
             ],
             [
-                'name' => 'Sản phẩm B',
-                'price' => 300000,
-                'description' => 'Mô tả sản phẩm B',
-                'discount' => 50000,
-                'image' => 'aothun.jpg',
-                'id_category' => 1, // Thay đổi theo danh mục thực tế
-                'id_producttype' => 2, // Thay đổi theo loại sản phẩm thực tế
+                'name' => 'Quần Jane',
+                'price' => 250000,
+                'description' => 'Mô tả quần Jane',
+                'discount' => 0,
+                'image' => 'quan.jpg', // Thay đổi hình ảnh nếu cần
+                'id_category' => 2,
+                'id_producttype' => 3, // Thay đổi loại sản phẩm nếu cần
+                'checkactive' => true,
+                'amount' => 75,
+                'id' => 3,
+            ],
+            [
+                'name' => 'Áo Khoác Jane',
+                'price' => 400000,
+                'description' => 'Mô tả áo khoác Jane',
+                'discount' => 0,
+                'image' => 'jane.jpg', // Thay đổi hình ảnh nếu cần
+                'id_category' => 1,
+                'id_producttype' => 4, // Thay đổi loại sản phẩm nếu cần
                 'checkactive' => true,
                 'amount' => 50,
-                'id' => 2, // ID người bán hàng
+                'id' => 4,
             ],
-            // Bạn có thể thêm nhiều sản phẩm khác ở đây
+            [
+                'name' => 'Quần Thể Thao',
+                'price' => 180000,
+                'description' => 'Mô tả quần thể thao',
+                'discount' => 0,
+                'image' => 'quanthethao.jpg', // Thay đổi hình ảnh nếu cần
+                'id_category' => 3,
+                'id_producttype' => 1, // Thay đổi loại sản phẩm nếu cần
+                'checkactive' => true,
+                'amount' => 100,
+                'id' => 5,
+            ],
         ]);
     }
 }
