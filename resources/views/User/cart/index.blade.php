@@ -176,27 +176,20 @@
             const totalPriceElement = row.querySelector('.total-price');
             const totalPriceDisplay = document.getElementById('totalPrice');
 
-            // Cập nhật số lượng
             let quantity = parseInt(quantityElement.innerText);
             quantity += change;
 
-            // Kiểm tra nếu số lượng nhỏ hơn 1
             if (quantity < 1) {
                 quantity = 1;
             }
-
-            // Cập nhật giá trị số lượng trong giao diện
             quantityElement.innerText = quantity;
 
-            // Tính toán giá mới
             const price = parseFloat(priceElement.innerText.replace(/ VNĐ/g, '').replace(/,/g, ''));
             const totalPrice = quantity * price;
 
-            // Cập nhật giá trị tổng cho sản phẩm
             totalPriceElement.innerText = (totalPrice * 1000).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.') +
-                ' VNĐ'; // Thêm 3 con số 0
+                ' VNĐ'; 
 
-            // Cập nhật tổng giá trị
             updateTotalPrice();
         }
 
@@ -206,7 +199,7 @@
 
             totalPriceElements.forEach(element => {
                 const priceText = element.innerText.replace(/ VNĐ/g, '').replace(/,/g, '');
-                total += (parseFloat(priceText) || 0) * 1000; // Thêm 3 con số 0
+                total += (parseFloat(priceText) || 0) * 1000;
             });
 
             document.getElementById('totalPrice').innerText = total.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',') +

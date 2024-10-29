@@ -42,7 +42,7 @@ class UserController extends Controller
 
     public function ShowUserCategory()
     {
-        $products = Product::all();
+        $products = Product::paginate(9);
         return view('User.category.index',compact('products'));
     }
 

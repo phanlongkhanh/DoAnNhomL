@@ -178,4 +178,5 @@ Route::post('add-to-cart', [CartController::class, 'AddToCart'])->name('add.to.c
 Route::delete('carts-remove/{id}', [CartController::class, 'RemoveFromCart'])->name('carts-remove');
 //Add Favorite
 Route::post('favorite-add', [FavoriteController::class, 'AddToFavorite']);
-
+//Delete Favorite
+Route::delete('favorite-delete/{id}', [FavoriteController::class, 'DeleteFavorite']);
