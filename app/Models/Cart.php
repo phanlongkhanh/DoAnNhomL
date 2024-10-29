@@ -16,7 +16,8 @@ class Cart extends Model
         'name',          // Tên sản phẩm
         'amount',        // Số lượng
         'image',         // Hình ảnh sản phẩm
-        'total_price',   // Thành tiền
+        'total_price',  // Thành tiền
+        'price',
     ];
 
     // Liên kết giỏ hàng với một sản phẩm

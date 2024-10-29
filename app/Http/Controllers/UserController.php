@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Cart;
 
 class UserController extends Controller
 {
@@ -41,12 +42,14 @@ class UserController extends Controller
 
     public function ShowUserCategory()
     {
-        return view('User.category.index');
+        $products = Product::all();
+        return view('User.category.index',compact('products'));
     }
 
     public function ShowUserCart()
     {
-        return view('User.cart.index');
+        $carts = Cart::all();
+        return view('User.cart.index',compact('carts'));
     }
 
     public function ShowProductToHomepage()

@@ -14,6 +14,10 @@ use App\Http\Controllers\OdersController;
 use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\TranSportController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\ProductDetailController;
+use App\Http\Controllers\ListProductController;
+use App\Http\Controllers\CartController;
+
 
 //Giao Diện
 Route::get('/', [UserController::class, 'ShowUserLogin']);
@@ -154,4 +158,9 @@ Route::get('edit-suppliers/{id}', [SupplierController::class, 'ShowEditSuppliers
 Route::put('suppliers-update/{id}', [SupplierController::class, 'UpdateSuppliers'])->name('suppliers-update');
 //Remove Suppliers
 Route::delete('suppliers-remove/{id}', [SupplierController::class, 'RemoveSuppliers'])->name('suppliers-remove');
+//Details Product
+Route::get('details-product/{id}', [ProductDetailController::class, 'ShowProductDetails']);
+//Add To Cart
+Route::post('add-to-cart', [CartController::class, 'AddToCart'])->name('add.to.cart');
+
 
