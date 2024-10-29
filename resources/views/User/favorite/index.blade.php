@@ -18,9 +18,16 @@
     <link rel="stylesheet" href="{{ asset('css/responsive1.css') }}">
 
     <style>
+
+        
+        body {
+            background-color: #cdd4db;
+            /* Nền sáng cho toàn trang */
+        }
+
         /* Header */
         .header_section {
-            background-color: #ffcce0;
+            background-color: #ee699e;
         }
 
         .navbar-brand h3 {
@@ -92,7 +99,7 @@
         }
 
         .footer_section {
-            background-color: #ffb3d9;
+            background-color: #f471b2;
             color: #8c1a56;
         }
     </style>
@@ -100,35 +107,40 @@
 
 <body>
     <!-- Header -->
-    <header class="header_section py-3">
-        <nav class="navbar navbar-expand-lg container">
+    <header class="header_section bg-light py-3">
+        <nav class="navbar navbar-expand-lg navbar-light container">
             <a class="navbar-brand text-danger" href="homepage">
                 <h3 style="margin-right: 40px">Pink Store</h3>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="homepage">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="category-user-product">Danh Mục</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="favorite-index">Favorite</a></li>
-                    <li class="nav-item"><a class="nav-link" href="testimonial.html">Post</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Fanpage</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="category-user-product">Danh Mục</a></li>
+                    <li class="nav-item"><a class="nav-link" href="favorite-index">Favorite</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Post</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Testimonial</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Contact Us</a></li>
                 </ul>
-            </div>
-            <div class="d-flex">
-                <a href="{{ 'cart-user-product' }}" class="btn btn-outline-danger me-2"><i
-                        class="fas fa-shopping-bag"></i></a>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search">
-                    <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
-                </form>
+                <div class="d-flex">
+                    <a href="{{ 'cart-user-product' }}" class="btn btn-outline-danger me-2"><i
+                            class="fas fa-shopping-bag"></i></a>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search">
+                        <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
             </div>
         </nav>
     </header>
 
+    @if (session('success'))
+        <div class="alert alert-success h4 text-center">
+            {{ session('success') }}
+        </div>
+    @endif
     <!-- Favorite Products Section -->
     <div class="container my-5">
         <h2 class="mb-4 text-center">Danh Sách Yêu Thích</h2>
@@ -146,8 +158,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $item->name }}</h5>
                                     <p class="card-text">Giá: {{ number_format($item->price, 0, ',', '.') }} VNĐ</p>
-                                    <form action="#" method="POST">
+                                    <form action="{{ url('favorite-delete', $item->id) }}" method="POST">
                                         @csrf
+                                        @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Xóa khỏi yêu thích</button>
                                     </form>
                                 </div>
@@ -156,6 +169,9 @@
                     </div>
                 @endforeach
             @endif
+        </div>
+        <div class="pagination justify-content-center mt-4">
+            {{ $favorites->links('pagination::bootstrap-4') }}
         </div>
     </div>
 

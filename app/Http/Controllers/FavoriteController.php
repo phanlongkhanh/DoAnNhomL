@@ -14,8 +14,8 @@ class FavoriteController extends Controller
 {
     public function ShowIndexFavorite()
     {
-        $favorites = Favorite::all();
-        return view('User.favorite.index',compact('favorites'));
+        $favorites = Favorite::paginate(6);
+        return view('User.favorite.index', compact('favorites'));
     }
 
     public function AddToFavorite(Request $request)
@@ -42,5 +42,15 @@ class FavoriteController extends Controller
         ]);
 
         return redirect('homepage')->with('success', 'Sản phẩm đã được thêm vào danh sách yêu thích!');
+    }
+
+    public function DeleteFavorite($id)
+    {
+        $favorites = Favorite::find($id);
+        if (!$favorites) {
+            return redirect('favorite-index')->with('error', 'Sản phẩm yêu thích không tồn tại!');
+        }
+        $favorites->delete();
+        return redirect('favorite-index')->with('success', 'Sản phẩm đã được xóa khỏi danh sách yêu thích!');
     }
 }

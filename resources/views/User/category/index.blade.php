@@ -151,7 +151,11 @@
                 <p>Không Có Sản Phẩm</p>
             @endif
         </div>
+        <div class="pagination justify-content-center mt-4">
+            {{ $products->links('pagination::bootstrap-4') }}
+        </div>
     </div>
+
 
     <!-- Footer -->
     <footer class="footer_section bg-dark text-white py-4">
