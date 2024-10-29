@@ -113,7 +113,7 @@
                         </select>
 
                         <p class="card-text"><strong>Số Lượng:</strong></p>
-                        <input id="amount" name="amount" type="number" class="form-control mb-3" min="1" max="100" placeholder="Nhập số lượng" required />
+                        <input id="amount" name="amount" type="number" class="form-control mb-3" min="1" max="100" value="1" placeholder="Nhập số lượng" required />
 
                         <p class="card-text"><strong>Màu Sắc:</strong></p>
                         <select class="form-select mb-3" name="color" id="productColor">
