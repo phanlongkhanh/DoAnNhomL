@@ -18,7 +18,7 @@ class LoginRegisterController extends Controller
             // Kiểm tra vai trò của người dùng
             if (Auth::user()->isAdmin()) {
                 // Nếu là admin, chuyển hướng đến trang admin
-                return redirect('/admin-controller');
+                return redirect('/admin-controller')->with('message','Đăng Nhập Thành Công !!!');
             } else {
                 // Nếu là user, chuyển hướng đến trang người dùng
                 return redirect('/homepage');
@@ -31,7 +31,7 @@ class LoginRegisterController extends Controller
 
     function RegisterPage(Request $request)
     {
-           // Hàm kiểm tra dữ liệu nhập vào
+  
       $validator = Validator::make($request->all(), [
         'name' => 'required|string|max:255',
         'email' => 'required|string|email|max:255|unique:users',
@@ -40,13 +40,13 @@ class LoginRegisterController extends Controller
     ]);
 
     $roleId = $request->input('role_id', 2);
-    // Kiểm tra nếu lỗi trả về lỗi 
+   
     if ($validator->fails()) {
         return redirect('/register')
                     ->withErrors($validator)
                     ->withInput();
     }
-    // Tạo mới người dùng
+   
         User::create([
         'name' => $request->name,
         'email' => $request->email,
@@ -55,14 +55,18 @@ class LoginRegisterController extends Controller
         'role_id' => $roleId,
     ]);
 
-    // Trả về trang login
     return redirect('login')->with('success', 'Registration successful. Please log in.');
     }
 
     //viết hàm logout
-    public function logoutUser()
+    public function LogOutUser()
     {
-        Auth::logout();
-        return redirect('login')->with('message', 'Đăng Xuất Thành Công !');
+        try {
+            Auth::logout();
+            return redirect('login')->with('message', 'Đăng Xuất Thành Công !');
+        } catch (\Exception $e) {
+            // Xử lý lỗi nếu có
+            return redirect('login')->with('error', 'Có lỗi xảy ra trong quá trình đăng xuất!');
+        }
     }
 }

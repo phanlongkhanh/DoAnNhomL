@@ -1,1 +1,0 @@
-<?php /**PATH D:\CNTT\ChuyenDePhatTrienWeb\DoAn\DoAnNhomL\resources\views/admin/product/data.blade.php ENDPATH**/ ?>

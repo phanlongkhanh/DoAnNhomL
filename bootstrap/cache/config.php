@@ -505,7 +505,7 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'mailpit',
+        'host' => 'smtp.mailgun.org',
         'port' => '1025',
         'encryption' => NULL,
         'username' => NULL,

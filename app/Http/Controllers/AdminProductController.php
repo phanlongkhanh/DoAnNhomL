@@ -1,15 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminProductController extends Controller
 {
     // Hiển thị màn hình Index sản phẩm
     public function ShowIndexProduct()
-    {     
-        return view('Admin.product.index');
+    {    
+        $products = Product::with('category')->get();
+        return view('Admin.product.index',compact('products'));
     }
 
     // Hiển thị màn hình thêm sản phẩm
