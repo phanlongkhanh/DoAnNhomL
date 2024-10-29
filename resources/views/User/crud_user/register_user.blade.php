@@ -7,26 +7,31 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-image: url('images/login.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #333;
         }
         .register-container {
             max-width: 400px;
             margin: auto;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #ffffff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.9); /* Tạo nền trắng nhẹ nhàng */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             margin-top: 100px;
+        }
+        h2 {
+            color: #e74c3c; /* Màu chữ tiêu đề */
         }
     </style>
 </head>
 <body>
 
 <div class="register-container">
-    <h2 class="text-center">Đăng Ký Tài Khoản</h2>
+    <h2 style="margin-bottom: 30px" class="text-center">Đăng Ký Tài Khoản</h2>
     <form action="{{url('register/registerrun')}}" method="POST">
-        @csrf <!-- Thêm mã CSRF ở đây -->
+        @csrf
         <div class="form-group">
             <label for="name">Tên đăng nhập:</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên đăng nhập" required>
@@ -49,7 +54,7 @@
             <label for="confirm-password">Xác nhận mật khẩu:</label>
             <input type="password" class="form-control" id="confirm-password" name="password_confirmation" placeholder="Xác nhận mật khẩu" required>
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Đăng Ký</button>
+        <button type="submit" class="btn btn-danger btn-block">Đăng Ký</button>
     </form>
     <div class="text-center mt-3">
         <a href="login">Đã có tài khoản? Đăng nhập</a>
