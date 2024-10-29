@@ -218,7 +218,13 @@
                     </li>
 
                     <li class="<?php echo e(Request::is('admin-datn/article*') ? 'active' : ''); ?>">
-                        <a href="#">
+                        <a href="<?php echo e('index-post_category'); ?>">
+                            <i class="fa fa-history"></i> <span>Danh Mục Bài Viết</span>
+                        </a>
+                    </li>
+
+                    <li class="<?php echo e(Request::is('admin-datn/article*') ? 'active' : ''); ?>">
+                        <a href="<?php echo e('index-post'); ?>">
                             <i class="fa fa-book"></i> <span>Bài viết</span>
                         </a>
                     </li>
