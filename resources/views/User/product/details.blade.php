@@ -69,14 +69,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" href="homepage">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="category-user-product">Danh Mục</a></li>
-                    <li class="nav-item"><a class="nav-link" href="why.html">Favorite</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{'homepage'}}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{'category-user-product'}}">Danh Mục</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{'favorite-index'}}">Favorite</a></li>
                     <li class="nav-item"><a class="nav-link" href="testimonial.html">Testimonial</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Fanpage</a></li>
                 </ul>
                 <div class="d-flex">
-                    <a href="" class="btn btn-outline-danger me-2"><i class="fas fa-shopping-bag"></i></a>
+                    <a href="{{ 'cart-user-product' }}" class="btn btn-outline-danger me-2"><i class="fas fa-shopping-bag"></i></a>
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search">
                         <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
@@ -180,7 +180,7 @@
     </div> --}}
 
     <!-- Thông Tin Khác -->
-    <div class="mt-4">
+    <div class="mt-4 text-center">
         <h5>Chính Sách Bảo Hành</h5>
         <p>Chúng tôi cung cấp chính sách bảo hành 1 năm cho tất cả sản phẩm.</p>
         <h5>Chính Sách Đổi Trả</h5>

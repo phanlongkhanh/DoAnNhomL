@@ -17,6 +17,11 @@
         Pink Store
     </title>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- slider stylesheet -->
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
@@ -33,31 +38,24 @@
     <style>
         .product-box {
             overflow: hidden;
-            /* Giúp hình ảnh không tràn ra ngoài */
             transition: transform 0.3s ease;
-            /* Hiệu ứng chuyển động */
         }
 
         .product-box:hover {
             transform: scale(1.05);
-            /* Phóng to 1.05 lần khi hover */
         }
 
         .img-box img {
             transition: transform 0.3s ease;
-            /* Hiệu ứng chuyển động cho hình ảnh */
         }
 
         .img-box:hover img {
             transform: scale(1.1);
-            /* Phóng to hình ảnh khi hover */
         }
 
         .product-box:hover {
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            /* Thêm hiệu ứng đổ bóng */
             background-color: rgba(255, 255, 255, 0.9);
-            /* Thay đổi màu nền */
         }
     </style>
 </head>
@@ -89,13 +87,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="why.html">
+                            <a class="nav-link" href="favorite-index">
                                 Favorite
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="testimonial.html">
-                                Testimonial
+                                Post
                             </a>
                         </li>
                         <li class="nav-item">
@@ -104,15 +102,15 @@
                     </ul>
                     <div class="user_option">
 
-                        <a href="{{ 'cart-user-product' }}">
-                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                        </a>
-
-                        <form class="form-inline ">
-                            <button class="btn nav_search-btn" type="submit">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </button>
-                        </form>
+                        <div class="d-flex">
+                            <a href="{{ 'cart-user-product' }}" class="btn btn-outline-danger me-2"><i
+                                    class="fas fa-shopping-bag"></i></a>
+                            <form class="d-flex">
+                                <input class="form-control me-2" type="search" placeholder="Search">
+                                <button class="btn btn-outline-success" type="submit"><i
+                                        class="fas fa-search"></i></button>
+                            </form>
+                        </div>
 
                         <div style="margin-left: 80px;">
                             @if ($users)
@@ -263,25 +261,23 @@
             {{ session('success') }}
         </div>
     @endif
-
     <section class="shop_section layout_padding">
         <div class="container">
             <div class="heading_container heading_center">
                 <h2>
-                    List Products
+                    Danh Sách Sản Phẩm
                 </h2>
             </div>
+            <hr>
             <div class="row">
                 @if (isset($products))
                     @foreach ($products as $item)
-                        <!-- Đổi tên biến từ $products thành $item -->
                         <div class="col-sm-6 col-md-4 col-lg-3">
                             <div class="product-box">
                                 <a href="{{ url('details-product', ['id' => Crypt::encrypt($item->id_product)]) }}">
-                                    <!-- nơi dẫn link  -->
                                     <div class="img-box"
                                         style="border:2px solid black; width: 100%; height: 350px; overflow: hidden; position: relative;">
-                                        <img src="images/<?= $item->image ?>" alt="Product Image"
+                                        <img src="images/{{ $item->image }}" alt="Product Image"
                                             style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
                                         <div class="new"
                                             style="position: absolute; top: 10px; left: 10px; background: red; color: white; padding: 5px; font-size: 12px; border-radius: 3px;">
@@ -299,15 +295,37 @@
                                                     VNĐ</span>
                                             </h6>
                                             <div class="detail-box">
-                                                <form action="" method="post" style="display: inline;">
+                                                <form action="{{ url('add-to-cart') }}" method="POST"
+                                                    style="display: inline;">
+                                                    @csrf
+                                                    <input type="hidden" name="id_product"
+                                                        value="{{ $item->id_product }}">
+                                                    <input type="hidden" name="name"
+                                                        value="{{ $item->name }}">
+                                                    <input type="hidden" name="amount" value="1">
+                                                    <input type="hidden" name="price"
+                                                        value="{{ $item->price }}">
+                                                    <input type="hidden" name="image"
+                                                        value="{{ $item->image }}">
                                                     <button type="submit" class="btn btn-danger"
                                                         style="margin-top: 5px;">Add to cart</button>
                                                 </form>
-                                                <form action="" method="post" style="display: inline;">
+                                                <form action="{{ url('favorite-add') }}" method="post"
+                                                    style="display: inline;">
+                                                    @csrf
+                                                    @csrf
+                                                    <input type="hidden" name="id_product"
+                                                        value="{{ $item->id_product }}">
+                                                    <input type="hidden" name="name"
+                                                        value="{{ $item->name }}">
+                                                    <input type="hidden" name="amount" value="1">
+                                                    <input type="hidden" name="price"
+                                                        value="{{ $item->price }}">
+                                                    <input type="hidden" name="image"
+                                                        value="{{ $item->image }}">
                                                     <button type="submit" class="btn btn-danger"
                                                         style="margin-top: 5px; margin-left: 10px;">
                                                         <p class="fa fa-heart" style="margin: 0;"></p>
-                                                    </button>
                                                 </form>
                                             </div>
                                         </div>
@@ -320,13 +338,17 @@
                     <p>Không Có Sản Phẩm</p>
                 @endif
             </div>
-            <div class="btn-box">
+            <div class="pagination justify-content-center mt-4">
+                {{ $products->links('pagination::bootstrap-4') }}
+            </div>
+            <div class="btn-box text-center mt-4">
                 <a href="">
                     View All Products
                 </a>
             </div>
         </div>
     </section>
+
 
     <!-- end shop section -->
 

@@ -45,10 +45,9 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="homepage">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="category-user-product">Danh Mục</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Favorite</a></li>
+                    <li class="nav-item"><a class="nav-link" href="favorite-index">Favorite</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Post</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Testimonial</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Contact Us</a></li>
                 </ul>
                 <div class="d-flex">
                     <a href="{{ 'cart-user-product' }}" class="btn btn-outline-danger me-2"><i
@@ -62,6 +61,11 @@
         </nav>
     </header>
 
+    @if (session('success'))
+        <div class="alert alert-success h4 text-center">
+            {{ session('success') }}
+        </div>
+    @endif
     <!-- Cart Section -->
     <div class="container my-5">
         <h2 class="mb-4 text-center">Giỏ Hàng</h2>
@@ -80,21 +84,32 @@
                 @if (isset($carts))
                     @foreach ($carts as $item)
                         <tr>
-                            <td><img src="{{ asset('images/' . $item->image) }}" style="height: 200px" alt="Tên Sản Phẩm" class="img-fluid">
+                            <td>
+                                <img src="{{ asset('images/' . $item->image) }}" style="height: 200px"
+                                    alt="Tên Sản Phẩm" class="img-fluid">
                             </td>
-                            <td>{{ $item->name }}</td>
-                            <td>{{ number_format($item->price, 0, ',', '.') }} VNĐ</td>
+                            <td class="text-danger h5">{{ $item->name }}</td>
+                            <td class="price">{{ number_format($item->price, 0, ',', '.') }} VNĐ</td>
                             <td>
                                 <div class="d-flex align-items-center justify-content-center">
                                     <button class="btn btn-outline-danger btn-sm"
-                                        onclick="decrementQuantity(this)">-</button>
-                                    <span class="mx-2" id="quantity">{{ $item->amount }}</span>
+                                        onclick="updateQuantity(this, -1)">-</button>
+                                    <span class="mx-2 quantity">{{ $item->amount }}</span>
                                     <button class="btn btn-outline-success btn-sm"
-                                        onclick="incrementQuantity(this)">+</button>
+                                        onclick="updateQuantity(this, 1)">+</button>
                                 </div>
                             </td>
-                            <td>{{ number_format($item->total_price, 0, ',', '.') }} VNĐ</td>
-                            <td><button class="btn btn-danger"><i class="fas fa-trash"></i></button></td>
+                            <td class="total-price">{{ number_format($item->total_price, 0, ',', '.') }} VNĐ</td>
+                            <td>
+                                <form action="{{ route('carts-remove', $item->id) }}" method="POST"
+                                    style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-xs btn-danger"
+                                        onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i class="fa fa-trash"></i>
+                                        Delete</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 @endif
@@ -115,7 +130,6 @@
     </div>
 
 
-
     <!-- Footer -->
     <footer class="footer_section bg-dark text-white py-4">
         <div class="container text-center">
@@ -134,7 +148,7 @@
     <script>
         document.getElementById('displayYear').textContent = new Date().getFullYear();
     </script>
-    <script>
+    {{-- <script>
         function incrementQuantity(button) {
             // Tìm phần tử span chứa số lượng
             const quantitySpan = button.parentElement.querySelector("#quantity");
@@ -150,6 +164,53 @@
                 quantity--; // Giảm số lượng
                 quantitySpan.innerText = quantity; // Cập nhật số lượng hiển thị
             }
+        }
+    </script> --}}
+
+    <script>
+        function updateQuantity(button, change) {
+            // Lấy các phần tử cần thiết
+            const row = button.closest('tr');
+            const quantityElement = row.querySelector('.quantity');
+            const priceElement = row.querySelector('.price');
+            const totalPriceElement = row.querySelector('.total-price');
+            const totalPriceDisplay = document.getElementById('totalPrice');
+
+            // Cập nhật số lượng
+            let quantity = parseInt(quantityElement.innerText);
+            quantity += change;
+
+            // Kiểm tra nếu số lượng nhỏ hơn 1
+            if (quantity < 1) {
+                quantity = 1;
+            }
+
+            // Cập nhật giá trị số lượng trong giao diện
+            quantityElement.innerText = quantity;
+
+            // Tính toán giá mới
+            const price = parseFloat(priceElement.innerText.replace(/ VNĐ/g, '').replace(/,/g, ''));
+            const totalPrice = quantity * price;
+
+            // Cập nhật giá trị tổng cho sản phẩm
+            totalPriceElement.innerText = (totalPrice * 1000).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.') +
+                ' VNĐ'; // Thêm 3 con số 0
+
+            // Cập nhật tổng giá trị
+            updateTotalPrice();
+        }
+
+        function updateTotalPrice() {
+            const totalPriceElements = document.querySelectorAll('.total-price');
+            let total = 0;
+
+            totalPriceElements.forEach(element => {
+                const priceText = element.innerText.replace(/ VNĐ/g, '').replace(/,/g, '');
+                total += (parseFloat(priceText) || 0) * 1000; // Thêm 3 con số 0
+            });
+
+            document.getElementById('totalPrice').innerText = total.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',') +
+                ' VNĐ';
         }
     </script>
 </body>
