@@ -69,14 +69,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" href="{{'homepage'}}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{'category-user-product'}}">Danh Mục</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{'favorite-index'}}">Favorite</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{ 'homepage' }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ 'category-user-product' }}">Danh Mục</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ 'favorite-index' }}">Favorite</a></li>
                     <li class="nav-item"><a class="nav-link" href="testimonial.html">Testimonial</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Fanpage</a></li>
                 </ul>
                 <div class="d-flex">
-                    <a href="{{ 'cart-user-product' }}" class="btn btn-outline-danger me-2"><i class="fas fa-shopping-bag"></i></a>
+                    <a href="{{ 'cart-user-product' }}" class="btn btn-outline-danger me-2"><i
+                            class="fas fa-shopping-bag"></i></a>
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search">
                         <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
@@ -87,97 +88,103 @@
     </header>
 
     <!-- Product Detail Section -->
-  <!-- Product Detail Section -->
-@if (isset($products))
-<div class="container my-5">
-    <h2 class="mb-4 text-center text-danger">Chi Tiết Sản Phẩm</h2>
-    <div class="card mb-3 shadow-lg">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="{{ asset('images/' . $products->image) }}" style="height: 400px" class="img-fluid rounded-start" alt="Tên Sản Phẩm">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title h2 text-primary mb-4" id="productName">{{ $products->name }}</h5>
-                    <p class="card-text"><strong>Giá: </strong> <span>{{ number_format($products->price, 0, ',', '.') }}</span> VNĐ</p>
-                    <p class="card-text"><strong>Số Lượng Tồn Kho:</strong> <span>{{ $products->amount }}</span></p>
+    <!-- Product Detail Section -->
+    @if (isset($products))
+        <div class="container my-5">
+            <h2 class="mb-4 text-center text-danger">Chi Tiết Sản Phẩm</h2>
+            <hr>
+            <div class="card mb-3 shadow-lg">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="{{ asset('images/' . $products->image) }}" style="height: 400px"
+                            class="img-fluid rounded-start" alt="Tên Sản Phẩm">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title h2 text-primary mb-4" id="productName">{{ $products->name }}</h5>
+                            <p class="card-text"><strong>Giá: </strong>
+                                <span>{{ number_format($products->price, 0, ',', '.') }}</span> VNĐ</p>
+                            <p class="card-text"><strong>Số Lượng Tồn Kho:</strong>
+                                <span>{{ $products->amount }}</span></p>
 
-                    <form action="{{ route('add.to.cart') }}" method="POST">
-                        @csrf
-                        <p class="card-text"><strong>Kích Cỡ:</strong></p>
-                        <select class="form-select mb-3" name="size" id="productSize">
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                        </select>
+                            <form action="{{ route('add.to.cart') }}" method="POST">
+                                @csrf
+                                <p class="card-text"><strong>Kích Cỡ:</strong></p>
+                                <select class="form-select mb-3" name="size" id="productSize">
+                                    <option value="S">S</option>
+                                    <option value="M">M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                </select>
 
-                        <p class="card-text"><strong>Số Lượng:</strong></p>
-                        <input id="amount" name="amount" type="number" class="form-control mb-3" min="1" max="100" value="1" placeholder="Nhập số lượng" required />
+                                <p class="card-text"><strong>Số Lượng:</strong></p>
+                                <input id="amount" name="amount" type="number" class="form-control mb-3"
+                                    min="1" max="100" value="1" placeholder="Nhập số lượng" required />
 
-                        <p class="card-text"><strong>Màu Sắc:</strong></p>
-                        <select class="form-select mb-3" name="color" id="productColor">
-                            <option value="red">Đỏ</option>
-                            <option value="blue">Xanh</option>
-                            <option value="green">Xanh Lá</option>
-                        </select>
+                                <p class="card-text"><strong>Màu Sắc:</strong></p>
+                                <select class="form-select mb-3" name="color" id="productColor">
+                                    <option value="red">Đỏ</option>
+                                    <option value="blue">Xanh</option>
+                                    <option value="green">Xanh Lá</option>
+                                </select>
 
-                        <input type="hidden" id="id_product" name="id_product" value="{{ $products->id_product }}">
-                        <input type="hidden" id="name" name="name" value="{{ $products->name }}">
-                        <input type="hidden" id="price" name="price" value="{{ $products->price }}">
-                        <input type="hidden" id="image" name="image" value="{{ $products->image }}">
-                        <button class="btn btn-danger" type="submit">Thêm vào giỏ</button>
-                    </form>
+                                <input type="hidden" id="id_product" name="id_product"
+                                    value="{{ $products->id_product }}">
+                                <input type="hidden" id="name" name="name" value="{{ $products->name }}">
+                                <input type="hidden" id="price" name="price" value="{{ $products->price }}">
+                                <input type="hidden" id="image" name="image" value="{{ $products->image }}">
+                                <button class="btn btn-danger" type="submit">Thêm vào giỏ</button>
+                            </form>
 
-                    <!-- Đánh Giá -->
-                    <div class="mt-4">
-                        <h5>Đánh Giá:</h5>
-                        <div class="rating">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
+                            <!-- Đánh Giá -->
+                            <div class="mt-4">
+                                <h5>Đánh Giá:</h5>
+                                <div class="rating">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </div>
+                                <textarea class="form-control mt-2" rows="3" placeholder="Viết nhận xét của bạn ở đây..."></textarea>
+                                <button class="btn btn-primary mt-2">Gửi Nhận Xét</button>
+                            </div>
                         </div>
-                        <textarea class="form-control mt-2" rows="3" placeholder="Viết nhận xét của bạn ở đây..."></textarea>
-                        <button class="btn btn-primary mt-2">Gửi Nhận Xét</button>
                     </div>
                 </div>
             </div>
+        </div>
+    @endif
+
+<hr>
+
+    <!-- Sản Phẩm Tương Tự -->
+
+    <div class="similar-products mt-5">
+        <h4 class="text-secondary">Sẩn Phẩm Tương Tự</h4>
+        <div class="row">
+            @if (isset($product) && $product->count() > 0)
+                @foreach ($product as $item)
+                        <div class="col-md-3 mb-3">
+                            <div class="card">
+                                <img src="{{ asset('images/' . $item->image) }}" class="card-img-top" alt="Sản Phẩm Tương Tự">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $item->name }}</h5>
+                                    <p class="card-text">Giá: {{ number_format($item->price, 0, ',', '.') }} VNĐ</p>
+                                    <button class="btn btn-danger">Thêm vào giỏ</button>
+                                </div>
+                            </div>
+                        </div>
+                @endforeach
+            @else
+                <div class="col-12">
+                    <p class="text-center">Không có sản phẩm tương tự nào.</p>
+                </div>
+            @endif
         </div>
     </div>
-</div>
-@endif
-
-
-
-    {{-- <!-- Sản Phẩm Tương Tự -->
-    <div class="similar-products mt-5">
-        <h4 class="text-secondary">Sản Phẩm Tương Tự</h4>
-        <div class="row">
-            <div class="col-md-3 mb-3">
-                <div class="card">
-                    <img src="images/aothun.jpg" class="card-img-top" alt="Sản Phẩm Tương Tự 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Sản Phẩm 1</h5>
-                        <p class="card-text">Giá: 400,000 VNĐ</p>
-                        <button class="btn btn-danger">Thêm vào giỏ</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 mb-3">
-                <div class="card">
-                    <img src="images/aothun.jpg" class="card-img-top" alt="Sản Phẩm Tương Tự 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Sản Phẩm 2</h5>
-                        <p class="card-text">Giá: 600,000 VNĐ</p>
-                        <button class="btn btn-danger">Thêm vào giỏ</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Thêm các sản phẩm khác ở đây -->
-        </div>
-    </div> --}}
+    <hr>
+    <br>
 
     <!-- Thông Tin Khác -->
     <div class="mt-4 text-center">

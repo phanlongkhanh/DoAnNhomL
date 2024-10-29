@@ -19,8 +19,8 @@ class UserController extends Controller
 
     public function ShowProductDetails()
     {
-        $users = Auth::check() ? Auth::user()->name : null;
-        return view('User.product.details', compact('users'));
+        $product = Product::all();
+        return view('User.product.details', compact('users','product'));
     }
 
     // Hiển Thị Trang Đăng Nhập
