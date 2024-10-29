@@ -43,4 +43,10 @@ class Product extends Model
         return $this->belongsTo(Category::class, 'id_category', 'id'); // Tham chiếu đến id của bảng categories
     }
 
+      // Nếu bạn muốn thêm mối quan hệ với bảng favorite
+      public function favorites()
+      {
+          return $this->hasMany(Favorite::class, 'id_product');
+      }
+
 }

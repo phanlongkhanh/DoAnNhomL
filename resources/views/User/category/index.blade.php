@@ -87,7 +87,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="homepage">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="category-user-product">Danh Mục</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Favorite</a></li>
+                    <li class="nav-item"><a class="nav-link" href="favorite-index">Favorite</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Post</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Testimonial</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Contact Us</a></li>
@@ -136,7 +136,7 @@
                                         <button type="submit" class="btn btn-danger" style="margin-top: 5px;">Add to
                                             cart</button>
                                     </form>
-                                    <form action="" method="post" style="display: inline;">
+                                    <form action="{{url('favorite-add')}}" method="post" style="display: inline;">
                                         <button type="submit" class="btn btn-danger"
                                             style="margin-top: 5px; margin-left: 10px;">
                                             <p class="fa fa-heart" style="margin: 0;"></p>

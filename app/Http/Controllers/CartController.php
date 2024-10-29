@@ -20,7 +20,7 @@ class CartController extends Controller
             'name' => 'required|string|max:255',
             'amount' => 'required|integer|min:1',
             'image' => 'required|string|max:255',
-            'price' => 'required|numeric|min:0', 
+            'price' => 'required|numeric|min:0',
         ]);
 
         if ($validator->fails()) {
@@ -38,10 +38,23 @@ class CartController extends Controller
             'name' => $request->name,
             'amount' => $request->amount,
             'image' => $request->image,
-            'price' => $request->price, // Đảm bảo đây là giá trị decimal
+            'price' => $request->price,
             'total_price' => $total_price,
         ]);
 
         return redirect('homepage')->with('success', 'Sản phẩm đã được thêm vào giỏ hàng!');
+    }
+
+    public function RemoveFromCart($id)
+    {
+        $carts = Cart::find($id);
+
+        if (!$carts) {
+            return redirect()->back()->with('error', 'Sản phẩm không tồn tại trong giỏ hàng!');
+        }
+        // Xóa sản phẩm khỏi giỏ hàng
+        $carts->delete();
+
+        return redirect('cart-user-product')->with('success', 'Sản phẩm đã được xóa khỏi giỏ hàng!');
     }
 }

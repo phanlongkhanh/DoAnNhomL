@@ -17,6 +17,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\ListProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\FavoriteController;
 
 
 //Giao Diện
@@ -83,6 +84,9 @@ Route::get('category-user-product', [UserController::class, 'ShowUserCategory'])
 Route::get('cart-user-product', [UserController::class, 'ShowUserCart']);
 //Show Product HomePage
 Route::get('products-homepage', [UserController::class, 'ShowProductToHomepage']);
+//Show Favorite index
+Route::get('favorite-index', [FavoriteController::class, 'ShowIndexFavorite']);
+
 
 
 
@@ -162,5 +166,8 @@ Route::delete('suppliers-remove/{id}', [SupplierController::class, 'RemoveSuppli
 Route::get('details-product/{id}', [ProductDetailController::class, 'ShowProductDetails']);
 //Add To Cart
 Route::post('add-to-cart', [CartController::class, 'AddToCart'])->name('add.to.cart');
-
+//Delete Cart
+Route::delete('carts-remove/{id}', [CartController::class, 'RemoveFromCart'])->name('carts-remove');
+//Add Favorite
+Route::post('favorite-add', [FavoriteController::class, 'AddToFavorite']);
 

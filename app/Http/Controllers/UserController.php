@@ -13,7 +13,7 @@ class UserController extends Controller
     public function ShowHomePage()
     {
         $users = Auth::check() ? Auth::user()->name : null;
-        $products = Product::all(); // Lấy tất cả sản phẩm
+        $products = Product::paginate(8);
         return view('User.crud_user.homepage', compact('users', 'products')); // Truyền cả users và products
     }
 
