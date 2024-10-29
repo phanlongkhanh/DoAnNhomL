@@ -131,7 +131,7 @@
                                     class="card-img-top" alt="Sản Phẩm 1">
                                 <div class="card-body text-center">
                                     <h5 class="card-title">{{ $item->name }}</h5>
-                                    <p class="card-text">Giá: {{ $item->price }} VNĐ</p>
+                                    <p class="card-text">Giá: {{ number_format($item->price, 0, ',', '.') }} VNĐ</p>
                                     <form action="" method="post" style="display: inline;">
                                         <button type="submit" class="btn btn-danger" style="margin-top: 5px;">Add to
                                             cart</button>
