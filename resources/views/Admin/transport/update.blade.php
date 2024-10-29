@@ -45,8 +45,8 @@
                                 <label for="fileInput">Image</label>
                                 <input type="file" class="form-control-file" id="fileInput" name="image">
                             </div>
-                            <div>  
-                                <td><img src="transport-image/<?= $transports->image ?>" alt="" width="200px" height="150px"></td>
+                            <div>
+                                <td><img src="{{ asset('transport-image/' . $transports->image) }}" alt="" width="200px" height="150px"></td>
                             </div>
                         </div>
                     </div>

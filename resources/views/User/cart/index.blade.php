@@ -45,8 +45,8 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="homepage">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="category-user-product">Danh Mục</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Shop</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Why Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Favorite</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Post</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Testimonial</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Contact Us</a></li>
                 </ul>
@@ -77,40 +77,40 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><img src="https://via.placeholder.com/100" alt="Tên Sản Phẩm" class="img-fluid"></td>
-                    <td>Tên Sản Phẩm 1</td>
-                    <td>500,000 VNĐ</td>
-                    <td>
-                        <div class="d-flex align-items-center justify-content-center">
-                            <button class="btn btn-outline-danger btn-sm" onclick="decrementQuantity(this)">-</button>
-                            <span class="mx-2" id="quantity">1</span>
-                            <button class="btn btn-outline-success btn-sm" onclick="incrementQuantity(this)">+</button>
-                        </div>
-                    </td>
-                    <td>500,000 VNĐ</td>
-                    <td><button class="btn btn-danger"><i class="fas fa-trash"></i></button></td>
-                </tr>
-                <tr>
-                    <td><img src="https://via.placeholder.com/100" alt="Tên Sản Phẩm" class="img-fluid"></td>
-                    <td>Tên Sản Phẩm 2</td>
-                    <td>300,000 VNĐ</td>
-                    <td>
-                        <div class="d-flex align-items-center justify-content-center">
-                            <button class="btn btn-outline-danger btn-sm" onclick="decrementQuantity(this)">-</button>
-                            <span class="mx-2" id="quantity">1</span>
-                            <button class="btn btn-outline-success btn-sm" onclick="incrementQuantity(this)">+</button>
-                        </div>
-                    </td>
-                    <td>300,000 VNĐ</td>
-                    <td><button class="btn btn-danger"><i class="fas fa-trash"></i></button></td>
-                </tr>
-                <!-- Add more products as needed -->
+                @if (isset($carts))
+                    @foreach ($carts as $item)
+                        <tr>
+                            <td><img src="{{ asset('images/' . $item->image) }}" style="height: 200px" alt="Tên Sản Phẩm" class="img-fluid">
+                            </td>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ number_format($item->price, 0, ',', '.') }} VNĐ</td>
+                            <td>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <button class="btn btn-outline-danger btn-sm"
+                                        onclick="decrementQuantity(this)">-</button>
+                                    <span class="mx-2" id="quantity">{{ $item->amount }}</span>
+                                    <button class="btn btn-outline-success btn-sm"
+                                        onclick="incrementQuantity(this)">+</button>
+                                </div>
+                            </td>
+                            <td>{{ number_format($item->total_price, 0, ',', '.') }} VNĐ</td>
+                            <td><button class="btn btn-danger"><i class="fas fa-trash"></i></button></td>
+                        </tr>
+                    @endforeach
+                @endif
             </tbody>
         </table>
+        @php
+            $tong = 0;
+        @endphp
+        @foreach ($carts as $item)
+            @php
+                $tong += $item->total_price;
+            @endphp
+        @endforeach
         <div class="text-center">
-            <h5 class="me-3">Tổng Tiền: <span id="totalPrice">800,000 VNĐ</span></h5>
-            <button class="btn btn-success">Tiến Hành Thanh Toán</button>
+            <h5 class="me-3">Tổng Tiền: <span id="totalPrice">{{ number_format($tong, 0, ',', '.') }} VNĐ</span></h5>
+            <button class="btn btn-success">Thanh Toán</button>
         </div>
     </div>
 
@@ -133,6 +133,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.getElementById('displayYear').textContent = new Date().getFullYear();
+    </script>
+    <script>
+        function incrementQuantity(button) {
+            // Tìm phần tử span chứa số lượng
+            const quantitySpan = button.parentElement.querySelector("#quantity");
+            let quantity = parseInt(quantitySpan.innerText);
+            quantity++; // Tăng số lượng
+            quantitySpan.innerText = quantity; // Cập nhật số lượng hiển thị
+        }
+
+        function decrementQuantity(button) {
+            const quantitySpan = button.parentElement.querySelector("#quantity");
+            let quantity = parseInt(quantitySpan.innerText);
+            if (quantity > 1) { // Đảm bảo số lượng không giảm xuống dưới 1
+                quantity--; // Giảm số lượng
+                quantitySpan.innerText = quantity; // Cập nhật số lượng hiển thị
+            }
+        }
     </script>
 </body>
 

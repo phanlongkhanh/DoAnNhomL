@@ -16,13 +16,13 @@ class CartTableSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('carts')->insert([
-           'id_product' => 1,
-            'name' => 'Sản phẩm A',
-            'amount' => 2,
-            'image' => 'aothun.jpg',
-            'total_price' => 100000,  
-        ]);
+        // DB::table('carts')->insert([
+        //    'id_product' => 1,
+        //     'name' => 'Sản phẩm A',
+        //     'amount' => 2,
+        //     'image' => 'aothun.jpg',
+        //     'total_price' => 100000,  
+        // ]);
 
     }
 }

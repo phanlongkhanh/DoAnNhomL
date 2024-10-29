@@ -67,7 +67,7 @@
         <!-- header section strats -->
         <header class="header_section">
             <nav class="navbar navbar-expand-lg custom_nav-container ">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="homepage">
                     <span class="h1 text-danger">
                         Pink Store
                     </span>
@@ -90,7 +90,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="why.html">
-                                Why Us
+                                Favorite
                             </a>
                         </li>
                         <li class="nav-item">
@@ -258,6 +258,11 @@
     <!-- end hero area -->
 
     <!-- shop section -->
+    @if (session('success'))
+        <div class="alert alert-success h4 text-center">
+            {{ session('success') }}
+        </div>
+    @endif
 
     <section class="shop_section layout_padding">
         <div class="container">
@@ -267,12 +272,13 @@
                 </h2>
             </div>
             <div class="row">
-                @if (isset($products) && $products->count())
+                @if (isset($products))
                     @foreach ($products as $item)
                         <!-- Đổi tên biến từ $products thành $item -->
                         <div class="col-sm-6 col-md-4 col-lg-3">
                             <div class="product-box">
-                                <a href="details-product"> <!-- nơi dẫn link  -->
+                                <a href="{{ url('details-product', ['id' => Crypt::encrypt($item->id_product)]) }}">
+                                    <!-- nơi dẫn link  -->
                                     <div class="img-box"
                                         style="border:2px solid black; width: 100%; height: 350px; overflow: hidden; position: relative;">
                                         <img src="images/<?= $item->image ?>" alt="Product Image"
@@ -286,13 +292,11 @@
                                             <h6 style="margin: 0; font-weight: bold;">
                                                 <span
                                                     style="color: rgb(246, 4, 4); font-size: 20px;">{{ $item->name }}</span>
-                                                <!-- Sử dụng $item thay vì $products -->
                                             </h6>
                                             <h6 style="margin: 0; font-weight: bold;">
                                                 Giá
-                                                <span
-                                                    style="color: green; font-size: 20px;">{{ $item->price }}</span>
-                                                <!-- Sử dụng $item thay vì $products -->
+                                                <span style="color: green; font-size: 20px;">{{ $item->price }}
+                                                    VNĐ</span>
                                             </h6>
                                             <div class="detail-box">
                                                 <form action="" method="post" style="display: inline;">

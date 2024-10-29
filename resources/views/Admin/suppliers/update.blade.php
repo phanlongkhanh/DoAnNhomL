@@ -69,7 +69,7 @@
                                 <input type="file" class="form-control-file" id="fileInput" name="image">
                             </div>
                             <div>
-                                <img src="{{ asset($suppliers->image) }}" alt="Ảnh hiện tại" height="300px">
+                                <img src="{{ asset('suppliers-image/' . $suppliers->image) }}" alt="Ảnh hiện tại" height="300px">
                             </div>
                         </div>
                     </div>

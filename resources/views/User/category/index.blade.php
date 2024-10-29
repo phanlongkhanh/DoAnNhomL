@@ -87,8 +87,8 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="homepage">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="category-user-product">Danh Mục</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Shop</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Why Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Favorite</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Post</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Testimonial</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Contact Us</a></li>
                 </ul>
@@ -122,31 +122,34 @@
         </div>
 
         <div class="row">
-            <!-- Example Product Card 1 -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow">
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Sản Phẩm 1">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Sản Phẩm 1</h5>
-                        <p class="card-text">Giá: 500,000 VNĐ</p>
-                        <button class="btn btn-danger">Thêm vào giỏ</button>
+            @if (isset($products))
+                @foreach ($products as $item)
+                    <div class="col-md-4 mb-4">
+                        <a href="{{ url('details-product', ['id' => Crypt::encrypt($item->id_product)]) }}">
+                            <div class="card shadow">
+                                <img src="{{ asset('images/' . $item->image) }}" width="300px" height="300px"
+                                    class="card-img-top" alt="Sản Phẩm 1">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">{{ $item->name }}</h5>
+                                    <p class="card-text">Giá: {{ $item->price }} VNĐ</p>
+                                    <form action="" method="post" style="display: inline;">
+                                        <button type="submit" class="btn btn-danger" style="margin-top: 5px;">Add to
+                                            cart</button>
+                                    </form>
+                                    <form action="" method="post" style="display: inline;">
+                                        <button type="submit" class="btn btn-danger"
+                                            style="margin-top: 5px; margin-left: 10px;">
+                                            <p class="fa fa-heart" style="margin: 0;"></p>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </div>
-            </div>
-
-            <!-- Example Product Card 2 -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow">
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Sản Phẩm 2">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Sản Phẩm 2</h5>
-                        <p class="card-text">Giá: 300,000 VNĐ</p>
-                        <button class="btn btn-danger">Thêm vào giỏ</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Add more product cards as needed -->
+                @endforeach
+            @else
+                <p>Không Có Sản Phẩm</p>
+            @endif
         </div>
     </div>
 
