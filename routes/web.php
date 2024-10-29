@@ -18,6 +18,9 @@ use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\ListProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryPostController;
+
 
 
 //Giao Diện
@@ -86,14 +89,19 @@ Route::get('cart-user-product', [UserController::class, 'ShowUserCart']);
 Route::get('products-homepage', [UserController::class, 'ShowProductToHomepage']);
 //Show Favorite index
 Route::get('favorite-index', [FavoriteController::class, 'ShowIndexFavorite']);
+//Show index Post Admin
+Route::get('index-post', [PostController::class, 'ShowIndexPost']);
+//Show Create Post Admin
+Route::get('create-post', [PostController::class, 'ShowCreatePost']);
+//Show Screen Category Post
+Route::get('index-post_category', [CategoryPostController::class, 'ShowIndexCategoryPost']);
 
 
 
 
 
 
-
-//Tính năng
+// Tính năng
 
 //Login
 Route::POST('login/loginrun', [LoginRegisterController::class, 'LoginPage']);
@@ -137,7 +145,7 @@ Route::delete('/admin/categories/delete/{id}', [AdminCategoryProductController::
 //Add ProductType
 Route::POST('add-product-type', [ProductTypeController::class, 'AddProductType']);
 //active loại sản phẩm
-Route::get('/product-type/active/{id}', [ProductTypeController::class, 'ActiveProductType'])->name('active-product-type');
+Route::get('product-type/active/{id}', [ProductTypeController::class, 'ActiveProductType'])->name('active-product-type');
 //Edit ProductType
 Route::get('edit-producttype/{id}', [ProductTypeController::class, 'EditProductType']);
 //Remove ProductType

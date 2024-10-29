@@ -230,7 +230,13 @@
                     </li>
 
                     <li class="{{ Request::is('admin-datn/article*') ? 'active' : '' }}">
-                        <a href="#">
+                        <a href="{{'index-post_category'}}">
+                            <i class="fa fa-history"></i> <span>Danh Mục Bài Viết</span>
+                        </a>
+                    </li>
+
+                    <li class="{{ Request::is('admin-datn/article*') ? 'active' : '' }}">
+                        <a href="{{'index-post'}}">
                             <i class="fa fa-book"></i> <span>Bài viết</span>
                         </a>
                     </li>

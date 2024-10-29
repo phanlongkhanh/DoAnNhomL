@@ -291,7 +291,7 @@
                                             </h6>
                                             <h6 style="margin: 0; font-weight: bold;">
                                                 Giá
-                                                <span style="color: green; font-size: 20px;">{{ $item->price }}
+                                                <span style="color: green; font-size: 20px;">{{ number_format($item->price, 0, ',', '.') }}
                                                     VNĐ</span>
                                             </h6>
                                             <div class="detail-box">
