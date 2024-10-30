@@ -2,11 +2,11 @@
 @section('content')
 <section class="content-header">
     <h1>
-      View Detai Transaction
+      View Order Detail
     </h1>
     <ol class="breadcrumb">
       <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="">Transaction</a></li>
+      <li><a href="">Order</a></li>
       <li class="active">Edit</li>
 
     </ol>
@@ -78,17 +78,6 @@
                                     {{-- @todo --}}
                                         <td>Ngày Mua Đơn Hàng</td>
                                         {{-- <td><span >{{ $transaction->created_at }}</span></td> --}}
-                                    </tr>
-                                    <tr>
-                                        <td>Chức Vụ</td>
-                                        <td>
-                                            {{-- @todo --}}
-                                            {{-- @if ($transaction->tst_user_id)
-                                                <span class="label label-warning">Thành Viên</span>
-                                            @else
-                                                <span class="label label-default">Khách</span>
-                                            @endif --}}
-                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

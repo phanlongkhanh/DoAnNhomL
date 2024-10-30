@@ -22,7 +22,6 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryPostController;
 
 
-
 //Giao Diện
 Route::get('/', [UserController::class, 'ShowUserLogin']);
 //Show Home Page User
@@ -58,9 +57,9 @@ Route::get('product-type-create', [ProductTypeController::class, 'ShowCreateType
 //Show Screen Produdct-Type Update
 Route::get('product-type-update', [ProductTypeController::class, 'ShowUpdateTypeProduct']);
 //Show Screen Oders Index
-Route::get('oders-index', [OdersController::class, 'ShowIndexOders']);
+Route::get('oders-index', [OdersController::class, 'index']);
 //Show Screen Views Index
-Route::get('oders-views', [OdersController::class, 'ShowViewOders']);
+Route::get('oders-views', [OdersController::class, 'show']);
 //Show Screen Index DashBoard
 Route::get('index-dashboard', [DashBoardController::class, 'ShowIndexDashBoard']);
 //Show Screen Dashboard
@@ -180,3 +179,6 @@ Route::delete('carts-remove/{id}', [CartController::class, 'RemoveFromCart'])->n
 Route::post('favorite-add', [FavoriteController::class, 'AddToFavorite']);
 //Delete Favorite
 Route::delete('favorite-delete/{id}', [FavoriteController::class, 'DeleteFavorite']);
+
+//Order Route
+Route::resource('orders', OdersController::class);
