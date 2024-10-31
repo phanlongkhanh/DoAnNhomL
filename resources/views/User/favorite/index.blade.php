@@ -121,8 +121,7 @@
                     <li class="nav-item"><a class="nav-link active" href="category-user-product">Danh Mục</a></li>
                     <li class="nav-item"><a class="nav-link" href="favorite-index">Favorite</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Post</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Testimonial</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pay-view">Giao Hàng</a></li>
                 </ul>
                 <div class="d-flex">
                     <a href="{{ 'cart-user-product' }}" class="btn btn-outline-danger me-2"><i

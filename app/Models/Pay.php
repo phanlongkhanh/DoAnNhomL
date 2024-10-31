@@ -9,24 +9,23 @@ class Pay extends Model
 {
     use HasFactory;
 
-    protected $table = 'pay';
-
+    protected $table = 'pays'; 
 
     protected $fillable = [
         'id_user',
         'id_transport',
-        'id_payment',
-        'id_cart',
+        'id_payment',   
         'name',
         'phone',
-        'amount',
-        'price',
+        'amount',       
+        'price',       
         'description',
         'address',
-        'total_price',
+        'total_price',  
+        'status',
     ];
 
-  
+
     public function user()
     {
         return $this->belongsTo(User::class, 'id_user');
@@ -43,9 +42,9 @@ class Pay extends Model
         return $this->belongsTo(Payment::class, 'id_payment');
     }
 
-    public function cart()
+    public function carts()
     {
-        return $this->belongsTo(Cart::class, 'id_cart');
+        return $this->hasMany(Cart::class, 'id_cart');
     }
 
 }

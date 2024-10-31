@@ -92,12 +92,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="testimonial.html">
+                            <a class="nav-link" href="">
                                 Post
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact Us</a>
+                            <a class="nav-link" href="pay-view">Giao Hàng</a>
                         </li>
                     </ul>
                     <div class="user_option">
@@ -291,7 +291,8 @@
                                             </h6>
                                             <h6 style="margin: 0; font-weight: bold;">
                                                 Giá
-                                                <span style="color: green; font-size: 20px;">{{ number_format($item->price, 0, ',', '.') }}
+                                                <span
+                                                    style="color: green; font-size: 20px;">{{ number_format($item->price, 0, ',', '.') }}
                                                     VNĐ</span>
                                             </h6>
                                             <div class="detail-box">

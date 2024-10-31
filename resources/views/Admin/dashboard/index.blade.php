@@ -25,11 +25,7 @@
                                     placeholder="ID">
                                 <input type="text" value="{{ Request::get('email') }}" class="form-control"
                                     name="email" placeholder="Email ...">
-                                {{-- <select name="type" class="form-control">
-                                <option value="0">__Phân Loại Khách__</option>
-                                <option value="1" {{ Request::get('type') == 1 ? "selected='selected'" : "" }}>Thành Viên</option>
-                                <option value="2" {{ Request::get('type') == 2 ? "selected='selected'" : "" }}>Khách</option>
-                            </select> --}}
+                            
                                 <select name="status" class="form-control">
                                     <option value="0">__Trạng Thái__</option>
                                     <option value="1" {{ Request::get('status') == 1 ? "selected='selected'" : '' }}>
