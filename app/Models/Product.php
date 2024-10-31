@@ -15,16 +15,15 @@ class Product extends Model
     protected $fillable = [
         'name',
         'price',
+        'description',
         'discount',
         'image',
         'id_category',
         'id_producttype',
+        'id_suppliers',
         'checkactive',
         'amount',
         'id',
-        'description',
-        'content',
-        'sizes',
     ];
 
     protected $casts = [
