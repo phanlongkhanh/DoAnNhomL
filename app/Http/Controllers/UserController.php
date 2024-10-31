@@ -20,7 +20,7 @@ class UserController extends Controller
     public function ShowProductDetails()
     {
         $product = Product::all();
-        return view('User.product.details', compact('users','product'));
+        return view('User.product.details', compact('product'));
     }
 
     // Hiển Thị Trang Đăng Nhập
