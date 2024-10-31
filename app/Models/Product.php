@@ -48,5 +48,16 @@ class Product extends Model
       {
           return $this->hasMany(Favorite::class, 'id_product');
       }
+      
+      //Tìm kiếm
+      public static function search($query)
+      {
+          return self::whereRaw("MATCH(name, description) AGAINST(? IN BOOLEAN MODE)", [$query]);
+      }
+
+      public function pays()
+    {
+        return $this->hasMany(Pay::class, 'id_product');
+    }
 
 }

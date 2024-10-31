@@ -123,30 +123,36 @@
 
         <div class="row">
             @if (isset($products))
-                @foreach ($products as $item)
-                    <div class="col-md-4 mb-4">
-                        <a href="{{ url('details-product', ['id' => Crypt::encrypt($item->id_product)]) }}">
-                            <div class="card shadow">
-                                <img src="{{ asset('images/' . $item->image) }}" width="300px" height="300px"
-                                    class="card-img-top" alt="Sản Phẩm 1">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">{{ $item->name }}</h5>
-                                    <p class="card-text">Giá: {{ number_format($item->price, 0, ',', '.') }} VNĐ</p>
-                                    <form action="" method="post" style="display: inline;">
-                                        <button type="submit" class="btn btn-danger" style="margin-top: 5px;">Add to
-                                            cart</button>
-                                    </form>
-                                    <form action="{{url('favorite-add')}}" method="post" style="display: inline;">
-                                        <button type="submit" class="btn btn-danger"
-                                            style="margin-top: 5px; margin-left: 10px;">
-                                            <p class="fa fa-heart" style="margin: 0;"></p>
-                                        </button>
-                                    </form>
+                @if ($products->isEmpty())
+                    <p>Không tìm thấy sản phẩm nào phù hợp.</p>
+                @else
+                    @foreach ($products as $item)
+                        <div class="col-md-4 mb-4">
+                            <a href="{{ url('details-product', ['id' => Crypt::encrypt($item->id_product)]) }}">
+                                <div class="card shadow">
+                                    <img src="{{ asset('images/' . $item->image) }}" width="300px" height="300px"
+                                        class="card-img-top" alt="Sản Phẩm 1">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">{{ $item->name }}</h5>
+                                        <p class="card-text">Giá: {{ number_format($item->price, 0, ',', '.') }} VNĐ</p>
+                                        <form action="" method="post" style="display: inline;">
+                                            <button type="submit" class="btn btn-danger" style="margin-top: 5px;">Add
+                                                to
+                                                cart</button>
+                                        </form>
+                                        <form action="{{ url('favorite-add') }}" method="post"
+                                            style="display: inline;">
+                                            <button type="submit" class="btn btn-danger"
+                                                style="margin-top: 5px; margin-left: 10px;">
+                                                <p class="fa fa-heart" style="margin: 0;"></p>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                @endforeach
+                            </a>
+                        </div>
+                    @endforeach
+                @endif
             @else
                 <p>Không Có Sản Phẩm</p>
             @endif
@@ -155,6 +161,7 @@
             {{ $products->links('pagination::bootstrap-4') }}
         </div>
     </div>
+
 
 
     <!-- Footer -->
@@ -173,17 +180,29 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.getElementById('displayYear').textContent = new Date().getFullYear();
-
-        function filterProducts(category) {
-            // Logic to filter products based on the category
-            console.log("Filtering products by:", category);
-        }
-
         function searchProducts() {
-            const query = document.getElementById('searchInput').value;
-            // Logic to search for products based on the query
-            console.log("Searching for products:", query);
+            var query = document.getElementById('searchInput').value;
+    
+            // Chuyển hướng đến route tìm kiếm với tham số truy vấn
+            window.location.href = `{{ route('category-products.search') }}?query=` + encodeURIComponent(query) + `&category=all`;
+        }
+    
+        function filterProducts(category) {
+            var query = document.getElementById('searchInput').value; // Lấy từ khóa tìm kiếm từ input
+    
+            // Chuyển hướng đến route với danh mục được chọn
+            window.location.href = `{{ route('category-products.search-selective') }}?query=` + encodeURIComponent(query) +
+                `&category=` + encodeURIComponent(category);
+        }
+    </script>
+
+
+    <script>
+        function filterProducts(category) {
+            var query = document.getElementById('searchInput').value;
+            // Chuyển hướng đến route với danh mục được chọn
+            window.location.href = `{{ route('category-products.search-selective') }}?query=` + encodeURIComponent(query) +
+                `&category=` + encodeURIComponent(category);
         }
     </script>
 </body>

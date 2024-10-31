@@ -20,6 +20,9 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryPostController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\PayController;
+
 
 
 
@@ -95,7 +98,8 @@ Route::get('index-post', [PostController::class, 'ShowIndexPost']);
 Route::get('create-post', [PostController::class, 'ShowCreatePost']);
 //Show Screen Category Post
 Route::get('index-post_category', [CategoryPostController::class, 'ShowIndexCategoryPost']);
-
+//Show Pay
+Route::get('pay-index', [PayController::class, 'ShowPayIndex']);
 
 
 
@@ -142,6 +146,11 @@ Route::post('update-category/{id}', [AdminCategoryProductController::class, 'upd
 Route::delete('/admin/categories/delete/{id}', [AdminCategoryProductController::class, 'destroyCategory'])->name('deletecategory');
 
 
+//
+
+Route::get('category-products/search-selective', [SearchController::class, 'SearchSelective'])->name('category-products.search-selective');
+//Search - CategorySearch
+Route::get('category-products/search', [SearchController::class, 'search'])->name('category-products.search');
 //Add ProductType
 Route::POST('add-product-type', [ProductTypeController::class, 'AddProductType']);
 //active loại sản phẩm

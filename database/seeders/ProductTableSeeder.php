@@ -24,6 +24,7 @@ class ProductTableSeeder extends Seeder
                 'image' => 'aothun.jpg',
                 'id_category' => 1, 
                 'id_producttype' => 2,
+                'id_suppliers' => 1,
                 'checkactive' => true,
                 'amount' => 100,
                 'id' => 1,
@@ -33,9 +34,10 @@ class ProductTableSeeder extends Seeder
                 'price' => 250000,
                 'description' => 'Mô tả quần Jane',
                 'discount' => 0,
-                'image' => 'quan.jpg', // Thay đổi hình ảnh nếu cần
+                'image' => 'quan.jpg', 
                 'id_category' => 2,
-                'id_producttype' => 3, // Thay đổi loại sản phẩm nếu cần
+                'id_producttype' => 3,
+                'id_suppliers' => 1,
                 'checkactive' => true,
                 'amount' => 75,
                 'id' => 3,
@@ -45,9 +47,10 @@ class ProductTableSeeder extends Seeder
                 'price' => 400000,
                 'description' => 'Mô tả áo khoác Jane',
                 'discount' => 0,
-                'image' => 'jane.jpg', // Thay đổi hình ảnh nếu cần
+                'image' => 'jane.jpg', 
                 'id_category' => 1,
-                'id_producttype' => 4, // Thay đổi loại sản phẩm nếu cần
+                'id_producttype' => 4,
+                'id_suppliers' => 1,
                 'checkactive' => true,
                 'amount' => 50,
                 'id' => 4,
@@ -57,9 +60,10 @@ class ProductTableSeeder extends Seeder
                 'price' => 180000,
                 'description' => 'Mô tả quần thể thao',
                 'discount' => 0,
-                'image' => 'quanthethao.jpg', // Thay đổi hình ảnh nếu cần
+                'image' => 'quanthethao.jpg', 
                 'id_category' => 3,
-                'id_producttype' => 1, // Thay đổi loại sản phẩm nếu cần
+                'id_producttype' => 1,
+                'id_suppliers' => 1, 
                 'checkactive' => true,
                 'amount' => 100,
                 'id' => 5,
