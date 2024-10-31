@@ -14,6 +14,13 @@ class CartController extends Controller
 {
     public function AddToCart(Request $request)
     {
+
+        $userId = auth()->id(); 
+
+        if (!$userId) {
+            return redirect()->route('login')->with('error', 'Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng.');
+        }
+
         // Xác thực dữ liệu
         $validator = Validator::make($request->all(), [
             'id_product' => 'required|integer|exists:products,id_product',
@@ -32,8 +39,12 @@ class CartController extends Controller
         // Tính toán tổng giá tiền
         $total_price = $request->amount * $request->price;
 
+        // Kiểm tra xem người dùng đã đăng nhập chưa
+        $userId = auth()->id(); // Lấy ID người dùng đã đăng nhập
+
         // Thêm sản phẩm vào giỏ hàng
         Cart::create([
+            'id_user' => $userId, // Thêm ID người dùng
             'id_product' => $request->id_product,
             'name' => $request->name,
             'amount' => $request->amount,
@@ -50,9 +61,8 @@ class CartController extends Controller
         $carts = Cart::find($id);
 
         if (!$carts) {
-            return redirect()->back()->with('error', 'Sản phẩm không tồn tại trong giỏ hàng!');
+            return redirect('cart-user-product')->with('error', 'Sản phẩm không tồn tại trong giỏ hàng!');
         }
-        // Xóa sản phẩm khỏi giỏ hàng
         $carts->delete();
 
         return redirect('cart-user-product')->with('success', 'Sản phẩm đã được xóa khỏi giỏ hàng!');

@@ -66,6 +66,13 @@
             {{ session('success') }}
         </div>
     @endif
+
+    @if(Session::has('error'))
+    <div class="alert alert-danger h3 text-center">
+        {{ Session::get('error') }}
+    </div>
+@endif
+
     <!-- Cart Section -->
     <div class="container my-5">
         <h2 class="mb-4 text-center">Giỏ Hàng</h2>
@@ -125,7 +132,13 @@
         @endforeach
         <div class="text-center">
             <h5 class="me-3">Tổng Tiền: <span id="totalPrice">{{ number_format($tong, 0, ',', '.') }} VNĐ</span></h5>
-            <button class="btn btn-success">Thanh Toán</button>
+            @if (isset($carts) && count($carts) > 0)
+                <a href="{{ url('pay-edit', ['id' => Crypt::encrypt($carts[0]->id)]) }}">
+                    <button class="btn btn-success">Thanh Toán</button>
+                </a>
+            @else
+                <button class="btn btn-success" disabled>Thanh Toán</button>
+            @endif
         </div>
     </div>
 
@@ -148,24 +161,6 @@
     <script>
         document.getElementById('displayYear').textContent = new Date().getFullYear();
     </script>
-    {{-- <script>
-        function incrementQuantity(button) {
-            // Tìm phần tử span chứa số lượng
-            const quantitySpan = button.parentElement.querySelector("#quantity");
-            let quantity = parseInt(quantitySpan.innerText);
-            quantity++; // Tăng số lượng
-            quantitySpan.innerText = quantity; // Cập nhật số lượng hiển thị
-        }
-
-        function decrementQuantity(button) {
-            const quantitySpan = button.parentElement.querySelector("#quantity");
-            let quantity = parseInt(quantitySpan.innerText);
-            if (quantity > 1) { // Đảm bảo số lượng không giảm xuống dưới 1
-                quantity--; // Giảm số lượng
-                quantitySpan.innerText = quantity; // Cập nhật số lượng hiển thị
-            }
-        }
-    </script> --}}
 
     <script>
         function updateQuantity(button, change) {
@@ -188,7 +183,7 @@
             const totalPrice = quantity * price;
 
             totalPriceElement.innerText = (totalPrice * 1000).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.') +
-                ' VNĐ'; 
+                ' VNĐ';
 
             updateTotalPrice();
         }

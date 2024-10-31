@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedBigInteger('id_user')->comment('thông tin khách hàng');
             $table->unsignedBigInteger('id_product')->comment('thông tin sản phẩm');
             $table->string('name')->comment('tên sản phẩm');
             $table->decimal('price', 10, 2)->nullable();

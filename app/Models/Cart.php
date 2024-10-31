@@ -12,6 +12,7 @@ class Cart extends Model
     protected $table = 'carts';
 
     protected $fillable = [
+        'id_user',
         'id_product',    // ID sản phẩm
         'name',          // Tên sản phẩm
         'amount',        // Số lượng
@@ -24,5 +25,11 @@ class Cart extends Model
     public function product()
     {
         return $this->belongsTo(Product::class, 'id_product', 'id_product');
+    }
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
     }
 }

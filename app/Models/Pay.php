@@ -9,42 +9,43 @@ class Pay extends Model
 {
     use HasFactory;
 
-    protected $table = 'pay'; // Tên bảng trong cơ sở dữ liệu
+    protected $table = 'pay';
+
 
     protected $fillable = [
-        'id_product',
         'id_user',
         'id_transport',
         'id_payment',
+        'id_cart',
+        'name',
+        'phone',
+        'amount',
+        'price',
         'description',
         'address',
-        'name',
-        'price',
-        'amount',
+        'total_price',
     ];
 
-    // Định nghĩa quan hệ với sản phẩm
-    public function product()
-    {
-        return $this->belongsTo(Product::class, 'id_product');
-    }
-
-    // Định nghĩa quan hệ với người dùng
+  
     public function user()
     {
         return $this->belongsTo(User::class, 'id_user');
     }
 
-    // Định nghĩa quan hệ với đơn vị vận chuyển
+    // Quan hệ với model Transport (nếu có)
     public function transport()
     {
         return $this->belongsTo(Transport::class, 'id_transport');
     }
 
-    public function paymentMethod()
+    public function payment()
     {
-        return $this->belongsTo(PaymentMethod::class, 'id_payment');
+        return $this->belongsTo(Payment::class, 'id_payment');
     }
 
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class, 'id_cart');
+    }
 
 }
