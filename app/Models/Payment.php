@@ -5,12 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PaymentMeThod extends Model
+class Payment extends Model
 {
     use HasFactory;
-
-
-    protected $table = 'payment';
 
     protected $fillable = [
         'id_pay',
@@ -24,5 +21,8 @@ class PaymentMeThod extends Model
         return $this->hasMany(Pay::class, 'id_payment');
     }
 
-    
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_pay');
+    }
 }

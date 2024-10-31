@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="{{ asset('css/responsive1.css') }}">
     <link rel="shortcut icon" href="{{ asset('homepage-images/favicon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/pay.css') }}">
-
 </head>
 
 <body>
@@ -57,43 +56,58 @@
             </div>
         @endif
 
+
         <form action="#" method="POST">
             @csrf
             <div class="row mb-4">
                 <div class="col-md-6">
                     <h5>Thông Tin Giao Hàng</h5>
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Họ và Tên</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">Số Điện Thoại</label>
-                        <input type="text" class="form-control" id="phone" name="phone" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="address" class="form-label">Địa Chỉ Giao Hàng</label>
-                        <input type="text" class="form-control" id="address" name="address" required>
-                    </div>
+                    @if ($user)
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Tên người dùng</label>
+                            <input type="text" class="form-control" value="{{ $user->name }}" id="name"
+                                name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Số Điện Thoại</label>
+                            <input type="tel" class="form-control" id="phone" value="{{ $user->phone }}"
+                                name="phone" pattern="[0-9]{10}" required>
+                            <small class="form-text text-muted">Nhập số điện thoại 10 chữ số.</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Địa Chỉ Giao Hàng</label>
+                            <input type="text" class="form-control" placeholder="Nhập vào địa chỉ giao hàng"
+                                id="address" name="address" required>
+                        </div>
+                    @else
+                        <p>Không có thông tin người dùng.</p>
+                    @endif
+
                 </div>
                 <div class="col-md-6">
                     <h5>Phương Thức Thanh Toán</h5>
                     <div class="mb-3">
                         <label for="payment_method" class="form-label">Chọn Phương Thức</label>
-                        <select class="form-select" id="payment_method" name="payment_method" required>
-                            <option value="credit_card">Thẻ Tín Dụng</option>
-                            <option value="bank_transfer">Chuyển Khoản Ngân Hàng</option>
-                            <option value="cash_on_delivery">Thanh Toán Khi Nhận Hàng</option>
+                        <select class="form-select" id="id_payment" name="id_payment" required>
+                            @foreach ($payments as $payments)
+                                <option value="{{ $payments->id }}">{{ $payments->name }}</option>
+                            @endforeach
                         </select>
                     </div>
 
                     <h5>Đơn Vị Vận Chuyển</h5>
                     <div class="mb-3">
-                        <label for="shipping_method" class="form-label">Chọn Đơn Vị</label>
-                        <select class="form-select" id="shipping_method" name="shipping_method" required>
-                            <option value="vnpost">VNPost</option>
-                            <option value="ghn">Giao Hàng Nhanh</option>
-                            <option value="ghn_express">Giao Hàng Tiết Kiệm</option>
+                        <select class="form-select" id="id_transport" name="id_transport" required>
+                            @foreach ($transports as $transport)
+                                <option value="{{ $transport->id }}">{{ $transport->name }}</option>
+                            @endforeach
                         </select>
+                    </div>
+                     <br>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <input type="text" class="form-control" placeholder="Nhập vào mong muốn ?" id="description"
+                            name="description" required>
                     </div>
                 </div>
             </div>
@@ -112,32 +126,40 @@
                     @php
                         $tong = 0;
                     @endphp
-                    {{-- @foreach ($carts as $item) --}}
-                    <tr>
-                        <td class="text-danger h5">Tên Sản Phẩm</td>
-                        <td class="price">Giá Tiền VNĐ</td>
-                        <td>Số Lượng</td>
-                        <td class="total-price">Giá Tiền VNĐ</td>
-                        @php
-
-                        @endphp
-                    </tr>
-                    {{-- @endforeach --}}
+                    @if (isset($carts) && count($carts) > 0)
+                        @foreach ($carts as $item)
+                            @php
+                                $tong += $item->total_price; // Tính tổng tiền
+                            @endphp
+                            <tr>
+                                <td class="text-danger h5">{{ $item->name ?? 'Tên sản phẩm không có' }}</td>
+                                <td class="price">{{ number_format($item->price, 0, ',', '.') ?? '0' }} VNĐ</td>
+                                <td>{{ $item->amount }}</td>
+                                <td class="total-price">{{ number_format($item->total_price, 0, ',', '.') ?? '0' }}
+                                    VNĐ</td>
+                            </tr>
+                        @endforeach
+                    @else
+                        <tr>
+                            <td colspan="4" class="text-center">Giỏ hàng trống.</td>
+                        </tr>
+                    @endif
                 </tbody>
             </table>
             <br>
             <div class="text-center">
-                <h5 class="text-success" >Tổng Tiền: <span id="totalPrice">0 VNĐ</span></h5>
+                <h5 class="text-success">Tổng Tiền: <span id="total_price" name='total_price'>{{ number_format($tong, 0, ',', '.') }}
+                        VNĐ</span></h5>
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-success mt-4">Xác Nhận Thanh Toán</button>
+                <button type="submit" class="btn btn-success mt-4">Xác Nhận Mua Hàng</button>
             </div>
         </form>
     </div>
 
     <!-- Footer -->
     <footer class="footer_section bg-dark text-white py-4">
-        <div class="container text-center">
+        <div class="text-center">
             <div class="social-icons mb-3">
                 <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>

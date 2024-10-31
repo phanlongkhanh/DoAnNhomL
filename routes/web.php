@@ -189,3 +189,5 @@ Route::delete('carts-remove/{id}', [CartController::class, 'RemoveFromCart'])->n
 Route::post('favorite-add', [FavoriteController::class, 'AddToFavorite']);
 //Delete Favorite
 Route::delete('favorite-delete/{id}', [FavoriteController::class, 'DeleteFavorite']);
+//Edit Pay
+Route::get('pay-edit/{id}', [PayController::class, 'EditPay']);

@@ -108,11 +108,11 @@
     <div class="container my-5">
         <h2 class="mb-4 text-center">Danh Mục Sản Phẩm</h2>
         <div class="text-center mb-4">
-            <button class="btn btn-outline-primary category-btn" onclick="filterProducts('all')">Tất Cả</button>
-            <button class="btn btn-outline-primary category-btn" onclick="filterProducts('quần')">Quần</button>
-            <button class="btn btn-outline-primary category-btn" onclick="filterProducts('áo')">Áo</button>
-            <button class="btn btn-outline-primary category-btn" onclick="filterProducts('áo jane')">Áo Jane</button>
-            <button class="btn btn-outline-primary category-btn" onclick="filterProducts('quần jane')">Quần
+            <button class="btn btn-outline-primary category-btn"  onclick="filterProducts('all')">Tất Cả</button>
+            <button class="btn btn-outline-primary category-btn"  onclick="filterProducts('quần')">Quần</button>
+            <button class="btn btn-outline-primary category-btn"  onclick="filterProducts('áo')">Áo</button>
+            <button class="btn btn-outline-primary category-btn"  onclick="filterProducts('áo jane')">Áo Jane</button>
+            <button class="btn btn-outline-primary category-btn"  onclick="filterProducts('quần jane')">Quần
                 Jane</button>
         </div>
 
@@ -129,6 +129,8 @@
                     @foreach ($products as $item)
                         <div class="col-md-4 mb-4">
                             <a href="{{ url('details-product', ['id' => Crypt::encrypt($item->id_product)]) }}">
+                                @csrf
+                                @method('Post')
                                 <div class="card shadow">
                                     <img src="{{ asset('images/' . $item->image) }}" width="300px" height="300px"
                                         class="card-img-top" alt="Sản Phẩm 1">
@@ -187,13 +189,6 @@
             window.location.href = `{{ route('category-products.search') }}?query=` + encodeURIComponent(query) + `&category=all`;
         }
     
-        function filterProducts(category) {
-            var query = document.getElementById('searchInput').value; // Lấy từ khóa tìm kiếm từ input
-    
-            // Chuyển hướng đến route với danh mục được chọn
-            window.location.href = `{{ route('category-products.search-selective') }}?query=` + encodeURIComponent(query) +
-                `&category=` + encodeURIComponent(category);
-        }
     </script>
 
 
