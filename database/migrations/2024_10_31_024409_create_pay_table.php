@@ -13,15 +13,17 @@ return new class extends Migration
     {
         Schema::create('pay', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_product')->comment('thông tin sản phẩm');
             $table->unsignedBigInteger('id_user')->comment('thông tin người mua');
             $table->unsignedBigInteger('id_transport')->comment('đơn vị vận chuyển');
             $table->unsignedBigInteger('id_payment')->comment('phương thức thanh toán');
-            $table->string('description')->comment('đơn vị vận chuyển');
-            $table->string('address')->comment('địa chỉ');
+            $table->unsignedBigInteger('id_cart')->comment('Giỏ hàng');
             $table->string('name')->comment('tên sản phẩm');
-            $table->decimal('price', 10, 2)->nullable()->comment('giá tiền');
+            $table->string('phone')->comment('Số điện thoại');
             $table->unsignedBigInteger('amount')->comment('số lượng');
+            $table->decimal('price',10,2)->comment('giá tiền');
+            $table->string('description')->comment('nội dung cần thêm');
+            $table->string('address')->comment('địa chỉ');
+            $table->decimal('total_price',10,2)->comment('tổng tiền');
             $table->timestamps();
         });
     }

@@ -68,6 +68,19 @@ class ProductTableSeeder extends Seeder
                 'amount' => 100,
                 'id' => 5,
             ],
+            [
+                'name' => 'Áo Thể Thao',
+                'price' => 180000,
+                'description' => 'Mô tả áo thể thao',
+                'discount' => 0,
+                'image' => 'aothun.jpg', 
+                'id_category' => 1,
+                'id_producttype' => 2,
+                'id_suppliers' => 1, 
+                'checkactive' => true,
+                'amount' => 100,
+                'id' => 6,
+            ],
         ]);
     }
 }
