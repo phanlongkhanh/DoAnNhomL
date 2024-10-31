@@ -26,6 +26,7 @@ use App\Http\Controllers\PayController;
 
 
 
+
 //Giao Diện
 Route::get('/', [UserController::class, 'ShowUserLogin']);
 //Show Home Page User
@@ -98,10 +99,10 @@ Route::get('index-post', [PostController::class, 'ShowIndexPost']);
 Route::get('create-post', [PostController::class, 'ShowCreatePost']);
 //Show Screen Category Post
 Route::get('index-post_category', [CategoryPostController::class, 'ShowIndexCategoryPost']);
-//Show Pay
+//Show Screen Index Pay
 Route::get('pay-index', [PayController::class, 'ShowPayIndex']);
-
-
+//Show Screen View Pay
+Route::get('pay-view', [PayController::class, 'ViewPay']);
 
 
 
@@ -191,3 +192,7 @@ Route::post('favorite-add', [FavoriteController::class, 'AddToFavorite']);
 Route::delete('favorite-delete/{id}', [FavoriteController::class, 'DeleteFavorite']);
 //Edit Pay
 Route::get('pay-edit/{id}', [PayController::class, 'EditPay']);
+//Add Pay
+Route::post('create-pay', [PayController::class, 'AddPay']);
+//Update Status pays
+Route::get('pays/{id}/update-status/{status}', [OdersController::class, 'updateStatus'])->name('pays.updateStatus');

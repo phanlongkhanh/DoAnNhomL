@@ -33,7 +33,7 @@
                     <li class="nav-item"><a class="nav-link" href="category-user-product">Danh Mục</a></li>
                     <li class="nav-item"><a class="nav-link" href="favorite-index">Favorite</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Post</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Testimonial</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pay-view">Giao Hàng</a></li>
                 </ul>
                 <div class="d-flex">
                     <a href="{{ 'cart-user-product' }}" class="btn btn-outline-danger me-2"><i
@@ -56,8 +56,18 @@
             </div>
         @endif
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
-        <form action="#" method="POST">
+
+        <form action="{{ url('create-pay') }}" method="POST">
             @csrf
             <div class="row mb-4">
                 <div class="col-md-6">
@@ -65,8 +75,7 @@
                     @if ($user)
                         <div class="mb-3">
                             <label for="name" class="form-label">Tên người dùng</label>
-                            <input type="text" class="form-control" value="{{ $user->name }}" id="name"
-                                name="name" required>
+                            <input type="text" class="form-control" value="{{ $user->name }}" required>
                         </div>
                         <div class="mb-3">
                             <label for="phone" class="form-label">Số Điện Thoại</label>
@@ -82,15 +91,15 @@
                     @else
                         <p>Không có thông tin người dùng.</p>
                     @endif
-
                 </div>
+
                 <div class="col-md-6">
                     <h5>Phương Thức Thanh Toán</h5>
                     <div class="mb-3">
                         <label for="payment_method" class="form-label">Chọn Phương Thức</label>
                         <select class="form-select" id="id_payment" name="id_payment" required>
-                            @foreach ($payments as $payments)
-                                <option value="{{ $payments->id }}">{{ $payments->name }}</option>
+                            @foreach ($payments as $payment)
+                                <option value="{{ $payment->id }}">{{ $payment->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -103,11 +112,12 @@
                             @endforeach
                         </select>
                     </div>
-                     <br>
+
+                    <br>
                     <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
-                        <input type="text" class="form-control" placeholder="Nhập vào mong muốn ?" id="description"
-                            name="description" required>
+                        <label for="description" class="form-label">Mong Muốn</label>
+                        <input type="text" class="form-control" placeholder="Nhập vào mong muốn ?"
+                            id="description" name="description" required>
                     </div>
                 </div>
             </div>
@@ -125,6 +135,7 @@
                 <tbody>
                     @php
                         $tong = 0;
+                        $id_cart = []; // Khởi tạo mảng để lưu id_cart
                     @endphp
                     @if (isset($carts) && count($carts) > 0)
                         @foreach ($carts as $item)
@@ -132,12 +143,15 @@
                                 $tong += $item->total_price; // Tính tổng tiền
                             @endphp
                             <tr>
-                                <td class="text-danger h5">{{ $item->name ?? 'Tên sản phẩm không có' }}</td>
+                                <td class="text-danger h5" >{{ $item->name ?? 'Tên sản phẩm không có' }}</td>
                                 <td class="price">{{ number_format($item->price, 0, ',', '.') ?? '0' }} VNĐ</td>
                                 <td>{{ $item->amount }}</td>
                                 <td class="total-price">{{ number_format($item->total_price, 0, ',', '.') ?? '0' }}
                                     VNĐ</td>
                             </tr>
+                            <input type="hidden" id="name" name="name" value="{{ $item->name }}">
+                            <input type="hidden" id="amount" name="amount" value="{{ $item->amount }}">
+                            <input type="hidden" id="price" name="price" value="{{ $item->price }}">
                         @endforeach
                     @else
                         <tr>
@@ -146,10 +160,12 @@
                     @endif
                 </tbody>
             </table>
+
             <br>
             <div class="text-center">
-                <h5 class="text-success">Tổng Tiền: <span id="total_price" name='total_price'>{{ number_format($tong, 0, ',', '.') }}
+                <h5 class="text-success">Tổng Tiền: <span id="total_price">{{ number_format($tong, 0, ',', '.') }}
                         VNĐ</span></h5>
+                <input type="hidden" name="total_price" value="{{ $tong }}">
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-success mt-4">Xác Nhận Mua Hàng</button>

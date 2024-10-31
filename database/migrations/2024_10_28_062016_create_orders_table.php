@@ -14,12 +14,10 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedBigInteger('id_user')->comment('người mua');
-            $table->unsignedBigInteger('id_product')->comment("sản phẩm");
-            $table->unsignedBigInteger('id_transport')->comment('hãng vận chuyển');
+            $table->unsignedBigInteger('id_pays')->comment('thông tin đơn hàng');
             $table->string('status')->default('Đã tiếp nhận')->comment('tình trạng đơn hàng');
             $table->unsignedBigInteger('amount')->comment('số lượng');
             $table->unsignedBigInteger('intomoney')->comment('thành tiền');
-            $table->unsignedBigInteger('id_pay')->comment('hình thức thanh toán');
             $table->timestamps();
         });
     }
