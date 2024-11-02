@@ -129,26 +129,30 @@
                 <tbody>
                     @if (isset($pays))
                         @foreach ($pays as $item)
-                            <tr>
-                                <td>{{ $item->id }}</td>
-                                <td>{{ $item->user->name }}</td>
-                                <td>
-                                    <ul>Sản Phẩm: {{ $item->name }}</ul>
-                                    <ul>Số Lượng: {{ $item->amount }}</ul>
-                                    <ul>Giá Tiền: {{ number_format($item->price, 0, ',', '.') ?? '0' }} VNĐ</ul>
-                                </td>
-                                <td>{{ $item->created_at }}</td>
-                                <td>{{ number_format($item->total_price, 0, ',', '.') ?? '0' }} VNĐ</td>
-                            </tr>
+                            @if ($item->active == 0)
+                                <tr>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->user->name }}</td>
+                                    <td>
+                                        <ul>Sản Phẩm: {{ $item->name }}</ul>
+                                        <ul>Số Lượng: {{ $item->amount }}</ul>
+                                        <ul>Giá Tiền: {{ number_format($item->price, 0, ',', '.') ?? '0' }} VNĐ</ul>
+                                    </td>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td>{{ number_format($item->total_price, 0, ',', '.') ?? '0' }} VNĐ</td>
+                                </tr>
+                            @endif
                         @endforeach
                     @endif
                     @php
                         $tong = 0;
                     @endphp
                     @foreach ($pays as $item)
+                       @if ($item->active == 0)
                         @php
                             $tong += $item->total_price;
                         @endphp
+                        @endif
                     @endforeach
                     <td></td>
                     <td></td>
