@@ -107,11 +107,11 @@
     <div class="container my-5">
         <h2 class="mb-4 text-center">Danh Mục Sản Phẩm</h2>
         <div class="text-center mb-4">
-            <button class="btn btn-outline-primary category-btn"  onclick="filterProducts('all')">Tất Cả</button>
-            <button class="btn btn-outline-primary category-btn"  onclick="filterProducts('quần')">Quần</button>
-            <button class="btn btn-outline-primary category-btn"  onclick="filterProducts('áo')">Áo</button>
-            <button class="btn btn-outline-primary category-btn"  onclick="filterProducts('áo jane')">Áo Jane</button>
-            <button class="btn btn-outline-primary category-btn"  onclick="filterProducts('quần jane')">Quần
+            <button class="btn btn-outline-primary category-btn" onclick="filterProducts('all')">Tất Cả</button>
+            <button class="btn btn-outline-primary category-btn" onclick="filterProducts('quần')">Quần</button>
+            <button class="btn btn-outline-primary category-btn" onclick="filterProducts('áo')">Áo</button>
+            <button class="btn btn-outline-primary category-btn" onclick="filterProducts('áo jane')">Áo Jane</button>
+            <button class="btn btn-outline-primary category-btn" onclick="filterProducts('quần jane')">Quần
                 Jane</button>
         </div>
 
@@ -129,24 +129,34 @@
                         <div class="col-md-4 mb-4">
                             <a href="{{ url('details-product', ['id' => Crypt::encrypt($item->id_product)]) }}">
                                 @csrf
-                                @method('Post')
+                                @method('post')
                                 <div class="card shadow">
                                     <img src="{{ asset('images/' . $item->image) }}" width="300px" height="300px"
                                         class="card-img-top" alt="Sản Phẩm 1">
                                     <div class="card-body text-center">
                                         <h5 class="card-title">{{ $item->name }}</h5>
                                         <p class="card-text">Giá: {{ number_format($item->price, 0, ',', '.') }} VNĐ</p>
-                                        <form action="" method="post" style="display: inline;">
-                                            <button type="submit" class="btn btn-danger" style="margin-top: 5px;">Add
-                                                to
-                                                cart</button>
+                                        <form action="{{ url('add-to-cart') }}" method="POST" style="display: inline;">
+                                            @csrf
+                                            <input type="hidden" name="id_product" value="{{ $item->id_product }}">
+                                            <input type="hidden" name="name" value="{{ $item->name }}">
+                                            <input type="hidden" name="amount" value="1">
+                                            <input type="hidden" name="price" value="{{ $item->price }}">
+                                            <input type="hidden" name="image" value="{{ $item->image }}">
+                                            <button type="submit" class="btn btn-danger"
+                                                style="margin-top: 5px;">Add to cart</button>
                                         </form>
                                         <form action="{{ url('favorite-add') }}" method="post"
                                             style="display: inline;">
+                                            @csrf
+                                            <input type="hidden" name="id_product" value="{{ $item->id_product }}">
+                                            <input type="hidden" name="name" value="{{ $item->name }}">
+                                            <input type="hidden" name="amount" value="1">
+                                            <input type="hidden" name="price" value="{{ $item->price }}">
+                                            <input type="hidden" name="image" value="{{ $item->image }}">
                                             <button type="submit" class="btn btn-danger"
                                                 style="margin-top: 5px; margin-left: 10px;">
                                                 <p class="fa fa-heart" style="margin: 0;"></p>
-                                            </button>
                                         </form>
                                     </div>
                                 </div>
@@ -183,11 +193,11 @@
     <script>
         function searchProducts() {
             var query = document.getElementById('searchInput').value;
-    
+
             // Chuyển hướng đến route tìm kiếm với tham số truy vấn
-            window.location.href = `{{ route('category-products.search') }}?query=` + encodeURIComponent(query) + `&category=all`;
+            window.location.href = `{{ route('category-products.search') }}?query=` + encodeURIComponent(query) +
+                `&category=all`;
         }
-    
     </script>
 
 

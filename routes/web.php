@@ -156,6 +156,8 @@ Route::get('category-products/search', [SearchController::class, 'search'])->nam
 Route::POST('add-product-type', [ProductTypeController::class, 'AddProductType']);
 //active loại sản phẩm
 Route::get('product-type/active/{id}', [ProductTypeController::class, 'ActiveProductType'])->name('active-product-type');
+//active orders
+Route::get('orders/active/{id}', [OdersController::class, 'ActiveOrders'])->name('active-orders');
 //Edit ProductType
 Route::get('edit-producttype/{id}', [ProductTypeController::class, 'EditProductType']);
 //Remove ProductType

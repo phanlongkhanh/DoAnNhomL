@@ -22,7 +22,7 @@ class Pay extends Model
         'description',
         'address',
         'total_price',  
-        'status',
+        'active',
     ];
 
 

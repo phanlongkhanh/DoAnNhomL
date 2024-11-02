@@ -30,15 +30,24 @@ class OdersController extends Controller
             return redirect('oders-index')->with('error', 'Trạng thái không hợp lệ.');
         }
 
-        $pay = Pay::find($id);
+        $pays = Pay::find($id);
 
-        if (!$pay) {
+        if (!$pays) {
             return redirect('oders-index')->with('error', 'Đơn hàng không tồn tại.');
         }
 
-        $pay->status = $newStatus;
-        $pay->save();
+        $pays->status = $newStatus;
+        $pays->save();
 
         return redirect('oders-index')->with('success', 'Cập nhật tình trạng đơn hàng thành công.');
+    }
+
+    public function ActiveOrders($id)
+    {
+        $pays = Pay::findOrFail($id);
+        $pays->active = !$pays->active;
+        $pays->save();
+
+        return redirect('oders-index')->with('success', 'Trạng thái đã được cập nhật thành công.');
     }
 }
