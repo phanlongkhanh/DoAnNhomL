@@ -16,16 +16,20 @@
     <link rel="shortcut icon" href="{{ asset('homepage-images/favicon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/order-tracking.css') }}">
     <style>
-        html, body {
+        html,
+        body {
             height: 100%;
         }
+
         body {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
+
         .footer_section {
-            margin-top: auto; /* Đẩy footer xuống cuối */
+            margin-top: auto;
+            /* Đẩy footer xuống cuối */
         }
     </style>
 </head>
@@ -69,27 +73,45 @@
                 <button class="btn btn-outline-success" type="submit">Theo Dõi</button>
             </div>
         </form>
-        
         <div class="order-details">
             <h4>Thông Tin Đơn Hàng</h4>
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>Mã Đơn Hàng</th>
-                        <th>Tên Khách Hàng</th>
-                        <th>Trạng Thái</th>
+                        <th>Thông Tin Khách Hàng</th>
+                        <th>Thông Tin Sản Phẩm</th>
+                        <th>Phương Thức Vận Chuyển</th>
                         <th>Ngày Đặt Hàng</th>
                         <th>Tổng Tiền</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>OD123456</td>
-                        <td>Nguyễn Văn A</td>
-                        <td>Đang giao hàng</td>
-                        <td>2024-10-30</td>
-                        <td>500,000 VNĐ</td>
-                    </tr>
+                    @if (isset($pays))
+                        @foreach ($pays as $item)
+                       
+                            <tr>
+                                <td>{{ $item->id }}357AB</td>
+                                <td>
+                                    <ul>
+                                        <li>Họ Tên: {{ $item->user->name }} </li>
+                                        <li>Địa Chỉ: {{ $item->address }} </li>
+                                        <li>SĐT: {{ $item->phone }}</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Tên Sản Phẩm: {{ $item->name }}</li>
+                                        <li>Số Lượng: {{ $item->amount }} </li>
+                                        <li>Giá Tiền: {{ number_format($item->price, 0, ',', '.') }} VNĐ </li>
+                                    </ul>
+                                </td>
+                                <td>{{ $item->transport->name }}</td>
+                                <td>{{ $item->created_at }}</td>
+                                <td>{{ number_format($item->total_price, 0, ',', '.') }} VNĐ</td>
+                            </tr>
+                        @endforeach
+                    @endif
                     <!-- Có thể thêm nhiều đơn hàng khác tại đây -->
                 </tbody>
             </table>

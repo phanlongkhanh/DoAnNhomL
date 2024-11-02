@@ -19,6 +19,7 @@ class OdersController extends Controller
         return view('Admin.oders.view', compact('pays'));
     }
 
+
     public function updateStatus(Request $request, $id)
     {
 
