@@ -148,7 +148,8 @@
                                 <td>{{ $item->amount }}</td>
                                 <td class="total-price">{{ number_format($item->total_price, 0, ',', '.') ?? '0' }}
                                     VNĐ</td>
-                            </tr>
+                            </tr> 
+                            <input type="hidden" name="id_cart" value="{{ $item->id }}">
                             <input type="hidden" id="name" name="name" value="{{ $item->name }}">
                             <input type="hidden" id="amount" name="amount" value="{{ $item->amount }}">
                             <input type="hidden" id="price" name="price" value="{{ $item->price }}">

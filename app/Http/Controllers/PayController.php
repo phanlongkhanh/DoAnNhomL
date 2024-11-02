@@ -26,8 +26,19 @@ class PayController extends Controller
         return view('User.pay.index', compact('transports', 'payments', 'user'));
     }
 
-    public function ViewPay(){
-        return view('User.pay.view');
+    public function ViewPay()
+    {
+        $userId = auth()->id();
+
+        if (!$userId) {
+            return redirect('User.pay.view')->with('error', 'Bạn cần đăng nhập để xem.');
+        }
+
+        $pays = Pay::with(['user', 'transport', 'payment'])
+            ->where('id_user', $userId)
+            ->paginate(6);
+
+        return view('User.pay.view', compact('pays'));
     }
 
     public function EditPay($encryptedId)
@@ -64,13 +75,12 @@ class PayController extends Controller
         if (!$userId) {
             return redirect('login')->with('error', 'Bạn cần đăng nhập để thực hiện thanh toán.');
         }
-
-        // Xác thực dữ liệu đầu vào
+        
         $validator = Validator::make($request->all(), [
             'id_payment' => 'required|exists:payments,id',
+            'phone' => 'required|string|max:20',
             'description' => 'nullable|string',
             'address' => 'required|string|max:255',
-            'total_price' => 'required|numeric|min:0',
         ]);
 
         if ($validator->fails()) {
@@ -79,24 +89,36 @@ class PayController extends Controller
                 ->withInput();
         }
 
-         // Tính toán tổng giá tiền
-         $total_price = $request->amount * $request->price;
-        // Tạo một bản ghi mới
-        $pay = new Pay();
-        $pay->id_user = $userId;
-        $pay->id_transport = $request->input('id_transport');
-        $pay->id_payment = $request->input('id_payment');
-        $pay->name = $request->input('name');
-        $pay->phone = $request->input('phone');
-        $pay->amount = $request->input('amount');
-        $pay->price = $request->input('price');
-        $pay->description = $request->input('description');
-        $pay->address = $request->input('address');
-        $pay->total_price = $total_price;
+        $carts = Cart::where('id_user', $userId)->get();
 
-        $pay->save();
+        if ($carts->isEmpty()) {
+            return redirect()->back()->with('error', 'Giỏ hàng của bạn trống.');
+        }
 
+        foreach ($carts as $cart) {
+            $pay = new Pay();
+            $pay->id_user = $userId;
+            $pay->id_transport = $request->input('id_transport');
+            $pay->id_cart = $cart->id;
+            $pay->id_payment = $request->input('id_payment');
+            $pay->name = $cart->name;
+            $pay->phone = $request->input('phone');
+            $pay->amount = $cart->amount;
+            $pay->price = $cart->price;
+            $pay->description = $request->input('description');
+            $pay->address = $request->input('address');
+            $pay->total_price = $cart->total_price;
+
+            try {
+                $pay->save();
+            } catch (\Exception $e) {     
+                \Log::error('Lỗi lưu đơn hàng: ' . $e->getMessage());
+                return redirect()->back()->with('error', 'Có lỗi xảy ra: ' . $e->getMessage());
+            }
+        }
+
+        Cart::where('id_user', $userId)->delete();
+        
         return redirect('homepage')->with('success', 'Đơn hàng đã được tạo thành công!');
     }
-
 }

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_user')->comment('thông tin người mua');
             $table->unsignedBigInteger('id_transport')->comment('đơn vị vận chuyển');
             $table->unsignedBigInteger('id_payment')->comment('phương thức thanh toán');
+            $table->unsignedBigInteger('id_cart')->comment('thông tin giỏ hàng');
             $table->boolean('active')->default(true)->comment('kiểm tra hoạt động');
             $table->string('name')->comment('tên sản phẩm');
             $table->string('phone')->comment('Số điện thoại');

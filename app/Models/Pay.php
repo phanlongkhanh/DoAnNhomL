@@ -15,6 +15,7 @@ class Pay extends Model
         'id_user',
         'id_transport',
         'id_payment',   
+        'id_cart', 
         'name',
         'phone',
         'amount',       
@@ -46,5 +47,4 @@ class Pay extends Model
     {
         return $this->hasMany(Cart::class, 'id_cart');
     }
-
 }
