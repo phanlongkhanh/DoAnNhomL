@@ -40,7 +40,7 @@ class CartController extends Controller
         $total_price = $request->amount * $request->price;
 
         // Kiểm tra xem người dùng đã đăng nhập chưa
-        $userId = auth()->id(); // Lấy ID người dùng đã đăng nhập
+        $userId = auth()->id(); 
 
         // Thêm sản phẩm vào giỏ hàng
         Cart::create([

@@ -65,11 +65,8 @@
                                     <th>ID</th>
                                     <th>Thông tin khách hàng</th>
                                     <th>Thông tin Sản Phẩm</th>
-
                                     <th>Phương thức</th>
-
-
-                                    <th>Time</th>
+                                    <th>Active</th>
                                     <th>Action</th>
                                 </tr>
                                 @if (isset($pays))
@@ -101,9 +98,19 @@
                                                 </ul>
                                             </td>
 
-                                            <td>{{ $item->created_at }}</td>
 
-                                            <td>
+                                            <td style="line-height: 50px">
+                                                @if ($item->active == 1)
+                                                    <a href="{{ route('active-orders', $item->id) }}"
+                                                        class="label label-default status-active">Chờ Xác Nhận</a>
+                                                @else
+                                                    <a href="{{ route('active-orders', $item->id) }}"
+                                                        class="label label-info status-active">Đã Xác Nhận</a>
+                                                @endif
+                                            </td>
+
+
+                                            <td style="line-height: 50px">
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-success btn-xs">Action</button>
                                                     <button type="button" class="btn btn-success btn-xs dropdown-toggle"
