@@ -26,8 +26,18 @@ class PayController extends Controller
         return view('User.pay.index', compact('transports', 'payments', 'user'));
     }
 
-    public function ViewPay(){
-        return view('User.pay.view');
+    public function ViewPay()
+    {
+
+        $userId = auth()->id();
+        if (!$userId) {
+            return redirect()->route('login')->with('error', 'Bạn cần đăng nhập.');
+        }
+
+        $pays = Pay::with(['user', 'transport', 'payment'])
+            ->where('id_user', $userId)->get();
+
+        return view('User.pay.view', compact('pays'));
     }
 
     public function EditPay($encryptedId)
@@ -79,8 +89,8 @@ class PayController extends Controller
                 ->withInput();
         }
 
-         // Tính toán tổng giá tiền
-         $total_price = $request->amount * $request->price;
+        // Tính toán tổng giá tiền
+        $total_price = $request->amount * $request->price;
         // Tạo một bản ghi mới
         $pay = new Pay();
         $pay->id_user = $userId;
