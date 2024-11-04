@@ -25,7 +25,7 @@
                 </ul>
             </div>
         @endif  --}}
-            <form action="#" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-7">
                     <div class="box box-danger">
@@ -67,40 +67,29 @@
 
                             <div class="form-group">
                                 <label>Danh Mục (*)</label>
-                                <select name="category_id" class="form-control js-check-type" data-url="">
-                                    @if (isset($category))
-                                        @foreach ($category as $item)
-                                            @if ($item->checkactive == 1)
-                                                <option value="{{ $item->id_category }}">{{ $item->name }}</option>
-                                            @endif
+                                <select id="category_id"  name="category_id" class="form-control js-check-type" required>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
-                                    @endif
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Type Product (*)</label>
-                                <select name="typeproduct_id" class="form-control js-type-product">
-                                    @if (isset($producttype))
-                                        @foreach ($producttype as $item)
-                                            @if ($item->checkactive == 1)
-                                                <option value="{{ $item->id_producttype }}">{{ $item->name }}</option>
-                                            @endif
-                                        @endforeach
-                                    @endif
+                                <select name="typeproduct_id" class="form-control js-type-product" id="product_type_id" required>
+                                    @foreach($productTypes as $productType)
+                                        <option value="{{ $productType->id }}">{{ $productType->name }}</option>
+                                @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Supplier (*)</label>
-                                <select name="supplier_id" class="form-control js-type-product">
-                                    @if (isset($supplier))
-                                        @foreach ($supplier as $item)
-                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                        @endforeach
-                                    @endif
+                                <select name="supplier_id" id="supplier_id" class="form-control js-type-product" required>
+                                    @foreach($suppliers as $supplier)
+                                        <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
+                                @endforeach
                                 </select>
 
                             </div>
-
                             {{-- <div class="form-group">
                                 <label for="pro_name">Size</label>
                                 <input type="text" name="sizes" class="form-control" placeholder="Trademark ....">
@@ -185,7 +174,7 @@
                 
                 <div class="col-md-12">
                     <div class="box-footer" style="text-align: center;">
-                        <a href="{{ 'product' }}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở
+                        <a href="{{url('products')}}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở
                             Lại</a>
                         <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Submit</button>
                     </div>
