@@ -27,19 +27,19 @@ class OdersController extends Controller
         $newStatus = $request->input('status');
 
         if (!in_array($newStatus, $validStatuses)) {
-            return redirect('oders-index')->with('error', 'Trạng thái không hợp lệ.');
+            return redirect()->route('index-orders')->with('error', 'Trạng thái không hợp lệ.');
         }
 
         $pays = Pay::find($id);
 
         if (!$pays) {
-            return redirect('oders-index')->with('error', 'Đơn hàng không tồn tại.');
+            return redirect()->route('index-orders')->with('error', 'Đơn hàng không tồn tại.');
         }
 
         $pays->status = $newStatus;
         $pays->save();
 
-        return redirect('oders-index')->with('success', 'Cập nhật tình trạng đơn hàng thành công.');
+        return redirect()->route('index-orders')->with('success', 'Cập nhật tình trạng đơn hàng thành công.');
     }
 
     public function ActiveOrders($id)
@@ -48,6 +48,6 @@ class OdersController extends Controller
         $pays->active = !$pays->active;
         $pays->save();
 
-        return redirect('oders-index')->with('success', 'Trạng thái đã được cập nhật thành công.');
+        return redirect()->route('index-orders')->with('success', 'Trạng thái đã được cập nhật thành công.');
     }
 }

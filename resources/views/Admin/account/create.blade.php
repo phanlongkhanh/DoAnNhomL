@@ -16,7 +16,7 @@
     <section class="content">
         <div class="row">
             <div class="box box-primary">
-                <form role="form" action="{{ url('add-account') }}" method="POST" enctype="multipart/form-data">
+                <form role="form" action="{{ route('add-account') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
                         <div class="col-sm-8">

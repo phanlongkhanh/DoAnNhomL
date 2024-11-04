@@ -21,7 +21,7 @@ class LoginRegisterController extends Controller
                 return redirect('/admin-controller')->with('message','Đăng Nhập Thành Công !!!');
             } else {
                 // Nếu là user, chuyển hướng đến trang người dùng
-                return redirect('/homepage');
+                return redirect()->route('index-homepage');
             }
         }
     
@@ -42,7 +42,7 @@ class LoginRegisterController extends Controller
     $roleId = $request->input('role_id', 2);
    
     if ($validator->fails()) {
-        return redirect('/register')
+        return redirect()->route('register')
                     ->withErrors($validator)
                     ->withInput();
     }
@@ -51,11 +51,11 @@ class LoginRegisterController extends Controller
         'name' => $request->name,
         'email' => $request->email,
         'password' => Hash::make($request->password),
-        'phone' => $request->phone,
+        'phone' => $request->phone, 
         'role_id' => $roleId,
     ]);
 
-    return redirect('login')->with('success', 'Registration successful. Please log in.');
+    return redirect('/')->with('success', 'Registration successful. Please log in.');
     }
 
     //viết hàm logout
@@ -63,10 +63,10 @@ class LoginRegisterController extends Controller
     {
         try {
             Auth::logout();
-            return redirect('login')->with('message', 'Đăng Xuất Thành Công !');
+            return redirect('/')->with('message', 'Đăng Xuất Thành Công !');
         } catch (\Exception $e) {
             // Xử lý lỗi nếu có
-            return redirect('login')->with('error', 'Có lỗi xảy ra trong quá trình đăng xuất!');
+            return redirect('/')->with('error', 'Có lỗi xảy ra trong quá trình đăng xuất!');
         }
     }
 }

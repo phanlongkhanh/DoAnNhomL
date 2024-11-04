@@ -18,7 +18,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title"><a href="{{ 'add-category' }}" class="btn btn-primary">Thêm mới </a>
+                        <h3 class="box-title"><a href="{{ route('create-category') }}" class="btn btn-primary">Thêm mới </a>
                         </h3>
                         <div class="box-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">

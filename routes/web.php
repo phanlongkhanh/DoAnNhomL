@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminCategoryProductController;
@@ -24,182 +23,146 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PayController;
 
 
-
-
-
-//Giao Diện
-Route::get('/', [UserController::class, 'ShowUserLogin']);
-//Show Home Page User
-Route::get('homepage', [UserController::class, 'ShowHomePage']);
-// Show Login User
-Route::get('login', [UserController::class, 'ShowUserLogin']);
-// Show Register User
-Route::get('register', [UserController::class, 'ShowUserRegister']);
 //Show Screen Admin
 Route::get('admin-controller', [AdminController::class, 'ShowDashBoardAdmin'])->middleware('admin');
-// Category Screen Index Category
-Route::get('category', [AdminCategoryProductController::class, 'showCategory'])->name('indexcategory');
-// Show Screen Create-category
-Route::get('add-category', [AdminCategoryProductController::class, 'showAddCategory']);
-// Show Screen Edit-category
-Route::get('edit-category', [AdminCategoryProductController::class, 'showEditCategory']);
-// Show Screen Index Product
-Route::get('product', [AdminProductController::class, 'ShowIndexProduct']);
-// Show Screen Create-Product
-Route::get('create-product', [AdminProductController::class, 'ShowCreateProduct']);
-// Show Screen Update-Product
-Route::get('update-product', [AdminProductController::class, 'ShowUpdateProduct']);
-// Show Screen Account Index
-Route::get('account-index', [AccountController::class, 'ShowAccount']);
-// Show Screen Forgot
-Route::get('forgot_password', [UserController::class, 'ShowForgotPassword']);
-//Show Screen CheckMail
-Route::get('checkmail', [ForgotPassController::class, 'showNotificationEmail'])->name('checkmail');
-//Show Screen ProductType
-Route::get('product-type-index', [ProductTypeController::class, 'ShowProductType']);
-//Show Screen Product-Type Create
-Route::get('product-type-create', [ProductTypeController::class, 'ShowCreateTypeProduct']);
-//Show Screen Produdct-Type Update
-Route::get('product-type-update', [ProductTypeController::class, 'ShowUpdateTypeProduct']);
-//Show Screen Oders Index
-Route::get('oders-index', [OdersController::class, 'ShowIndexOders']);
-//Show Screen Views Index
-Route::get('oders-views', [OdersController::class, 'ShowViewOders']);
-//Show Screen Index DashBoard
-Route::get('index-dashboard', [DashBoardController::class, 'ShowIndexDashBoard']);
-//Show Screen Dashboard
-Route::get('dashboard', [DashBoardController::class, 'ShowDashBoard']);
-//Show Screen View Dashboard
-Route::get('view-dashboard', [DashBoardController::class, 'ShowViewDashBoard']);
-//Show Screen TranSport Index
-Route::get('index-transport', [TranSportController::class, 'ShowIndexTranSport']);
-//Show Screen TranSport Create
-Route::get('create-transport', [TranSportController::class, 'ShowCreateTranSport']);
-//Show Screen TranSport Update
-Route::get('update-transport', [TranSportController::class, 'ShowUpdateTranSport']);
-//Show Screen Supplier Index
-Route::get('index-suppliers', [SupplierController::class, 'ShowIndexSuppliers']);
-//Show Screen Supplier Create
-Route::get('create-suppliers', [SupplierController::class, 'ShowCreateSuppliers']);
-//Show Screen Supplier Update
-Route::get('update-suppliers', [SupplierController::class, 'ShowUpdateSuppliers']);
-//Show ProductDetails
-Route::get('details-product', [UserController::class, 'ShowProductDetails']);
-//Show User Category
-Route::get('category-user-product', [UserController::class, 'ShowUserCategory']);
-//Show User Cart
-Route::get('cart-user-product', [UserController::class, 'ShowUserCart']);
-//Show Product HomePage
-Route::get('products-homepage', [UserController::class, 'ShowProductToHomepage']);
-//Show Favorite index
-Route::get('favorite-index', [FavoriteController::class, 'ShowIndexFavorite']);
-//Show index Post Admin
-Route::get('index-post', [PostController::class, 'ShowIndexPost']);
-//Show Create Post Admin
-Route::get('create-post', [PostController::class, 'ShowCreatePost']);
-//Show Screen Category Post
-Route::get('index-post_category', [CategoryPostController::class, 'ShowIndexCategoryPost']);
-//Show Screen Index Pay
-Route::get('pay-index', [PayController::class, 'ShowPayIndex']);
-//Show Screen View Pay
-Route::get('pay-view', [PayController::class, 'ViewPay']);
+//Show Screen Login and Register
+Route::get('/', [UserController::class, 'ShowUserLogin']);
+Route::get('/register', [UserController::class, 'ShowUserRegister'])->name('register');
+
+//Trang Chủ Giao Diện Đăng Nhập
+Route::prefix('homapage')->group(function () {
+    Route::get('/', [UserController::class, 'ShowHomePage'])->name('index-homepage');
+    Route::POST('login/loginrun', [LoginRegisterController::class, 'LoginPage'])->name('login-user');
+    Route::POST('register/registerrun', [LoginRegisterController::class, 'RegisterPage'])->name('register-user');
+    Route::GET('logout', [LoginRegisterController::class, 'LogOutUser'])->name('logout-user');
+    Route::get('/details-product', [UserController::class, 'ShowProductDetails'])->name('details-product');
+    Route::get('/category-product', [UserController::class, 'ShowUserCategory'])->name('category-product');
+    Route::get('/products-homepage', [UserController::class, 'ShowProductToHomepage'])->name('product-homepage');
+    Route::get('/details-product/{id}', [ProductDetailController::class, 'ShowProductDetails'])->name('details-products');
+});
+
+//Bảng Điều Khiển
+Route::prefix('dashboard')->group(function () {
+    Route::get('/', [DashBoardController::class, 'ShowDashBoard'])->name('index-dashboard');
+    Route::get('/view', [DashBoardController::class, 'ShowViewDashBoard'])->name('view-dashboard');
+});
+
+//Loại Sản Phẩm
+Route::prefix('producttypes')->group(function () {
+    Route::get('/', [ProductTypeController::class, 'ShowProductType'])->name('index-producttypes');
+    Route::get('/create', [ProductTypeController::class, 'ShowCreateTypeProduct'])->name('create-producttypes');
+    Route::get('/{id}', [ProductTypeController::class, 'EditProductType'])->name('edit-producttypes');
+    Route::POST('/add', [ProductTypeController::class, 'AddProductType'])->name('add-producttypes');
+    Route::put('/{id}', [ProductTypeController::class, 'UpdateProductType'])->name('update-producttypes');
+    Route::delete('/{id}', [ProductTypeController::class, 'RemoveProductType'])->name('remove-producttypes');
+    Route::get('product-type/active/{id}', [ProductTypeController::class, 'ActiveProductType'])->name('active-product-type');
+});
+
+//Đơn Vị Vận Chuyển
+Route::prefix('transports')->group(function () {
+    Route::get('/', [TranSportController::class, 'ShowIndexTranSport'])->name('index-transports');
+    Route::get('/create', [TranSportController::class, 'ShowCreateTranSport'])->name('create-transports');
+    Route::POST('/add', [TranSportController::class, 'AddTranSports'])->name('add-transports');
+    Route::get('/{id}', [TranSportController::class, 'EditTranSport'])->name('edit-transports');
+    Route::put('/{id}', [TranSportController::class, 'UpdateTranSport'])->name('update-transports');
+    Route::delete('/{id}', [TranSportController::class, 'RemoveTranSport'])->name('remove-transports');
+    Route::get('transport/active/{id}', [TranSportController::class, 'ActiveTranSport'])->name('transport-active');
+});
+
+//Nhà Cung Cấp
+Route::prefix('suppliers')->group(function () {
+    Route::get('/', [SupplierController::class, 'ShowIndexSuppliers'])->name(name: 'index-suppliers');
+    Route::get('/create', [SupplierController::class, 'ShowCreateSuppliers'])->name('create-suppliers');
+    Route::POST('/add', [SupplierController::class, 'AddSuppliers'])->name('add-suppliers');
+    Route::get('/{id}', [SupplierController::class, 'ShowEditSuppliers'])->name('edit-suppliers');
+    Route::put('/{id}', [SupplierController::class, 'UpdateSuppliers'])->name('update-suppliers');
+    Route::delete('/{id}', [SupplierController::class, 'RemoveSuppliers'])->name('remove-suppliers');
+});
+
+//Danh Sách Yêu Thích
+Route::prefix('favorites')->group(function () {
+    Route::get('/', [FavoriteController::class, 'ShowIndexFavorite'])->name('index-favorites');
+    Route::post('/add', [FavoriteController::class, 'AddToFavorite'])->name('add-favorites');
+    Route::delete('/{id}', [FavoriteController::class, 'DeleteFavorite'])->name('delete-favorites');
+});
+
+//Thanh Toán
+Route::prefix('pays')->group(function () {
+    Route::get('/', [PayController::class, 'ShowPayIndex'])->name('index-pays');
+    Route::get('/view', [PayController::class, 'ViewPay'])->name('view-pays');
+    Route::get('/{id}', [PayController::class, 'EditPay'])->name('edit-pays');
+    Route::post('/add', [PayController::class, 'AddPay'])->name('add-pays');
+    Route::get('pays/{id}/update-status/{status}', [OdersController::class, 'updateStatus'])->name('pays.updateStatus');
+});
+
+//Đặt Hàng
+Route::prefix('orders')->group(function () {
+    Route::get('/', [OdersController::class, 'ShowIndexOders'])->name('index-orders');
+    Route::get('/view', [OdersController::class, 'ShowViewOders'])->name('view-orders');
+    Route::get('orders/active/{id}', [OdersController::class, 'ActiveOrders'])->name('active-orders');
+});
+
+//Giỏ Hàng
+Route::prefix('carts')->group(function () {
+    Route::get('/', [UserController::class, 'ShowUserCart'])->name('index-cart');
+    Route::post('/add', [CartController::class, 'AddToCart'])->name('add.to.cart');
+    Route::delete('/{id}', [CartController::class, 'RemoveFromCart'])->name('carts-remove');
+});
+
+//Danh mục Sản Phẩm
+Route::prefix('categories')->group(function () {
+    Route::get('/', [AdminCategoryProductController::class, 'showCategory'])->name('indexcategory');
+    Route::get('/create', [AdminCategoryProductController::class, 'showAddCategory'])->name('create-category');
+    Route::post('/admin/categories/store', [AdminCategoryProductController::class, 'storeCategory'])->name('store-category');
+    Route::get('edit-category/{id}', [AdminCategoryProductController::class, 'showEditCategory'])->name('editcategory');
+    Route::post('update-category/{id}', [AdminCategoryProductController::class, 'updateCategory'])->name('update-category');
+    Route::delete('/admin/categories/delete/{id}', [AdminCategoryProductController::class, 'destroyCategory'])->name('deletecategory');
+    Route::get('/admin/categories/active/{id}', [AdminCategoryProductController::class, 'toggleActiveCategory'])->name('activecategory');
+    Route::get('category-products/search', [SearchController::class, 'search'])->name('category-products.search');
+    Route::get('category-products/search-selective', [SearchController::class, 'SearchSelective'])->name('category-products.search-selective');
+});
+
+//Sản Phẩm
+Route::prefix('product')->group(function () {
+    Route::get('/', [AdminProductController::class, 'ShowIndexProduct'])->name('index-product');
+    Route::get('/create', [AdminProductController::class, 'ShowCreateProduct'])->name(name: 'create-product');
+    Route::post('/add', [AdminProductController::class, 'store'])->name('products.store');
+    Route::get('/{id}', [AdminProductController::class, 'ShowUpdateProduct'])->name('products.edit');
+    Route::put('/{id}', [AdminProductController::class, 'update'])->name('products.update');
+    Route::delete('/{id}', [AdminProductController::class, 'destroy'])->name('products.destroy');
+});
+
+//Tài Khoản Người Dùng
+Route::prefix('account')->group(function () {
+    Route::get('/', action: [AccountController::class, 'ShowAccount'])->name('index-account');
+    Route::get('/create', [AccountController::class, 'ShowAddAccount'])->name('create-account');
+    Route::post('/add', [AccountController::class, 'AddAccount'])->name('add-account');
+    Route::get('/{id}', [AccountController::class, 'edit'])->name('edit-account');
+    Route::post('/{id}', [AccountController::class, 'update'])->name('update-account');
+    Route::delete('/{id}', [AccountController::class, 'destroy'])->name('remove-account');
+});
+
+//Bài Viết Admin
+Route::prefix('post')->group(function () {
+    Route::get('/', [PostController::class, 'ShowIndexPost'])->name('index-post');
+    Route::get('/create', [PostController::class, 'ShowCreatePost'])->name('create-post');
+});
+
+//Danh Mục Bài Viết
+Route::prefix('category-post')->group(function () {
+    Route::get('/', [CategoryPostController::class,'ShowIndexCategoryPost'])->name('index-category-post');
+    Route::get('/create', [CategoryPostController::class,'ShowCreateCategoryPost'])->name('create-category-post');
+});
+
+//Quên Mật Khẩu
+Route::prefix('forgot')->group(function () {
+    Route::get('/', [UserController::class, 'ShowForgotPassword'])->name('index-forgot');
+    Route::get('checkmail', [ForgotPassController::class, 'showNotificationEmail'])->name('checkmail');
+    Route::POST('forgot_password', [ForgotPassController::class, 'sendResetLinkEmail'])->name('getpass');
+    Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+    Route::post('password/reset', [ResetPasswordController::class, 'resetPassword'])->name('password.update');
+});
 
 
 
-// Tính năng
 
-//Login
-Route::POST('login/loginrun', [LoginRegisterController::class, 'LoginPage']);
-//Register
-Route::POST('register/registerrun', [LoginRegisterController::class, 'RegisterPage']);
-//LogOut
-Route::GET('logout', [LoginRegisterController::class, 'LogOutUser']);
-//ForgotPass
-Route::POST('forgot_password', [ForgotPassController::class, 'sendResetLinkEmail'])->name('getpass');
-//Reset PassWord
-Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
-//Update PassWord
-Route::post('password/reset', [ResetPasswordController::class, 'resetPassword'])->name('password.update');
-
-// Van
-// Hiển thị trang thêm tài khoản
-Route::get('add-account', [AccountController::class, 'ShowAddAccount']);
-Route::post('add-account', [AccountController::class, 'AddAccount']);
-// Hiển thị trang chỉnh sửa tài khoản
-Route::get('edit-account/{id}', [AccountController::class, 'ShowEditAccount']);
-// Cập nhật tài khoản
-Route::post('update-account/{id}', [AccountController::class, 'update']);
-// Xóa tài khoản
-Route::delete('delete-account/{id}', [AccountController::class, 'destroy']);
-
-
-// Route hiển thị trang thêm danh mục
-Route::get('/admin/categories/add', [AdminCategoryProductController::class, 'showAddCategory'])->name('add-category');
-// Route lưu danh mục mới
-Route::post('/admin/categories/store', [AdminCategoryProductController::class, 'storeCategory'])->name('store-category');
-// Route thay đổi trạng thái active của danh mục
-Route::get('/admin/categories/active/{id}', [AdminCategoryProductController::class, 'toggleActiveCategory'])->name('activecategory');
-// Hiển thị form chỉnh sửa danh mục
-Route::get('edit-category/{id}', [AdminCategoryProductController::class, 'showEditCategory'])->name('editcategory');
-// // Lưu danh mục đã chỉnh sửa
-Route::post('update-category/{id}', [AdminCategoryProductController::class, 'updateCategory'])->name('update-category');
-// Route xóa danh mục
-Route::delete('/admin/categories/delete/{id}', [AdminCategoryProductController::class, 'destroyCategory'])->name('deletecategory');
-
-
-//
-
-Route::get('category-products/search-selective', [SearchController::class, 'SearchSelective'])->name('category-products.search-selective');
-//Search - CategorySearch
-Route::get('category-products/search', [SearchController::class, 'search'])->name('category-products.search');
-//Add ProductType
-Route::POST('add-product-type', [ProductTypeController::class, 'AddProductType']);
-//active loại sản phẩm
-Route::get('product-type/active/{id}', [ProductTypeController::class, 'ActiveProductType'])->name('active-product-type');
-//active orders
-Route::get('orders/active/{id}', [OdersController::class, 'ActiveOrders'])->name('active-orders');
-//Edit ProductType
-Route::get('edit-producttype/{id}', [ProductTypeController::class, 'EditProductType']);
-//Remove ProductType
-Route::delete('product-type-remove/{id}', [ProductTypeController::class, 'RemoveProductType'])->name('remove-product-type');
-//Update ProductType
-Route::put('product-type-update/{id}', [ProductTypeController::class, 'UpdateProductType'])->name('product-type-update');
-//Add TranSport
-Route::POST('add-tranport', [TranSportController::class, 'AddProductType']);
-//Edit TranSport
-Route::get('edit-transports/{id}', [TranSportController::class, 'EditTranSport']);
-//Update TranSprot
-Route::put('transport-update/{id}', [TranSportController::class, 'UpdateTranSport'])->name('transport-update');
-//Remove TranSport
-Route::delete('transport-remove/{id}', [TranSportController::class, 'RemoveTranSport'])->name('transport-remove');
-//Active TranSport
-Route::get('transport/active/{id}', [TranSportController::class, 'ActiveTranSport'])->name('transport-active');
-//Add Suppliers
-Route::POST('add-suppliers', [SupplierController::class, 'AddSuppliers']);
-//Edit Suppliers
-Route::get('edit-suppliers/{id}', [SupplierController::class, 'ShowEditSuppliers']);
-//Update Suppliers
-Route::put('suppliers-update/{id}', [SupplierController::class, 'UpdateSuppliers'])->name('suppliers-update');
-//Remove Suppliers
-Route::delete('suppliers-remove/{id}', [SupplierController::class, 'RemoveSuppliers'])->name('suppliers-remove');
-//Details Product
-Route::get('details-product/{id}', [ProductDetailController::class, 'ShowProductDetails']);
-//Add To Cart
-Route::post('add-to-cart', [CartController::class, 'AddToCart'])->name('add.to.cart');
-//Delete Cart
-Route::delete('carts-remove/{id}', [CartController::class, 'RemoveFromCart'])->name('carts-remove');
-//Add Favorite
-Route::post('favorite-add', [FavoriteController::class, 'AddToFavorite']);
-//Delete Favorite
-Route::delete('favorite-delete/{id}', [FavoriteController::class, 'DeleteFavorite']);
-//Edit Pay
-Route::get('pay-edit/{id}', [PayController::class, 'EditPay']);
-//Add Pay
-Route::post('create-pay', [PayController::class, 'AddPay']);
-//Update Status pays
-Route::get('pays/{id}/update-status/{status}', [OdersController::class, 'updateStatus'])->name('pays.updateStatus');
-//Nhat
-Route::post('add-product', [AdminProductController::class, 'store'])->name('products.store');
-Route::get('/products/{id}/edit', [AdminProductController::class, 'ShowUpdateProduct'])->name('products.edit');
-Route::put('update-product/{id}', [AdminProductController::class, 'update'])->name('products.update');
-Route::delete('products/{id}', [AdminProductController::class, 'destroy'])->name('products.destroy');

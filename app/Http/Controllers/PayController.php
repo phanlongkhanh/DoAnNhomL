@@ -119,6 +119,6 @@ class PayController extends Controller
 
         Cart::where('id_user', $userId)->delete();
         
-        return redirect('homepage')->with('success', 'Đơn hàng đã được tạo thành công!');
+        return redirect()->route('index-homepage')->with('success', 'Đơn hàng đã được tạo thành công!');
     }
 }

@@ -30,7 +30,7 @@
 
 <div class="register-container">
     <h2 style="margin-bottom: 30px" class="text-center">Đăng Ký Tài Khoản</h2>
-    <form action="{{url('register/registerrun')}}" method="POST">
+    <form action="{{route('register-user')}}" method="POST">
         @csrf
         <div class="form-group">
             <label for="name">Tên đăng nhập:</label>
@@ -57,7 +57,7 @@
         <button type="submit" class="btn btn-danger btn-block">Đăng Ký</button>
     </form>
     <div class="text-center mt-3">
-        <a href="login">Đã có tài khoản? Đăng nhập</a>
+        <a href="{{'/'}}">Đã có tài khoản? Đăng nhập</a>
     </div>
 </div>
 

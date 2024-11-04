@@ -18,7 +18,7 @@
     <div class="row">
 
     <div class="box box-primary">
-        <form action="{{ route('product-type-update', ['id' => $producttypes->id]) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('update-producttypes', ['id' => $producttypes->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="box-body">
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="box-footer">
-                <a href="{{ url('product-type-index') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
+                <a href="{{ route('index-producttypes') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
                 <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Submit</button>
             </div>
             </div>

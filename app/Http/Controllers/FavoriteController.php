@@ -60,16 +60,16 @@ class FavoriteController extends Controller
         'image' => $request->image,
     ]);
 
-    return redirect('homepage')->with('success', 'Sản phẩm đã được thêm vào danh sách yêu thích!');
+    return redirect()->route('index-homepage')->with('success', 'Sản phẩm đã được thêm vào danh sách yêu thích!');
     }
 
     public function DeleteFavorite($id)
     {
         $favorites = Favorite::find($id);
         if (!$favorites) {
-            return redirect('favorite-index')->with('error', 'Sản phẩm yêu thích không tồn tại!');
+            return redirect()->route('index-favorites')->with('error', 'Sản phẩm yêu thích không tồn tại!');
         }
         $favorites->delete();
-        return redirect('favorite-index')->with('success', 'Sản phẩm đã được xóa khỏi danh sách yêu thích!');
+        return redirect()->route('index-favorites')->with('success', 'Sản phẩm đã được xóa khỏi danh sách yêu thích!');
     }
 }

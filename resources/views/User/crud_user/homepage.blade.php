@@ -65,7 +65,7 @@
         <!-- header section strats -->
         <header class="header_section">
             <nav class="navbar navbar-expand-lg custom_nav-container ">
-                <a class="navbar-brand" href="homepage">
+                <a class="navbar-brand" href="{{route('index-homepage')}}">
                     <span class="h1 text-danger">
                         Pink Store
                     </span>
@@ -79,15 +79,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav  ">
                         <li class="nav-item active">
-                            <a class="nav-link" href="homepage">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{route('index-homepage')}}">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ 'category-user-product' }}">
+                            <a class="nav-link" href="{{route('category-product')}}">
                                 Danh Mục
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="favorite-index">
+                            <a class="nav-link" href="{{route('index-favorites')}}">
                                 Favorite
                             </a>
                         </li>
@@ -97,13 +97,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pay-view">Giao Hàng</a>
+                            <a class="nav-link" href="{{route('view-pays')}}">Giao Hàng</a>
                         </li>
                     </ul>
                     <div class="user_option">
 
                         <div class="d-flex">
-                            <a href="{{ 'cart-user-product' }}" class="btn btn-outline-danger me-2"><i
+                            <a href="{{ route('index-cart') }}" class="btn btn-outline-danger me-2"><i
                                     class="fas fa-shopping-bag"></i></a>
                             <form class="d-flex">
                                 <input class="form-control me-2" type="search" placeholder="Search">
@@ -117,7 +117,7 @@
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <span>{{ $users }}</span>
                             @else
-                                <a href="{{ 'login' }}">
+                                <a href="{{ route('login') }}">
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                     <span>Login</span>
                                 </a>
@@ -126,7 +126,7 @@
 
                         <div style="margin-left: 30px;">
                             @if ($users)
-                                <a href="{{ 'logout' }}">
+                                <a href="{{ route('logout-user') }}">
                                     <span>LogOut</span>
                                 </a>
                             @else
@@ -274,7 +274,7 @@
                     @foreach ($products as $item)
                         <div class="col-sm-6 col-md-4 col-lg-3">
                             <div class="product-box">
-                                <a href="{{ url('details-product', ['id' => Crypt::encrypt($item->id_product)]) }}">
+                                <a href="{{ route('details-products', ['id' => Crypt::encrypt($item->id_product)]) }}">
                                     <div class="img-box"
                                         style="border:2px solid black; width: 100%; height: 350px; overflow: hidden; position: relative;">
                                         <img src="images/{{ $item->image }}" alt="Product Image"
@@ -296,7 +296,7 @@
                                                     VNĐ</span>
                                             </h6>
                                             <div class="detail-box">
-                                                <form action="{{ url('add-to-cart') }}" method="POST"
+                                                <form action="{{ route('add.to.cart') }}" method="POST"
                                                     style="display: inline;">
                                                     @csrf
                                                     <input type="hidden" name="id_product"
@@ -311,7 +311,7 @@
                                                     <button type="submit" class="btn btn-danger"
                                                         style="margin-top: 5px;">Add to cart</button>
                                                 </form>
-                                                <form action="{{ url('favorite-add') }}" method="post"
+                                                <form action="{{ route('add-favorites') }}" method="post"
                                                     style="display: inline;">
                                                     @csrf
                                                     @csrf

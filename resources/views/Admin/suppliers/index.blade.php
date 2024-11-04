@@ -21,7 +21,7 @@
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title"><a href="{{ 'create-suppliers' }}" class="btn btn-primary">Thêm
+                            <h3 class="box-title"><a href="{{ route('create-suppliers') }}" class="btn btn-primary">Thêm
                                     mới </a>
                             </h3>
                             <div class="box-tools">
@@ -85,12 +85,12 @@
                                                 <td style="line-height: 150px">{{ $item->phone }}</td>
                                                 <td style="line-height: 150px">{{ $item->created_at }}</td>
                                                 <td style="line-height: 150px">
-                                                    <a href="{{ url('edit-suppliers', ['id' => Crypt::encrypt($item->id)]) }}"
+                                                    <a href="{{ route('edit-suppliers', ['id' => Crypt::encrypt($item->id)]) }}"
                                                         class="btn btn-xs btn-primary"
                                                         onclick="return confirm('Bạn chắc chắn là sửa chứ')"><i
                                                             class="fa fa-pencil"></i> Edit
                                                     </a>
-                                                    <form action="{{ route('suppliers-remove', ['id' => $item->id]) }}"
+                                                    <form action="{{ route('remove-suppliers', ['id' => $item->id]) }}"
                                                         method="POST" style="display:inline;">
                                                         @csrf
                                                         @method('DELETE')
