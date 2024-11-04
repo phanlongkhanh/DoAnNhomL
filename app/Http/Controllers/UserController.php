@@ -14,7 +14,7 @@ class UserController extends Controller
     {
         $users = Auth::check() ? Auth::user()->name : null;
         $products = Product::paginate(8);
-        return view('User.crud_user.homepage', compact('users', 'products')); // Truyền cả users và products
+        return view('User.crud_user.homepage', compact('users', 'products'));
     }
 
     public function ShowProductDetails()

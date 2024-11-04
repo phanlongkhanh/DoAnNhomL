@@ -18,18 +18,10 @@
                     </div>
                     <div class="form-group">
                         <label>Danh mục bài viết</label>
-                        {{-- <select name="id_category" class="form-control">
-                          @foreach ($categorypost as $item)
-                            <option value="{{ $item->id_categorypost }}">{{ $item->name }}</option>
-                          @endforeach
-                        </select>   --}}
+                    
                        
                         <select name="category_id" class="form-control">
-                         
-                          {{-- @if($item->checkstatus == 1)
-                              <option value="#" >#</option>
-                          @endif
-                        --}}
+                    
                           
                           @error('category_id')
                           <div class="text-danger">{{ $message }}</div>

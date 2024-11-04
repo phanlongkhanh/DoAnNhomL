@@ -16,7 +16,7 @@
     <section class="content">
         <div class="row">
             <div class="box box-primary">
-                <form role="form" action="{{ url('update-account/' . $user->id) }}" method="POST"
+                <form role="form" action="{{ route('update-account', $user->id) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <div class="box-footer">
-                        <a href="{{ url('account-index') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Back</a>
+                        <a href="{{ route('index-account') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Back</a>
                         <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Save Changes</button>
                     </div>
                 </form>

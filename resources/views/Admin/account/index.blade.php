@@ -18,7 +18,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title"><a href="/add-account" class="btn btn-primary">Thêm mới </a>
+                        <h3 class="box-title"><a href="{{route('create-account')}}" class="btn btn-primary">Thêm mới </a>
                         </h3>
                         <div class="box-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
@@ -86,16 +86,12 @@
                                             {{-- <td>{{ $item->admin->name }}</td> --}}
                                             {{--                                        hanh dong --}}
                                             <td>
-                                                <a href="{{ url('edit-account/' . $users->id) }}"
+                                                <a href="{{ route('edit-account', $users->id) }}"
                                                     class="btn btn-xs btn-primary"
                                                     onclick="return confirm('Bạn chắc chắn là sửa chứ')"><i
                                                         class="fa fa-pencil"></i> Edit</a>
-                                                {{-- <a href="{{ url('delete-account/' . $users->id) }}"
-                                               class="btn btn-xs btn-danger js-delete-confirm"
-                                               onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
-                                                    class="fa fa-trash"></i> Delete</a> --}}
-
-                                                <form action="{{ url('delete-account/' . $users->id) }}" method="POST"
+                                               
+                                                <form action="{{ route('remove-account', $users->id) }}" method="POST"
                                                     style="display:inline;">
                                                     @csrf
                                                     @method('DELETE')

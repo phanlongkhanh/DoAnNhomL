@@ -35,13 +35,13 @@ class SupplierController extends Controller
         try {
             $id = Crypt::decrypt($encryptedId);
         } catch (DecryptException $e) {
-            return redirect('index-suppliers')->with('error', 'Không tìm thầy Nhà Cung Cấp phẩm với ID này.');
+            return redirect()->route('index-suppliers')->with('error', 'Không tìm thầy Nhà Cung Cấp phẩm với ID này.');
         }
 
         $suppliers = Suppliers::find($id);
 
         if (!$suppliers) {
-            return redirect('index-suppliers')->with('error', 'Không tìm thấy Nhà Cung Cấp với ID này.');
+            return redirect()->route('index-suppliers')->with('error', 'Không tìm thấy Nhà Cung Cấp với ID này.');
         }
 
         return view('Admin.suppliers.update', compact('suppliers'));
@@ -60,7 +60,7 @@ class SupplierController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('index-suppliers')
+            return redirect()->route('index-suppliers')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -79,7 +79,7 @@ class SupplierController extends Controller
         }
         $suppliers->save();
 
-        return redirect('index-suppliers')->with('success', 'Thêm Thành Công !!!');
+        return redirect()->route('index-suppliers')->with('success', 'Thêm Thành Công !!!');
     }
 
     public function UpdateSuppliers(Request $request, $id)
@@ -95,7 +95,7 @@ class SupplierController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('index-suppliers')
+            return redirect()->route('index-suppliers')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -120,7 +120,7 @@ class SupplierController extends Controller
         }
         $suppliers->save();
 
-        return redirect('index-suppliers')->with('success', 'Cập Nhật Thành Công !!!');
+        return redirect()->route('index-suppliers')->with('success', 'Cập Nhật Thành Công !!!');
     }
     public function RemoveSuppliers($id)
     {
@@ -129,10 +129,10 @@ class SupplierController extends Controller
 
             $suppliers->delete();
 
-            return redirect('index-suppliers')->with('success', 'Nhà cung cấp đã được xóa thành công.');
+            return redirect()->route('index-suppliers')->with('success', 'Nhà cung cấp đã được xóa thành công.');
 
         } catch (ModelNotFoundException $e) {
-            return redirect('index-suppliers')->with('error', 'Nhà cung cấp không tồn tại.');
+            return redirect()->route('index-suppliers')->with('error', 'Nhà cung cấp không tồn tại.');
         }
     }
 

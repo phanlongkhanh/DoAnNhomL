@@ -35,19 +35,19 @@ class TranSportController extends Controller
         try {
             $id = Crypt::decrypt($encryptedId);
         } catch (DecryptException $e) {
-            return redirect('index-transport')->with('error', 'Không tìm thấy loại sản phẩm với ID này.');
+            return redirect()->route('index-transports')->with('error', 'Không tìm thấy loại sản phẩm với ID này.');
         }
 
         $transports = TranSport::find($id);
 
         if (!$transports) {
-            return redirect('index-transport')->with('error', 'Không tìm thấy loại sản phẩm với ID này.');
+            return redirect()->route('index-transports')->with('error', 'Không tìm thấy loại sản phẩm với ID này.');
         }
 
         return view('Admin.transport.update', compact('transports'));
     }
     //Thêm Đơn Vị Vận Chuyển
-    public function AddProductType(Request $request)
+    public function AddTranSports(Request $request)
     {
 
         $validator = Validator::make($request->all(), [
@@ -57,7 +57,7 @@ class TranSportController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('index-transport')
+            return redirect()->route('index-transports')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -78,7 +78,7 @@ class TranSportController extends Controller
         $transports->save();
 
 
-        return redirect('index-transport')->with('success', 'Thêm Thành Công !!!');
+        return redirect()->route('index-transports')->with('success', 'Thêm Thành Công !!!');
     }
 
     public function UpdateTranSport(Request $request, $id)
@@ -110,7 +110,7 @@ class TranSportController extends Controller
 
         $transports->save();
 
-        return redirect('index-transport')->with('success', 'Cập Nhật Thành Công !!!');
+        return redirect()->route('index-transports')->with('success', 'Cập Nhật Thành Công !!!');
     }
 
     // Xóa Loại Sản Phẩm
@@ -121,14 +121,12 @@ class TranSportController extends Controller
 
             $transports->delete();
 
-            return redirect('index-transport')->with('success', 'Đơn vị vận chuyển đã được xóa thành công.');
+            return redirect()->route('index-transports')->with('success', 'Đơn vị vận chuyển đã được xóa thành công.');
 
         } catch (ModelNotFoundException $e) {
-            return redirect('index-transport')->with('error', 'Đơn vị vận chuyển không tồn tại.');
+            return redirect()->route('index-transports')->with('error', 'Đơn vị vận chuyển không tồn tại.');
         }
     }
-
-
 
     // Kiểm Tra Trạng Thái
     public function ActiveTranSport($id)
@@ -136,7 +134,6 @@ class TranSportController extends Controller
         $transports = TranSport::findOrFail($id);
         $transports->checkactive = !$transports->checkactive;
         $transports->save();
-
-        return redirect('index-transport')->with('success', 'Trạng thái đã được cập nhật thành công.');
+        return redirect()->route('index-transports')->with('success', 'Trạng thái đã được cập nhật thành công.');
     }
 }

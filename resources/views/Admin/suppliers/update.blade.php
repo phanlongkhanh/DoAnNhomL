@@ -18,7 +18,7 @@
         <div class="row">
 
             <div class="box box-primary">
-                <form action="{{ route('suppliers-update', ['id' => $suppliers->id]) }}" method="POST"
+                <form action="{{ route('update-suppliers', ['id' => $suppliers->id]) }}" method="POST"
                       enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <div class="box-footer">
-                        <a href="{{'index-suppliers'}}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
+                        <a href="{{route('index-suppliers')}}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
                         <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Submit</button>
                     </div>
                 </form>

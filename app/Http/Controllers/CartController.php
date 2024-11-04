@@ -53,7 +53,7 @@ class CartController extends Controller
             'total_price' => $total_price,
         ]);
 
-        return redirect('homepage')->with('success', 'Sản phẩm đã được thêm vào giỏ hàng!');
+        return redirect()->route('index-homepage')->with('success', 'Sản phẩm đã được thêm vào giỏ hàng!');
     }
 
     public function RemoveFromCart($id)
@@ -61,10 +61,10 @@ class CartController extends Controller
         $carts = Cart::find($id);
 
         if (!$carts) {
-            return redirect('cart-user-product')->with('error', 'Sản phẩm không tồn tại trong giỏ hàng!');
+            return redirect()->route('index-cart')->with('error', 'Sản phẩm không tồn tại trong giỏ hàng!');
         }
         $carts->delete();
 
-        return redirect('cart-user-product')->with('success', 'Sản phẩm đã được xóa khỏi giỏ hàng!');
+        return redirect()->route('index-cart')->with('success', 'Sản phẩm đã được xóa khỏi giỏ hàng!');
     }
 }

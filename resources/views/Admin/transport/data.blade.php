@@ -45,10 +45,10 @@
                     <td style="line-height: 100px;">{{ $item->created_at }}</td>
                     <td style="line-height: 100px;">{{ $item->updated_at }}</td>
                     <td style="line-height: 100px;">
-                        <a href="{{ url('edit-transports', ['id' => Crypt::encrypt($item->id)]) }}" class="btn btn-xs btn-primary" onclick="return confirm('Bạn có chắc muốn sửa không ?')">
+                        <a href="{{ route('edit-transports', ['id' => Crypt::encrypt($item->id)]) }}" class="btn btn-xs btn-primary" onclick="return confirm('Bạn có chắc muốn sửa không ?')">
                             <i class="fa fa-pencil"></i> Edit
                         </a>
-                        <form action="{{ url('transport-remove', ['id' => $item->id]) }}" method="POST"
+                        <form action="{{ route('remove-transports', ['id' => $item->id]) }}" method="POST"
                             style="display:inline;">
                             @csrf
                             @method('DELETE')

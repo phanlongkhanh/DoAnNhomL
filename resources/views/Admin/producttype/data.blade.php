@@ -42,10 +42,10 @@
                     <td>{{ $item->created_at }}</td>
                     <td>{{ $item->updated_at }}</td>
                     <td>
-                        <a href="{{ url('edit-producttype', ['id' => Crypt::encrypt($item->id)]) }}" class="btn btn-xs btn-primary" onclick="return confirm('Bạn có chắc muốn sửa không ?')">
+                        <a href="{{ route('edit-producttypes', ['id' => Crypt::encrypt($item->id)]) }}" class="btn btn-xs btn-primary" onclick="return confirm('Bạn có chắc muốn sửa không ?')">
                             <i class="fa fa-pencil"></i> Edit
                         </a>
-                        <form action="{{ route('remove-product-type', $item->id) }}" method="POST"
+                        <form action="{{ route('remove-producttypes', $item->id) }}" method="POST"
                             style="display:inline;">
                             @csrf
                             @method('DELETE')

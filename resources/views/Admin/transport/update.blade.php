@@ -18,7 +18,7 @@
         <div class="row">
 
             <div class="box box-primary">
-                <form action="{{ route('transport-update', ['id' => $transports->id]) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('update-transports', ['id' => $transports->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="box-body">
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                     <div class="box-footer">
-                        <a href="{{ url('index-transport') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
+                        <a href="{{ route('index-transports') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
                         <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Submit</button>
                     </div>
             </div>

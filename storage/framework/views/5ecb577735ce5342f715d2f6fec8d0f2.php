@@ -168,7 +168,7 @@
                     
 
                     <li class="<?php echo e(Request::is('admin-datn/menu*') ? 'active' : ''); ?>">
-                        <a href="<?php echo e('account-index'); ?>">
+                        <a href="<?php echo e(route('index-account')); ?>">
                             <i class="fa fa-address-book-o"></i> <span>Tài Khoản</span>
                         </a>
                     </li>
@@ -180,31 +180,26 @@
                     </li>
 
                     <li class="<?php echo e(Request::is('admin-datn/product*') ? 'active' : ''); ?>">
-                        <a href="<?php echo e('product'); ?>">
+                        <a href="<?php echo e(route('index-product')); ?>">
                             <i class="fa fa-fw fa-anchor"></i> <span>Sản phẩm</span>
                         </a>
                     </li>
 
                     <li class="<?php echo e(Request::is('admin-datn/transaction*') ? 'active' : ''); ?>">
-                        <a href="<?php echo e(url('product-type-index')); ?>">
+                        <a href="<?php echo e(route('index-producttypes')); ?>">
                             <i class="fa fa-cart-arrow-down"></i> <span>Loại sản phẩm</span>
                         </a>
                     </li>
 
 
-
-                    
-
-
-
                     <li class="<?php echo e(Request::is('admin-datn/transaction*') ? 'active' : ''); ?>">
-                        <a href="<?php echo e('oders-index'); ?>">
+                        <a href="<?php echo e(route('index-orders')); ?>">
                             <i class="fa fa-cart-arrow-down"></i> <span>Đơn hàng</span>
                         </a>
                     </li>
 
                     <li class="<?php echo e(Request::is('admin-datn/article*') ? 'active' : ''); ?>">
-                        <a href="<?php echo e('index-suppliers'); ?>">
+                        <a href="<?php echo e(route('index-suppliers')); ?>">
                             <i class="fa fa-truck"></i> <span>Nhà Cung Cấp</span>
                         </a>
                     </li>
@@ -212,19 +207,19 @@
 
 
                     <li class="<?php echo e(Request::is('admin-datn/article*') ? 'active' : ''); ?>">
-                        <a href="<?php echo e('index-transport'); ?>">
+                        <a href="<?php echo e(route('index-transports')); ?>">
                             <i class="fa fa-circle-o-notch"></i> <span>Đơn vị vận chuyển</span>
                         </a>
                     </li>
 
                     <li class="<?php echo e(Request::is('admin-datn/article*') ? 'active' : ''); ?>">
-                        <a href="<?php echo e('index-post_category'); ?>">
+                        <a href="<?php echo e(route('index-category-post')); ?>">
                             <i class="fa fa-history"></i> <span>Danh Mục Bài Viết</span>
                         </a>
                     </li>
 
                     <li class="<?php echo e(Request::is('admin-datn/article*') ? 'active' : ''); ?>">
-                        <a href="<?php echo e('index-post'); ?>">
+                        <a href="<?php echo e(route('index-post')); ?>">
                             <i class="fa fa-book"></i> <span>Bài viết</span>
                         </a>
                     </li>

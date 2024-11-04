@@ -24,7 +24,7 @@ class AccountController extends Controller
 
         // Kiểm tra nếu không tìm thấy user
         if (!$user) {
-            return redirect('account-index')->with('error', 'User not found.');
+            return redirect()->route('index-account')->with('error', 'User not found.');
         }
 
         // Trả về view edit với thông tin của user
@@ -52,12 +52,9 @@ class AccountController extends Controller
             'role_id' => $request->role_id,
         ]);
 
-        return redirect('account-index')->with('success', 'User created successfully.');
+        return redirect()->route('index-account')->with('success', 'User created successfully.');
     }
 
-
-
-        // Chỉnh sửa người dùng
     public function edit($id)
     {
         $user = User::findOrFail($id);
@@ -91,7 +88,7 @@ class AccountController extends Controller
 
         $user->save();
 
-        return redirect('account-index')->with('success', 'User updated successfully.');
+        return redirect()->route('index-account')->with('success', 'User updated successfully.');
     }
 
     public function destroy($id)
@@ -102,7 +99,7 @@ class AccountController extends Controller
         // Xóa người dùng
         $user->delete();
 
-        return redirect('account-index')->with('success', 'User deleted successfully.');
+        return redirect()->route('index-account')->with('success', 'User deleted successfully.');
     }
 
 }

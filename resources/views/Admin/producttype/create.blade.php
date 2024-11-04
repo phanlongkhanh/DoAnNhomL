@@ -23,7 +23,7 @@
         @endif
         <div class="row">
             <div class="box box-primary">
-                <form action="{{ url('add-product-type') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('add-producttypes') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
                         <div class="col-sm-8">
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <div class="box-footer">
-                        <a href="{{ url('product-type-index') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở
+                        <a href="{{ route('index-producttypes') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở
                             Lại</a>
                         <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Submit</button>
                     </div>

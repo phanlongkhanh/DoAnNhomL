@@ -176,7 +176,7 @@
                     {{-- @todo lai --}}
 
                     <li class="{{ Request::is('admin-datn/menu*') ? 'active' : '' }}">
-                        <a href="{{ 'account-index' }}">
+                        <a href="{{ route('index-account') }}">
                             <i class="fa fa-address-book-o"></i> <span>Tài Khoản</span>
                         </a>
                     </li>
@@ -188,35 +188,26 @@
                     </li>
 
                     <li class="{{ Request::is('admin-datn/product*') ? 'active' : '' }}">
-                        <a href="{{ 'product' }}">
+                        <a href="{{ route('index-product')}}">
                             <i class="fa fa-fw fa-anchor"></i> <span>Sản phẩm</span>
                         </a>
                     </li>
 
                     <li class="{{ Request::is('admin-datn/transaction*') ? 'active' : '' }}">
-                        <a href="{{ url('product-type-index') }}">
+                        <a href="{{ route('index-producttypes') }}">
                             <i class="fa fa-cart-arrow-down"></i> <span>Loại sản phẩm</span>
                         </a>
                     </li>
 
 
-
-                    {{-- <li class="{{ Request::is('admin-datn/attribute*') ? 'active' : '' }}">
-                        <a href="#">
-                            <i class="glyphicon glyphicon-asterisk"></i> <span>Nhà Cung Cấp</span>
-                        </a>
-                    </li> --}}
-
-
-
                     <li class="{{ Request::is('admin-datn/transaction*') ? 'active' : '' }}">
-                        <a href="{{ 'oders-index' }}">
+                        <a href="{{ route('index-orders') }}">
                             <i class="fa fa-cart-arrow-down"></i> <span>Đơn hàng</span>
                         </a>
                     </li>
 
                     <li class="{{ Request::is('admin-datn/article*') ? 'active' : '' }}">
-                        <a href="{{ 'index-suppliers' }}">
+                        <a href="{{ route('index-suppliers') }}">
                             <i class="fa fa-truck"></i> <span>Nhà Cung Cấp</span>
                         </a>
                     </li>
@@ -224,19 +215,19 @@
 
 
                     <li class="{{ Request::is('admin-datn/article*') ? 'active' : '' }}">
-                        <a href="{{ 'index-transport' }}">
+                        <a href="{{ route('index-transports') }}">
                             <i class="fa fa-circle-o-notch"></i> <span>Đơn vị vận chuyển</span>
                         </a>
                     </li>
 
                     <li class="{{ Request::is('admin-datn/article*') ? 'active' : '' }}">
-                        <a href="{{'index-post_category'}}">
+                        <a href="{{route('index-category-post')}}">
                             <i class="fa fa-history"></i> <span>Danh Mục Bài Viết</span>
                         </a>
                     </li>
 
                     <li class="{{ Request::is('admin-datn/article*') ? 'active' : '' }}">
-                        <a href="{{'index-post'}}">
+                        <a href="{{route('index-post')}}">
                             <i class="fa fa-book"></i> <span>Bài viết</span>
                         </a>
                     </li>
