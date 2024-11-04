@@ -198,3 +198,8 @@ Route::get('pay-edit/{id}', [PayController::class, 'EditPay']);
 Route::post('create-pay', [PayController::class, 'AddPay']);
 //Update Status pays
 Route::get('pays/{id}/update-status/{status}', [OdersController::class, 'updateStatus'])->name('pays.updateStatus');
+//Nhat
+Route::post('add-product', [AdminProductController::class, 'store'])->name('products.store');
+Route::get('/products/{id}/edit', [AdminProductController::class, 'ShowUpdateProduct'])->name('products.edit');
+Route::put('update-product/{id}', [AdminProductController::class, 'update'])->name('products.update');
+Route::delete('products/{id}', [AdminProductController::class, 'destroy'])->name('products.destroy');

@@ -56,11 +56,16 @@
                         <td>{{ $item->created_at }}</td>
                         
                         <td>
-                            <a href="#" class="btn btn-xs btn-primary"
-                                onclick="return confirm('Bạn có Sửa không nè')"><i class="fa fa-pencil"></i> Edit</a>
-                            <a href="#" class="btn btn-xs btn-danger js-delete-confirm"
-                                onclick="return confirm('Bạn có chắc xoá không nè')"><i class="fa fa-trash"></i>
-                                Delete</a>
+                            <a href="{{ route('products.edit', $item->id_product) }}" class="btn btn-xs btn-primary">
+                                <i class="fa fa-pencil"></i> Edit
+                            </a>                                                                                      
+                            <form action="{{ route('products.destroy', $item->id_product) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-xs btn-danger" onclick="return confirm('Bạn có chắc muốn xóa không?')">
+                                    <i class="fa fa-trash"></i> Delete
+                                </button>
+                            </form>                          
                         </td>
                     </tr>
                 @endforeach
