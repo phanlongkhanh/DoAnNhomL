@@ -2,12 +2,12 @@
 @section('content')
     <section class="content-header">
         <h1>
-            CateGory
+            Category Post
             <small>Edit</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href=""><i class="fa fa-dashboard"></i>Home</a></li>
-            <li><a href="">Category</a></li>
+            <li><a href=""> Category Post</a></li>
             <li class="active">Update</li>
         </ol>
     </section>

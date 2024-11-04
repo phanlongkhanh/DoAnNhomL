@@ -18,89 +18,60 @@
     <link rel="stylesheet" href="{{ asset('css/responsive1.css') }}">
 
     <style>
-
-        
         body {
-            background-color: #cdd4db;
+            background-color: #f0f8ff;
             /* Nền sáng cho toàn trang */
         }
 
-        /* Header */
         .header_section {
-            background-color: #ee699e;
-        }
-
-        .navbar-brand h3 {
-            color: #ff66b2;
-        }
-
-        .navbar-nav .nav-link {
-            color: #ff4d88;
-            transition: color 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #e60073;
-
-        }
-
-        .navbar-toggler {
-            border-color: #ff4d88;
-        }
-
-        h2 {
-            color: #ff3399;
-
+            background-color: #ffffff;
+            /* Màu nền trắng cho header */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Đổ bóng cho header */
         }
 
         .card {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            border: none;
+            transition: transform 0.2s;
+            /* Hiệu ứng chuyển động cho thẻ sản phẩm */
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 20px rgba(255, 102, 153, 0.2);
-
-        }
-
-
-        .card-img-top {
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover .card-img-top {
             transform: scale(1.05);
+            /* Phóng to thẻ khi hover */
         }
 
-
-        .btn-danger {
-            background-color: #ff66b2;
-            border-color: #ff66b2;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .btn-danger:hover {
-            background-color: #ff3385;
-
-            color: #fff;
-        }
-
-
-        .card-title {
-            font-weight: bold;
-            color: #ff4d88;
-
-        }
-
-        .card-text {
-            color: #ff66b2;
-
+        .category-btn {
+            margin: 0 5px;
+            /* Khoảng cách giữa các nút lọc */
         }
 
         .footer_section {
-            background-color: #f471b2;
-            color: #8c1a56;
+            background-color: #212529;
+            /* Màu nền xám đậm cho footer */
+        }
+
+        .footer_section a {
+            color: #ffffff;
+            /* Màu chữ cho các liên kết trong footer */
+        }
+
+        .footer_section a:hover {
+            color: #d1d1d1;
+            /* Màu chữ khi hover trên các liên kết */
+        }
+
+        .btn-outline-primary {
+            border-color: #007bff;
+            /* Màu viền cho nút */
+            color: #007bff;
+            /* Màu chữ cho nút */
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            /* Màu nền khi hover */
+            color: #ffffff;
+            /* Màu chữ khi hover */
         }
     </style>
 </head>
@@ -109,7 +80,7 @@
     <!-- Header -->
     <header class="header_section bg-light py-3">
         <nav class="navbar navbar-expand-lg navbar-light container">
-            <a class="navbar-brand text-danger" href="{{route('index-homepage')}}">
+            <a class="navbar-brand text-danger" href="{{ route('index-homepage') }}">
                 <h3 style="margin-right: 40px">Pink Store</h3>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -117,14 +88,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="{{route('index-homepage')}}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="{{route('category-product')}}">Danh Mục</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('index-favorites')}}">Favorite</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('index-post-user')}}">Post</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('view-pays')}}">Giao Hàng</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('index-homepage') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{ route('category-product') }}">Danh Mục</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('index-favorites') }}">Favorite</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('index-post-user') }}">Post</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('view-pays') }}">Giao Hàng</a></li>
                 </ul>
                 <div class="d-flex">
-                    <a href="{{route('index-cart')}}" class="btn btn-outline-danger me-2"><i
+                    <a href="{{ route('index-cart') }}" class="btn btn-outline-danger me-2"><i
                             class="fas fa-shopping-bag"></i></a>
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search">
@@ -135,44 +107,19 @@
         </nav>
     </header>
 
-    @if (session('success'))
-        <div class="alert alert-success h4 text-center">
-            {{ session('success') }}
-        </div>
-    @endif
-    <!-- Favorite Products Section -->
-    <div class="container my-5">
-        <h2 class="mb-4 text-center">Danh Sách Yêu Thích</h2>
-        <h3>
-            <hr>
-        </h3>
-        <div class="row">
-            @if (isset($favorites))
-                @foreach ($favorites as $item)
-                    <div class="col-md-4 mb-4">
-                        <a href="{{ route('details-products', ['id' => Crypt::encrypt($item->id_product)]) }}">
-                            <div class="card shadow-sm">
-                                <img src="{{ asset('images/' . $item->image) }}" width="300px" height="300px"
-                                    class="card-img-top" alt="Sản Phẩm 1">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $item->name }}</h5>
-                                    <p class="card-text">Giá: {{ number_format($item->price, 0, ',', '.') }} VNĐ</p>
-                                    <form action="{{ route('delete-favorites', $item->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Xóa khỏi yêu thích</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                @endforeach
-            @endif
-        </div>
-        <div class="pagination justify-content-center mt-4">
-            {{ $favorites->links('pagination::bootstrap-4') }}
-        </div>
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <h3>

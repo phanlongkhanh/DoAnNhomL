@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
             UserTableSeeder::class,
             TranSportTableSeeder::class,
             SuppliersTableSeeder::class,
+            PostTableSeeder::class,
+            ListPostTableSeeder::class,
         ]);
     
     }

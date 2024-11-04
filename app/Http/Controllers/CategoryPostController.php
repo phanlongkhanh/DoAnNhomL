@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ListPost;
 use Illuminate\Http\Request;
 
 class CategoryPostController extends Controller
 {
     public function ShowIndexCategoryPost() {
-        return view('Admin.post_category.index');
+        $listposts = ListPost::all();
+        return view('Admin.post_category.index',compact('listposts'));
     }
 
     public function ShowCreateCategoryPost() {

@@ -2,8 +2,8 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Product
-            <small>Carete</small>
+            Article
+            <small>Create</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="box-footer" style="text-align: center;">
-                        <a href="{{ route('indexpost') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
+                        <a href="{{route('index-post')}}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
                         <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Submit</button>
                     </div>
                 </div>
