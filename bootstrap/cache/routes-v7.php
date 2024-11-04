@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::ngIhVzNvkqyQpRk2',
+            '_route' => 'generated::Vau59uSn3ucQgVkU',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::0Krh46TgNUDWLrN2',
+            '_route' => 'generated::2xYcJbzZvyOGaJDF',
           ),
           1 => NULL,
           2 => 
@@ -142,7 +142,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::XhXokEW9wOtyXwg6',
+            '_route' => 'generated::8Dv2SnkUA9mgezIe',
           ),
           1 => NULL,
           2 => 
@@ -894,6 +894,26 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
             '_route' => 'index-post',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/post/list' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'index-post-user',
           ),
           1 => NULL,
           2 => 
@@ -1859,7 +1879,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::ngIhVzNvkqyQpRk2' => 
+    'generated::Vau59uSn3ucQgVkU' => 
     array (
       'methods' => 
       array (
@@ -1882,7 +1902,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::ngIhVzNvkqyQpRk2',
+        'as' => 'generated::Vau59uSn3ucQgVkU',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1898,7 +1918,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::0Krh46TgNUDWLrN2' => 
+    'generated::2xYcJbzZvyOGaJDF' => 
     array (
       'methods' => 
       array (
@@ -1920,7 +1940,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::0Krh46TgNUDWLrN2',
+        'as' => 'generated::2xYcJbzZvyOGaJDF',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1936,7 +1956,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::XhXokEW9wOtyXwg6' => 
+    'generated::8Dv2SnkUA9mgezIe' => 
     array (
       'methods' => 
       array (
@@ -1957,7 +1977,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::XhXokEW9wOtyXwg6',
+        'as' => 'generated::8Dv2SnkUA9mgezIe',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4412,6 +4432,43 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'index-post',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'index-post-user' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'post/list',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PostController@ShowIndexPostHomePage',
+        'controller' => 'App\\Http\\Controllers\\PostController@ShowIndexPostHomePage',
+        'namespace' => NULL,
+        'prefix' => '/post',
+        'where' => 
+        array (
+        ),
+        'as' => 'index-post-user',
       ),
       'fallback' => false,
       'defaults' => 

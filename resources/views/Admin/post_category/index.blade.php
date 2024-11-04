@@ -7,7 +7,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="">Category</a></li>
+            <li><a href=""> Category Post</a></li>
             <li class="active">list</li>
         </ol>
     </section>
@@ -18,7 +18,8 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title"><a href="{{route('create-category-post')}}" class="btn btn-primary">Thêm mới </a>
+                        <h3 class="box-title"><a href="{{ route('create-category-post') }}" class="btn btn-primary">Thêm mới
+                            </a>
                         </h3>
                         <div class="box-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
@@ -51,18 +52,16 @@
                                 @endphp
 
 
-                                @if (isset($categories))
-                                    @foreach ($categories as $item)
+                                @if (isset($listposts))
+                                    @foreach ($listposts as $item)
                                         @php
                                             $count++;
                                         @endphp
                                         <tr>
                                             <td>{{ $count }}</td>
                                             <td>{{ $item->id }}</td>
-
                                             <td><img src="images/<?= $item->image ?>" alt="" width="200px"
                                                     height="150px"></td>
-
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->description }}</td>
                                             <td>
@@ -76,8 +75,8 @@
                                             </td>
                                             <td>{{ $item->created_at }}</td>
                                             <td>{{ $item->updated_at }}</td>
-                                            {{-- <td>{{ $item->admin->name }}</td> --}}
-                                            <td>{{ $item->admin ? $item->admin->name : 'N/A' }}</td>
+                                            <td>{{ $item->user->name }}</td>
+
 
 
 

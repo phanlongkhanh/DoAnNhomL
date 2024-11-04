@@ -145,6 +145,7 @@ Route::prefix('account')->group(function () {
 //Bài Viết Admin
 Route::prefix('post')->group(function () {
     Route::get('/', [PostController::class, 'ShowIndexPost'])->name('index-post');
+    Route::get('/list', [PostController::class, 'ShowIndexPostHomePage'])->name('index-post-user');
     Route::get('/create', [PostController::class, 'ShowCreatePost'])->name('create-post');
 });
 
