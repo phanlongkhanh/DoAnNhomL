@@ -66,6 +66,22 @@
                 </div>
             @endif
 
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="email">Email:</label>
@@ -110,7 +126,7 @@
             <a href="{{ route('register') }}">Bạn chưa có tài khoản? Đăng ký</a>
         </div>
         <div class="text-center mt-3">
-            <a href="{{route('index-forgot')}}">Quên mật khẩu?</a>
+            <a href="{{ route('index-forgot') }}">Quên mật khẩu?</a>
         </div>
     </div>
 

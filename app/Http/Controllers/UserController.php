@@ -35,11 +35,6 @@ class UserController extends Controller
         return view('User.crud_user.register_user');
     }
 
-    public function ShowForgotPassword()
-    {
-        return view('User.forgot.forgot_user');
-    }
-
     public function ShowUserCategory()
     {
         $products = Product::paginate(9);

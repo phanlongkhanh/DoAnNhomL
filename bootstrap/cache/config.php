@@ -505,11 +505,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'smtp.mailgun.org',
-        'port' => '1025',
-        'encryption' => NULL,
-        'username' => NULL,
-        'password' => NULL,
+        'host' => 'smtp.gmail.com',
+        'port' => '587',
+        'encryption' => 'tls',
+        'username' => 'aidoanhhungday@gmail.com',
+        'password' => 'gewyxibeybmewbzb',
         'timeout' => NULL,
         'local_domain' => NULL,
       ),
@@ -551,7 +551,7 @@
     ),
     'from' => 
     array (
-      'address' => 'hello@example.com',
+      'address' => 'aidoanhhungday@gmail.com',
       'name' => 'Laravel',
     ),
     'markdown' => 
