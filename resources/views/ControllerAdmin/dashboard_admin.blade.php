@@ -237,7 +237,7 @@
                     <li class="header">Hệ Thống</li>
 
                     <li class="{{ Request::is('admin-datn/statistical*') ? 'active' : '' }}">
-                        <a href="">
+                        <a href="{{route('index-statistical')}}">
                             <i class="fa fa-rocket"></i> <span>Thống Kê</span>
                         </a>
                     </li>
