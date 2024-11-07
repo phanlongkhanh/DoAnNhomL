@@ -26,7 +26,7 @@ use App\Http\Controllers\PayController;
 //Show Screen Admin
 Route::get('admin-controller', [AdminController::class, 'ShowDashBoardAdmin'])->middleware('admin');
 //Show Screen Login and Register
-Route::get('/', [UserController::class, 'ShowUserLogin']);
+Route::get('/', [UserController::class, 'ShowUserLogin'])->name('login');
 Route::get('/register', [UserController::class, 'ShowUserRegister'])->name('register');
 
 //Trang Chủ Giao Diện Đăng Nhập
@@ -157,11 +157,11 @@ Route::prefix('category-post')->group(function () {
 
 //Quên Mật Khẩu
 Route::prefix('forgot')->group(function () {
-    Route::get('/', [UserController::class, 'ShowForgotPassword'])->name('index-forgot');
-    Route::get('checkmail', [ForgotPassController::class, 'showNotificationEmail'])->name('checkmail');
-    Route::POST('forgot_password', [ForgotPassController::class, 'sendResetLinkEmail'])->name('getpass');
-    Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
-    Route::post('password/reset', [ResetPasswordController::class, 'resetPassword'])->name('password.update');
+   Route::get('/', [ForgotPassController::class, 'ShowIndexForgot'])->name('index-forgot');
+   Route::post('/', [ForgotPassController::class, 'sendResetLink'])->name('send-reset-link');
+   Route::get('/update/{token}', [ForgotPassController::class, 'ShowUpdatePasswordForgot'])->name('password.reset');
+   Route::post('/update', [ForgotPassController::class, 'resetPassword'])->name('password.update'); 
+   Route::get('/check', [ForgotPassController::class, 'ShowCheckMail'])->name('CheckMail');
 });
 
 

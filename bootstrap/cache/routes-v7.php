@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Vau59uSn3ucQgVkU',
+            '_route' => 'generated::0lqorWZWqbI9cdag',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::2xYcJbzZvyOGaJDF',
+            '_route' => 'generated::qHfBJKtNromrg47c',
           ),
           1 => NULL,
           2 => 
@@ -142,7 +142,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::8Dv2SnkUA9mgezIe',
+            '_route' => 'login',
           ),
           1 => NULL,
           2 => 
@@ -1006,34 +1006,11 @@ app('router')->setCompiledRoutes(
           5 => false,
           6 => NULL,
         ),
-      ),
-      '/forgot/checkmail' => 
-      array (
-        0 => 
+        1 => 
         array (
           0 => 
           array (
-            '_route' => 'checkmail',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/forgot/forgot_password' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'getpass',
+            '_route' => 'send-reset-link',
           ),
           1 => NULL,
           2 => 
@@ -1046,7 +1023,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/forgot/password/reset' => 
+      '/forgot/update' => 
       array (
         0 => 
         array (
@@ -1065,10 +1042,30 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/forgot/check' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'CheckMail',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
     ),
     2 => 
     array (
-      0 => '{^(?|/homapage/details\\-product/([^/]++)(*:42)|/p(?|roduct(?|types/(?|([^/]++)(*:80)|add(*:90)|([^/]++)(?|(*:108))|product\\-type/active/([^/]++)(*:146))|/([^/]++)(?|(*:167)))|ays/(?|([^/]++)(*:192)|add(*:203)|pays/([^/]++)/update\\-status/([^/]++)(*:248)))|/transports/(?|([^/]++)(?|(*:284))|transport/active/([^/]++)(*:318))|/suppliers/([^/]++)(?|(*:349))|/f(?|avorites/([^/]++)(*:380)|orgot/password/reset/([^/]++)(*:417))|/orders/orders/active/([^/]++)(*:456)|/ca(?|rts/([^/]++)(*:482)|tegories/(?|edit\\-category/([^/]++)(*:525)|update\\-category/([^/]++)(*:558)|admin/categories/(?|delete/([^/]++)(*:601)|active/([^/]++)(*:624))))|/account/([^/]++)(?|(*:655)))/?$}sDu',
+      0 => '{^(?|/homapage/details\\-product/([^/]++)(*:42)|/p(?|roduct(?|types/(?|([^/]++)(*:80)|add(*:90)|([^/]++)(?|(*:108))|product\\-type/active/([^/]++)(*:146))|/([^/]++)(?|(*:167)))|ays/(?|([^/]++)(*:192)|add(*:203)|pays/([^/]++)/update\\-status/([^/]++)(*:248)))|/transports/(?|([^/]++)(?|(*:284))|transport/active/([^/]++)(*:318))|/suppliers/([^/]++)(?|(*:349))|/f(?|avorites/([^/]++)(*:380)|orgot/update/([^/]++)(*:409))|/orders/orders/active/([^/]++)(*:448)|/ca(?|rts/([^/]++)(*:474)|tegories/(?|edit\\-category/([^/]++)(*:517)|update\\-category/([^/]++)(*:550)|admin/categories/(?|delete/([^/]++)(*:593)|active/([^/]++)(*:616))))|/account/([^/]++)(?|(*:647)))/?$}sDu',
     ),
     3 => 
     array (
@@ -1499,7 +1496,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      417 => 
+      409 => 
       array (
         0 => 
         array (
@@ -1522,7 +1519,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      456 => 
+      448 => 
       array (
         0 => 
         array (
@@ -1545,7 +1542,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      482 => 
+      474 => 
       array (
         0 => 
         array (
@@ -1567,7 +1564,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      525 => 
+      517 => 
       array (
         0 => 
         array (
@@ -1590,7 +1587,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      558 => 
+      550 => 
       array (
         0 => 
         array (
@@ -1612,7 +1609,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      601 => 
+      593 => 
       array (
         0 => 
         array (
@@ -1634,7 +1631,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      624 => 
+      616 => 
       array (
         0 => 
         array (
@@ -1657,7 +1654,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      655 => 
+      647 => 
       array (
         0 => 
         array (
@@ -1879,7 +1876,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Vau59uSn3ucQgVkU' => 
+    'generated::0lqorWZWqbI9cdag' => 
     array (
       'methods' => 
       array (
@@ -1896,13 +1893,13 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005100000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000051c0000000000000000";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::Vau59uSn3ucQgVkU',
+        'as' => 'generated::0lqorWZWqbI9cdag',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1918,7 +1915,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::2xYcJbzZvyOGaJDF' => 
+    'generated::qHfBJKtNromrg47c' => 
     array (
       'methods' => 
       array (
@@ -1940,7 +1937,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::2xYcJbzZvyOGaJDF',
+        'as' => 'generated::qHfBJKtNromrg47c',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1956,7 +1953,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::8Dv2SnkUA9mgezIe' => 
+    'login' => 
     array (
       'methods' => 
       array (
@@ -1977,7 +1974,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::8Dv2SnkUA9mgezIe',
+        'as' => 'login',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4609,8 +4606,8 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'App\\Http\\Controllers\\UserController@ShowForgotPassword',
-        'controller' => 'App\\Http\\Controllers\\UserController@ShowForgotPassword',
+        'uses' => 'App\\Http\\Controllers\\ForgotPassController@ShowIndexForgot',
+        'controller' => 'App\\Http\\Controllers\\ForgotPassController@ShowIndexForgot',
         'namespace' => NULL,
         'prefix' => '/forgot',
         'where' => 
@@ -4632,64 +4629,27 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'checkmail' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'forgot/checkmail',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\ForgotPassController@showNotificationEmail',
-        'controller' => 'App\\Http\\Controllers\\ForgotPassController@showNotificationEmail',
-        'namespace' => NULL,
-        'prefix' => '/forgot',
-        'where' => 
-        array (
-        ),
-        'as' => 'checkmail',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'getpass' => 
+    'send-reset-link' => 
     array (
       'methods' => 
       array (
         0 => 'POST',
       ),
-      'uri' => 'forgot/forgot_password',
+      'uri' => 'forgot',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'web',
         ),
-        'uses' => 'App\\Http\\Controllers\\ForgotPassController@sendResetLinkEmail',
-        'controller' => 'App\\Http\\Controllers\\ForgotPassController@sendResetLinkEmail',
+        'uses' => 'App\\Http\\Controllers\\ForgotPassController@sendResetLink',
+        'controller' => 'App\\Http\\Controllers\\ForgotPassController@sendResetLink',
         'namespace' => NULL,
         'prefix' => '/forgot',
         'where' => 
         array (
         ),
-        'as' => 'getpass',
+        'as' => 'send-reset-link',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4712,15 +4672,15 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'forgot/password/reset/{token}',
+      'uri' => 'forgot/update/{token}',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'web',
         ),
-        'uses' => 'App\\Http\\Controllers\\ResetPassWordController@showResetForm',
-        'controller' => 'App\\Http\\Controllers\\ResetPassWordController@showResetForm',
+        'uses' => 'App\\Http\\Controllers\\ForgotPassController@ShowUpdatePasswordForgot',
+        'controller' => 'App\\Http\\Controllers\\ForgotPassController@ShowUpdatePasswordForgot',
         'namespace' => NULL,
         'prefix' => '/forgot',
         'where' => 
@@ -4748,21 +4708,58 @@ app('router')->setCompiledRoutes(
       array (
         0 => 'POST',
       ),
-      'uri' => 'forgot/password/reset',
+      'uri' => 'forgot/update',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'web',
         ),
-        'uses' => 'App\\Http\\Controllers\\ResetPassWordController@resetPassword',
-        'controller' => 'App\\Http\\Controllers\\ResetPassWordController@resetPassword',
+        'uses' => 'App\\Http\\Controllers\\ForgotPassController@resetPassword',
+        'controller' => 'App\\Http\\Controllers\\ForgotPassController@resetPassword',
         'namespace' => NULL,
         'prefix' => '/forgot',
         'where' => 
         array (
         ),
         'as' => 'password.update',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'CheckMail' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'forgot/check',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\ForgotPassController@ShowCheckMail',
+        'controller' => 'App\\Http\\Controllers\\ForgotPassController@ShowCheckMail',
+        'namespace' => NULL,
+        'prefix' => '/forgot',
+        'where' => 
+        array (
+        ),
+        'as' => 'CheckMail',
       ),
       'fallback' => false,
       'defaults' => 
