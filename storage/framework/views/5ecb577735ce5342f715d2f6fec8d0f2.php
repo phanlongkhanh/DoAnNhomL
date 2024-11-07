@@ -229,7 +229,7 @@
                     <li class="header">Hệ Thống</li>
 
                     <li class="<?php echo e(Request::is('admin-datn/statistical*') ? 'active' : ''); ?>">
-                        <a href="">
+                        <a href="<?php echo e(route('index-statistical')); ?>">
                             <i class="fa fa-rocket"></i> <span>Thống Kê</span>
                         </a>
                     </li>

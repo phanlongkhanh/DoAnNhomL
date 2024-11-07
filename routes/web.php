@@ -21,6 +21,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryPostController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PayController;
+use App\Http\Controllers\StatisticalController;
 
 
 //Show Screen Admin
@@ -166,6 +167,12 @@ Route::prefix('forgot')->group(function () {
    Route::get('/check', [ForgotPassController::class, 'ShowCheckMail'])->name('CheckMail');
 });
 
+
+//Thông Kê Biểu Đồ
+Route::prefix('statistical')->group(function () {
+    Route::get('/', [StatisticalController::class,'ShowIndexStatistical'])->name('index-statistical');
+    
+});
 
 
 

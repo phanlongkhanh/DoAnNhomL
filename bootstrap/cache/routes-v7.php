@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Yps6CEHLqdTRPY8P',
+            '_route' => 'generated::TF8asghs5Ps3pV1I',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::JRqxHL4BzUP37yx0',
+            '_route' => 'generated::CypHTqYqehMgIHHq',
           ),
           1 => NULL,
           2 => 
@@ -1062,6 +1062,26 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/statistical' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'index-statistical',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
     ),
     2 => 
     array (
@@ -1918,7 +1938,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Yps6CEHLqdTRPY8P' => 
+    'generated::TF8asghs5Ps3pV1I' => 
     array (
       'methods' => 
       array (
@@ -1941,7 +1961,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::Yps6CEHLqdTRPY8P',
+        'as' => 'generated::TF8asghs5Ps3pV1I',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1957,7 +1977,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::JRqxHL4BzUP37yx0' => 
+    'generated::CypHTqYqehMgIHHq' => 
     array (
       'methods' => 
       array (
@@ -1979,7 +1999,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::JRqxHL4BzUP37yx0',
+        'as' => 'generated::CypHTqYqehMgIHHq',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4875,6 +4895,43 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'CheckMail',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'index-statistical' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'statistical',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\StatisticalController@ShowIndexStatistical',
+        'controller' => 'App\\Http\\Controllers\\StatisticalController@ShowIndexStatistical',
+        'namespace' => NULL,
+        'prefix' => '/statistical',
+        'where' => 
+        array (
+        ),
+        'as' => 'index-statistical',
       ),
       'fallback' => false,
       'defaults' => 
