@@ -18,13 +18,13 @@ class ProductDetailController extends Controller
         try {
             $id = Crypt::decrypt($encryptedId);
         } catch (DecryptException $e) {
-            return redirect('details-product')->with('error', 'Không tìm thấy sản phẩm với ID này.');
+            return redirect()->route('index-homepage')->with('error', 'Không tìm thấy sản phẩm với ID này.');
         }
 
         $products = Product::find($id);
 
         if (!$products) {
-            return redirect('details-product')->with('error', 'Không tìm thấy sản phẩm với ID này.');
+            return redirect()->route('index-homepage')->with('error', 'Không tìm thấy sản phẩm với ID này.');
         }
 
         return view('User.product.details', compact('products'));

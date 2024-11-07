@@ -95,7 +95,7 @@
                                 <img src="{{ asset('images/' . $item->image) }}" style="height: 200px"
                                     alt="Tên Sản Phẩm" class="img-fluid">
                             </td>
-                            <td class="text-danger h5">{{ $item->name }}</td>
+                            <td class="text-danger h5">{{ $item->product->name}}</td>
                             <td class="price">{{ number_format($item->price, 0, ',', '.') }} VNĐ</td>
                             <td>
                                 <div class="d-flex align-items-center justify-content-center">

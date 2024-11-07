@@ -56,7 +56,6 @@ class Product extends Model
         return $this->hasMany(Pay::class, 'id_product');
     }
 
-    
     public function productType() {
         return $this->belongsTo(ProductType::class);
     }

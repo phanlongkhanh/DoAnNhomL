@@ -99,6 +99,8 @@ Route::prefix('pays')->group(function () {
 Route::prefix('orders')->group(function () {
     Route::get('/', [OdersController::class, 'ShowIndexOders'])->name('index-orders');
     Route::get('/view', [OdersController::class, 'ShowViewOders'])->name('view-orders');
+    Route::get('/{id}', [OdersController::class, 'EditOrders'])->name('edit-orders');
+    Route::delete('/{id}', [OdersController::class, 'DeleteOrders'])->name('delete-orders');
     Route::get('orders/active/{id}', [OdersController::class, 'ActiveOrders'])->name('active-orders');
 });
 

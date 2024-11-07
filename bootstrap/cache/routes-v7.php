@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::0lqorWZWqbI9cdag',
+            '_route' => 'generated::Yps6CEHLqdTRPY8P',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::qHfBJKtNromrg47c',
+            '_route' => 'generated::JRqxHL4BzUP37yx0',
           ),
           1 => NULL,
           2 => 
@@ -1065,7 +1065,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/homapage/details\\-product/([^/]++)(*:42)|/p(?|roduct(?|types/(?|([^/]++)(*:80)|add(*:90)|([^/]++)(?|(*:108))|product\\-type/active/([^/]++)(*:146))|/([^/]++)(?|(*:167)))|ays/(?|([^/]++)(*:192)|add(*:203)|pays/([^/]++)/update\\-status/([^/]++)(*:248)))|/transports/(?|([^/]++)(?|(*:284))|transport/active/([^/]++)(*:318))|/suppliers/([^/]++)(?|(*:349))|/f(?|avorites/([^/]++)(*:380)|orgot/update/([^/]++)(*:409))|/orders/orders/active/([^/]++)(*:448)|/ca(?|rts/([^/]++)(*:474)|tegories/(?|edit\\-category/([^/]++)(*:517)|update\\-category/([^/]++)(*:550)|admin/categories/(?|delete/([^/]++)(*:593)|active/([^/]++)(*:616))))|/account/([^/]++)(?|(*:647)))/?$}sDu',
+      0 => '{^(?|/homapage/details\\-product/([^/]++)(*:42)|/p(?|roduct(?|types/(?|([^/]++)(*:80)|add(*:90)|([^/]++)(?|(*:108))|product\\-type/active/([^/]++)(*:146))|/([^/]++)(?|(*:167)))|ays/(?|([^/]++)(*:192)|add(*:203)|pays/([^/]++)/update\\-status/([^/]++)(*:248)))|/transports/(?|([^/]++)(?|(*:284))|transport/active/([^/]++)(*:318))|/suppliers/([^/]++)(?|(*:349))|/f(?|avorites/([^/]++)(*:380)|orgot/update/([^/]++)(*:409))|/orders/(?|([^/]++)(?|(*:440))|orders/active/([^/]++)(*:471))|/ca(?|rts/([^/]++)(*:498)|tegories/(?|edit\\-category/([^/]++)(*:541)|update\\-category/([^/]++)(*:574)|admin/categories/(?|delete/([^/]++)(*:617)|active/([^/]++)(*:640))))|/account/([^/]++)(?|(*:671)))/?$}sDu',
     ),
     3 => 
     array (
@@ -1519,7 +1519,49 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      448 => 
+      440 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'edit-orders',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'delete-orders',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      471 => 
       array (
         0 => 
         array (
@@ -1542,7 +1584,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      474 => 
+      498 => 
       array (
         0 => 
         array (
@@ -1564,7 +1606,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      517 => 
+      541 => 
       array (
         0 => 
         array (
@@ -1587,7 +1629,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      550 => 
+      574 => 
       array (
         0 => 
         array (
@@ -1609,7 +1651,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      593 => 
+      617 => 
       array (
         0 => 
         array (
@@ -1631,7 +1673,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      616 => 
+      640 => 
       array (
         0 => 
         array (
@@ -1654,7 +1696,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      647 => 
+      671 => 
       array (
         0 => 
         array (
@@ -1876,7 +1918,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::0lqorWZWqbI9cdag' => 
+    'generated::Yps6CEHLqdTRPY8P' => 
     array (
       'methods' => 
       array (
@@ -1899,7 +1941,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::0lqorWZWqbI9cdag',
+        'as' => 'generated::Yps6CEHLqdTRPY8P',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1915,7 +1957,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::qHfBJKtNromrg47c' => 
+    'generated::JRqxHL4BzUP37yx0' => 
     array (
       'methods' => 
       array (
@@ -1937,7 +1979,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::qHfBJKtNromrg47c',
+        'as' => 'generated::JRqxHL4BzUP37yx0',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3478,6 +3520,79 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'view-orders',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'edit-orders' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'orders/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\OdersController@EditOrders',
+        'controller' => 'App\\Http\\Controllers\\OdersController@EditOrders',
+        'namespace' => NULL,
+        'prefix' => '/orders',
+        'where' => 
+        array (
+        ),
+        'as' => 'edit-orders',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'delete-orders' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'orders/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\OdersController@DeleteOrders',
+        'controller' => 'App\\Http\\Controllers\\OdersController@DeleteOrders',
+        'namespace' => NULL,
+        'prefix' => '/orders',
+        'where' => 
+        array (
+        ),
+        'as' => 'delete-orders',
       ),
       'fallback' => false,
       'defaults' => 

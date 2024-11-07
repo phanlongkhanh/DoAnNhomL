@@ -3,21 +3,69 @@
 namespace App\Http\Controllers;
 use App\Models\Pay;
 use App\Models\Order;
+use App\Models\Product;
+use App\Models\Suppliers;
+use App\Models\ProductType;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class OdersController extends Controller
 {
     public function ShowIndexOders()
     {
         $pays = Pay::with(['user', 'transport', 'payment'])->get();
-        return view('Admin.oders.index', compact('pays'));
+        return view('Admin.orders.index', compact('pays'));
     }
 
     public function ShowViewOders()
     {
-        $pays = Pay::with(['user', 'transport', 'payment'])->get();
-        return view('Admin.oders.view', compact('pays'));
+        return view('Admin.orders.view');
     }
+
+
+
+    public function DeleteOrders($payId)
+    {
+        $userId = auth()->id();
+        if (!$userId) {
+            return redirect('login')->with('error', 'Bạn cần đăng nhập để xóa đơn hàng.');
+        }
+        $pay = Pay::where('id', $payId)->where('id_user', $userId)->first();
+        if (!$pay) {
+            return redirect()->back()->with('error', 'Đơn hàng không tồn tại hoặc không thuộc quyền của bạn.');
+        }
+        try {
+            $pay->delete();
+            return redirect()->route('index-orders')->with('success', 'Đơn hàng đã được xóa thành công.');
+        } catch (\Exception $e) {
+            \Log::error('Lỗi khi xóa đơn hàng: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Có lỗi xảy ra khi xóa đơn hàng: ' . $e->getMessage());
+        }
+    }
+
+    public function EditOrders($encryptedId)
+    {
+        try {
+            $id = Crypt::decrypt($encryptedId);
+        } catch (DecryptException $e) {
+            return redirect()->route('view-orders', ['id' => $encryptedId])
+                ->with('error', 'Không tìm thấy với ID này.');
+        }
+
+        $orders = Pay::find($id);
+        $pays = Pay::all();
+        if (!$orders) {
+            return redirect()->route('view-orders', ['id' => $encryptedId])
+                ->with('error', 'Không tìm thấy với ID này.');
+        }
+
+        return view('Admin.orders.view', compact('orders', 'pays'));
+    }
+
 
     public function updateStatus(Request $request, $id)
     {
@@ -41,7 +89,6 @@ class OdersController extends Controller
 
         return redirect()->route('index-orders')->with('success', 'Cập nhật tình trạng đơn hàng thành công.');
     }
-
     public function ActiveOrders($id)
     {
         $pays = Pay::findOrFail($id);

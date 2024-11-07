@@ -35,13 +35,13 @@ class SupplierController extends Controller
         try {
             $id = Crypt::decrypt($encryptedId);
         } catch (DecryptException $e) {
-            return redirect()->route('index-suppliers')->with('error', 'Không tìm thầy Nhà Cung Cấp phẩm với ID này.');
+            return redirect()->route('update-suppliers', ['id' => $encryptedId])->with('error', 'Không tìm thầy Nhà Cung Cấp phẩm với ID này.');
         }
 
         $suppliers = Suppliers::find($id);
 
         if (!$suppliers) {
-            return redirect()->route('index-suppliers')->with('error', 'Không tìm thấy Nhà Cung Cấp với ID này.');
+            return redirect()->route('update-suppliers', ['id' => $encryptedId])->with('error', 'Không tìm thấy Nhà Cung Cấp với ID này.');
         }
 
         return view('Admin.suppliers.update', compact('suppliers'));
@@ -52,15 +52,22 @@ class SupplierController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
+            'name' => 'required|string|max:255|regex:/\S/',
+            'description' => 'required|string|max:255|regex:/\S/',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'phone' => 'nullable|string|max:11',
+            'phone' => [
+                'required',
+                'string',
+                'max:11',
+                'regex:/^0[0-9]{9,11}$/',
+                'not_regex:/^(0{10,12}|1{10,12}|2{10,12}|3{10,12}|4{10,12}|5{10,12}|6{10,12}|7{10,12}|8{10,12}|9{10,12})$/', // Không phải chuỗi số giống nhau
+                'regex:/^\S+$/',
+            ],
             'email' => 'nullable|email|max:255',
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('index-suppliers')
+            return redirect()->route('create-suppliers')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -87,15 +94,24 @@ class SupplierController extends Controller
         $suppliers = Suppliers::findOrFail($id);
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
+            'name' => 'required|string|max:255|regex:/\S/',
+            'description' => 'required|string|max:255|regex:/\S/',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'phone' => 'nullable|string|max:11',
+            'phone' => [
+                'required',
+                'string',
+                'max:11',
+                'regex:/^0[0-9]{9,11}$/',
+                'not_regex:/^(0{10,12}|1{10,12}|2{10,12}|3{10,12}|4{10,12}|5{10,12}|6{10,12}|7{10,12}|8{10,12}|9{10,12})$/', // Không phải chuỗi số giống nhau
+                'regex:/^\S+$/',
+            ],
             'email' => 'nullable|email|max:255',
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('index-suppliers')
+            $encryptedId = Crypt::encrypt($id);
+
+            return redirect()->route('update-suppliers', ['id' => $encryptedId])
                 ->withErrors($validator)
                 ->withInput();
         }

@@ -65,7 +65,7 @@
         <!-- header section strats -->
         <header class="header_section">
             <nav class="navbar navbar-expand-lg custom_nav-container ">
-                <a class="navbar-brand" href="{{route('index-homepage')}}">
+                <a class="navbar-brand" href="{{ route('index-homepage') }}">
                     <span class="h1 text-danger">
                         Pink Store
                     </span>
@@ -79,25 +79,26 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav  ">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{route('index-homepage')}}">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('index-homepage') }}">Home <span
+                                    class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('category-product')}}">
+                            <a class="nav-link" href="{{ route('category-product') }}">
                                 Danh Mục
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('index-favorites')}}">
+                            <a class="nav-link" href="{{ route('index-favorites') }}">
                                 Favorite
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('index-post-user')}}">
+                            <a class="nav-link" href="{{ route('index-post-user') }}">
                                 Post
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('view-pays')}}">Giao Hàng</a>
+                            <a class="nav-link" href="{{ route('view-pays') }}">Giao Hàng</a>
                         </li>
                     </ul>
                     <div class="user_option">
@@ -254,7 +255,11 @@
         <!-- end slider section -->
     </div>
     <!-- end hero area -->
-
+    @if (session('error'))
+        <div class="alert alert-danger h4 text-center">
+            {{ session('error') }}
+        </div>
+    @endif
     <!-- shop section -->
     @if (session('success'))
         <div class="alert alert-success h4 text-center">
@@ -274,7 +279,8 @@
                     @foreach ($products as $item)
                         <div class="col-sm-6 col-md-4 col-lg-3">
                             <div class="product-box">
-                                <a href="{{ route('details-products', ['id' => Crypt::encrypt($item->id_product)]) }}">
+                                <a
+                                    href="{{ route('details-products', ['id' => Crypt::encrypt($item->id_product)]) }}">
                                     <div class="img-box"
                                         style="border:2px solid black; width: 100%; height: 350px; overflow: hidden; position: relative;">
                                         <img src="images/{{ $item->image }}" alt="Product Image"

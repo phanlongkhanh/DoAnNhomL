@@ -19,7 +19,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Tổng Số Đơn Hàng</span>
-                        <span class="info-box-number">5<small><a href="oders-index">(Chi Tiết)</a></small></span>
+                        <span class="info-box-number">{{$orderCount}}<small><a href="{{ route('index-orders') }}">(Chi Tiết)</a></small></span>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Thành Viên</span>
-                        <span class="info-box-number">3<small><a href="account-index">(Chi Tiết)</a></small></span>
+                        <span class="info-box-number">{{$acountCount}}<small><a href="{{ route('index-account') }}">(Chi Tiết)</a></small></span>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                     <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">Sản Phẩm</span>
-                        <span class="info-box-number">1<small><a href="product">(Chi Tiết)</a></small></span>
+                        <span class="info-box-number">{{$productCount}}<small><a href="{{route('index-product')}}">(Chi Tiết)</a></small></span>
                     </div>
                 </div>
             </div>
@@ -76,44 +76,39 @@
 
                                         <th>Account</th>
                                         <th>Money</th>
-                                        <th>Status</th>
+                                        <th>Phương thức VC</th>
                                         <th>Phương thức TT</th>
                                         <th>Time</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if (isset($dataDashboard))
-                                        @foreach ($dataDashboard as $item)
+                                    @if (isset($pays))
+                                        @foreach ($pays as $item)
                                             <tr>
-                                                <td>{{ $item->id_oder }}</td>
+                                                <td>{{ $item->id }}</td>
                                                 <td>
                                                     <ul>
-                                                        <li>Name: {{ $item->name }}</li>
-                                                        <li>Email: {{ $item->email }}</li>
-                                                        <li>Phone: {{ $item->phone }}</li>
-                                                        <li>Address: {{ $item->district }}</li>
+                                                        <li>Name: {{ $item->user->name }}</li>
+                                                        <li>Email: {{ $item->user->email }}</li>
+                                                        <li>Phone: {{ $item->user->phone }}</li>
+                                                        <li>Address: {{ $item->address }}</li>
                                                     </ul>
                                                 </td>
 
-                                                <td>{{ number_format($item->intomoney, 0, ',', '.') }} VND</td>
+                                                <td>{{ number_format($item->total_price, 0, ',', '.') }} VND</td>
                                                 <td>
-                                                    @if ($item->status == 'Huỷ')
-                                                        <span class="label label-danger"
-                                                            style="cursor: default; pointer-events: none;">
-                                                            {{ $item->status }}
-                                                        </span>
-                                                    @else
-                                                        <span class="label label-success"
-                                                            style="cursor: default; pointer-events: none;">
-                                                            {{ $item->status }}
-                                                        </span>
-                                                    @endif
+                                            
+
+                                                    <span class="label label-success"
+                                                    style="cursor: default; pointer-events: none;">
+                                                    {{ $item->transport->name }}
+                                                </span>
                                                 </td>
                                                 {{-- <td>đây là thanh toán</td> --}}
                                                 <td>
                                                     <span class="label label-warning"
                                                         style="cursor: default; pointer-events: none;">
-                                                        {{ $item->payoftype->name }}
+                                                        {{ $item->payment->name }}
                                                     </span>
                                                 </td>
                                                 <td>{{ $item->created_at }}</td>
@@ -125,7 +120,7 @@
                         </div>
                     </div>
                     <div class="box-footer clearfix" style="">
-                        <a href="oders-index" class="btn btn-sm btn-info btn-flat pull-right">Danh Sách Đơn Hàng</a>
+                        <a href="{{route('index-orders')}}" class="btn btn-sm btn-info btn-flat pull-right">Danh Sách Đơn Hàng</a>
                     </div>
                 </div>
             </div>
