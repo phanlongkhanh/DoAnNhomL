@@ -34,13 +34,13 @@ class ProductTypeController extends Controller
         try {
             $id = Crypt::decrypt($encryptedId);
         } catch (DecryptException $e) {
-            return redirect()->route('index-producttypes')->with('error', 'Không tìm thấy loại sản phẩm với ID này.');
+            return redirect()->route('update-producttypes', ['id' => $encryptedId])->with('error', 'Không tìm thấy loại sản phẩm với ID này.');
         }
 
         $producttypes = ProductType::find($id);
 
         if (!$producttypes) {
-            return redirect()->route('index-producttypes')->with('error', 'Không tìm thấy loại sản phẩm với ID này.');
+            return redirect()->route('update-producttypes', ['id' => $encryptedId])->with('error', 'Không tìm thấy loại sản phẩm với ID này.');
         }
 
         return view('Admin.producttype.update', compact('producttypes'));
@@ -51,12 +51,12 @@ class ProductTypeController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
+            'name' => 'required|string|max:255|regex:/\S/',
+            'description' => 'required|string|max:255|regex:/\S/',
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('index-producttypes')
+            return redirect()->route('create-producttypes')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -74,12 +74,14 @@ class ProductTypeController extends Controller
     public function UpdateProductType(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
+            'name' => 'required|string|max:255|regex:/\S/',
+            'description' => 'required|string|max:255|regex:/\S/',
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('index-producttypes')
+            $encryptedId = Crypt::encrypt($id);
+
+            return redirect()->route('update-producttypes', ['id' => $encryptedId])
                 ->withErrors($validator)
                 ->withInput();
         }

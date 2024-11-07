@@ -120,6 +120,7 @@
             <input type="text" class="form-control w-50" placeholder="Tìm Kiếm Sản Phẩm" id="searchInput">
             <button class="btn btn-outline-success ms-2" onclick="searchProducts()">Tìm</button>
         </div>
+        
 
 
         <div class="row">

@@ -120,9 +120,14 @@
                                                     </button>
                                                     <ul class="dropdown-menu">
                                                         <li>
-                                                            <a href="" class="js-delete-confirm">
-                                                                <i class="fa fa-trash"></i> Delete
-                                                            </a>
+                                                            <form action="{{ route('delete-orders', $item->id) }}"
+                                                                method="POST" style="display:inline;">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit" class="js-delete-confirm"
+                                                                    onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
+                                                                        class="fa fa-trash"></i> Delete</button>
+                                                            </form>
                                                         </li>
                                                         <li class="divider"></li>
                                                         <li>
@@ -145,7 +150,8 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <a href="" class="btn btn-xs btn-info js-preview-transaction"><i
+                                                <a href="{{ route('edit-orders', ['id' => Crypt::encrypt($item->id)]) }}"
+                                                    class="btn btn-xs btn-info js-preview-transaction"><i
                                                         class="fa fa-eye"></i>View</a>
                                             </td>
 

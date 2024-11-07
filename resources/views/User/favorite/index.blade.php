@@ -18,8 +18,6 @@
     <link rel="stylesheet" href="{{ asset('css/responsive1.css') }}">
 
     <style>
-
-        
         body {
             background-color: #cdd4db;
             /* Nền sáng cho toàn trang */
@@ -109,7 +107,7 @@
     <!-- Header -->
     <header class="header_section bg-light py-3">
         <nav class="navbar navbar-expand-lg navbar-light container">
-            <a class="navbar-brand text-danger" href="{{route('index-homepage')}}">
+            <a class="navbar-brand text-danger" href="{{ route('index-homepage') }}">
                 <h3 style="margin-right: 40px">Pink Store</h3>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -117,14 +115,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="{{route('index-homepage')}}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="{{route('category-product')}}">Danh Mục</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('index-favorites')}}">Favorite</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('index-post-user')}}">Post</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('view-pays')}}">Giao Hàng</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('index-homepage') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{ route('category-product') }}">Danh Mục</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('index-favorites') }}">Favorite</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('index-post-user') }}">Post</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('view-pays') }}">Giao Hàng</a></li>
                 </ul>
                 <div class="d-flex">
-                    <a href="{{route('index-cart')}}" class="btn btn-outline-danger me-2"><i
+                    <a href="{{ route('index-cart') }}" class="btn btn-outline-danger me-2"><i
                             class="fas fa-shopping-bag"></i></a>
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search">
@@ -140,6 +139,13 @@
             {{ session('success') }}
         </div>
     @endif
+
+    @if (session('error'))
+        <div class="alert alert-danger h4 text-center">
+            {{ session('error') }}
+        </div>
+    @endif
+
     <!-- Favorite Products Section -->
     <div class="container my-5">
         <h2 class="mb-4 text-center">Danh Sách Yêu Thích</h2>

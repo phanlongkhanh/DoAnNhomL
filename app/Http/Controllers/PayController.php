@@ -46,19 +46,19 @@ class PayController extends Controller
         try {
             $id = Crypt::decrypt($encryptedId);
         } catch (DecryptException $e) {
-            return redirect('cart-user-product')->with('error', 'ID không hợp lệ.');
+            return redirect()->route('index-pays')->with('error', 'ID không hợp lệ.');
         }
 
         $userId = auth()->id();
 
         if (!$userId) {
-            return redirect('login')->with('error', 'Bạn cần đăng nhập để xem giỏ hàng của mình.');
+            return redirect('/')->with('error', 'Bạn cần đăng nhập để xem giỏ hàng của mình.');
         }
 
         $carts = Cart::where('id_user', $userId)->get();
 
         if ($carts->isEmpty()) {
-            return redirect('cart-user-product')->with('error', 'Giỏ hàng của bạn hiện tại trống.');
+            return redirect()->route('index-pays')->with('error', 'Giỏ hàng của bạn hiện tại trống.');
         }
 
         $user = Auth::user();
@@ -75,11 +75,19 @@ class PayController extends Controller
         if (!$userId) {
             return redirect('login')->with('error', 'Bạn cần đăng nhập để thực hiện thanh toán.');
         }
-        
+
         $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:100|regex:/\S/',
             'id_payment' => 'required|exists:payments,id',
-            'phone' => 'required|string|max:20',
-            'description' => 'nullable|string',
+            'phone' => [
+                'required',
+                'string',
+                'max:11',
+                'regex:/^0[0-9]{9,11}$/',
+                'not_regex:/^(0{10,12}|1{10,12}|2{10,12}|3{10,12}|4{10,12}|5{10,12}|6{10,12}|7{10,12}|8{10,12}|9{10,12})$/', // Không phải chuỗi số giống nhau
+                'regex:/^\S+$/',
+            ],
+            'description' => 'required|string|max:255',
             'address' => 'required|string|max:255',
         ]);
 
@@ -100,6 +108,7 @@ class PayController extends Controller
             $pay->id_user = $userId;
             $pay->id_transport = $request->input('id_transport');
             $pay->id_cart = $cart->id;
+            $pay->id_product = $request->input('id_product');
             $pay->id_payment = $request->input('id_payment');
             $pay->name = $cart->name;
             $pay->phone = $request->input('phone');
@@ -111,14 +120,15 @@ class PayController extends Controller
 
             try {
                 $pay->save();
-            } catch (\Exception $e) {     
+            } catch (\Exception $e) {
                 \Log::error('Lỗi lưu đơn hàng: ' . $e->getMessage());
                 return redirect()->back()->with('error', 'Có lỗi xảy ra: ' . $e->getMessage());
             }
         }
 
         Cart::where('id_user', $userId)->delete();
-        
+
         return redirect()->route('index-homepage')->with('success', 'Đơn hàng đã được tạo thành công!');
     }
+
 }

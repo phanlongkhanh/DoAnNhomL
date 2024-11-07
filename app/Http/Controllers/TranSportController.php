@@ -35,13 +35,13 @@ class TranSportController extends Controller
         try {
             $id = Crypt::decrypt($encryptedId);
         } catch (DecryptException $e) {
-            return redirect()->route('index-transports')->with('error', 'Không tìm thấy loại sản phẩm với ID này.');
+            return redirect()->route('update-transports', ['id' => $encryptedId])->with('error', 'Không tìm thấy loại sản phẩm với ID này.');
         }
 
         $transports = TranSport::find($id);
 
         if (!$transports) {
-            return redirect()->route('index-transports')->with('error', 'Không tìm thấy loại sản phẩm với ID này.');
+            return redirect()->route('update-transports', ['id' => $encryptedId])->with('error', 'Không tìm thấy loại sản phẩm với ID này.');
         }
 
         return view('Admin.transport.update', compact('transports'));
@@ -51,13 +51,13 @@ class TranSportController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|regex:/\S/',
             'description' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('index-transports')
+            return redirect()->route('create-transports')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -84,10 +84,11 @@ class TranSportController extends Controller
     public function UpdateTranSport(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
+            'name' => 'required|string|max:255|regex:/\S/',
+            'description' => 'required|string|max:255|regex:/\S/',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
 
         $transports = TranSport::findOrFail($id);
         $transports->name = $request->name;
