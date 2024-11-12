@@ -22,6 +22,8 @@ use App\Http\Controllers\CategoryPostController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\StatisticalController;
+use App\Http\Controllers\ReviewController;
+
 
 
 //Show Screen Admin
@@ -171,8 +173,11 @@ Route::prefix('forgot')->group(function () {
 //Thông Kê Biểu Đồ
 Route::prefix('statistical')->group(function () {
     Route::get('/', [StatisticalController::class,'ShowIndexStatistical'])->name('index-statistical');
-    
 });
 
+//Đánh Giá Sản Phẩm
+Route::prefix('review')->group(function () {
+    Route::get('/', [ReviewController::class,'ShowIndexReview'])->name('index-review');
+});
 
 
