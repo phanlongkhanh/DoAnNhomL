@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::TF8asghs5Ps3pV1I',
+            '_route' => 'generated::bo3tpXBJTgw1epqQ',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::CypHTqYqehMgIHHq',
+            '_route' => 'generated::eb6zLLta511DVvYv',
           ),
           1 => NULL,
           2 => 
@@ -1082,6 +1082,26 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/review' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'index-review',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
     ),
     2 => 
     array (
@@ -1938,7 +1958,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::TF8asghs5Ps3pV1I' => 
+    'generated::bo3tpXBJTgw1epqQ' => 
     array (
       'methods' => 
       array (
@@ -1961,7 +1981,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::TF8asghs5Ps3pV1I',
+        'as' => 'generated::bo3tpXBJTgw1epqQ',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1977,7 +1997,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::CypHTqYqehMgIHHq' => 
+    'generated::eb6zLLta511DVvYv' => 
     array (
       'methods' => 
       array (
@@ -1999,7 +2019,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::CypHTqYqehMgIHHq',
+        'as' => 'generated::eb6zLLta511DVvYv',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4932,6 +4952,43 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'index-statistical',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'index-review' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'review',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\ReviewController@ShowIndexReview',
+        'controller' => 'App\\Http\\Controllers\\ReviewController@ShowIndexReview',
+        'namespace' => NULL,
+        'prefix' => '/review',
+        'where' => 
+        array (
+        ),
+        'as' => 'index-review',
       ),
       'fallback' => false,
       'defaults' => 
