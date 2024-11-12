@@ -78,7 +78,7 @@
             @csrf
             <div class="row mb-4">
                 <div class="col-md-6">
-                    <h5>Thông Tin Giao Hàng</h5>
+                    <h5 class="fw-bold">Thông Tin Giao Hàng</h5>
                     @if ($user)
                         <div class="mb-3">
                             <label for="name" class="form-label">Tên người dùng</label>
@@ -101,7 +101,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <h5>Phương Thức Thanh Toán</h5>
+                    <h5 class="fw-bold">Phương Thức Thanh Toán</h5>
                     <div class="mb-3">
                         <label for="payment_method" class="form-label">Chọn Phương Thức</label>
                         <select class="form-select" id="id_payment" name="id_payment" required>
@@ -111,7 +111,14 @@
                         </select>
                     </div>
 
-                    <h5>Đơn Vị Vận Chuyển</h5>
+                    <div class="mb-3" id="qr_code" style="display: none;">
+                        <div class="fs-5 mb-2">Tài Khoản: <span class="fw-bold">1026783435</span></div>
+                        <div class="fs-5 mb-2">Tên: <span class="fw-bold">PHAN LONG KHANH</span></div>
+                        <div class="fs-5 mb-2">Bank: <span class="fw-bold">Vietcombank</span></div>
+                        <img src="/QR-images/QR.png" style="height: 150px" width="150px" alt="">
+                    </div>
+
+                    <h5 class="fw-bold">Đơn Vị Vận Chuyển</h5>
                     <div class="mb-3">
                         <select class="form-select" id="id_transport" name="id_transport" required>
                             @foreach ($transports as $transport)
@@ -121,15 +128,15 @@
                     </div>
 
                     <br>
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Mong Muốn</label>
+                    <div class="mb-3" >
+                        <label for="description" class="form-label fw-bold">Mong Muốn</label>
                         <input type="text" class="form-control" placeholder="Nhập vào mong muốn ?"
                             id="description" name="description" required>
                     </div>
                 </div>
             </div>
 
-            <h5 class="mb-4">Thông Tin Đơn Hàng</h5>
+            <h5 class="mb-4 fw-bold">Thông Tin Đơn Hàng</h5>
             <table class="table table-bordered text-center">
                 <thead class="table-light">
                     <tr>
@@ -199,6 +206,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.getElementById('displayYear').textContent = new Date().getFullYear();
+    </script>
+    <script>
+        document.getElementById('id_payment').addEventListener('change', function() {
+            var selectedValue = this.value;
+
+            if (selectedValue == '3') {
+                document.getElementById('qr_code').style.display = 'block';
+            } else {
+                document.getElementById('qr_code').style.display = 'none';
+            }
+        });
     </script>
 </body>
 
