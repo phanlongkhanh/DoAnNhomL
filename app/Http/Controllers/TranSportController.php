@@ -35,13 +35,13 @@ class TranSportController extends Controller
         try {
             $id = Crypt::decrypt($encryptedId);
         } catch (DecryptException $e) {
-            return redirect()->route('update-transports', ['id' => $encryptedId])->with('error', 'Không tìm thấy loại sản phẩm với ID này.');
+            return redirect()->route('index-transports', ['id' => $encryptedId])->with('error', 'Không tìm thấy loại sản phẩm với ID này.');
         }
 
         $transports = TranSport::find($id);
 
         if (!$transports) {
-            return redirect()->route('update-transports', ['id' => $encryptedId])->with('error', 'Không tìm thấy loại sản phẩm với ID này.');
+            return redirect()->route('index-transports', ['id' => $encryptedId])->with('error', 'Không tìm thấy loại sản phẩm với ID này.');
         }
 
         return view('Admin.transport.update', compact('transports'));

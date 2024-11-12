@@ -9,18 +9,19 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 
 class FavoriteController extends Controller
 {
     public function ShowIndexFavorite()
     {
+        $users = Auth::check() ? Auth::user()->name : null;
         $userId = auth()->id(); 
-
         if (!$userId) {
             return redirect()->route('login')->with('error', 'Bạn cần đăng nhập.');
         }
         $favorites = Favorite::where('id_user', $userId)->paginate(6);
-        return view('User.favorite.index', compact('favorites'));
+        return view('User.favorite.index', compact('favorites','users'));
     }
 
     public function AddToFavorite(Request $request)

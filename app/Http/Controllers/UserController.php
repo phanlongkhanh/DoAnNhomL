@@ -37,17 +37,18 @@ class UserController extends Controller
 
     public function ShowUserCategory()
     {
+        $users = Auth::check() ? Auth::user()->name : null;
         $products = Product::paginate(9);
-        return view('User.category.index', compact('products'));
+        return view('User.category.index', compact('products','users'));
     }
 
     public function ShowUserCart()
     {
         $userId = auth()->id();
-
+        $users = Auth::check() ? Auth::user()->name : null;
         $carts = Cart::where('id_user', $userId)->get();
 
-        return view('User.cart.index', compact('carts'));
+        return view('User.cart.index', compact('carts','users'));
     }
 
     public function ShowProductToHomepage()

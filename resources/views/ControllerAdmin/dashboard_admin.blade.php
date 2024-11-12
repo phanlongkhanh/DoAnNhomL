@@ -147,9 +147,9 @@
 
                         @if ($user && $user->role_id == 1)
                             <p class="m-0">{{ $user->name }}</p>
-                            <h5 class="m-0">{{ $user->email }}</h5>                       
+                            <h5 class="m-0">{{ $user->email }}</h5>
                         @endif
-                       
+
                     </div>
                 </div>
                 <!-- search form -->
@@ -188,7 +188,7 @@
                     </li>
 
                     <li class="{{ Request::is('admin-datn/product*') ? 'active' : '' }}">
-                        <a href="{{ route('index-product')}}">
+                        <a href="{{ route('index-product') }}">
                             <i class="fa fa-fw fa-anchor"></i> <span>Sản phẩm</span>
                         </a>
                     </li>
@@ -213,41 +213,42 @@
                     </li>
 
 
-
                     <li class="{{ Request::is('admin-datn/article*') ? 'active' : '' }}">
                         <a href="{{ route('index-transports') }}">
                             <i class="fa fa-circle-o-notch"></i> <span>Đơn vị vận chuyển</span>
                         </a>
                     </li>
 
+
                     <li class="{{ Request::is('admin-datn/article*') ? 'active' : '' }}">
-                        <a href="{{route('index-category-post')}}">
-                            <i class="fa fa-history"></i> <span>Danh Mục Bài Viết</span>
+                        <a href="{{ route('index-post') }}">
+                            <i class="fa fa-book"></i> <span>Bài viết</span>
                         </a>
                     </li>
 
                     <li class="{{ Request::is('admin-datn/article*') ? 'active' : '' }}">
-                        <a href="{{route('index-post')}}">
-                            <i class="fa fa-book"></i> <span>Bài viết</span>
+                        <a href="{{ route('index-category-post') }}">
+                            <i class="fa fa-history"></i> <span>Danh Mục Bài Viết</span>
                         </a>
                     </li>
+
 
 
 
                     <li class="header">Hệ Thống</li>
 
                     <li class="{{ Request::is('admin-datn/statistical*') ? 'active' : '' }}">
-                        <a href="{{route('index-statistical')}}">
+                        <a href="{{ route('index-statistical') }}">
                             <i class="fa fa-rocket"></i> <span>Thống Kê</span>
                         </a>
                     </li>
-             
+
                     <li class="{{ Request::is('admin-datn/user*') ? 'active' : '' }}">
 
                         <a href="{{ 'logout' }}">
                             <i class="fa fa-circle-o text-red"></i> <span>LogOut</span>
                         </a>
-                       
+
                     </li>
 
 

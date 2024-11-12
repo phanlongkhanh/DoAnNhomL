@@ -35,13 +35,13 @@ class SupplierController extends Controller
         try {
             $id = Crypt::decrypt($encryptedId);
         } catch (DecryptException $e) {
-            return redirect()->route('update-suppliers', ['id' => $encryptedId])->with('error', 'Không tìm thầy Nhà Cung Cấp phẩm với ID này.');
+            return redirect()->route('index-suppliers', ['id' => $encryptedId])->with('error', 'Không tìm thầy Nhà Cung Cấp phẩm với ID này.');
         }
 
         $suppliers = Suppliers::find($id);
 
         if (!$suppliers) {
-            return redirect()->route('update-suppliers', ['id' => $encryptedId])->with('error', 'Không tìm thấy Nhà Cung Cấp với ID này.');
+            return redirect()->route('index-suppliers', ['id' => $encryptedId])->with('error', 'Không tìm thấy Nhà Cung Cấp với ID này.');
         }
 
         return view('Admin.suppliers.update', compact('suppliers'));

@@ -19,6 +19,22 @@
                 {{ session('status') }}
             </div>
         @endif
+
+        @if (Session::has('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+            </div>
+        @endif
+
+        @if (Session::has('error'))
+            <div class="alert alert-danger">
+                {{ Session::get('error') }}
+            </div>
+        @endif
+
+        @if ($errors->has('description'))
+            <div class="alert alert-danger">{{ $errors->first('description') }}</div>
+        @endif
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-xs-12">
@@ -26,7 +42,6 @@
                     <div class="box-header">
                         <h3 class="box-title"><a href="{{ route('create-post') }}" class="btn btn-primary">Thêm mới </a>
                         </h3>
-                        {{-- <h3 class="box-title"><a href="{{ route('addpost') }}" class="btn btn-primary">Danh mục bài viết </a></h3> --}}
                         <div class="box-tools">
                             <form action="#">
                                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -63,8 +78,8 @@
                                         <tr>
                                             <td> {{ $count }} </td>
                                             <td> {{ $item->name }} </td>
-                                            <td><img src="images/<?= $item->image ?>" alt="" height="80px"></td>
-                                            <td> {{ $item->description}} </td>
+                                            <td><img src="post-images/<?= $item->image ?>" alt="" height="80px"></td>
+                                            <td> {{ $item->description }} </td>
                                             <td>
                                                 @if ($item->checkactive == 1)
                                                     <a href="#" class="label label-info status-active">Show</a>
@@ -72,14 +87,19 @@
                                                     <a href="#" class="label label-default status-active">Hide</a>
                                                 @endif
                                             </td>
-                                            <td>{{ $item->created_at}}</td>
+                                            <td>{{ $item->created_at }}</td>
                                             <td>
                                                 <a href="#" class="btn btn-xs btn-primary"
                                                     onclick="return confirm('Bạn chắc sửa không nè')"><i
                                                         class="fa fa-pencil"></i> Edit</a>
-                                                <a href="#" class="btn btn-xs btn-danger js-delete-confirm"
-                                                    onclick="return confirm('Bạn chắc xoá không nè')"><i
-                                                        class="fa fa-trash"></i> Delete</a>
+
+                                                <form action="{{ route('delete-posts', ['id' => $item->id]) }}"
+                                                    method="POST" style="display:inline;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-xs btn-danger js-delete-confirm"
+                                                        onclick="return confirm('Bạn chắc chắn là xóa chứ?')">Delete<i>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
