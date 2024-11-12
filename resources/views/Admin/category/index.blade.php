@@ -77,7 +77,7 @@
                                             <td>{{ $item->created_at }}</td>
                                             <td>{{ $item->updated_at }}</td>
                                             {{-- <td>{{ $item->admin->name }}</td> --}}
-                                            <td>{{ $item->admin ? $item->admin->name : 'N/A' }}</td>
+                                            <td>{{ $item->user->name }}</td>
 
 
 

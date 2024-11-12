@@ -33,7 +33,8 @@ class PostController extends Controller
 
     public function ShowCreatePost()
     {
-        return view('Admin.post.create');
+        $listposts = ListPost::all();
+        return view('Admin.post.create',compact('listposts'));
     }
 
     public function ShowUpdatePost()

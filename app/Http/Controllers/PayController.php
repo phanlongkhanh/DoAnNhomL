@@ -29,7 +29,7 @@ class PayController extends Controller
     public function ViewPay()
     {
         $userId = auth()->id();
-
+        $users = Auth::check() ? Auth::user()->name : null;
         if (!$userId) {
             return redirect('User.pay.view')->with('error', 'Bạn cần đăng nhập để xem.');
         }
@@ -38,7 +38,7 @@ class PayController extends Controller
             ->where('id_user', $userId)
             ->paginate(6);
 
-        return view('User.pay.view', compact('pays'));
+        return view('User.pay.view', compact('pays','users'));
     }
 
     public function EditPay($encryptedId)

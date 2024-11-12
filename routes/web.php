@@ -152,6 +152,8 @@ Route::prefix('post')->group(function () {
     Route::get('/', [PostController::class, 'ShowIndexPost'])->name('index-post');
     Route::get('/list', [PostController::class, 'ShowIndexPostHomePage'])->name('index-post-user');
     Route::get('/create', [PostController::class, 'ShowCreatePost'])->name('create-post');
+    Route::post('/add', [PostController::class, 'AddPost'])->name('add-posts');
+    Route::delete('/{id}', [PostController::class, 'DeletePost'])->name('delete-posts');
 });
 
 //Danh Mục Bài Viết

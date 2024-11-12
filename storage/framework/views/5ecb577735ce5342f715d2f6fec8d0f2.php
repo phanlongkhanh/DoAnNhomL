@@ -139,9 +139,9 @@
 
                         <?php if($user && $user->role_id == 1): ?>
                             <p class="m-0"><?php echo e($user->name); ?></p>
-                            <h5 class="m-0"><?php echo e($user->email); ?></h5>                       
+                            <h5 class="m-0"><?php echo e($user->email); ?></h5>
                         <?php endif; ?>
-                       
+
                     </div>
                 </div>
                 <!-- search form -->
@@ -205,10 +205,16 @@
                     </li>
 
 
-
                     <li class="<?php echo e(Request::is('admin-datn/article*') ? 'active' : ''); ?>">
                         <a href="<?php echo e(route('index-transports')); ?>">
                             <i class="fa fa-circle-o-notch"></i> <span>Đơn vị vận chuyển</span>
+                        </a>
+                    </li>
+
+
+                    <li class="<?php echo e(Request::is('admin-datn/article*') ? 'active' : ''); ?>">
+                        <a href="<?php echo e(route('index-post')); ?>">
+                            <i class="fa fa-book"></i> <span>Bài viết</span>
                         </a>
                     </li>
 
@@ -218,11 +224,6 @@
                         </a>
                     </li>
 
-                    <li class="<?php echo e(Request::is('admin-datn/article*') ? 'active' : ''); ?>">
-                        <a href="<?php echo e(route('index-post')); ?>">
-                            <i class="fa fa-book"></i> <span>Bài viết</span>
-                        </a>
-                    </li>
 
 
 
@@ -233,13 +234,13 @@
                             <i class="fa fa-rocket"></i> <span>Thống Kê</span>
                         </a>
                     </li>
-             
+
                     <li class="<?php echo e(Request::is('admin-datn/user*') ? 'active' : ''); ?>">
 
                         <a href="<?php echo e('logout'); ?>">
                             <i class="fa fa-circle-o text-red"></i> <span>LogOut</span>
                         </a>
-                       
+
                     </li>
 
 
