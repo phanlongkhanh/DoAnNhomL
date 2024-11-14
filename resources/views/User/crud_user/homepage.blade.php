@@ -97,13 +97,17 @@
                                 Post
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('index-review') }}">Đánh Giá</a>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('view-pays') }}">Giao Hàng</a>
                         </li>
                     </ul>
                     <div class="user_option">
-
-                        <div class="d-flex">
+                        <div class="d-flex">    
                             <a href="{{ route('index-cart') }}" class="btn btn-outline-danger me-2"><i
                                     class="fas fa-shopping-bag"></i></a>
                             <form class="d-flex">
@@ -136,8 +140,7 @@
                                     <span></span>
                                 </a>
                             @endif
-                        </div>
-
+                        </div>                         
                     </div>
                 </div>
             </nav>

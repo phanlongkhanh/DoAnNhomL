@@ -33,7 +33,7 @@ Route::get('/', [UserController::class, 'ShowUserLogin'])->name('login');
 Route::get('/register', [UserController::class, 'ShowUserRegister'])->name('register');
 
 //Trang Chủ Giao Diện Đăng Nhập
-Route::prefix('homapage')->group(function () {
+Route::prefix('homepage')->group(function () {
     Route::get('/', [UserController::class, 'ShowHomePage'])->name('index-homepage');
     Route::POST('login/loginrun', [LoginRegisterController::class, 'LoginPage'])->name('login-user');
     Route::POST('register/registerrun', [LoginRegisterController::class, 'RegisterPage'])->name('register-user');
@@ -138,14 +138,28 @@ Route::prefix('product')->group(function () {
 });
 
 //Tài Khoản Người Dùng
-Route::prefix('account')->group(function () {
-    Route::get('/', action: [AccountController::class, 'ShowAccount'])->name('index-account');
-    Route::get('/create', [AccountController::class, 'ShowAddAccount'])->name('create-account');
-    Route::post('/add', [AccountController::class, 'AddAccount'])->name('add-account');
-    Route::get('/{id}', [AccountController::class, 'edit'])->name('edit-account');
-    Route::post('/{id}', [AccountController::class, 'update'])->name('update-account');
-    Route::delete('/{id}', [AccountController::class, 'destroy'])->name('remove-account');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('account', action: [AccountController::class, 'ShowAccount'])->name('index-account');
+    Route::get('add-account', [AccountController::class, 'ShowAddAccount'])->name('create-account');
+    Route::post('add-account', [AccountController::class, 'AddAccount'])->name('add-account');
+    Route::get('edit-account/{encryptedId}', [AccountController::class, 'ShowEditAccount']);
+    Route::post('update-account/{encryptedId}', [AccountController::class, 'update'])->name('update-account');
+    Route::delete('delete-account/{id}', [AccountController::class, 'destroy']);
 });
+
+// Checkactive trạng thái hoạt động
+Route::patch('toggle-account/{encryptedId}', [AccountController::class, 'toggleAccount'])->middleware('auth');
+
+
+//Tài Khoản Người Dùng
+// Route::prefix('account')->group(function () {
+//     Route::get('/', action: [AccountController::class, 'ShowAccount'])->name('index-account');
+//     Route::get('/create', [AccountController::class, 'ShowAddAccount'])->name('create-account');
+//     Route::post('/add', [AccountController::class, 'AddAccount'])->name('add-account');
+//     Route::get('/{id}', [AccountController::class, 'edit'])->name('edit-account');
+//     Route::post('/{id}', [AccountController::class, 'update'])->name('update-account');
+//     Route::delete('/{id}', [AccountController::class, 'destroy'])->name('remove-account');
+// });
 
 //Bài Viết Admin
 Route::prefix('post')->group(function () {

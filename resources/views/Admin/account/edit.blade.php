@@ -14,10 +14,22 @@
     </section>
     <!-- Main content -->
     <section class="content">
+        <!-- Thông báo -->
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+        
         <div class="row">
             <div class="box box-primary">
-                <form role="form" action="{{ route('update-account', $user->id) }}" method="POST"
-                    enctype="multipart/form-data">
+                <form role="form" action="{{ url('update-account/' . Crypt::encrypt($user->id)) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
                         <div class="col-sm-8">
@@ -59,10 +71,23 @@
                                 @endif
                             </div>
 
-                            <div class="form-group {{ $errors->first('role_id') ? 'has-error' : '' }}">
+                            {{-- <div class="form-group {{ $errors->first('role_id') ? 'has-error' : '' }}">
                                 <label for="role_id">Role ID <span class="text-danger">(*)</span></label>
                                 <input type="number" class="form-control" name="role_id" value="{{ $user->role_id }}"
                                     required>
+                                @if ($errors->first('role_id'))
+                                    <span class="text-danger">{{ $errors->first('role_id') }}</span>
+                                @endif
+                            </div> --}}
+
+                            <div class="form-group {{ $errors->first('role_id') ? 'has-error' : '' }}">
+                                <label for="role_id">Vai trò <span class="text-danger">(*)</span></label>
+                                <select class="form-control" name="role_id" required>
+                                    <option value="">Chọn vai trò</option>
+                                    @foreach($roles as $role)
+                                        <option value="{{ $role->id }}" {{ $user->role_id == $role->id ? 'selected' : '' }}>{{ $role->name }}</option>
+                                    @endforeach
+                                </select>
                                 @if ($errors->first('role_id'))
                                     <span class="text-danger">{{ $errors->first('role_id') }}</span>
                                 @endif
@@ -70,7 +95,7 @@
                         </div>
                     </div>
                     <div class="box-footer">
-                        <a href="{{ route('index-account') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Back</a>
+                        <a href="{{ url('account-index') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Back</a>
                         <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Save Changes</button>
                     </div>
                 </form>

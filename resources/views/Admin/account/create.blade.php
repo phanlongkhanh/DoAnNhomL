@@ -2,6 +2,19 @@
 
 @section('content')
     <section class="content-header">
+        <!-- Thông báo -->
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+        
         <h1>
             User
             <small>Create</small>
@@ -16,7 +29,7 @@
     <section class="content">
         <div class="row">
             <div class="box box-primary">
-                <form role="form" action="{{ route('add-account') }}" method="POST" enctype="multipart/form-data">
+                <form role="form" action="{{ url('add-account') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
                         <div class="col-sm-8">
@@ -66,10 +79,23 @@
                                 @endif
                             </div>
 
-                            <div class="form-group {{ $errors->first('role_id') ? 'has-error' : '' }}">
+                            {{-- <div class="form-group {{ $errors->first('role_id') ? 'has-error' : '' }}">
                                 <label for="role_id">Role ID <span class="text-danger">(*)</span></label>
                                 <input type="number" class="form-control" name="role_id" placeholder="Role ID ......"
                                     required>
+                                @if ($errors->first('role_id'))
+                                    <span class="text-danger">{{ $errors->first('role_id') }}</span>
+                                @endif
+                            </div> --}}
+
+                            <div class="form-group {{ $errors->first('role_id') ? 'has-error' : '' }}">
+                                <label for="role_id">Vai trò <span class="text-danger">(*)</span></label>
+                                <select class="form-control" name="role_id" required>
+                                    <option value="">Chọn vai trò</option>
+                                    @foreach($roles as $role)
+                                        <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                    @endforeach
+                                </select>
                                 @if ($errors->first('role_id'))
                                     <span class="text-danger">{{ $errors->first('role_id') }}</span>
                                 @endif

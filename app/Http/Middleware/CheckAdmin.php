@@ -13,12 +13,20 @@ class CheckAdmin
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
+
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->isAdmin()) {
-            return $next($request); // Cho phép truy cập nếu là admin
+        if (Auth::check()) {
+            if (Auth::user()->is_locked) {
+                Auth::logout(); // Đăng xuất nếu tài khoản bị khóa
+                return redirect('/homepage')->with('error', 'Tài khoản của bạn đã bị khóa.');
+            }
+
+            if (Auth::user()->isAdmin()) {
+                return $next($request);
+            }
         }
-    
-        return redirect('/homepage'); // Chuyển hướng nếu không phải admin
+        return redirect('/homepage');
     }
 }
+

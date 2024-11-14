@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::LBRMIluGWhlUR7oY',
+            '_route' => 'generated::yxBoQd6qqijXnGc0',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::bjYOcSyjf1CHqycI',
+            '_route' => 'generated::PPFYuATFeSAaMwA5',
           ),
           1 => NULL,
           2 => 
@@ -176,7 +176,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/homapage' => 
+      '/homepage' => 
       array (
         0 => 
         array (
@@ -196,7 +196,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/homapage/login/loginrun' => 
+      '/homepage/login/loginrun' => 
       array (
         0 => 
         array (
@@ -215,7 +215,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/homapage/register/registerrun' => 
+      '/homepage/register/registerrun' => 
       array (
         0 => 
         array (
@@ -234,7 +234,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/homapage/logout' => 
+      '/homepage/logout' => 
       array (
         0 => 
         array (
@@ -254,7 +254,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/homapage/details-product' => 
+      '/homepage/details-product' => 
       array (
         0 => 
         array (
@@ -274,7 +274,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/homapage/category-product' => 
+      '/homepage/category-product' => 
       array (
         0 => 
         array (
@@ -294,7 +294,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/homapage/products-homepage' => 
+      '/homepage/products-homepage' => 
       array (
         0 => 
         array (
@@ -848,7 +848,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/account/create' => 
+      '/add-account' => 
       array (
         0 => 
         array (
@@ -867,10 +867,7 @@ app('router')->setCompiledRoutes(
           5 => false,
           6 => NULL,
         ),
-      ),
-      '/account/add' => 
-      array (
-        0 => 
+        1 => 
         array (
           0 => 
           array (
@@ -1124,7 +1121,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/homapage/details\\-product/([^/]++)(*:42)|/p(?|roduct(?|types/(?|([^/]++)(*:80)|add(*:90)|([^/]++)(?|(*:108))|product\\-type/active/([^/]++)(*:146))|/([^/]++)(?|(*:167)))|ays/(?|([^/]++)(*:192)|add(*:203)|pays/([^/]++)/update\\-status/([^/]++)(*:248))|ost/([^/]++)(*:269))|/transports/(?|([^/]++)(?|(*:304))|transport/active/([^/]++)(*:338))|/suppliers/([^/]++)(?|(*:369))|/f(?|avorites/([^/]++)(*:400)|orgot/update/([^/]++)(*:429))|/orders/(?|([^/]++)(?|(*:460))|orders/active/([^/]++)(*:491))|/ca(?|rts/([^/]++)(*:518)|tegories/(?|edit\\-category/([^/]++)(*:561)|update\\-category/([^/]++)(*:594)|admin/categories/(?|delete/([^/]++)(*:637)|active/([^/]++)(*:660))))|/account/([^/]++)(?|(*:691)))/?$}sDu',
+      0 => '{^(?|/homepage/details\\-product/([^/]++)(*:42)|/p(?|roduct(?|types/(?|([^/]++)(*:80)|add(*:90)|([^/]++)(?|(*:108))|product\\-type/active/([^/]++)(*:146))|/([^/]++)(?|(*:167)))|ays/(?|([^/]++)(*:192)|add(*:203)|pays/([^/]++)/update\\-status/([^/]++)(*:248))|ost/([^/]++)(*:269))|/t(?|ransports/(?|([^/]++)(?|(*:307))|transport/active/([^/]++)(*:341))|oggle\\-account/([^/]++)(*:373))|/suppliers/([^/]++)(?|(*:404))|/f(?|avorites/([^/]++)(*:435)|orgot/update/([^/]++)(*:464))|/orders/(?|([^/]++)(?|(*:495))|orders/active/([^/]++)(*:526))|/ca(?|rts/([^/]++)(*:553)|tegories/(?|edit\\-category/([^/]++)(*:596)|update\\-category/([^/]++)(*:629)|admin/categories/(?|delete/([^/]++)(*:672)|active/([^/]++)(*:695))))|/edit\\-account/([^/]++)(*:729)|/update\\-account/([^/]++)(*:762)|/delete\\-account/([^/]++)(*:795))/?$}sDu',
     ),
     3 => 
     array (
@@ -1410,7 +1407,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      304 => 
+      307 => 
       array (
         0 => 
         array (
@@ -1471,7 +1468,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      338 => 
+      341 => 
       array (
         0 => 
         array (
@@ -1494,7 +1491,29 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      369 => 
+      373 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::5tXQIjsMBrp8b8aT',
+          ),
+          1 => 
+          array (
+            0 => 'encryptedId',
+          ),
+          2 => 
+          array (
+            'PATCH' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      404 => 
       array (
         0 => 
         array (
@@ -1555,7 +1574,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      400 => 
+      435 => 
       array (
         0 => 
         array (
@@ -1577,7 +1596,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      429 => 
+      464 => 
       array (
         0 => 
         array (
@@ -1600,7 +1619,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      460 => 
+      495 => 
       array (
         0 => 
         array (
@@ -1642,7 +1661,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      491 => 
+      526 => 
       array (
         0 => 
         array (
@@ -1665,7 +1684,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      518 => 
+      553 => 
       array (
         0 => 
         array (
@@ -1687,7 +1706,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      561 => 
+      596 => 
       array (
         0 => 
         array (
@@ -1710,7 +1729,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      594 => 
+      629 => 
       array (
         0 => 
         array (
@@ -1732,7 +1751,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      637 => 
+      672 => 
       array (
         0 => 
         array (
@@ -1754,7 +1773,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      660 => 
+      695 => 
       array (
         0 => 
         array (
@@ -1777,17 +1796,17 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      691 => 
+      729 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'edit-account',
+            '_route' => 'generated::xxfjUa6SUim3Ldgv',
           ),
           1 => 
           array (
-            0 => 'id',
+            0 => 'encryptedId',
           ),
           2 => 
           array (
@@ -1799,7 +1818,10 @@ app('router')->setCompiledRoutes(
           5 => true,
           6 => NULL,
         ),
-        1 => 
+      ),
+      762 => 
+      array (
+        0 => 
         array (
           0 => 
           array (
@@ -1807,7 +1829,7 @@ app('router')->setCompiledRoutes(
           ),
           1 => 
           array (
-            0 => 'id',
+            0 => 'encryptedId',
           ),
           2 => 
           array (
@@ -1818,11 +1840,14 @@ app('router')->setCompiledRoutes(
           5 => true,
           6 => NULL,
         ),
-        2 => 
+      ),
+      795 => 
+      array (
+        0 => 
         array (
           0 => 
           array (
-            '_route' => 'remove-account',
+            '_route' => 'generated::wzrUBm1mPBauBdTu',
           ),
           1 => 
           array (
@@ -1837,7 +1862,7 @@ app('router')->setCompiledRoutes(
           5 => true,
           6 => NULL,
         ),
-        3 => 
+        1 => 
         array (
           0 => NULL,
           1 => NULL,
@@ -1999,7 +2024,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::LBRMIluGWhlUR7oY' => 
+    'generated::yxBoQd6qqijXnGc0' => 
     array (
       'methods' => 
       array (
@@ -2022,7 +2047,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::LBRMIluGWhlUR7oY',
+        'as' => 'generated::yxBoQd6qqijXnGc0',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2038,7 +2063,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::bjYOcSyjf1CHqycI' => 
+    'generated::PPFYuATFeSAaMwA5' => 
     array (
       'methods' => 
       array (
@@ -2060,7 +2085,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::bjYOcSyjf1CHqycI',
+        'as' => 'generated::PPFYuATFeSAaMwA5',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2157,7 +2182,7 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'homapage',
+      'uri' => 'homepage',
       'action' => 
       array (
         'middleware' => 
@@ -2167,7 +2192,7 @@ app('router')->setCompiledRoutes(
         'uses' => 'App\\Http\\Controllers\\UserController@ShowHomePage',
         'controller' => 'App\\Http\\Controllers\\UserController@ShowHomePage',
         'namespace' => NULL,
-        'prefix' => '/homapage',
+        'prefix' => '/homepage',
         'where' => 
         array (
         ),
@@ -2193,7 +2218,7 @@ app('router')->setCompiledRoutes(
       array (
         0 => 'POST',
       ),
-      'uri' => 'homapage/login/loginrun',
+      'uri' => 'homepage/login/loginrun',
       'action' => 
       array (
         'middleware' => 
@@ -2203,7 +2228,7 @@ app('router')->setCompiledRoutes(
         'uses' => 'App\\Http\\Controllers\\LoginRegisterController@LoginPage',
         'controller' => 'App\\Http\\Controllers\\LoginRegisterController@LoginPage',
         'namespace' => NULL,
-        'prefix' => '/homapage',
+        'prefix' => '/homepage',
         'where' => 
         array (
         ),
@@ -2229,7 +2254,7 @@ app('router')->setCompiledRoutes(
       array (
         0 => 'POST',
       ),
-      'uri' => 'homapage/register/registerrun',
+      'uri' => 'homepage/register/registerrun',
       'action' => 
       array (
         'middleware' => 
@@ -2239,7 +2264,7 @@ app('router')->setCompiledRoutes(
         'uses' => 'App\\Http\\Controllers\\LoginRegisterController@RegisterPage',
         'controller' => 'App\\Http\\Controllers\\LoginRegisterController@RegisterPage',
         'namespace' => NULL,
-        'prefix' => '/homapage',
+        'prefix' => '/homepage',
         'where' => 
         array (
         ),
@@ -2266,7 +2291,7 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'homapage/logout',
+      'uri' => 'homepage/logout',
       'action' => 
       array (
         'middleware' => 
@@ -2276,7 +2301,7 @@ app('router')->setCompiledRoutes(
         'uses' => 'App\\Http\\Controllers\\LoginRegisterController@LogOutUser',
         'controller' => 'App\\Http\\Controllers\\LoginRegisterController@LogOutUser',
         'namespace' => NULL,
-        'prefix' => '/homapage',
+        'prefix' => '/homepage',
         'where' => 
         array (
         ),
@@ -2303,7 +2328,7 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'homapage/details-product',
+      'uri' => 'homepage/details-product',
       'action' => 
       array (
         'middleware' => 
@@ -2313,7 +2338,7 @@ app('router')->setCompiledRoutes(
         'uses' => 'App\\Http\\Controllers\\UserController@ShowProductDetails',
         'controller' => 'App\\Http\\Controllers\\UserController@ShowProductDetails',
         'namespace' => NULL,
-        'prefix' => '/homapage',
+        'prefix' => '/homepage',
         'where' => 
         array (
         ),
@@ -2340,7 +2365,7 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'homapage/category-product',
+      'uri' => 'homepage/category-product',
       'action' => 
       array (
         'middleware' => 
@@ -2350,7 +2375,7 @@ app('router')->setCompiledRoutes(
         'uses' => 'App\\Http\\Controllers\\UserController@ShowUserCategory',
         'controller' => 'App\\Http\\Controllers\\UserController@ShowUserCategory',
         'namespace' => NULL,
-        'prefix' => '/homapage',
+        'prefix' => '/homepage',
         'where' => 
         array (
         ),
@@ -2377,7 +2402,7 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'homapage/products-homepage',
+      'uri' => 'homepage/products-homepage',
       'action' => 
       array (
         'middleware' => 
@@ -2387,7 +2412,7 @@ app('router')->setCompiledRoutes(
         'uses' => 'App\\Http\\Controllers\\UserController@ShowProductToHomepage',
         'controller' => 'App\\Http\\Controllers\\UserController@ShowProductToHomepage',
         'namespace' => NULL,
-        'prefix' => '/homapage',
+        'prefix' => '/homepage',
         'where' => 
         array (
         ),
@@ -2414,7 +2439,7 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'homapage/details-product/{id}',
+      'uri' => 'homepage/details-product/{id}',
       'action' => 
       array (
         'middleware' => 
@@ -2424,7 +2449,7 @@ app('router')->setCompiledRoutes(
         'uses' => 'App\\Http\\Controllers\\ProductDetailController@ShowProductDetails',
         'controller' => 'App\\Http\\Controllers\\ProductDetailController@ShowProductDetails',
         'namespace' => NULL,
-        'prefix' => '/homapage',
+        'prefix' => '/homepage',
         'where' => 
         array (
         ),
@@ -4397,11 +4422,12 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'auth',
         ),
         'uses' => 'App\\Http\\Controllers\\AccountController@ShowAccount',
         'controller' => 'App\\Http\\Controllers\\AccountController@ShowAccount',
         'namespace' => NULL,
-        'prefix' => '/account',
+        'prefix' => '',
         'where' => 
         array (
         ),
@@ -4428,17 +4454,18 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'account/create',
+      'uri' => 'add-account',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'auth',
         ),
         'uses' => 'App\\Http\\Controllers\\AccountController@ShowAddAccount',
         'controller' => 'App\\Http\\Controllers\\AccountController@ShowAddAccount',
         'namespace' => NULL,
-        'prefix' => '/account',
+        'prefix' => '',
         'where' => 
         array (
         ),
@@ -4464,17 +4491,18 @@ app('router')->setCompiledRoutes(
       array (
         0 => 'POST',
       ),
-      'uri' => 'account/add',
+      'uri' => 'add-account',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'auth',
         ),
         'uses' => 'App\\Http\\Controllers\\AccountController@AddAccount',
         'controller' => 'App\\Http\\Controllers\\AccountController@AddAccount',
         'namespace' => NULL,
-        'prefix' => '/account',
+        'prefix' => '',
         'where' => 
         array (
         ),
@@ -4494,28 +4522,29 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'edit-account' => 
+    'generated::xxfjUa6SUim3Ldgv' => 
     array (
       'methods' => 
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'account/{id}',
+      'uri' => 'edit-account/{encryptedId}',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'auth',
         ),
-        'uses' => 'App\\Http\\Controllers\\AccountController@edit',
-        'controller' => 'App\\Http\\Controllers\\AccountController@edit',
+        'uses' => 'App\\Http\\Controllers\\AccountController@ShowEditAccount',
+        'controller' => 'App\\Http\\Controllers\\AccountController@ShowEditAccount',
         'namespace' => NULL,
-        'prefix' => '/account',
+        'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'edit-account',
+        'as' => 'generated::xxfjUa6SUim3Ldgv',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4537,17 +4566,18 @@ app('router')->setCompiledRoutes(
       array (
         0 => 'POST',
       ),
-      'uri' => 'account/{id}',
+      'uri' => 'update-account/{encryptedId}',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'auth',
         ),
         'uses' => 'App\\Http\\Controllers\\AccountController@update',
         'controller' => 'App\\Http\\Controllers\\AccountController@update',
         'namespace' => NULL,
-        'prefix' => '/account',
+        'prefix' => '',
         'where' => 
         array (
         ),
@@ -4567,27 +4597,65 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'remove-account' => 
+    'generated::wzrUBm1mPBauBdTu' => 
     array (
       'methods' => 
       array (
         0 => 'DELETE',
       ),
-      'uri' => 'account/{id}',
+      'uri' => 'delete-account/{id}',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'auth',
         ),
         'uses' => 'App\\Http\\Controllers\\AccountController@destroy',
         'controller' => 'App\\Http\\Controllers\\AccountController@destroy',
         'namespace' => NULL,
-        'prefix' => '/account',
+        'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'remove-account',
+        'as' => 'generated::wzrUBm1mPBauBdTu',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::5tXQIjsMBrp8b8aT' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PATCH',
+      ),
+      'uri' => 'toggle-account/{encryptedId}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AccountController@toggleAccount',
+        'controller' => 'App\\Http\\Controllers\\AccountController@toggleAccount',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::5tXQIjsMBrp8b8aT',
       ),
       'fallback' => false,
       'defaults' => 

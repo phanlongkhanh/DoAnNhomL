@@ -82,6 +82,12 @@
                 </div>
             @endif
 
+            @if ($errors->has('account_locked'))
+            <div class="alert alert-danger">
+                {{ $errors->first('account_locked') }}
+            </div>
+            @endif
+
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="email">Email:</label>

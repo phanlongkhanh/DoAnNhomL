@@ -14,13 +14,26 @@
     <!-- Main content -->
     <section class="content">
         <!-- Small boxes (Stat box) -->
+        <!-- Thông báo -->
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title"><a href="{{route('create-account')}}" class="btn btn-primary">Thêm mới </a>
+                        <h3 class="box-title"><a href="/add-account" class="btn btn-primary">Thêm mới </a>
                         </h3>
-                        <div class="box-tools">
+                        {{-- <div class="box-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
                                 <input type="text" name="table_search" class="form-control pull-right ajax-search-table"
                                     placeholder="Search" data-url="">
@@ -28,7 +41,16 @@
                                     <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
+
+                        <form action="{{ url('account-index') }}" method="GET" class="box-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="search" class="form-control pull-right ajax-search-table" placeholder="Search by ID or Name" data-url="" value="{{ request('search') }}">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body table-responsive no-padding">
@@ -63,21 +85,30 @@
                                         <tr>
                                             <td>{{ $count }}</td>
                                             <td>{{ $users->id }}</td>
-                                            {{--                                        hinh anh --}}
-                                            {{-- <td><img src="{{ parse_url($users->image)['path'] }}" alt="" width="150px"
-                                                 height="100px"></td> --}}
                                             <td>{{ $users->name }}</td>
                                             <td>{{ $users->email }}</td>
                                             <td>{{ $users->role->name }}</td>
 
-                                            {{--                                        check ative --}}
+                            
                                             <td>
-                                                @if ($users->checkactive == 1)
-                                                    <a href="#" class="label label-info status-active">Show</a>
+                                                @if (auth()->user()->role_name === 'admin') <!-- Kiểm tra nếu người dùng là admin -->
+                                                    <form action="{{ url('toggle-account/' . Crypt::encrypt($users->id)) }}" method="POST" style="display:inline;">
+                                                        @csrf
+                                                        @method('PATCH') <!-- Sử dụng PATCH cho việc cập nhật trạng thái -->
+                                                        <button type="submit" class="label {{ $users->checkactive ? 'label-info' : 'label-default' }} status-active"
+                                                                onclick="return confirm('Bạn chắc chắn muốn {{ $users->checkactive ? 'khóa' : 'mở khóa' }} tài khoản này?')">
+                                                            {{ $users->checkactive ? 'Lock' : 'Unlock' }} <!-- Hiển thị trạng thái -->
+                                                        </button>
+                                                    </form>
                                                 @else
-                                                    <a href="#}" class="label label-default status-active">Hide</a>
+                                                    <button type="button" class="label label-default status-active"
+                                                            onclick="alert('Chỉ có admin mới có quyền này'); return false;">
+                                                        {{ $users->checkactive ? 'Lock' : 'Unlock' }}
+                                                    </button>
                                                 @endif
                                             </td>
+                                            
+                                            
                                             {{--                                        ngay them --}}
                                             <td>{{ $users->created_at }}</td>
                                             {{--                                        ngay cap nhat --}}
@@ -86,19 +117,29 @@
                                             {{-- <td>{{ $item->admin->name }}</td> --}}
                                             {{--                                        hanh dong --}}
                                             <td>
-                                                <a href="{{ route('edit-account', $users->id) }}"
+                                                {{-- <a href="{{ url('edit-account/' . $users->id) }}" --}}
+
+                                                <a href="{{ url('edit-account/' . Crypt::encrypt($users->id)) }}"
                                                     class="btn btn-xs btn-primary"
-                                                    onclick="return confirm('Bạn chắc chắn là sửa chứ')"><i
-                                                        class="fa fa-pencil"></i> Edit</a>
-                                               
-                                                <form action="{{ route('remove-account', $users->id) }}" method="POST"
+                                                    onclick="return confirm('Bạn chắc chắn là sửa chứ')">
+                                                    <i class="fa fa-pencil"></i> Edit </a>
+
+                                                <form action="{{ url('delete-account/' . $users->id) }}" method="POST" style="display:inline;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-xs btn-danger"
+                                                            onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
+                                                                class="fa fa-trash"></i> Delete</button>
+                                                </form>
+
+                                                {{-- <form action="{{ url('delete-account/' . $users->id) }}" method="POST"
                                                     style="display:inline;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-xs btn-danger"
                                                         onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
                                                             class="fa fa-trash"></i> Delete</button>
-                                                </form>
+                                                </form> --}}
                                             </td>
                                         </tr>
                                     @endforeach
