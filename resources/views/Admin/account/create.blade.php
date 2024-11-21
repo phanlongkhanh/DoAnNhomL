@@ -12,6 +12,18 @@
             <li class="active">Create</li>
         </ol>
     </section>
+
+    <!-- Hiển thị thông báo thành công -->
+    @if(session()->has('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @elseif(session()->has('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+    
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -67,13 +79,16 @@
                             </div>
 
                             <div class="form-group {{ $errors->first('role_id') ? 'has-error' : '' }}">
-                                <label for="role_id">Role ID <span class="text-danger">(*)</span></label>
-                                <input type="number" class="form-control" name="role_id" placeholder="Role ID ......"
-                                    required>
+                                <label for="role_id">Role <span class="text-danger">(*)</span></label>
+                                <select class="form-control" name="role_id" required>
+                                    <option value="1">Admin</option>
+                                    <option value="2">User</option>
+                                </select>
                                 @if ($errors->first('role_id'))
                                     <span class="text-danger">{{ $errors->first('role_id') }}</span>
                                 @endif
                             </div>
+                            
                         </div>
                     </div>
                     <div class="box-footer">

@@ -22,7 +22,8 @@ class User extends Authenticatable
         'email',
         'password',
         'phone',
-        'role_id'
+        'role_id',
+        'checkactive', // Thêm trường này
     ];
 
     // Hàm kiểm tra vai trò
@@ -67,5 +68,11 @@ class User extends Authenticatable
     public function favorite()
     {
         return $this->hasMany(Favorite::class, 'id_user');
+    }
+
+    // Kiểm tra nếu tài khoản đang bị khóa
+    public function isLocked()
+    {
+        return $this->checkactive === false;
     }
 }

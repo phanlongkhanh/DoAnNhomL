@@ -11,6 +11,18 @@
             <li class="active">list</li>
         </ol>
     </section>
+
+    <!-- Hiển thị thông báo thành công -->
+    @if(session()->has('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @elseif(session()->has('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+    
     <!-- Main content -->
     <section class="content">
         <!-- Small boxes (Stat box) -->
@@ -40,7 +52,7 @@
                                     <th>Họ Tên</th>
                                     <th>Email</th>
                                     <th>Role</th>
-                                    <th>Active</th>
+                                    <th>Trạng thái</th>
                                     <th>Ngày thêm</th>
                                     <th>Ngày cập nhật</th>
                                     <th>Chỉnh sửa</th>
@@ -55,49 +67,49 @@
                                 @endif
 
                                 @if (isset($users))
-                                    @foreach ($users as $users)
+                                    @foreach ($users as $user)
                                         @php
                                             $count++;
                                         @endphp
 
                                         <tr>
                                             <td>{{ $count }}</td>
-                                            <td>{{ $users->id }}</td>
-                                            {{--                                        hinh anh --}}
-                                            {{-- <td><img src="{{ parse_url($users->image)['path'] }}" alt="" width="150px"
-                                                 height="100px"></td> --}}
-                                            <td>{{ $users->name }}</td>
-                                            <td>{{ $users->email }}</td>
-                                            <td>{{ $users->role->name }}</td>
+                                            <td>{{ $user->id }}</td>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $user->role->name }}</td>
 
-                                            {{--                                        check ative --}}
                                             <td>
-                                                @if ($users->checkactive == 1)
-                                                    <a href="#" class="label label-info status-active">Show</a>
-                                                @else
-                                                    <a href="#}" class="label label-default status-active">Hide</a>
-                                                @endif
+                                                <form action="{{ route('toggle-active', $user->id) }}" method="POST" style="display: inline;">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-xs {{ $user->checkactive ? 'btn-danger' : 'btn-success' }}">
+                                                        {{ $user->checkactive ? 'Lock' : 'Unlock' }}
+                                                    </button>
+                                                </form>
                                             </td>
+
                                             {{--                                        ngay them --}}
-                                            <td>{{ $users->created_at }}</td>
+                                            <td>{{ $user->created_at }}</td>
                                             {{--                                        ngay cap nhat --}}
-                                            <td>{{ $users->updated_at }}</td>
+                                            <td>{{ $user->updated_at }}</td>
                                             {{--                                        nguoi them --}}
                                             {{-- <td>{{ $item->admin->name }}</td> --}}
                                             {{--                                        hanh dong --}}
                                             <td>
-                                                <a href="{{ route('edit-account', $users->id) }}"
-                                                    class="btn btn-xs btn-primary"
-                                                    onclick="return confirm('Bạn chắc chắn là sửa chứ')"><i
-                                                        class="fa fa-pencil"></i> Edit</a>
                                                
-                                                <form action="{{ route('remove-account', $users->id) }}" method="POST"
-                                                    style="display:inline;">
+                                                <a href="{{ route('edit-account', Crypt::encrypt($user->id)) }}"
+                                                    class="btn btn-xs btn-primary"
+                                                    onclick="return confirm('Bạn chắc chắn là sửa chứ')">
+                                                     <i class="fa fa-pencil"></i> Edit
+                                                 </a>   
+
+                                                <form action="{{ route('remove-account', Crypt::encrypt($user->id)) }}" method="POST" style="display:inline;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-xs btn-danger"
-                                                        onclick="return confirm('Bạn chắc chắn là xoá chứ')"><i
-                                                            class="fa fa-trash"></i> Delete</button>
+                                                        onclick="return confirm('Bạn chắc chắn là xoá chứ?')">
+                                                        <i class="fa fa-trash"></i> Delete
+                                                    </button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -106,34 +118,34 @@
                             </tbody>
                         </table>
 
-                        {{-- {!! $categorys->appends($query ?? [])->links('pagination::bootstrap-4') !!} --}}
+                        {{-- {!! $users->appends($query ?? [])->links('pagination::bootstrap-4') !!} --}}
+                        {{-- {!! $users->appends(request()->query())->links('pagination::bootstrap-4') !!} --}}
+
                         <!-- Phân trang  bắt đầu-->
                         <div id="pageNavPosition" class="text-right">
                             <ul class="pagination">
-                                <!-- Hiển thị link đến trang trước (Previous Page) -->
-                                {{-- @if ($category->onFirstPage())
+                                <!-- Hiển thị link đến trang trước -->
+                                @if ($users->onFirstPage())
                                     <li class="disabled"><span>&laquo;</span></li>
                                 @else
-                                    <li><a href="{{ $category->previousPageUrl() }}" rel="prev">&laquo;</a></li>
-                                @endif --}}
-
-                                <!-- Hiển thị các số trang đã có -->
-                                {{-- @for ($i = 1; $i <= $category->lastPage(); $i++)
-                                    <li class="{{ $i == $category->currentPage() ? 'active' : '' }}">
-                                        <a href="{{ $category->url($i) }}">{{ $i }}</a>
+                                    <li><a href="{{ $users->previousPageUrl() }}" rel="prev">&laquo;</a></li>
+                                @endif
+                        
+                                <!-- Hiển thị số trang -->
+                                @for ($i = 1; $i <= $users->lastPage(); $i++)
+                                    <li class="{{ $i == $users->currentPage() ? 'active' : '' }}">
+                                        <a href="{{ $users->url($i) }}">{{ $i }}</a>
                                     </li>
-                                @endfor --}}
-
-                                <!-- Hiển thị link đến trang tiếp theo (Next Page) -->
-                                {{-- @if ($category->hasMorePages())
-                                    <li><a href="{{ $category->nextPageUrl() }}" rel="next">&raquo;</a></li>
+                                @endfor
+                        
+                                <!-- Hiển thị link đến trang tiếp theo -->
+                                @if ($users->hasMorePages())
+                                    <li><a href="{{ $users->nextPageUrl() }}" rel="next">&raquo;</a></li>
                                 @else
                                     <li class="disabled"><span>&raquo;</span></li>
-                                @endif --}}
-
+                                @endif
                             </ul>
-
-                        </div>
+                        </div>                        
 
                     </div>
 

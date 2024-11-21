@@ -12,6 +12,18 @@
         </ol>
     </section>
     <!-- Main content -->
+    <!-- Hiển thị thông báo thành công -->
+    @if(session()->has('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @elseif(session()->has('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
+
     <section class="content">
         <!-- Small boxes (Stat box) -->
         <div class="row">
@@ -60,18 +72,31 @@
                                             <td>{{ $count }}</td>
                                             <td>{{ $item->id }}</td>
 
-                                            <td><img src="images/<?= $item->image ?>" alt="" width="200px"
-                                                    height="150px"></td>
+                                            {{-- <td><img src="images/<?= $item->image ?>" alt="" width="200px"
+                                                    height="150px"></td> --}}
+                                            {{-- <td><img src="{{ asset('images/' . $item->image) }}" alt="Category Image" width="200" height="150"></td> --}}
 
+
+                                            <td>
+                                                @if($item->image)
+                                                    <img src="{{ asset('images/' . $item->image) }}" alt="Category Image" width="200" height="150">
+                                                @else
+                                                    <img src="{{ asset('images/default.png') }}" alt="Default Image" width="200" height="150">
+                                                @endif
+                                            </td>
+                                            
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->description }}</td>
+
                                             <td>
                                                 @if ($item->checkactive)
                                                     <a href="{{ route('activecategory', ['id' => $item->id]) }}"
-                                                        class="label label-info status-active">Show</a>
+                                                        class="label label-info status-active"
+                                                        onclick="return confirm('Bạn có chắc chắn muốn ẩn danh mục này không?')">Show</a>
                                                 @else
                                                     <a href="{{ route('activecategory', ['id' => $item->id]) }}"
-                                                        class="label label-default status-active">Hide</a>
+                                                        class="label label-default status-active"
+                                                        onclick="return confirm('Bạn có chắc chắn muốn hiển thị danh mục này không?')">Hide</a>
                                                 @endif
                                             </td>
                                             <td>{{ $item->created_at }}</td>
@@ -110,30 +135,32 @@
                             </tbody>
                         </table>
 
+                        <!-- Hiển thị nút phân trang -->
+
                         {{-- {!! $categorys->appends($query ?? [])->links('pagination::bootstrap-4') !!} --}}
                         <!-- Phân trang  bắt đầu-->
                         <div id="pageNavPosition" class="text-right">
                             <ul class="pagination">
                                 <!-- Hiển thị link đến trang trước (Previous Page) -->
-                                {{-- @if ($category->onFirstPage())
+                                @if ($categories->onFirstPage())
                                     <li class="disabled"><span>&laquo;</span></li>
                                 @else
-                                    <li><a href="{{ $category->previousPageUrl() }}" rel="prev">&laquo;</a></li>
-                                @endif --}}
+                                    <li><a href="{{ $categories->previousPageUrl() }}" rel="prev">&laquo;</a></li>
+                                @endif
 
                                 <!-- Hiển thị các số trang đã có -->
-                                {{-- @for ($i = 1; $i <= $category->lastPage(); $i++)
-                                    <li class="{{ $i == $category->currentPage() ? 'active' : '' }}">
-                                        <a href="{{ $category->url($i) }}">{{ $i }}</a>
+                                @for ($i = 1; $i <= $categories->lastPage(); $i++)
+                                    <li class="{{ $i == $categories->currentPage() ? 'active' : '' }}">
+                                        <a href="{{ $categories->url($i) }}">{{ $i }}</a>
                                     </li>
-                                @endfor --}}
+                                @endfor
 
                                 <!-- Hiển thị link đến trang tiếp theo (Next Page) -->
-                                {{-- @if ($category->hasMorePages())
-                                    <li><a href="{{ $category->nextPageUrl() }}" rel="next">&raquo;</a></li>
+                                @if ($categories->hasMorePages())
+                                    <li><a href="{{ $categories->nextPageUrl() }}" rel="next">&raquo;</a></li>
                                 @else
                                     <li class="disabled"><span>&raquo;</span></li>
-                                @endif --}}
+                                @endif
 
                             </ul>
 
