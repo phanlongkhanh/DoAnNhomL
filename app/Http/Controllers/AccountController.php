@@ -184,13 +184,13 @@ class AccountController extends Controller
             if (!$user->checkactive) {
                 \DB::table('sessions')
                     ->where('user_id', $user->id)
-                    ->delete(); // Xóa session hiện tại của user
+                    ->delete();
             }
 
             $status = $user->checkactive ? 'kích hoạt' : 'khóa';
             return redirect()->route('index-account')->with('success', "Tài khoản đã được $status!");
         } catch (\Exception $e) {
-            return redirect()->route('index-account')->with('error', 'Tài khoản đã bị khóa!');
+            return redirect()->route('index-account')->with('error', 'Có lỗi xảy ra khi cập nhật trạng thái tài khoản.');
         }
     }
 }
