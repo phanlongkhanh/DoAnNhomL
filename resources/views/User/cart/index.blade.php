@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/style1.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive1.css') }}">
     <link rel="shortcut icon" href="{{ asset('homepage-images/favicon.png') }}" type="image/x-icon">
 
@@ -164,6 +165,28 @@
             @endif
         </div>
     </div>
+
+    <!-- Bottom Navbar -->
+    <nav class="navbar navbar-dark bg-dark fixed-bottom">
+        <div class="container-fluid d-flex justify-content-around">
+            <a href="{{ route('index-homepage') }}" class="text-white text-center">
+                <i class="fas fa-home"></i>
+                <p style="margin: 0; font-size: 12px;">Home</p>
+            </a>
+            <a href="{{ route('category-product') }}" class="text-white text-center">
+                <i class="fas fa-th"></i>
+                <p style="margin: 0; font-size: 12px;">Categories</p>
+            </a>
+            <a href="{{ route('index-cart') }}" class="text-white text-center">
+                <i class="fas fa-shopping-cart"></i>
+                <p style="margin: 0; font-size: 12px;">Cart</p>
+            </a>
+            <a href="#profile" class="text-white text-center">
+                <i class="fas fa-user"></i>
+                <p style="margin: 0; font-size: 12px;">Profile</p>
+            </a>
+        </div>
+    </nav>
 
 
     <!-- Footer -->
