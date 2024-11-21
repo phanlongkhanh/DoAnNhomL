@@ -34,7 +34,7 @@ Route::get('/', [UserController::class, 'ShowUserLogin'])->name('login');
 Route::get('/register', [UserController::class, 'ShowUserRegister'])->name('register');
 
 //Trang Chủ Giao Diện Đăng Nhập
-Route::prefix('homapage')->group(function () {
+Route::prefix('homepage')->group(function () {
     Route::get('/', [UserController::class, 'ShowHomePage'])->name('index-homepage');
     Route::POST('login/loginrun', [LoginRegisterController::class, 'LoginPage'])->name('login-user');
     Route::POST('register/registerrun', [LoginRegisterController::class, 'RegisterPage'])->name('register-user');

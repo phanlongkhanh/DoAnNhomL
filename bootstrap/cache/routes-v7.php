@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::tMuDoSzMjWh4Tskj',
+            '_route' => 'generated::HGuMA3YreaS8YDRS',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::xc7AMaErWJelxHY8',
+            '_route' => 'generated::mpnmbSx8DmOeoMWY',
           ),
           1 => NULL,
           2 => 
@@ -176,7 +176,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/homapage' => 
+      '/homepage' => 
       array (
         0 => 
         array (
@@ -196,7 +196,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/homapage/login/loginrun' => 
+      '/homepage/login/loginrun' => 
       array (
         0 => 
         array (
@@ -215,7 +215,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/homapage/register/registerrun' => 
+      '/homepage/register/registerrun' => 
       array (
         0 => 
         array (
@@ -234,7 +234,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/homapage/logout' => 
+      '/homepage/logout' => 
       array (
         0 => 
         array (
@@ -254,7 +254,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/homapage/details-product' => 
+      '/homepage/details-product' => 
       array (
         0 => 
         array (
@@ -274,7 +274,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/homapage/category-product' => 
+      '/homepage/category-product' => 
       array (
         0 => 
         array (
@@ -294,7 +294,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/homapage/products-homepage' => 
+      '/homepage/products-homepage' => 
       array (
         0 => 
         array (
@@ -1104,7 +1104,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/homapage/details\\-product/([^/]++)(*:42)|/p(?|ro(?|duct(?|types/(?|([^/]++)(*:83)|add(*:93)|([^/]++)(?|(*:111))|product\\-type/active/([^/]++)(*:149))|/([^/]++)(?|(*:170)))|file/(?|([^/]++)(*:196)|update\\-password(*:220)))|ays/(?|([^/]++)(*:245)|add(*:256)|pays/([^/]++)/update\\-status/([^/]++)(*:301))|ost/([^/]++)(*:322))|/transports/(?|([^/]++)(?|(*:357))|transport/active/([^/]++)(*:391))|/suppliers/([^/]++)(?|(*:422))|/f(?|avorites/([^/]++)(*:453)|orgot/update/([^/]++)(*:482))|/orders/(?|([^/]++)(?|(*:513))|orders/active/([^/]++)(*:544))|/ca(?|rts/([^/]++)(*:571)|tegories/(?|edit\\-category/([^/]++)(*:614)|update\\-category/([^/]++)(*:647)|admin/categories/(?|delete/([^/]++)(*:690)|active/([^/]++)(*:713))))|/account/(?|([^/]++)(?|(*:747))|toggle\\-active/([^/]++)(*:779))|/([^/]++)(*:797)|/statistical(*:817)|/review(*:832))/?$}sDu',
+      0 => '{^(?|/homepage/details\\-product/([^/]++)(*:42)|/p(?|ro(?|duct(?|types/(?|([^/]++)(*:83)|add(*:93)|([^/]++)(?|(*:111))|product\\-type/active/([^/]++)(*:149))|/([^/]++)(?|(*:170)))|file/(?|([^/]++)(*:196)|update\\-password(*:220)))|ays/(?|([^/]++)(*:245)|add(*:256)|pays/([^/]++)/update\\-status/([^/]++)(*:301))|ost/([^/]++)(*:322))|/transports/(?|([^/]++)(?|(*:357))|transport/active/([^/]++)(*:391))|/suppliers/([^/]++)(?|(*:422))|/f(?|avorites/([^/]++)(*:453)|orgot/update/([^/]++)(*:482))|/orders/(?|([^/]++)(?|(*:513))|orders/active/([^/]++)(*:544))|/ca(?|rts/([^/]++)(*:571)|tegories/(?|edit\\-category/([^/]++)(*:614)|update\\-category/([^/]++)(*:647)|admin/categories/(?|delete/([^/]++)(*:690)|active/([^/]++)(*:713))))|/account/(?|([^/]++)(?|(*:747))|toggle\\-active/([^/]++)(*:779))|/([^/]++)(*:797)|/statistical(*:817)|/review(*:832))/?$}sDu',
     ),
     3 => 
     array (
@@ -2110,7 +2110,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::tMuDoSzMjWh4Tskj' => 
+    'generated::HGuMA3YreaS8YDRS' => 
     array (
       'methods' => 
       array (
@@ -2133,7 +2133,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::tMuDoSzMjWh4Tskj',
+        'as' => 'generated::HGuMA3YreaS8YDRS',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2149,7 +2149,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::xc7AMaErWJelxHY8' => 
+    'generated::mpnmbSx8DmOeoMWY' => 
     array (
       'methods' => 
       array (
@@ -2171,7 +2171,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::xc7AMaErWJelxHY8',
+        'as' => 'generated::mpnmbSx8DmOeoMWY',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2268,7 +2268,7 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'homapage',
+      'uri' => 'homepage',
       'action' => 
       array (
         'middleware' => 
@@ -2278,7 +2278,7 @@ app('router')->setCompiledRoutes(
         'uses' => 'App\\Http\\Controllers\\UserController@ShowHomePage',
         'controller' => 'App\\Http\\Controllers\\UserController@ShowHomePage',
         'namespace' => NULL,
-        'prefix' => '/homapage',
+        'prefix' => '/homepage',
         'where' => 
         array (
         ),
@@ -2304,7 +2304,7 @@ app('router')->setCompiledRoutes(
       array (
         0 => 'POST',
       ),
-      'uri' => 'homapage/login/loginrun',
+      'uri' => 'homepage/login/loginrun',
       'action' => 
       array (
         'middleware' => 
@@ -2314,7 +2314,7 @@ app('router')->setCompiledRoutes(
         'uses' => 'App\\Http\\Controllers\\LoginRegisterController@LoginPage',
         'controller' => 'App\\Http\\Controllers\\LoginRegisterController@LoginPage',
         'namespace' => NULL,
-        'prefix' => '/homapage',
+        'prefix' => '/homepage',
         'where' => 
         array (
         ),
@@ -2340,7 +2340,7 @@ app('router')->setCompiledRoutes(
       array (
         0 => 'POST',
       ),
-      'uri' => 'homapage/register/registerrun',
+      'uri' => 'homepage/register/registerrun',
       'action' => 
       array (
         'middleware' => 
@@ -2350,7 +2350,7 @@ app('router')->setCompiledRoutes(
         'uses' => 'App\\Http\\Controllers\\LoginRegisterController@RegisterPage',
         'controller' => 'App\\Http\\Controllers\\LoginRegisterController@RegisterPage',
         'namespace' => NULL,
-        'prefix' => '/homapage',
+        'prefix' => '/homepage',
         'where' => 
         array (
         ),
@@ -2377,7 +2377,7 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'homapage/logout',
+      'uri' => 'homepage/logout',
       'action' => 
       array (
         'middleware' => 
@@ -2387,7 +2387,7 @@ app('router')->setCompiledRoutes(
         'uses' => 'App\\Http\\Controllers\\LoginRegisterController@LogOutUser',
         'controller' => 'App\\Http\\Controllers\\LoginRegisterController@LogOutUser',
         'namespace' => NULL,
-        'prefix' => '/homapage',
+        'prefix' => '/homepage',
         'where' => 
         array (
         ),
@@ -2414,7 +2414,7 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'homapage/details-product',
+      'uri' => 'homepage/details-product',
       'action' => 
       array (
         'middleware' => 
@@ -2424,7 +2424,7 @@ app('router')->setCompiledRoutes(
         'uses' => 'App\\Http\\Controllers\\UserController@ShowProductDetails',
         'controller' => 'App\\Http\\Controllers\\UserController@ShowProductDetails',
         'namespace' => NULL,
-        'prefix' => '/homapage',
+        'prefix' => '/homepage',
         'where' => 
         array (
         ),
@@ -2451,7 +2451,7 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'homapage/category-product',
+      'uri' => 'homepage/category-product',
       'action' => 
       array (
         'middleware' => 
@@ -2461,7 +2461,7 @@ app('router')->setCompiledRoutes(
         'uses' => 'App\\Http\\Controllers\\UserController@ShowUserCategory',
         'controller' => 'App\\Http\\Controllers\\UserController@ShowUserCategory',
         'namespace' => NULL,
-        'prefix' => '/homapage',
+        'prefix' => '/homepage',
         'where' => 
         array (
         ),
@@ -2488,7 +2488,7 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'homapage/products-homepage',
+      'uri' => 'homepage/products-homepage',
       'action' => 
       array (
         'middleware' => 
@@ -2498,7 +2498,7 @@ app('router')->setCompiledRoutes(
         'uses' => 'App\\Http\\Controllers\\UserController@ShowProductToHomepage',
         'controller' => 'App\\Http\\Controllers\\UserController@ShowProductToHomepage',
         'namespace' => NULL,
-        'prefix' => '/homapage',
+        'prefix' => '/homepage',
         'where' => 
         array (
         ),
@@ -2525,7 +2525,7 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'homapage/details-product/{id}',
+      'uri' => 'homepage/details-product/{id}',
       'action' => 
       array (
         'middleware' => 
@@ -2535,7 +2535,7 @@ app('router')->setCompiledRoutes(
         'uses' => 'App\\Http\\Controllers\\ProductDetailController@ShowProductDetails',
         'controller' => 'App\\Http\\Controllers\\ProductDetailController@ShowProductDetails',
         'namespace' => NULL,
-        'prefix' => '/homapage',
+        'prefix' => '/homepage',
         'where' => 
         array (
         ),
