@@ -11,8 +11,14 @@ use App\Http\Controllers\AdminCategoryProductController;
 class AccountController extends Controller
 {
     public function ShowAccount() {
-        // $users = User::with('role')->get();
-        $users = User::with('role')->paginate(10); // Hiển thị 10 tài khoản mỗi trang
+
+        $user = auth()->user();
+
+        if (!$user || $user->role_id != 1) {
+            return redirect()->route('index-homepage')->with('error', 'Bạn không có quyền truy cập trang này');
+        }
+
+        $users = User::with('role')->paginate(10);
         return view('Admin.account.index', compact('users'));
     }
 

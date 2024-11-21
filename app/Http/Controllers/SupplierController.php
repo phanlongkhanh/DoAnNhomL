@@ -16,6 +16,12 @@ class SupplierController extends Controller
 {
     public function ShowIndexSuppliers()
     {
+        $user = auth()->user();
+
+        if (!$user || $user->role_id != 1) {
+            return redirect()->route('index-homepage')->with('error', 'Bạn không có quyền truy cập trang này');
+        }
+
         $suppliers = Suppliers::all();
         return view('Admin.suppliers.index', compact('suppliers'));
     }

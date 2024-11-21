@@ -8,12 +8,15 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminCategoryProductController extends Controller
 {
-    // Hiển Thị Màn hình Danh Mục
-    // : \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     public function showCategory()
     {
-        // $categories = Category::all();
-        $categories = Category::paginate(10); // Hiển thị 10 danh mục mỗi trang
+        $user = auth()->user();
+
+        if (!$user || $user->role_id != 1) {
+            return redirect()->route('index-homepage')->with('error', 'Bạn không có quyền truy cập trang này');
+        }
+
+        $categories = Category::paginate(10);
         return view('Admin.category.index', compact('categories'));
     }
 
