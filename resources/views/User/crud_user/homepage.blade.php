@@ -31,6 +31,7 @@
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/style1.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/footer.css') }}" rel="stylesheet" />
 
     <!-- responsive style -->
     <link href="{{ asset('css/responsive1.css') }}" rel="stylesheet" />
