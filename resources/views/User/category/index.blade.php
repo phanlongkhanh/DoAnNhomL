@@ -101,6 +101,31 @@
                         <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
+
+                <div style="margin-left: 80px;">
+                    @if ($users)
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span>{{ $users }}</span>
+                    @else
+                        <a href="{{ route('login') }}">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <span>Login</span>
+                        </a>
+                    @endif
+                </div>
+
+                <div style="margin-left: 30px;">
+                    @if ($users)
+                        <a href="{{ route('logout-user') }}">
+                            <span>LogOut</span>
+                        </a>
+                    @else
+                        <a href="#">
+
+                            <span></span>
+                        </a>
+                    @endif
+                </div>
             </div>
         </nav>
     </header>
