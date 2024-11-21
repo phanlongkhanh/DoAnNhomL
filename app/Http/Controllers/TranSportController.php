@@ -16,6 +16,12 @@ class TranSportController extends Controller
 {
     public function ShowIndexTranSport()
     {
+        $user = auth()->user();
+
+        if (!$user || $user->role_id != 1) {
+            return redirect()->route('index-homepage')->with('error', 'Bạn không có quyền truy cập trang này');
+        }
+
         $transports = TranSport::all();
         return view('Admin.transport.index', compact('transports'));
     }

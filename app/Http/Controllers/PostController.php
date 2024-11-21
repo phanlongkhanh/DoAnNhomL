@@ -16,6 +16,12 @@ class PostController extends Controller
 {
     public function ShowIndexPost()
     {
+        $user = auth()->user();
+
+        if (!$user || $user->role_id != 1) {
+            return redirect()->route('index-homepage')->with('error', 'Bạn không có quyền truy cập trang này');
+        }
+
         $posts = Post::with('listPost')->get(); 
         return view('Admin.post.index',compact('posts'));
     }

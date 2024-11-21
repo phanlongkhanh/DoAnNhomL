@@ -19,17 +19,31 @@ class DashBoardController extends Controller
 {
    public function ShowIndexDashBoard()
    {
+
+      $user = auth()->user();
+
+      if (!$user || $user->role_id != 1) {
+         return redirect()->route('index-homepage')->with('error', 'Bạn không có quyền truy cập trang này');
+      }
+
       $pays = Pay::with(['user', 'transport', 'payment'])->get();
       return view('Admin.dashboard.index', compact('pays'));
    }
 
    public function ShowDashBoard()
    {
+
+      $user = auth()->user();
+
+        if (!$user || $user->role_id != 1) {
+            return redirect()->route('index-homepage')->with('error', 'Bạn không có quyền truy cập trang này');
+        }
+
       $pays = Pay::with(['user', 'transport', 'payment'])->get();
       $orderCount = Pay::count();
       $productCount = Product::count();
       $acountCount = User::count();
-      return view('Admin.dashboard.dashboard',compact('pays','orderCount','productCount','acountCount'));
+      return view('Admin.dashboard.dashboard', compact('pays', 'orderCount', 'productCount', 'acountCount'));
    }
 
 

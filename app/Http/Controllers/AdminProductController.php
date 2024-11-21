@@ -14,6 +14,13 @@ class AdminProductController extends Controller
     // Hiển thị danh sách các sản phẩm.
     public function ShowIndexProduct()
     {
+
+        $user = auth()->user();
+
+        if (!$user || $user->role_id != 1) {
+            return redirect()->route('index-homepage')->with('error', 'Bạn không có quyền truy cập trang này');
+        }
+
         $products = Product::with('category', 'productType', 'supplier')->get();
         return view('Admin.product.index', compact('products'));
     }

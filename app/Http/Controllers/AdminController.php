@@ -9,12 +9,12 @@ class AdminController extends Controller
 {
     // Hiển Thị màn hình quản lý
     public function ShowDashBoardAdmin()
-    { 
-    if (Auth::check()) {
-        $user = Auth::user(); 
-        return view('ControllerAdmin.dashboard_admin', compact('user')); 
-    } else {
-        return redirect('login');
-    }
+    {
+        if (Auth::check()) {
+            $user = Auth::user();
+            return view('ControllerAdmin.dashboard_admin', compact('user'));
+        } else {
+            return redirect()->route('index-homepage')->with('error', 'Bạn Không Phải Là Admin');
+        }
     }
 }

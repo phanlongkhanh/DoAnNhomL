@@ -14,6 +14,13 @@ class ProductTypeController extends Controller
 {
     public function ShowProductType()
     {
+
+        $user = auth()->user();
+
+        if (!$user || $user->role_id != 1) {
+            return redirect()->route('index-homepage')->with('error', 'Bạn không có quyền truy cập trang này');
+        }
+
         $productTypes = ProductType::all();
         return view('Admin.producttype.index', compact('productTypes'));
     }

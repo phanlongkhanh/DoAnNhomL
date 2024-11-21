@@ -17,6 +17,12 @@ class OdersController extends Controller
 {
     public function ShowIndexOders()
     {
+        $user = auth()->user();
+
+        if (!$user || $user->role_id != 1) {
+            return redirect()->route('index-homepage')->with('error', 'Bạn không có quyền truy cập trang này');
+        }
+
         $pays = Pay::with(['user', 'transport', 'payment'])->get();
         return view('Admin.orders.index', compact('pays'));
     }
