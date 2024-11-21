@@ -15,56 +15,76 @@
 
     <style>
         body {
-            background-color: #f0f8ff; /* Nền sáng cho toàn trang */
+            background-color: #f0f8ff;
+            /* Nền sáng cho toàn trang */
         }
 
         .header_section {
-            background-color: #ffffff; /* Màu nền trắng cho header */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng cho header */
+            background-color: #ffffff;
+            /* Màu nền trắng cho header */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Đổ bóng cho header */
         }
 
         .category-btn {
-            margin: 0 5px; /* Khoảng cách giữa các nút lọc */
+            margin: 0 5px;
+            /* Khoảng cách giữa các nút lọc */
         }
 
         .post-card {
-            transition: transform 0.2s, box-shadow 0.2s; /* Hiệu ứng chuyển động cho thẻ sản phẩm */
-            border: 1px solid #ddd; /* Viền cho thẻ */
-            border-radius: 10px; /* Bo tròn góc cho thẻ */
-            overflow: hidden; /* Ẩn phần thừa */
-            background-color: #fff; /* Màu nền cho thẻ */
+            transition: transform 0.2s, box-shadow 0.2s;
+            /* Hiệu ứng chuyển động cho thẻ sản phẩm */
+            border: 1px solid #ddd;
+            /* Viền cho thẻ */
+            border-radius: 10px;
+            /* Bo tròn góc cho thẻ */
+            overflow: hidden;
+            /* Ẩn phần thừa */
+            background-color: #fff;
+            /* Màu nền cho thẻ */
         }
 
         .post-card img {
-            border-bottom: 1px solid #ddd; /* Viền dưới cho hình ảnh */
+            border-bottom: 1px solid #ddd;
+            /* Viền dưới cho hình ảnh */
         }
 
         .post-card:hover {
-            transform: translateY(-5px); /* Nâng thẻ lên khi hover */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Đổ bóng khi hover */
+            transform: translateY(-5px);
+            /* Nâng thẻ lên khi hover */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            /* Đổ bóng khi hover */
         }
 
         .footer_section {
-            background-color: #212529; /* Màu nền xám đậm cho footer */
-            color: #ffffff; /* Màu chữ cho footer */
+            background-color: #212529;
+            /* Màu nền xám đậm cho footer */
+            color: #ffffff;
+            /* Màu chữ cho footer */
         }
 
         .footer_section a {
-            color: #ffffff; /* Màu chữ cho các liên kết trong footer */
+            color: #ffffff;
+            /* Màu chữ cho các liên kết trong footer */
         }
 
         .footer_section a:hover {
-            color: #d1d1d1; /* Màu chữ khi hover trên các liên kết */
+            color: #d1d1d1;
+            /* Màu chữ khi hover trên các liên kết */
         }
 
         .btn-outline-primary {
-            border-color: #007bff; /* Màu viền cho nút */
-            color: #007bff; /* Màu chữ cho nút */
+            border-color: #007bff;
+            /* Màu viền cho nút */
+            color: #007bff;
+            /* Màu chữ cho nút */
         }
 
         .btn-outline-primary:hover {
-            background-color: #007bff; /* Màu nền khi hover */
-            color: #ffffff; /* Màu chữ khi hover */
+            background-color: #007bff;
+            /* Màu nền khi hover */
+            color: #ffffff;
+            /* Màu chữ khi hover */
         }
     </style>
 </head>
@@ -82,13 +102,15 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="{{ route('index-homepage') }}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="{{ route('category-product') }}">Danh Mục</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{ route('category-product') }}">Danh Mục</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('index-favorites') }}">Favorite</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('index-post-user') }}">Post</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('view-pays') }}">Giao Hàng</a></li>
                 </ul>
                 <div class="d-flex">
-                    <a href="{{ route('index-cart') }}" class="btn btn-outline-danger me-2"><i class="fas fa-shopping-bag"></i></a>
+                    <a href="{{ route('index-cart') }}" class="btn btn-outline-danger me-2"><i
+                            class="fas fa-shopping-bag"></i></a>
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search">
                         <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
@@ -122,10 +144,11 @@
                         <div class="col-md-4 mb-4">
                             <a href="#">
                                 <div class="post-card shadow">
-                                    <img src="{{ asset('images/' . $item->image) }}" class="card-img-top" alt="{{ $item->name }}">
+                                    <img src="{{ asset('images/' . $item->image) }}" class="card-img-top"
+                                        alt="{{ $item->name }}">
                                     <div class="card-body text-center">
                                         <h5 class="card-title">{{ $item->name }}</h5>
-                                        <p class="card-text">{{ $item->description }}</p>                
+                                        <p class="card-text">{{ $item->description }}</p>
                                     </div>
                                 </div>
                             </a>
@@ -141,7 +164,9 @@
         </div>
     </div>
 
-    <h3><hr></h3>
+    <h3>
+        <hr>
+    </h3>
     <!-- Thông Tin Khác -->
     <div class="mt-4 text-center">
         <h5>Chính Sách Bảo Hành</h5>
@@ -149,7 +174,9 @@
         <h5>Chính Sách Đổi Trả</h5>
         <p>Bạn có thể đổi hoặc trả hàng trong vòng 30 ngày.</p>
     </div>
-    <h3><hr></h3>
+    <h3>
+        <hr>
+    </h3>
 
     <!-- Testimonial Section -->
     <section class="client_section py-5" style="background-color: #f0f4f8;">
@@ -177,6 +204,28 @@
             </div>
         </div>
     </section>
+
+    <!-- Bottom Navbar -->
+    <nav class="navbar navbar-dark bg-dark fixed-bottom">
+        <div class="container-fluid d-flex justify-content-around">
+            <a href="{{ route('index-homepage') }}" class="text-white text-center">
+                <i class="fas fa-home"></i>
+                <p style="margin: 0; font-size: 12px;">Home</p>
+            </a>
+            <a href="{{ route('category-product') }}" class="text-white text-center">
+                <i class="fas fa-th"></i>
+                <p style="margin: 0; font-size: 12px;">Categories</p>
+            </a>
+            <a href="{{ route('index-cart') }}" class="text-white text-center">
+                <i class="fas fa-shopping-cart"></i>
+                <p style="margin: 0; font-size: 12px;">Cart</p>
+            </a>
+            <a href="#profile" class="text-white text-center">
+                <i class="fas fa-user"></i>
+                <p style="margin: 0; font-size: 12px;">Profile</p>
+            </a>
+        </div>
+    </nav>
 
     <!-- Footer -->
     <footer class="footer_section text-center py-4">

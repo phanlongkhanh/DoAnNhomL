@@ -78,7 +78,7 @@
     <!-- Header -->
     <header class="header_section bg-light py-3">
         <nav class="navbar navbar-expand-lg navbar-light container">
-            <a class="navbar-brand text-danger" href="{{route('index-homepage')}}">
+            <a class="navbar-brand text-danger" href="{{ route('index-homepage') }}">
                 <h3 style="margin-right: 40px">Pink Store</h3>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -86,14 +86,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="{{route('index-homepage')}}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="{{route('category-product')}}">Danh Mục</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('index-favorites')}}">Favorite</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('index-homepage') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{ route('category-product') }}">Danh Mục</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('index-favorites') }}">Favorite</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Post</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('view-pays')}}">Giao Hàng</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('view-pays') }}">Giao Hàng</a></li>
                 </ul>
                 <div class="d-flex">
-                    <a href="{{route('index-cart')}}" class="btn btn-outline-danger me-2"><i
+                    <a href="{{ route('index-cart') }}" class="btn btn-outline-danger me-2"><i
                             class="fas fa-shopping-bag"></i></a>
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search">
@@ -123,7 +124,7 @@
                             <span></span>
                         </a>
                     @endif
-                </div>  
+                </div>
             </div>
         </nav>
     </header>
@@ -172,10 +173,10 @@
                         $tong = 0;
                     @endphp
                     @foreach ($pays as $item)
-                       @if ($item->active == 0)
-                        @php
-                            $tong += $item->total_price;
-                        @endphp
+                        @if ($item->active == 0)
+                            @php
+                                $tong += $item->total_price;
+                            @endphp
                         @endif
                     @endforeach
                     <td></td>
@@ -188,6 +189,29 @@
             </table>
         </div>
     </div>
+
+
+    <!-- Bottom Navbar -->
+    <nav class="navbar navbar-dark bg-dark fixed-bottom">
+        <div class="container-fluid d-flex justify-content-around">
+            <a href="{{ route('index-homepage') }}" class="text-white text-center">
+                <i class="fas fa-home"></i>
+                <p style="margin: 0; font-size: 12px;">Home</p>
+            </a>
+            <a href="{{ route('category-product') }}" class="text-white text-center">
+                <i class="fas fa-th"></i>
+                <p style="margin: 0; font-size: 12px;">Categories</p>
+            </a>
+            <a href="{{ route('index-cart') }}" class="text-white text-center">
+                <i class="fas fa-shopping-cart"></i>
+                <p style="margin: 0; font-size: 12px;">Cart</p>
+            </a>
+            <a href="#profile" class="text-white text-center">
+                <i class="fas fa-user"></i>
+                <p style="margin: 0; font-size: 12px;">Profile</p>
+            </a>
+        </div>
+    </nav>
 
     <!-- Footer -->
     <footer class="footer_section bg-dark text-white py-4">
