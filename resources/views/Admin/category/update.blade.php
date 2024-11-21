@@ -12,6 +12,17 @@
         </ol>
     </section>
     <!-- Main content -->
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <section class="content">
         <!-- Small boxes (Stat box) -->
         <div class="row">
@@ -59,16 +70,3 @@
         <!-- /.row (main row) -->
     </section>
 @endsection
-{{-- @section('script')
-    <script>
-        $(function () {
-            $('#image').change(function () {
-                let reader = new FileReader();
-                reader.onload = (e) => {
-                    $('#image_preview_container').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(this.files[0]);
-            });
-        });
-    </script>
-@endsection --}}

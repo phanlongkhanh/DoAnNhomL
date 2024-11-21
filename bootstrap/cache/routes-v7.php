@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::LBRMIluGWhlUR7oY',
+            '_route' => 'generated::J8ic8HZOWQVR1Urw',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::bjYOcSyjf1CHqycI',
+            '_route' => 'generated::RYYQ6I18z5jvvIUu',
           ),
           1 => NULL,
           2 => 
@@ -1124,7 +1124,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/homapage/details\\-product/([^/]++)(*:42)|/p(?|roduct(?|types/(?|([^/]++)(*:80)|add(*:90)|([^/]++)(?|(*:108))|product\\-type/active/([^/]++)(*:146))|/([^/]++)(?|(*:167)))|ays/(?|([^/]++)(*:192)|add(*:203)|pays/([^/]++)/update\\-status/([^/]++)(*:248))|ost/([^/]++)(*:269))|/transports/(?|([^/]++)(?|(*:304))|transport/active/([^/]++)(*:338))|/suppliers/([^/]++)(?|(*:369))|/f(?|avorites/([^/]++)(*:400)|orgot/update/([^/]++)(*:429))|/orders/(?|([^/]++)(?|(*:460))|orders/active/([^/]++)(*:491))|/ca(?|rts/([^/]++)(*:518)|tegories/(?|edit\\-category/([^/]++)(*:561)|update\\-category/([^/]++)(*:594)|admin/categories/(?|delete/([^/]++)(*:637)|active/([^/]++)(*:660))))|/account/([^/]++)(?|(*:691)))/?$}sDu',
+      0 => '{^(?|/homapage/details\\-product/([^/]++)(*:42)|/p(?|roduct(?|types/(?|([^/]++)(*:80)|add(*:90)|([^/]++)(?|(*:108))|product\\-type/active/([^/]++)(*:146))|/([^/]++)(?|(*:167)))|ays/(?|([^/]++)(*:192)|add(*:203)|pays/([^/]++)/update\\-status/([^/]++)(*:248))|ost/([^/]++)(*:269))|/transports/(?|([^/]++)(?|(*:304))|transport/active/([^/]++)(*:338))|/suppliers/([^/]++)(?|(*:369))|/f(?|avorites/([^/]++)(*:400)|orgot/update/([^/]++)(*:429))|/orders/(?|([^/]++)(?|(*:460))|orders/active/([^/]++)(*:491))|/ca(?|rts/([^/]++)(*:518)|tegories/(?|edit\\-category/([^/]++)(*:561)|update\\-category/([^/]++)(*:594)|admin/categories/(?|delete/([^/]++)(*:637)|active/([^/]++)(*:660))))|/account/(?|([^/]++)(?|(*:694))|toggle\\-active/([^/]++)(*:726)))/?$}sDu',
     ),
     3 => 
     array (
@@ -1777,7 +1777,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      691 => 
+      694 => 
       array (
         0 => 
         array (
@@ -1837,7 +1837,29 @@ app('router')->setCompiledRoutes(
           5 => true,
           6 => NULL,
         ),
-        3 => 
+      ),
+      726 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'toggle-active',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
         array (
           0 => NULL,
           1 => NULL,
@@ -1999,7 +2021,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::LBRMIluGWhlUR7oY' => 
+    'generated::J8ic8HZOWQVR1Urw' => 
     array (
       'methods' => 
       array (
@@ -2022,7 +2044,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::LBRMIluGWhlUR7oY',
+        'as' => 'generated::J8ic8HZOWQVR1Urw',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2038,7 +2060,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::bjYOcSyjf1CHqycI' => 
+    'generated::RYYQ6I18z5jvvIUu' => 
     array (
       'methods' => 
       array (
@@ -2060,7 +2082,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::bjYOcSyjf1CHqycI',
+        'as' => 'generated::RYYQ6I18z5jvvIUu',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4588,6 +4610,42 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'remove-account',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'toggle-active' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'account/toggle-active/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AccountController@toggleActive',
+        'controller' => 'App\\Http\\Controllers\\AccountController@toggleActive',
+        'namespace' => NULL,
+        'prefix' => '/account',
+        'where' => 
+        array (
+        ),
+        'as' => 'toggle-active',
       ),
       'fallback' => false,
       'defaults' => 

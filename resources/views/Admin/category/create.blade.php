@@ -11,6 +11,17 @@
             <li class="active">Create</li>
         </ol>
     </section>
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <section class="content">
         <div class="row">
             <div class="box box-primary">

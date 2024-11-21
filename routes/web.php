@@ -145,6 +145,7 @@ Route::prefix('account')->group(function () {
     Route::get('/{id}', [AccountController::class, 'edit'])->name('edit-account');
     Route::post('/{id}', [AccountController::class, 'update'])->name('update-account');
     Route::delete('/{id}', [AccountController::class, 'destroy'])->name('remove-account');
+    Route::post('/toggle-active/{id}', [AccountController::class, 'toggleActive'])->name('toggle-active');
 });
 
 //Bài Viết Admin

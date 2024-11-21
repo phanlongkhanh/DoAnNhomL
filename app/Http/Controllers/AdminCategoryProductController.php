@@ -12,7 +12,8 @@ class AdminCategoryProductController extends Controller
     // : \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     public function showCategory()
     {
-        $categories = Category::all();
+        // $categories = Category::all();
+        $categories = Category::paginate(10); // Hiển thị 10 danh mục mỗi trang
         return view('Admin.category.index', compact('categories'));
     }
 
@@ -31,6 +32,9 @@ class AdminCategoryProductController extends Controller
         'category_name' => 'required|string|max:255',
         'category_description' => 'required|string',
         'category_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ], [
+        'category_image.image' => 'File tải lên phải là một hình ảnh.',
+        'category_image.mimes' => 'Hình ảnh phải có định dạng: jpeg, png, jpg, gif.',
     ]);
 
     // Lưu danh mục vào cơ sở dữ liệu
@@ -51,7 +55,8 @@ class AdminCategoryProductController extends Controller
     
     $category->save(); // Lưu vào cơ sở dữ liệu
 
-    return redirect()->route('indexcategory')->with('success', 'Category created successfully.'); // Thông báo thành công
+    // return redirect()->route('indexcategory')->with('success', 'Category created successfully.'); // Thông báo thành công
+    return redirect()->route('indexcategory')->with('success', 'Danh mục đã được thêm thành công!');
     }
 
     // Trạng thái danh mục
@@ -61,7 +66,10 @@ class AdminCategoryProductController extends Controller
         $category->checkactive = !$category->checkactive; // Chuyển đổi trạng thái
         $category->save();
 
-        return redirect()->route('indexcategory')->with('success', 'Trạng thái danh mục đã được cập nhật thành công.');
+        // return redirect()->route('indexcategory')->with('success', 'Trạng thái danh mục đã được cập nhật thành công.');
+        // Tạo thông báo dựa trên trạng thái mới
+        $status = $category->checkactive ? 'hiển thị' : 'ẩn';
+        return redirect()->route('indexcategory')->with('success', "Trạng thái danh mục đã được cập nhật thành công. Danh mục hiện đang $status.");
     }
 
     // Hiển thị màn hình chỉnh sửa danh mục
@@ -78,6 +86,9 @@ class AdminCategoryProductController extends Controller
             'category_name' => 'required|string|max:255',
             'category_description' => 'required|string',
             'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ], [
+            'category_image.image' => 'File tải lên phải là một hình ảnh.',
+            'category_image.mimes' => 'Hình ảnh phải có định dạng: jpeg, png, jpg, gif.',
         ]);
     
         $category = Category::findOrFail($id);
@@ -100,15 +111,22 @@ class AdminCategoryProductController extends Controller
     
         $category->save();
     
-        return redirect()->route('indexcategory')->with('success', 'Category updated successfully.'); // Thông báo thành công
+        // return redirect()->route('indexcategory')->with('success', 'Category updated successfully.'); // Thông báo thành công
+        return redirect()->route('indexcategory')->with('success', 'Danh mục đã được cập nhật thành công!');
     }
 
     public function destroyCategory($id)
     {
-        $category = Category::findOrFail($id); // Tìm danh mục theo ID
+        $category = Category::find($id);
+
+        if (!$category) {
+            // Nếu danh mục không tồn tại, chuyển hướng với thông báo lỗi
+            return redirect()->route('indexcategory')->with('error', 'Danh mục không tồn tại hoặc đã bị xóa.');
+        }
         $category->delete(); // Xóa danh mục
 
-        return redirect()->route('indexcategory')->with('success', 'Category deleted successfully.'); // Thông báo thành công
+        // return redirect()->route('indexcategory')->with('success', 'Category deleted successfully.'); // Thông báo thành công
+        return redirect()->route('indexcategory')->with('success', 'Danh mục đã được xóa thành công!');
     }
 
 

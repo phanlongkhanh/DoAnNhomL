@@ -12,12 +12,23 @@
             <li class="active">Edit</li>
         </ol>
     </section>
+
+    <!-- Hiển thị thông báo thành công -->
+    @if(session()->has('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @elseif(session()->has('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+    
     <!-- Main content -->
     <section class="content">
         <div class="row">
             <div class="box box-primary">
-                <form role="form" action="{{ route('update-account', $user->id) }}" method="POST"
-                    enctype="multipart/form-data">
+                <form role="form" action="{{ route('update-account', Crypt::encrypt($user->id)) }}" method="POST">
                     @csrf
                     <div class="box-body">
                         <div class="col-sm-8">
@@ -39,16 +50,22 @@
                                 @endif
                             </div>
 
-                            <div class="form-group">
-                                <label for="password">Password (leave blank if not changing)</label>
-                                <input type="password" class="form-control" name="password"
-                                    placeholder="Enter new password">
+                            <!-- Trường mật khẩu -->
+                            <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
+                                <label for="password">Mật khẩu (để trống nếu không thay đổi)</label>
+                                <input type="password" class="form-control" name="password" placeholder="Enter new password">
+                                @error('password')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
 
-                            <div class="form-group">
+                            <!-- Trường xác nhận mật khẩu -->
+                            <div class="form-group {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
                                 <label for="password_confirmation">Confirm Password</label>
-                                <input type="password" class="form-control" name="password_confirmation"
-                                    placeholder="Confirm new password">
+                                <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm new password">
+                                @error('password_confirmation')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="form-group {{ $errors->first('phone') ? 'has-error' : '' }}">
@@ -60,13 +77,16 @@
                             </div>
 
                             <div class="form-group {{ $errors->first('role_id') ? 'has-error' : '' }}">
-                                <label for="role_id">Role ID <span class="text-danger">(*)</span></label>
-                                <input type="number" class="form-control" name="role_id" value="{{ $user->role_id }}"
-                                    required>
+                                <label for="role_id">Role <span class="text-danger">(*)</span></label>
+                                <select class="form-control" name="role_id" required>
+                                    <option value="1" {{ $user->role_id == 1 ? 'selected' : '' }}>Admin</option>
+                                    <option value="2" {{ $user->role_id == 2 ? 'selected' : '' }}>User</option>
+                                </select>
                                 @if ($errors->first('role_id'))
                                     <span class="text-danger">{{ $errors->first('role_id') }}</span>
                                 @endif
                             </div>
+                            
                         </div>
                     </div>
                     <div class="box-footer">
