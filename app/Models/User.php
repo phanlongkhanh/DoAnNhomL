@@ -22,8 +22,10 @@ class User extends Authenticatable
         'email',
         'password',
         'phone',
+        'address',
+        'image',
         'role_id',
-        'checkactive', // Thêm trường này
+        'checkactive',
     ];
 
     // Hàm kiểm tra vai trò

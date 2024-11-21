@@ -321,7 +321,6 @@
                                                 <form action="{{ route('add-favorites') }}" method="post"
                                                     style="display: inline;">
                                                     @csrf
-                                                    @csrf
                                                     <input type="hidden" name="id_product"
                                                         value="{{ $item->id_product }}">
                                                     <input type="hidden" name="name"
@@ -335,6 +334,12 @@
                                                         style="margin-top: 5px; margin-left: 10px;">
                                                         <p class="fa fa-heart" style="margin: 0;"></p>
                                                 </form>
+                                                <form action="{{route('index-review')}}" method="get" style="display: inline;">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-danger"
+                                                        style="margin-top: 5px; margin-left: 10px;">
+                                                        <p class="fa-solid fa-pen-to-square" style="margin: 0;"></p>
+                                                </form> 
                                             </div>
                                         </div>
                                     </div>
@@ -952,7 +957,7 @@
                 <i class="fas fa-shopping-cart"></i>
                 <p style="margin: 0; font-size: 12px;">Cart</p>
             </a>
-            <a href="#profile" class="text-white text-center">
+            <a href="{{route('index-profile')}}" class="text-white text-center">
                 <i class="fas fa-user"></i>
                 <p style="margin: 0; font-size: 12px;">Profile</p>
             </a>

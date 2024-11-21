@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::ldGumj4UXjJL6pFZ',
+            '_route' => 'generated::tMuDoSzMjWh4Tskj',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::5cRncufBajELymIJ',
+            '_route' => 'generated::xc7AMaErWJelxHY8',
           ),
           1 => NULL,
           2 => 
@@ -1081,33 +1081,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/statistical' => 
+      '/profile' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'index-statistical',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/review' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'index-review',
+            '_route' => 'index-profile',
           ),
           1 => NULL,
           2 => 
@@ -1124,7 +1104,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/homapage/details\\-product/([^/]++)(*:42)|/p(?|roduct(?|types/(?|([^/]++)(*:80)|add(*:90)|([^/]++)(?|(*:108))|product\\-type/active/([^/]++)(*:146))|/([^/]++)(?|(*:167)))|ays/(?|([^/]++)(*:192)|add(*:203)|pays/([^/]++)/update\\-status/([^/]++)(*:248))|ost/([^/]++)(*:269))|/transports/(?|([^/]++)(?|(*:304))|transport/active/([^/]++)(*:338))|/suppliers/([^/]++)(?|(*:369))|/f(?|avorites/([^/]++)(*:400)|orgot/update/([^/]++)(*:429))|/orders/(?|([^/]++)(?|(*:460))|orders/active/([^/]++)(*:491))|/ca(?|rts/([^/]++)(*:518)|tegories/(?|edit\\-category/([^/]++)(*:561)|update\\-category/([^/]++)(*:594)|admin/categories/(?|delete/([^/]++)(*:637)|active/([^/]++)(*:660))))|/account/(?|([^/]++)(?|(*:694))|toggle\\-active/([^/]++)(*:726)))/?$}sDu',
+      0 => '{^(?|/homapage/details\\-product/([^/]++)(*:42)|/p(?|ro(?|duct(?|types/(?|([^/]++)(*:83)|add(*:93)|([^/]++)(?|(*:111))|product\\-type/active/([^/]++)(*:149))|/([^/]++)(?|(*:170)))|file/(?|([^/]++)(*:196)|update\\-password(*:220)))|ays/(?|([^/]++)(*:245)|add(*:256)|pays/([^/]++)/update\\-status/([^/]++)(*:301))|ost/([^/]++)(*:322))|/transports/(?|([^/]++)(?|(*:357))|transport/active/([^/]++)(*:391))|/suppliers/([^/]++)(?|(*:422))|/f(?|avorites/([^/]++)(*:453)|orgot/update/([^/]++)(*:482))|/orders/(?|([^/]++)(?|(*:513))|orders/active/([^/]++)(*:544))|/ca(?|rts/([^/]++)(*:571)|tegories/(?|edit\\-category/([^/]++)(*:614)|update\\-category/([^/]++)(*:647)|admin/categories/(?|delete/([^/]++)(*:690)|active/([^/]++)(*:713))))|/account/(?|([^/]++)(?|(*:747))|toggle\\-active/([^/]++)(*:779))|/([^/]++)(*:797)|/statistical(*:817)|/review(*:832))/?$}sDu',
     ),
     3 => 
     array (
@@ -1151,7 +1131,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      80 => 
+      83 => 
       array (
         0 => 
         array (
@@ -1174,7 +1154,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      90 => 
+      93 => 
       array (
         0 => 
         array (
@@ -1195,7 +1175,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      108 => 
+      111 => 
       array (
         0 => 
         array (
@@ -1236,7 +1216,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      146 => 
+      149 => 
       array (
         0 => 
         array (
@@ -1259,7 +1239,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      167 => 
+      170 => 
       array (
         0 => 
         array (
@@ -1320,7 +1300,50 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      192 => 
+      196 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'update-profile',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      220 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'update-password',
+          ),
+          1 => 
+          array (
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      245 => 
       array (
         0 => 
         array (
@@ -1343,7 +1366,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      203 => 
+      256 => 
       array (
         0 => 
         array (
@@ -1364,7 +1387,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      248 => 
+      301 => 
       array (
         0 => 
         array (
@@ -1388,7 +1411,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      269 => 
+      322 => 
       array (
         0 => 
         array (
@@ -1410,7 +1433,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      304 => 
+      357 => 
       array (
         0 => 
         array (
@@ -1471,7 +1494,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      338 => 
+      391 => 
       array (
         0 => 
         array (
@@ -1494,7 +1517,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      369 => 
+      422 => 
       array (
         0 => 
         array (
@@ -1555,7 +1578,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      400 => 
+      453 => 
       array (
         0 => 
         array (
@@ -1577,7 +1600,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      429 => 
+      482 => 
       array (
         0 => 
         array (
@@ -1600,7 +1623,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      460 => 
+      513 => 
       array (
         0 => 
         array (
@@ -1642,7 +1665,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      491 => 
+      544 => 
       array (
         0 => 
         array (
@@ -1665,7 +1688,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      518 => 
+      571 => 
       array (
         0 => 
         array (
@@ -1687,7 +1710,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      561 => 
+      614 => 
       array (
         0 => 
         array (
@@ -1710,7 +1733,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      594 => 
+      647 => 
       array (
         0 => 
         array (
@@ -1732,7 +1755,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      637 => 
+      690 => 
       array (
         0 => 
         array (
@@ -1754,7 +1777,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      660 => 
+      713 => 
       array (
         0 => 
         array (
@@ -1777,7 +1800,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      694 => 
+      747 => 
       array (
         0 => 
         array (
@@ -1838,7 +1861,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      726 => 
+      779 => 
       array (
         0 => 
         array (
@@ -1857,6 +1880,72 @@ app('router')->setCompiledRoutes(
           3 => NULL,
           4 => false,
           5 => true,
+          6 => NULL,
+        ),
+      ),
+      797 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'update-image',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      817 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'index-statistical',
+          ),
+          1 => 
+          array (
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      832 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'index-review',
+          ),
+          1 => 
+          array (
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
           6 => NULL,
         ),
         1 => 
@@ -2021,7 +2110,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::ldGumj4UXjJL6pFZ' => 
+    'generated::tMuDoSzMjWh4Tskj' => 
     array (
       'methods' => 
       array (
@@ -2044,7 +2133,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::ldGumj4UXjJL6pFZ',
+        'as' => 'generated::tMuDoSzMjWh4Tskj',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2060,7 +2149,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::5cRncufBajELymIJ' => 
+    'generated::xc7AMaErWJelxHY8' => 
     array (
       'methods' => 
       array (
@@ -2082,7 +2171,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::5cRncufBajELymIJ',
+        'as' => 'generated::xc7AMaErWJelxHY8',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5086,6 +5175,151 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'CheckMail',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'index-profile' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'profile',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\ProFileController@index',
+        'controller' => 'App\\Http\\Controllers\\ProFileController@index',
+        'namespace' => NULL,
+        'prefix' => '/profile',
+        'where' => 
+        array (
+        ),
+        'as' => 'index-profile',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'update-profile' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'profile/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\ProFileController@update',
+        'controller' => 'App\\Http\\Controllers\\ProFileController@update',
+        'namespace' => NULL,
+        'prefix' => '/profile',
+        'where' => 
+        array (
+        ),
+        'as' => 'update-profile',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'update-password' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'profile/update-password',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\ProFileController@updatePassword',
+        'controller' => 'App\\Http\\Controllers\\ProFileController@updatePassword',
+        'namespace' => NULL,
+        'prefix' => '/profile',
+        'where' => 
+        array (
+        ),
+        'as' => 'update-password',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'update-image' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => '{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\ProFileController@UpdateImage',
+        'controller' => 'App\\Http\\Controllers\\ProFileController@UpdateImage',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'update-image',
       ),
       'fallback' => false,
       'defaults' => 

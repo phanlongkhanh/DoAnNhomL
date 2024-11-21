@@ -23,6 +23,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\StatisticalController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ProFileController;
 
 
 
@@ -159,28 +160,36 @@ Route::prefix('post')->group(function () {
 
 //Danh Mục Bài Viết
 Route::prefix('category-post')->group(function () {
-    Route::get('/', [CategoryPostController::class,'ShowIndexCategoryPost'])->name('index-category-post');
-    Route::get('/create', [CategoryPostController::class,'ShowCreateCategoryPost'])->name('create-category-post');
+    Route::get('/', [CategoryPostController::class, 'ShowIndexCategoryPost'])->name('index-category-post');
+    Route::get('/create', [CategoryPostController::class, 'ShowCreateCategoryPost'])->name('create-category-post');
 });
 
 //Quên Mật Khẩu
 Route::prefix('forgot')->group(function () {
-   Route::get('/', [ForgotPassController::class, 'ShowIndexForgot'])->name('index-forgot');
-   Route::post('/', [ForgotPassController::class, 'sendResetLink'])->name('send-reset-link');
-   Route::get('/update/{token}', [ForgotPassController::class, 'ShowUpdatePasswordForgot'])->name('password.reset');
-   Route::post('/update', [ForgotPassController::class, 'resetPassword'])->name('password.update'); 
-   Route::get('/check', [ForgotPassController::class, 'ShowCheckMail'])->name('CheckMail');
+    Route::get('/', [ForgotPassController::class, 'ShowIndexForgot'])->name('index-forgot');
+    Route::post('/', [ForgotPassController::class, 'sendResetLink'])->name('send-reset-link');
+    Route::get('/update/{token}', [ForgotPassController::class, 'ShowUpdatePasswordForgot'])->name('password.reset');
+    Route::post('/update', [ForgotPassController::class, 'resetPassword'])->name('password.update');
+    Route::get('/check', [ForgotPassController::class, 'ShowCheckMail'])->name('CheckMail');
 });
+
+//Profile (Hồ Sơ Người Dùng)
+Route::prefix('profile')->group(function () {
+    Route::get('/', [ProFileController::class, 'index'])->name('index-profile');
+    Route::post('/{id}', [ProFileController::class, 'update'])->name('update-profile');
+    Route::post('/update-password', [ProFileController::class, 'updatePassword'])->name('update-password');
+});
+Route::post('/{id}', [ProFileController::class, 'UpdateImage'])->name('update-image');
 
 
 //Thông Kê Biểu Đồ
 Route::prefix('statistical')->group(function () {
-    Route::get('/', [StatisticalController::class,'ShowIndexStatistical'])->name('index-statistical');
+    Route::get('/', [StatisticalController::class, 'ShowIndexStatistical'])->name('index-statistical');
 });
 
 //Đánh Giá Sản Phẩm
 Route::prefix('review')->group(function () {
-    Route::get('/', [ReviewController::class,'ShowIndexReview'])->name('index-review');
+    Route::get('/', [ReviewController::class, 'ShowIndexReview'])->name('index-review');
 });
 
 
