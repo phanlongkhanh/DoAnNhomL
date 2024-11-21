@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Crypt;
+use App\Http\Controllers\AdminCategoryProductController;
 
 class AccountController extends Controller
 {
