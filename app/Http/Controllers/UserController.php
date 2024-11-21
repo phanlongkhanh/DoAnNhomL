@@ -38,7 +38,7 @@ class UserController extends Controller
     public function ShowUserCategory()
     {
         $users = Auth::check() ? Auth::user()->name : null;
-        $products = Product::paginate(9);
+        $products = Product::paginate(6);
         return view('User.category.index', compact('products','users'));
     }
 

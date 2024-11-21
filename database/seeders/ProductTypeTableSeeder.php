@@ -17,14 +17,14 @@ class ProductTypeTableSeeder extends Seeder
     {
         DB::table('product_types')->insert([
             'id' => 1,
-            'name' => 'Quần Thể Thao',
+            'name' => 'Quần',
             'description' => 'Quần Dành Cho Người hay vận động thường xuyên trong các buổi tập luyện',
             'created_at' => now(),      
         ]);
 
         DB::table('product_types')->insert([
             'id' => 2,
-            'name' => 'Áo Thể Thao',
+            'name' => 'Áo',
             'description' => 'Áo Dành Cho Người hay vận động thường xuyên trong các buổi tập luyện',   
             'created_at' => now(),          
         ]);
@@ -38,8 +38,8 @@ class ProductTypeTableSeeder extends Seeder
 
         DB::table('product_types')->insert([
             'id' => 4,
-            'name' => 'Áo Khoác Da Bò',
-            'description' => 'Áo Khoác Làm Từ Da Bò Cao Cấp',    
+            'name' => 'Áo Khoác Jane',
+            'description' => 'Áo Khoác Jane Cao Cấp',    
             'created_at' => now(),    
         ]);
     }
