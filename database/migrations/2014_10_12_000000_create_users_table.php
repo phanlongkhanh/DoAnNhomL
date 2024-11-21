@@ -17,6 +17,8 @@ return new class extends Migration {
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('phone');
+            $table->string('address')->default('Chưa cập nhật')->comment('địa chỉ'); // Địa chỉ mặc định
+            $table->string('image')->default('profile.jpg');
             $table->unsignedBigInteger('role_id');
             $table->rememberToken();
             $table->timestamps();
