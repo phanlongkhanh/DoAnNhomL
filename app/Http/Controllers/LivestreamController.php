@@ -9,6 +9,10 @@ use App\Models\Product;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 
 class LivestreamController extends Controller
 {
@@ -46,11 +50,20 @@ class LivestreamController extends Controller
         }
     }
 
-    public function detail($id)
+    public function detail($encryptedId)
     {
+        $livestreams = Livestream::find($encryptedId);
+        try {
+            $id = Crypt::decrypt($encryptedId);
+        } catch (DecryptException $e) {
+            return redirect()->route('live-index', ['id' => $encryptedId])->with('error', 'Không tìm thấy kênh Livestreams với ID này.');
+        }
+
         $livestreams = Livestream::findOrFail($id);
         $messages = Message::where('id_livestreams', $id)->get();
         $products = Product::take(5)->get();
+        // $products = Product::inRandomOrder()->take(5)->get();
+
 
         return view('User.live.view', compact('livestreams', 'messages', 'products', 'id'));
     }
@@ -89,8 +102,9 @@ class LivestreamController extends Controller
             'price' => $request->price,
             'total_price' => $total_price,
         ]);
+        $encryptedId = Crypt::encrypt($request->id_product);
 
-        return redirect()->route('detail-livestreams', ['id' => $request->id_product])->with('success', 'Sản phẩm đã được thêm vào giỏ hàng!');
+        return redirect()->route('detail-livestreams', ['id' => $encryptedId])->with('success', 'Sản phẩm đã được thêm vào giỏ hàng!');
     }
 
 }
