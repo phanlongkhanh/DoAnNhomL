@@ -199,4 +199,13 @@ class AccountController extends Controller
             return redirect()->route('index-account')->with('error', 'Có lỗi xảy ra khi cập nhật trạng thái tài khoản.');
         }
     }
+
+    public function BannedAccount($id)
+    {
+        $users = User::findOrFail($id);
+        $users->banned = !$users->banned;
+        $users->save();
+
+        return redirect()->route('index-account')->with('success', 'Bạn Đã Cập Nhật Trạng Thái Cho Người Dùng Thành Công');
+    }
 }

@@ -14,6 +14,7 @@ use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\Role;
 use App\Models\User;
+use Carbon\Carbon;
 
 class DashBoardController extends Controller
 {
@@ -45,7 +46,6 @@ class DashBoardController extends Controller
       $acountCount = User::count();
       return view('Admin.dashboard.dashboard', compact('pays', 'orderCount', 'productCount', 'acountCount'));
    }
-
 
    public function ShowViewDashBoard()
    {

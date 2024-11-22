@@ -60,6 +60,7 @@
                     {{ session('error') }}
                 </div>
             @endif
+
             @if (session('success'))
                 <div class="alert alert-success">
                     {{ session('success') }}
@@ -93,18 +94,6 @@
                 <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu"
                     required>
             </div>
-
-            @error('email')
-                <div class="alert alert-danger">
-                    {{ $message }}
-                </div>
-            @enderror
-
-            @error('password')
-                <div class="alert alert-danger">
-                    {{ $message }}
-                </div>
-            @enderror
 
             <button type="submit" class="btn btn-danger btn-block">Đăng Nhập</button>
         </form>

@@ -22,11 +22,18 @@ class ProFileController extends Controller
         $user = Auth::user();
 
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users,email,' . $user->id,
-            'phone' => 'nullable|string|max:15',
-            'address' => 'nullable|string|max:255',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048', // Kiểm tra ảnh hợp lệ
+            'name' => 'required|string|max:255|regex:/\S/',
+            'email' => 'required|email|regex:/\S/|max:50|unique:users,email,' . $user->id,
+            'phone' => [
+                'required',
+                'string',
+                'max:11',
+                'regex:/^0[0-9]{9,11}$/',
+                'not_regex:/^(0{10,12}|1{10,12}|2{10,12}|3{10,12}|4{10,12}|5{10,12}|6{10,12}|7{10,12}|8{10,12}|9{10,12})$/', // Không phải chuỗi số giống nhau
+                'regex:/^\S+$/',
+            ],
+            'address' => 'nullable|string|max:255|regex:/\S/',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
         ]);
 
         $user->name = $request->input('name');
@@ -51,6 +58,11 @@ class ProFileController extends Controller
     public function UpdateImage(Request $request)
     {
         $user = Auth::user();
+
+        if(!$user)
+        {
+            return view()->route('login')->with('error','Bạn Chưa đăng nhập');
+        }
 
         $request->validate([
             'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',

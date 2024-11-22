@@ -15,6 +15,7 @@ class CategoryTableSeeder extends Seeder
     public function run(): void
     {
         DB::table('categories')->insert([
+            'id' => 1,
             'user_id' => 2,
             'name' => 'Áo',
             'description' => 'Áo thun dành cho người thường xuyên vận động nhiều, thấm mồ hôi tốt',
@@ -23,6 +24,7 @@ class CategoryTableSeeder extends Seeder
         ]);
 
         DB::table('categories')->insert([
+            'id' => 2,
             'user_id' => 2,
             'name' => 'Quần',
             'description' => 'Quần được thiết kế tinh tế, mang lại cảm giác thoải mái cho người sủ dụng',
@@ -31,6 +33,7 @@ class CategoryTableSeeder extends Seeder
         ]);
 
         DB::table('categories')->insert([
+            'id' => 3,
             'user_id' => 2,
             'name' => 'Quần jane Cao Cấp',
             'description' => 'Quần được thiết kế tinh tế, mang lại cảm giác thoải mái cho người sủ dụng',
@@ -40,6 +43,7 @@ class CategoryTableSeeder extends Seeder
 
 
         DB::table('categories')->insert([
+            'id' => 4,
             'user_id' => 2,
             'name' => 'Áo Khoác jane',
             'description' => 'Áo được thiết kế tinh tế, mang lại cảm giác thoải mái cho người sủ dụng',

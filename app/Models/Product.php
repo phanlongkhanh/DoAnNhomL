@@ -38,7 +38,7 @@ class Product extends Model
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'id_category', 'id'); 
+        return $this->belongsTo(Category::class, 'id_category');
     }
 
     public function favorites()

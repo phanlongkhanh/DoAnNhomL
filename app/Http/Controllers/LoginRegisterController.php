@@ -15,47 +15,52 @@ class LoginRegisterController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            // Kiểm tra vai trò của người dùng
-            if (Auth::user()->isAdmin()) {
-                // Nếu là admin, chuyển hướng đến trang admin
-                return redirect('/admin-controller')->with('message','Đăng Nhập Thành Công !!!');
+            $user = Auth::user();
+
+            if ($user->banned == 0) {
+                Auth::logout();
+                return redirect()->back()
+                    ->withInput()
+                    ->withErrors(['error' => 'Tài khoản của bạn đã bị khóa. Vui lòng liên hệ quản trị viên.']);
+            }
+
+            if ($user->isAdmin()) {
+                return redirect('/admin-controller')->with('message', 'Đăng Nhập Thành Công !!!');
             } else {
-                // Nếu là user, chuyển hướng đến trang người dùng
-                return redirect()->route('index-homepage');
+                return redirect()->route('index-homepage')->with('message', 'Đăng Nhập Thành Công !!!');
             }
         }
-    
-        // Đăng nhập thất bại, hiển thị form đăng nhập lại với thông báo lỗi
+
         return redirect()->back()->withInput()->withErrors(['email' => 'Email hoặc mật khẩu không chính xác']);
     }
 
     function RegisterPage(Request $request)
     {
-  
-      $validator = Validator::make($request->all(), [
-        'name' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:users',
-        'password' => 'required|string|min:8|confirmed',
-        'phone' => 'required|string|max:15',
-    ]);
 
-    $roleId = $request->input('role_id', 2);
-   
-    if ($validator->fails()) {
-        return redirect()->route('register')
-                    ->withErrors($validator)
-                    ->withInput();
-    }
-   
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+            'phone' => 'required|string|max:15',
+        ]);
+
+        $roleId = $request->input('role_id', 2);
+
+        if ($validator->fails()) {
+            return redirect()->route('register')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         User::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'password' => Hash::make($request->password),
-        'phone' => $request->phone, 
-        'role_id' => $roleId,
-    ]);
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'phone' => $request->phone,
+            'role_id' => $roleId,
+        ]);
 
-    return redirect('/')->with('success', 'Registration successful. Please log in.');
+        return redirect('/')->with('success', 'Registration successful. Please log in.');
     }
 
     //viết hàm logout

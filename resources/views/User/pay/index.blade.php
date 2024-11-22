@@ -15,6 +15,16 @@
     <link rel="stylesheet" href="{{ asset('css/responsive1.css') }}">
     <link rel="shortcut icon" href="{{ asset('homepage-images/favicon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/pay.css') }}">
+    <style>
+          .table td .wrap-text {
+            word-wrap: break-word;
+            /* Tự động ngắt từ */
+            word-break: break-word;
+            /* Ngắt từ theo dòng */
+            max-width: 150px;
+            /* Giới hạn chiều rộng */
+        }
+    </style>
 </head>
 
 <body>
@@ -92,7 +102,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="address" class="form-label">Địa Chỉ Giao Hàng</label>
-                            <input type="text" class="form-control" placeholder="Nhập vào địa chỉ giao hàng"
+                            <input type="text" class="form-control" value="{{ $user->address }}" placeholder="Nhập vào địa chỉ giao hàng"
                                 id="address" name="address" required>
                         </div>
                     @else
@@ -129,8 +139,8 @@
 
                     <br>
                     <div class="mb-3">
-                        <label for="description" class="form-label fw-bold">Mong Muốn</label>
-                        <input type="text" class="form-control" placeholder="Nhập vào mong muốn ?"
+                        <label for="description" class="form-label fw-bold">Yêu Cầu</label>
+                        <input type="text" class="form-control" placeholder="Nhập vào yêu cầu của bạn ?"
                             id="description" name="description" required>
                     </div>
                 </div>
@@ -149,15 +159,18 @@
                 <tbody>
                     @php
                         $tong = 0;
-                        $id_cart = []; // Khởi tạo mảng để lưu id_cart
+                        $id_cart = [];
                     @endphp
                     @if (isset($carts) && count($carts) > 0)
                         @foreach ($carts as $item)
                             @php
-                                $tong += $item->total_price; // Tính tổng tiền
+                                $tong += $item->total_price;
                             @endphp
                             <tr>
-                                <td class="text-danger h5">{{ $item->product->name ?? 'Tên sản phẩm không có' }}</td>
+                                <td class="text-danger h5">
+                                    <span
+                                        class="wrap-text">{{ $item->product->name ?? 'Tên sản phẩm không có' }}</span>
+                                </td>
                                 <td class="price">{{ number_format($item->price, 0, ',', '.') ?? '0' }} VNĐ</td>
                                 <td>{{ $item->amount }}</td>
                                 <td class="total-price">{{ number_format($item->total_price, 0, ',', '.') ?? '0' }}
