@@ -21,14 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
         });
     }
-    /**
-     * Reverse the migrations.
-     */
-    // public function down(): void
-    // {
-    //     Schema::dropIfExists('categories');
-    // }
-
+   
     public function down()
     {
         Schema::table('categories', function (Blueprint $table) {

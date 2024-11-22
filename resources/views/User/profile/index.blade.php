@@ -80,7 +80,7 @@
         <div class="row">
             @if ($users)
                 <div class="col-md-4 text-center">
-                    <img src="{{ asset('user-image/' . $users->image) }}" alt="Profile Image"
+                    <img src="{{ asset('user-image/' . $users->image) }}" alt="Bạn Chưa Có Ảnh Đại Diện !!!!"
                         class="img-fluid rounded-circle mb-3" style="width: 200px;">
                     <h4 class="text-danger">{{ $users->name }}</h4>
                     <p>Email: {{ $users->email }}</p>
@@ -131,7 +131,7 @@
             <div class="col-md-8">
                 <!-- Form đổi mật khẩu -->
                 <h3 class="mt-5">Đổi Mật Khẩu</h3>
-                <form action="{{ route('update-password') }}" method="POST">
+                <form action="{{ route('update-password', ['id' => $users->id]) }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="current_password" class="form-label">Mật khẩu hiện tại</label>

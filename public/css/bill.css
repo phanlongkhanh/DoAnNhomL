@@ -1,0 +1,57 @@
+/* Định dạng Hóa Đơn */
+.invoice-header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.invoice-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.invoice-info, .order-info {
+    margin-top: 20px;
+}
+
+.invoice-info p, .order-info p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.table th, .table td {
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.table {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-bordered {
+    border: 1px solid #ddd;
+}
+
+.table-bordered th, .table-bordered td {
+    border: 1px solid #ddd;
+}
+
+.total-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: green;
+    margin-top: 20px;
+}
+
+/* Footer */
+.footer_section {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}

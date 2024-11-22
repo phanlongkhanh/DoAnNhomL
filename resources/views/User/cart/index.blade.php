@@ -29,14 +29,23 @@
             text-align: center;
             /* Căn giữa nội dung */
         }
+
+        .table td .wrap-text {
+            word-wrap: break-word;
+            /* Tự động ngắt từ */
+            word-break: break-word;
+            /* Ngắt từ theo dòng */
+            max-width: 150px;
+            /* Giới hạn chiều rộng */
+        }
     </style>
 </head>
 
 <body>
     <!-- Header -->
-       <header class="header_section bg-light py-3">
+    <header class="header_section bg-light py-3">
         <nav class="navbar navbar-expand-lg navbar-light container">
-            <a class="navbar-brand text-danger" href="{{route('index-homepage')}}">
+            <a class="navbar-brand text-danger" href="{{ route('index-homepage') }}">
                 <h3 style="margin-right: 40px">Pink Store</h3>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -44,14 +53,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="{{route('index-homepage')}}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="{{route('category-product')}}">Danh Mục</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('index-favorites')}}">Favorite</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('index-post-user')}}">Post</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('view-pays')}}">Giao Hàng</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('index-homepage') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{ route('category-product') }}">Danh Mục</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('index-favorites') }}">Favorite</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('index-post-user') }}">Post</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('view-pays') }}">Giao Hàng</a></li>
                 </ul>
                 <div class="d-flex">
-                    <a href="{{route('index-cart')}}" class="btn btn-outline-danger me-2"><i
+                    <a href="{{ route('index-cart') }}" class="btn btn-outline-danger me-2"><i
                             class="fas fa-shopping-bag"></i></a>
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search">
@@ -81,7 +91,7 @@
                             <span></span>
                         </a>
                     @endif
-            </div>
+                </div>
         </nav>
     </header>
 
@@ -91,11 +101,11 @@
         </div>
     @endif
 
-    @if(Session::has('error'))
-    <div class="alert alert-danger h3 text-center">
-        {{ Session::get('error') }}
-    </div>
-@endif
+    @if (Session::has('error'))
+        <div class="alert alert-danger h3 text-center">
+            {{ Session::get('error') }}
+        </div>
+    @endif
 
     <!-- Cart Section -->
     <div class="container my-5">
@@ -119,7 +129,9 @@
                                 <img src="{{ asset('images/' . $item->image) }}" style="height: 200px"
                                     alt="Tên Sản Phẩm" class="img-fluid">
                             </td>
-                            <td class="text-danger h5">{{ $item->product->name}}</td>
+                            <td class="text-danger h5">
+                                <span class="wrap-text">{{ $item->product->name }}</span>
+                            </td>
                             <td class="price">{{ number_format($item->price, 0, ',', '.') }} VNĐ</td>
                             <td>
                                 <div class="d-flex align-items-center justify-content-center">
@@ -155,7 +167,8 @@
             @endphp
         @endforeach
         <div class="text-center">
-            <h5 class="me-3">Tổng Tiền: <span id="totalPrice">{{ number_format($tong, 0, ',', '.') }} VNĐ</span></h5>
+            <h5 class="me-3">Tổng Tiền: <span id="totalPrice">{{ number_format($tong, 0, ',', '.') }} VNĐ</span>
+            </h5>
             @if (isset($carts) && count($carts) > 0)
                 <a href="{{ route('edit-pays', ['id' => Crypt::encrypt($carts[0]->id)]) }}">
                     <button class="btn btn-success">Thanh Toán</button>
@@ -181,7 +194,7 @@
                 <i class="fas fa-shopping-cart"></i>
                 <p style="margin: 0; font-size: 12px;">Cart</p>
             </a>
-            <a href="{{route('index-profile')}}" class="text-white text-center">
+            <a href="{{ route('index-profile') }}" class="text-white text-center">
                 <i class="fas fa-user"></i>
                 <p style="margin: 0; font-size: 12px;">Profile</p>
             </a>

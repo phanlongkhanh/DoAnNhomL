@@ -24,6 +24,8 @@ use App\Http\Controllers\PayController;
 use App\Http\Controllers\StatisticalController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ProFileController;
+use App\Http\Controllers\BillController;
+
 
 
 
@@ -59,7 +61,7 @@ Route::prefix('producttypes')->group(function () {
     Route::POST('/add', [ProductTypeController::class, 'AddProductType'])->name('add-producttypes');
     Route::put('/{id}', [ProductTypeController::class, 'UpdateProductType'])->name('update-producttypes');
     Route::delete('/{id}', [ProductTypeController::class, 'RemoveProductType'])->name('remove-producttypes');
-    Route::get('product-type/active/{id}', [ProductTypeController::class, 'ActiveProductType'])->name('active-product-type');
+    Route::get('product-type/active/{id}', action: [ProductTypeController::class, 'ActiveProductType'])->name('active-product-type');
 });
 
 //Đơn Vị Vận Chuyển
@@ -146,7 +148,7 @@ Route::prefix('account')->group(function () {
     Route::get('/{id}', [AccountController::class, 'edit'])->name('edit-account');
     Route::post('/{id}', [AccountController::class, 'update'])->name('update-account');
     Route::delete('/{id}', [AccountController::class, 'destroy'])->name('remove-account');
-    Route::post('/toggle-active/{id}', [AccountController::class, 'toggleActive'])->name('toggle-active');
+    Route::get('Account/banned/{id}', action: [AccountController::class, 'BannedAccount'])->name('banned-account');
 });
 
 //Bài Viết Admin
@@ -177,9 +179,13 @@ Route::prefix('forgot')->group(function () {
 Route::prefix('profile')->group(function () {
     Route::get('/', [ProFileController::class, 'index'])->name('index-profile');
     Route::post('/{id}', [ProFileController::class, 'update'])->name('update-profile');
-    Route::post('/update-password', [ProFileController::class, 'updatePassword'])->name('update-password');
 });
-Route::post('/{id}', [ProFileController::class, 'UpdateImage'])->name('update-image');
+
+//Profile Tính Năng (Update PassWord Và Cập Nhật Hình Ảnh)
+Route::prefix('profile-controlelr')->group(function () {
+    Route::post('/update-password/{id}', [ProFileController::class, 'updatePassword'])->name('update-password');
+    Route::post('/{id}', action: [ProFileController::class, 'UpdateImage'])->name('update-image');
+});
 
 
 //Thông Kê Biểu Đồ
@@ -192,4 +198,9 @@ Route::prefix('review')->group(function () {
     Route::get('/', [ReviewController::class, 'ShowIndexReview'])->name('index-review');
 });
 
+
+//Đánh Giá Sản Phẩm
+Route::prefix('bill')->group(function () {
+    Route::get('/', [BillController::class, 'index'])->name('index-bill');
+});
 

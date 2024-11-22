@@ -73,7 +73,6 @@
                                 <thead>
                                     <tr>
                                         <th>Order ID</th>
-
                                         <th>Account</th>
                                         <th>Money</th>
                                         <th>Phương thức VC</th>
@@ -127,7 +126,9 @@
 
         </div>
     </section>
+    
 @endsection
+
 
 @section('script')
     <link rel="stylesheet" href="https://code.highcharts.com/css/highcharts.css">

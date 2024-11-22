@@ -13,7 +13,7 @@
     </section>
 
     <!-- Hiển thị thông báo thành công -->
-    @if(session()->has('success'))
+    @if (session()->has('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
@@ -22,7 +22,7 @@
             {{ session('error') }}
         </div>
     @endif
-    
+
     <!-- Main content -->
     <section class="content">
         <!-- Small boxes (Stat box) -->
@@ -30,7 +30,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title"><a href="{{route('create-account')}}" class="btn btn-primary">Thêm mới </a>
+                        <h3 class="box-title"><a href="{{ route('create-account') }}" class="btn btn-primary">Thêm mới </a>
                         </h3>
                         <div class="box-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
@@ -80,14 +80,18 @@
                                             <td>{{ $user->role->name }}</td>
 
                                             <td>
-                                                <form action="{{ route('toggle-active', $user->id) }}" method="POST" style="display: inline;">
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-xs {{ $user->checkactive ? 'btn-danger' : 'btn-success' }}">
-                                                        {{ $user->checkactive ? 'Lock' : 'Unlock' }}
-                                                    </button>
-                                                </form>
+                                                @if ($user->isAdmin())
+                                                   
+                                                @else
+                                                    @if ($user->banned == 1)
+                                                        <a href="{{ route('banned-account', $user->id) }}"
+                                                            class="label label-danger status-active">Lock</a>
+                                                    @else
+                                                        <a href="{{ route('banned-account', $user->id) }}"
+                                                            class="label label-info status-active">Unlock</a>
+                                                    @endif
+                                                @endif
                                             </td>
-
                                             {{--                                        ngay them --}}
                                             <td>{{ $user->created_at }}</td>
                                             {{--                                        ngay cap nhat --}}
@@ -96,14 +100,15 @@
                                             {{-- <td>{{ $item->admin->name }}</td> --}}
                                             {{--                                        hanh dong --}}
                                             <td>
-                                               
+
                                                 <a href="{{ route('edit-account', Crypt::encrypt($user->id)) }}"
                                                     class="btn btn-xs btn-primary"
                                                     onclick="return confirm('Bạn chắc chắn là sửa chứ')">
-                                                     <i class="fa fa-pencil"></i> Edit
-                                                 </a>   
+                                                    <i class="fa fa-pencil"></i> Edit
+                                                </a>
 
-                                                <form action="{{ route('remove-account', Crypt::encrypt($user->id)) }}" method="POST" style="display:inline;">
+                                                <form action="{{ route('remove-account', Crypt::encrypt($user->id)) }}"
+                                                    method="POST" style="display:inline;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-xs btn-danger"
@@ -130,14 +135,14 @@
                                 @else
                                     <li><a href="{{ $users->previousPageUrl() }}" rel="prev">&laquo;</a></li>
                                 @endif
-                        
+
                                 <!-- Hiển thị số trang -->
                                 @for ($i = 1; $i <= $users->lastPage(); $i++)
                                     <li class="{{ $i == $users->currentPage() ? 'active' : '' }}">
                                         <a href="{{ $users->url($i) }}">{{ $i }}</a>
                                     </li>
                                 @endfor
-                        
+
                                 <!-- Hiển thị link đến trang tiếp theo -->
                                 @if ($users->hasMorePages())
                                     <li><a href="{{ $users->nextPageUrl() }}" rel="next">&raquo;</a></li>
@@ -145,7 +150,7 @@
                                     <li class="disabled"><span>&raquo;</span></li>
                                 @endif
                             </ul>
-                        </div>                        
+                        </div>
 
                     </div>
 
