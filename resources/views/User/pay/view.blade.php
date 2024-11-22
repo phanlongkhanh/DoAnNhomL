@@ -90,7 +90,7 @@
                     <li class="nav-item"><a class="nav-link active" href="{{ route('category-product') }}">Danh Mục</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('index-favorites') }}">Favorite</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Post</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('index-post-user') }}">Post</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('view-pays') }}">Giao Hàng</a></li>
                 </ul>
                 <div class="d-flex">
@@ -120,7 +120,6 @@
                         </a>
                     @else
                         <a href="#">
-
                             <span></span>
                         </a>
                     @endif
@@ -205,6 +204,10 @@
             <a href="{{ route('index-cart') }}" class="text-white text-center">
                 <i class="fas fa-shopping-cart"></i>
                 <p style="margin: 0; font-size: 12px;">Cart</p>
+            </a>
+            <a href="{{route('live-index')}}" class="text-white text-center">
+                <i class="fas fa-shopping-cart"></i>
+                <p style="margin: 0; font-size: 12px;">Live</p>
             </a>
             <a href="{{route('index-profile')}}" class="text-white text-center">
                 <i class="fas fa-user"></i>

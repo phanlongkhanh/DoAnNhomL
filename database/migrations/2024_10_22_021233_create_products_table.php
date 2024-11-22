@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -18,12 +17,13 @@ return new class extends Migration
             $table->text('description');
             $table->unsignedBigInteger('discount')->comment('giảm giá');
             $table->string('image');
+            $table->unsignedBigInteger('id_livestreams')->nullable()->comment('id buổi live streams');
             $table->unsignedBigInteger('id_category')->comment('danh mục sản phẩm');
             $table->unsignedBigInteger('id_producttype')->comment('loại sản phẩm');
             $table->unsignedBigInteger('id_suppliers')->comment('loại sản phẩm');
             $table->boolean('checkactive')->default(true)->comment('kiểm tra hoạt động');
             $table->unsignedBigInteger('amount')->comment('số lượng');
-            $table->unsignedBigInteger('id')->comment('người bán hàng'); 
+            $table->unsignedBigInteger('id')->comment('người bán hàng');
             $table->timestamps();
         });
     }

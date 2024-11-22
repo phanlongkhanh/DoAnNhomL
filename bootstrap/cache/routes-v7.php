@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::CTFEnMJIIukXKNZE',
+            '_route' => 'generated::hftcZo0CoUB7b1EQ',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::TS5ayUuXufBlIF5N',
+            '_route' => 'generated::Rb9CIPGODgHOPygH',
           ),
           1 => NULL,
           2 => 
@@ -1141,13 +1141,92 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/bill' => 
+      '/live' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'index-bill',
+            '_route' => 'index-live',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/live/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'create-live',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/live/add' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'add-live',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/livestreams' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'live-index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/livestreams/livestreams' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'list-livestreams',
           ),
           1 => NULL,
           2 => 
@@ -1164,17 +1243,17 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/homepage/details\\-product/([^/]++)(*:42)|/p(?|ro(?|duct(?|types/(?|([^/]++)(*:83)|add(*:93)|([^/]++)(?|(*:111))|product\\-type/active/([^/]++)(*:149))|/([^/]++)(?|(*:170)))|file(?|/([^/]++)(*:196)|\\-controlelr/(?|update\\-password/([^/]++)(*:245)|([^/]++)(*:261))))|ays/(?|([^/]++)(*:287)|add(*:298)|pays/([^/]++)/update\\-status/([^/]++)(*:343))|ost/([^/]++)(*:364))|/transports/(?|([^/]++)(?|(*:399))|transport/active/([^/]++)(*:433))|/suppliers/([^/]++)(?|(*:464))|/f(?|avorites/([^/]++)(*:495)|orgot/update/([^/]++)(*:524))|/orders/(?|([^/]++)(?|(*:555))|orders/active/([^/]++)(*:586))|/ca(?|rts/([^/]++)(*:613)|tegories/(?|edit\\-category/([^/]++)(*:656)|update\\-category/([^/]++)(*:689)|admin/categories/(?|delete/([^/]++)(*:732)|active/([^/]++)(*:755))))|/account/(?|([^/]++)(?|(*:789))|Account/banned/([^/]++)(*:821)))/?$}sDu',
+      0 => '{^(?|/a(?|pi/([^/]++)/products(*:32)|ccount/(?|([^/]++)(?|(*:60))|Account/banned/([^/]++)(*:91)))|/homepage/details\\-product/([^/]++)(*:135)|/p(?|ro(?|duct(?|types/(?|([^/]++)(*:177)|add(*:188)|([^/]++)(?|(*:207))|product\\-type/active/([^/]++)(*:245))|/([^/]++)(?|(*:266)))|file(?|/([^/]++)(*:292)|\\-controlelr/(?|update\\-password/([^/]++)(*:341)|([^/]++)(*:357))))|ays/(?|([^/]++)(*:383)|add(*:394)|pays/([^/]++)/update\\-status/([^/]++)(*:439))|ost/([^/]++)(*:460))|/transports/(?|([^/]++)(?|(*:495))|transport/active/([^/]++)(*:529))|/suppliers/([^/]++)(?|(*:560))|/f(?|avorites/([^/]++)(*:591)|orgot/update/([^/]++)(*:620))|/orders/(?|([^/]++)(?|(*:651))|orders/active/([^/]++)(*:682))|/c(?|a(?|rts/([^/]++)(*:712)|tegories/(?|edit\\-category/([^/]++)(*:755)|update\\-category/([^/]++)(*:788)|admin/categories/(?|delete/([^/]++)(*:831)|active/([^/]++)(*:854))))|hat/chat/([^/]++)(*:882))|/live(?|/([^/]++)(*:908)|streams/(?|([^/]++)(*:935)|add(*:946))))/?$}sDu',
     ),
     3 => 
     array (
-      42 => 
+      32 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'details-products',
+            '_route' => 'livestream.products',
           ),
           1 => 
           array (
@@ -1184,50 +1263,6 @@ app('router')->setCompiledRoutes(
           array (
             'GET' => 0,
             'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      83 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'edit-producttypes',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      93 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'add-producttypes',
-          ),
-          1 => 
-          array (
-          ),
-          2 => 
-          array (
-            'POST' => 0,
           ),
           3 => NULL,
           4 => false,
@@ -1235,655 +1270,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      111 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'update-producttypes',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'remove-producttypes',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      149 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'active-product-type',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      170 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'products.edit',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'products.update',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'products.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      196 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'update-profile',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      245 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'update-password',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      261 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'update-image',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      287 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'edit-pays',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      298 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'add-pays',
-          ),
-          1 => 
-          array (
-          ),
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      343 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'pays.updateStatus',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-            1 => 'status',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      364 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'delete-posts',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      399 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'edit-transports',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'update-transports',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'remove-transports',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      433 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'transport-active',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      464 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'edit-suppliers',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'update-suppliers',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'remove-suppliers',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      495 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'delete-favorites',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      524 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'password.reset',
-          ),
-          1 => 
-          array (
-            0 => 'token',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      555 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'edit-orders',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'delete-orders',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      586 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'active-orders',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      613 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'carts-remove',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      656 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'editcategory',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      689 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'update-category',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      732 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'deletecategory',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      755 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'activecategory',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      789 => 
+      60 => 
       array (
         0 => 
         array (
@@ -1944,7 +1331,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      821 => 
+      91 => 
       array (
         0 => 
         array (
@@ -1964,6 +1351,809 @@ app('router')->setCompiledRoutes(
           3 => NULL,
           4 => false,
           5 => true,
+          6 => NULL,
+        ),
+      ),
+      135 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'details-products',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      177 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'edit-producttypes',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      188 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'add-producttypes',
+          ),
+          1 => 
+          array (
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      207 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'update-producttypes',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'remove-producttypes',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      245 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'active-product-type',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      266 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'products.edit',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'products.update',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'products.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      292 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'update-profile',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      341 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'update-password',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      357 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'update-image',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      383 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'edit-pays',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      394 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'add-pays',
+          ),
+          1 => 
+          array (
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      439 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'pays.updateStatus',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+            1 => 'status',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      460 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'delete-posts',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      495 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'edit-transports',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'update-transports',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'remove-transports',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      529 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'transport-active',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      560 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'edit-suppliers',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'update-suppliers',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'remove-suppliers',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      591 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'delete-favorites',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      620 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'password.reset',
+          ),
+          1 => 
+          array (
+            0 => 'token',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      651 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'edit-orders',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'delete-orders',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      682 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'active-orders',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      712 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'carts-remove',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      755 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'editcategory',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      788 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'update-category',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      831 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'deletecategory',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      854 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'activecategory',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      882 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'chat.send',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      908 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'destroy-live',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      935 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'detail-livestreams',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      946 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'add-livestreams',
+          ),
+          1 => 
+          array (
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
           6 => NULL,
         ),
         1 => 
@@ -2128,7 +2318,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::CTFEnMJIIukXKNZE' => 
+    'generated::hftcZo0CoUB7b1EQ' => 
     array (
       'methods' => 
       array (
@@ -2151,7 +2341,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::CTFEnMJIIukXKNZE',
+        'as' => 'generated::hftcZo0CoUB7b1EQ',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2167,7 +2357,44 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::TS5ayUuXufBlIF5N' => 
+    'livestream.products' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'api/{id}/products',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\LivestreamController@getNewProducts',
+        'controller' => 'App\\Http\\Controllers\\LivestreamController@getNewProducts',
+        'namespace' => NULL,
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+        'as' => 'livestream.products',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::Rb9CIPGODgHOPygH' => 
     array (
       'methods' => 
       array (
@@ -2189,7 +2416,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::TS5ayUuXufBlIF5N',
+        'as' => 'generated::Rb9CIPGODgHOPygH',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5428,28 +5655,320 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'index-bill' => 
+    'index-live' => 
     array (
       'methods' => 
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'bill',
+      'uri' => 'live',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'web',
         ),
-        'uses' => 'App\\Http\\Controllers\\BillController@index',
-        'controller' => 'App\\Http\\Controllers\\BillController@index',
+        'uses' => 'App\\Http\\Controllers\\LivestreamController@index',
+        'controller' => 'App\\Http\\Controllers\\LivestreamController@index',
         'namespace' => NULL,
-        'prefix' => '/bill',
+        'prefix' => '/live',
         'where' => 
         array (
         ),
-        'as' => 'index-bill',
+        'as' => 'index-live',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'create-live' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'live/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\LivestreamController@create',
+        'controller' => 'App\\Http\\Controllers\\LivestreamController@create',
+        'namespace' => NULL,
+        'prefix' => '/live',
+        'where' => 
+        array (
+        ),
+        'as' => 'create-live',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'add-live' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'live/add',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\LivestreamController@store',
+        'controller' => 'App\\Http\\Controllers\\LivestreamController@store',
+        'namespace' => NULL,
+        'prefix' => '/live',
+        'where' => 
+        array (
+        ),
+        'as' => 'add-live',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'destroy-live' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'live/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\LivestreamController@destroy',
+        'controller' => 'App\\Http\\Controllers\\LivestreamController@destroy',
+        'namespace' => NULL,
+        'prefix' => '/live',
+        'where' => 
+        array (
+        ),
+        'as' => 'destroy-live',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'live-index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'livestreams',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\UserController@ShowLiveStream',
+        'controller' => 'App\\Http\\Controllers\\UserController@ShowLiveStream',
+        'namespace' => NULL,
+        'prefix' => '/livestreams',
+        'where' => 
+        array (
+        ),
+        'as' => 'live-index',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'list-livestreams' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'livestreams/livestreams',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\LivestreamController@list',
+        'controller' => 'App\\Http\\Controllers\\LivestreamController@list',
+        'namespace' => NULL,
+        'prefix' => '/livestreams',
+        'where' => 
+        array (
+        ),
+        'as' => 'list-livestreams',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'detail-livestreams' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'livestreams/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\LivestreamController@detail',
+        'controller' => 'App\\Http\\Controllers\\LivestreamController@detail',
+        'namespace' => NULL,
+        'prefix' => '/livestreams',
+        'where' => 
+        array (
+        ),
+        'as' => 'detail-livestreams',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'add-livestreams' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'livestreams/add',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\LivestreamController@AddToCartLiveStreams',
+        'controller' => 'App\\Http\\Controllers\\LivestreamController@AddToCartLiveStreams',
+        'namespace' => NULL,
+        'prefix' => '/livestreams',
+        'where' => 
+        array (
+        ),
+        'as' => 'add-livestreams',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'chat.send' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'chat/chat/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\ChatController@send',
+        'controller' => 'App\\Http\\Controllers\\ChatController@send',
+        'namespace' => NULL,
+        'prefix' => '/chat',
+        'where' => 
+        array (
+        ),
+        'as' => 'chat.send',
       ),
       'fallback' => false,
       'defaults' => 

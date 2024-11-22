@@ -18,6 +18,7 @@ class Product extends Model
         'description',
         'discount',
         'image',
+        'id_livestreams',
         'id_category',
         'id_producttype',
         'id_suppliers',
@@ -30,7 +31,11 @@ class Product extends Model
         'list_images' => 'array',
     ];
 
-   
+    public function livestream()
+    {
+        return $this->belongsTo(Livestream::class, 'id_livestreams');
+    }
+
     public function carts()
     {
         return $this->hasMany(Cart::class, 'id_product', 'id_product');

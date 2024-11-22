@@ -179,6 +179,10 @@
                 <i class="fas fa-shopping-cart"></i>
                 <p style="margin: 0; font-size: 12px;">Cart</p>
             </a>
+            <a href="{{route('live-index')}}" class="text-white text-center">
+                <i class="fas fa-shopping-cart"></i>
+                <p style="margin: 0; font-size: 12px;">Live</p>
+            </a>
             <a href="{{route('index-profile')}}" class="text-white text-center">
                 <i class="fas fa-user"></i>
                 <p style="margin: 0; font-size: 12px;">Profile</p>

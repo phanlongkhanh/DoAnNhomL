@@ -24,8 +24,8 @@ use App\Http\Controllers\PayController;
 use App\Http\Controllers\StatisticalController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ProFileController;
-use App\Http\Controllers\BillController;
-
+use App\Http\Controllers\LivestreamController;
+use App\Http\Controllers\ChatController;
 
 
 
@@ -199,8 +199,26 @@ Route::prefix('review')->group(function () {
 });
 
 
-//Đánh Giá Sản Phẩm
-Route::prefix('bill')->group(function () {
-    Route::get('/', [BillController::class, 'index'])->name('index-bill');
+//LiveStream Admin
+Route::prefix('live')->group(function () {
+    Route::get('/', [LivestreamController::class, 'index'])->name('index-live');
+    Route::get('/create', [LivestreamController::class, 'create'])->name('create-live');
+    Route::post('/add', [LivestreamController::class, 'store'])->name('add-live');
+    Route::delete('/{id}', [LivestreamController::class, 'destroy'])->name('destroy-live');
 });
+
+//Live Người Dùng
+Route::prefix('livestreams')->group(function () {
+    Route::get('/', [UserController::class, 'ShowLiveStream'])->name('live-index');
+    Route::get('/livestreams', [LivestreamController::class, 'list'])->name('list-livestreams');
+    Route::get('/{id}', [LivestreamController::class, 'detail'])->name('detail-livestreams');
+    Route::post('/add', [LivestreamController::class, 'AddToCartLiveStreams'])->name('add-livestreams');
+});
+
+
+//Live Người Dùng
+Route::prefix('chat')->group(function () {
+    Route::post('/chat/{id}', [ChatController::class, 'send'])->name('chat.send');
+});
+
 
