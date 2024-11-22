@@ -69,6 +69,17 @@
         </nav>
     </header>
 
+    @if (Session::has('success'))
+        <div class="alert alert-success">
+            {{ Session::get('success') }}
+        </div>
+    @endif
+
+    @if (Session::has('error'))
+        <div class="alert alert-danger">
+            {{ Session::get('error') }}
+        </div>
+    @endif
 
     <body>
         <div class="container my-5">
@@ -77,12 +88,13 @@
                 @foreach ($livestreams as $livestream)
                     <div class="col-md-4 mb-4">
                         <div class="card">
-                            <iframe width="100%" height="100" src="{{ $livestream->video_url }}"
-                                frameborder="0" allowfullscreen></iframe>
+                            <iframe width="100%" height="100" src="{{ $livestream->video_url }}" frameborder="0"
+                                allowfullscreen></iframe>
                             <div class="card-body">
                                 <h5 class="card-title">{{ $livestream->title }}</h5>
                                 <p class="card-text">{{ Str::limit($livestream->description, 100) }}</p>
-                                <a href="{{ route('detail-livestreams', $livestream->id) }}" class="btn btn-danger">Xem Chi Tiết</a>
+                                <a href="{{ route('detail-livestreams', ['id' => Crypt::encrypt($livestream->id)]) }}"
+                                    class="btn btn-danger">Xem Chi Tiết</a>
                             </div>
                         </div>
                     </div>

@@ -165,7 +165,14 @@
                             <i class="fa fa-dashboard"></i> <span>Bảng điều khiển</span>
                         </a>
                     </li>
+                   
                     
+                    <li class="<?php echo e(Request::is('admin-datn/article*') ? 'active' : ''); ?>">
+                        <a href="<?php echo e(route('index-live')); ?>">
+                            <i class="fa fa-camera"></i> <span>Live Stream</span>
+                        </a>
+                    </li>
+                   
 
                     <li class="<?php echo e(Request::is('admin-datn/menu*') ? 'active' : ''); ?>">
                         <a href="<?php echo e(route('index-account')); ?>">
@@ -223,7 +230,6 @@
                             <i class="fa fa-history"></i> <span>Danh Mục Bài Viết</span>
                         </a>
                     </li>
-
 
 
 

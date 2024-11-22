@@ -121,7 +121,6 @@ class ProductTypeController extends Controller
     }
 
 
-
     // Kiểm Tra Trạng Thái
     public function ActiveProductType($id)
     {
