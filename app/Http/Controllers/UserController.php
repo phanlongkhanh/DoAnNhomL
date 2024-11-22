@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Livestream;
 
 class UserController extends Controller
 {
@@ -60,4 +61,9 @@ class UserController extends Controller
         return view('User.crud_user.homepage', compact('products'));
     }
 
+    public function ShowLiveStream(){
+        $livestreams = Livestream::all();
+        return view('User.live.index', compact('livestreams'));
+    }
+    
 }

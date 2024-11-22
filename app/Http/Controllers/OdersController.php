@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Pay;
+use App\Models\User;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Suppliers;
@@ -40,10 +41,22 @@ class OdersController extends Controller
         if (!$userId) {
             return redirect('login')->with('error', 'Bạn cần đăng nhập để xóa đơn hàng.');
         }
-        $pay = Pay::where('id', $payId)->where('id_user', $userId)->first();
-        if (!$pay) {
-            return redirect()->back()->with('error', 'Đơn hàng không tồn tại hoặc không thuộc quyền của bạn.');
+
+        $user = User::find($userId);
+        $isAdmin = $user && $user->role_id == 1; 
+
+        if (!$isAdmin) {
+            $pay = Pay::where('id', $payId)->where('id_user', $userId)->first();
+            if (!$pay) {
+                return redirect()->back()->with('error', 'Đơn hàng không tồn tại hoặc không thuộc quyền của bạn.');
+            }
+        } else {
+            $pay = Pay::where('id', $payId)->first();
+            if (!$pay) {
+                return redirect()->back()->with('error', 'Đơn hàng không tồn tại.');
+            }
         }
+
         try {
             $pay->delete();
             return redirect()->route('index-orders')->with('success', 'Đơn hàng đã được xóa thành công.');
@@ -52,6 +65,7 @@ class OdersController extends Controller
             return redirect()->back()->with('error', 'Có lỗi xảy ra khi xóa đơn hàng: ' . $e->getMessage());
         }
     }
+
 
     public function EditOrders($encryptedId)
     {
