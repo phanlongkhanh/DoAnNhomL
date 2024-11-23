@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Product;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -22,11 +23,12 @@ class ProductDetailController extends Controller
         }
 
         $products = Product::find($id);
+        $reviews = Review::all();
 
         if (!$products) {
             return redirect()->route('index-homepage')->with('error', 'Không tìm thấy sản phẩm với ID này.');
         }
 
-        return view('User.product.details', compact('products'));
+        return view('User.product.details', compact('products','reviews'));
     }
 }

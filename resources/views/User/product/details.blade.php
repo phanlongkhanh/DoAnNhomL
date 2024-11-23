@@ -54,6 +54,48 @@
         .rating .fa.checked {
             color: #f39c12;
         }
+
+        .review-container {
+            border: 1px solid #ddd;
+            /* Viền xám nhạt */
+            border-radius: 8px;
+            /* Bo góc */
+            padding: 15px;
+            margin-bottom: 15px;
+            /* Khoảng cách giữa các bình luận */
+            background-color: #f9f9f9;
+            /* Màu nền nhạt */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* Hiệu ứng bóng */
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            /* Tên và sao cách đều */
+            align-items: center;
+            /* Canh giữa theo chiều dọc */
+            margin-bottom: 10px;
+        }
+
+        .rating .fa {
+            font-size: 18px;
+            color: #ccc;
+            /* Màu sao chưa chọn */
+        }
+
+        .rating .fa.checked {
+            color: #f39c12;
+            /* Màu sao đã chọn */
+        }
+
+        .review-comment {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+            /* Màu chữ */
+        }
     </style>
 </head>
 
@@ -153,8 +195,13 @@
                                     <span class="fa fa-star"></span>
                                     <span class="fa fa-star"></span>
                                 </div>
-                                <textarea class="form-control mt-2" rows="3" placeholder="Viết nhận xét của bạn ở đây..."></textarea>
-                                <button class="btn btn-primary mt-2">Gửi Nhận Xét</button>
+                                <form action="{{ route('reviews.store') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id_user" value="{{ auth()->id() }}">
+                                    <input type="hidden" name="id_product" value="{{ $products->id }}">
+                                    <textarea name="comment" class="form-control mt-2" rows="4" placeholder="Viết nhận xét của bạn ở đây..."></textarea>
+                                    <button class="btn btn-primary mt-2">Gửi Nhận Xét</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -162,8 +209,26 @@
             </div>
         </div>
     @endif
-
     <hr>
+
+
+    @foreach ($reviews as $review)
+        <div class="review-container">
+            <div class="review-header">
+                <strong>{{ $review->user->name }}</strong> <!-- Hiển thị tên người dùng -->
+                <div class="rating">
+                    @for ($i = 1; $i <= 5; $i++)
+                        @if ($i <= $review->rating)
+                            <span class="fa fa-star checked"></span>
+                        @else
+                            <span class="fa fa-star"></span>
+                        @endif
+                    @endfor
+                </div>
+            </div>
+            <p class="review-comment">{{ $review->comment }}</p>
+        </div>
+    @endforeach
 
     <!-- Sản Phẩm Tương Tự -->
 
@@ -245,7 +310,7 @@
                 <i class="fas fa-shopping-cart"></i>
                 <p style="margin: 0; font-size: 12px;">Cart</p>
             </a>
-            <a href="{{route('index-profile')}}" class="text-white text-center">
+            <a href="{{ route('index-profile') }}" class="text-white text-center">
                 <i class="fas fa-user"></i>
                 <p style="margin: 0; font-size: 12px;">Profile</p>
             </a>

@@ -204,6 +204,7 @@ Route::prefix('statistical')->group(function () {
 //Đánh Giá Sản Phẩm
 Route::prefix('review')->group(function () {
     Route::get('/', [ReviewController::class, 'ShowIndexReview'])->name('index-review');
+    Route::post('/add', [ReviewController::class, 'storeReview'])->name('reviews.store');
 });
 
 

@@ -61,8 +61,7 @@ class LivestreamController extends Controller
 
         $livestreams = Livestream::findOrFail($id);
         $messages = Message::where('id_livestreams', $id)->get();
-        $products = Product::take(5)->get();
-        // $products = Product::inRandomOrder()->take(5)->get();
+        $products = Product::inRandomOrder()->take(5)->get();
 
 
         return view('User.live.view', compact('livestreams', 'messages', 'products', 'id'));
@@ -102,9 +101,7 @@ class LivestreamController extends Controller
             'price' => $request->price,
             'total_price' => $total_price,
         ]);
-        $encryptedId = Crypt::encrypt($request->id_product);
-
-        return redirect()->route('detail-livestreams', ['id' => $encryptedId])->with('success', 'Sản phẩm đã được thêm vào giỏ hàng!');
-    }
+      
+        return redirect()->back()->with('success', 'Sản phẩm đã được thêm vào giỏ hàng!');    }
 
 }
