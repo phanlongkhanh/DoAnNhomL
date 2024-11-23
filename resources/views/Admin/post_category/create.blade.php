@@ -14,8 +14,7 @@
     <section class="content">
         <div class="row">
             <div class="box box-primary">
-                <form role="form" action="{{ route('store-category') }}" method="post" enctype="multipart/form-data">
-                    <!-- **Cập nhật action để lưu danh mục** -->
+                <form role="form" action="{{ route('store-category-post') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="box-body">
                         <div class="col-sm-8">
@@ -45,15 +44,12 @@
                         </div>
                     </div>
                     <div class="box-footer">
-                        <a href="{{ route('indexcategory') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
+                        <a href="{{ route('index-category-post') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
                         <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Submit</button>
                     </div>
                 </form>
             </div>
         </div>
-        <!-- /.row -->
-        <!-- Main row -->
-        <!-- /.row (main row) -->
     </section>
 @endsection
 @section('script')

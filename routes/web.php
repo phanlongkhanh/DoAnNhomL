@@ -160,10 +160,14 @@ Route::prefix('post')->group(function () {
     Route::delete('/{id}', [PostController::class, 'DeletePost'])->name('delete-posts');
 });
 
-//Danh Mục Bài Viết
+// //Danh Mục Bài Viết
 Route::prefix('category-post')->group(function () {
     Route::get('/', [CategoryPostController::class, 'ShowIndexCategoryPost'])->name('index-category-post');
     Route::get('/create', [CategoryPostController::class, 'ShowCreateCategoryPost'])->name('create-category-post');
+    Route::post('/store', [CategoryPostController::class, 'StoreCategoryPost'])->name('store-category-post');
+    Route::delete('/category-post/delete/{id}', [CategoryPostController::class, 'destroy'])->name('delete-category-post');
+    Route::get('/category-post/edit/{id}', [CategoryPostController::class, 'showEditForm'])->name('edit-category-post');
+    Route::post('/category-post/update/{id}', [CategoryPostController::class, 'updateCategoryPost'])->name('update-category-post');
 });
 
 //Quên Mật Khẩu
