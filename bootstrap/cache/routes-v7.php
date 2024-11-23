@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::vMOckXphH4M7wiWd',
+            '_route' => 'generated::8wnYKAVtKoV3eP59',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::X8Zj51uxfXRZGkcf',
+            '_route' => 'generated::YXUNONlQk8mlf0Oj',
           ),
           1 => NULL,
           2 => 
@@ -1153,6 +1153,25 @@ app('router')->setCompiledRoutes(
           array (
             'GET' => 0,
             'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/review/add' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'reviews.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
           ),
           3 => NULL,
           4 => false,
@@ -2449,7 +2468,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::vMOckXphH4M7wiWd' => 
+    'generated::8wnYKAVtKoV3eP59' => 
     array (
       'methods' => 
       array (
@@ -2472,7 +2491,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::vMOckXphH4M7wiWd',
+        'as' => 'generated::8wnYKAVtKoV3eP59',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2525,7 +2544,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::X8Zj51uxfXRZGkcf' => 
+    'generated::YXUNONlQk8mlf0Oj' => 
     array (
       'methods' => 
       array (
@@ -2547,7 +2566,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::X8Zj51uxfXRZGkcf',
+        'as' => 'generated::YXUNONlQk8mlf0Oj',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5989,6 +6008,42 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'index-review',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'reviews.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'review/add',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\ReviewController@storeReview',
+        'controller' => 'App\\Http\\Controllers\\ReviewController@storeReview',
+        'namespace' => NULL,
+        'prefix' => '/review',
+        'where' => 
+        array (
+        ),
+        'as' => 'reviews.store',
       ),
       'fallback' => false,
       'defaults' => 
