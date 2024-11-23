@@ -1,4 +1,4 @@
-@extends('LayOut.admin-dashboard.master_admin')
+@extends('ControllerAdmin.dashboard_admin')
 @section('content')
     <section class="content-header">
         <h1>
@@ -16,7 +16,7 @@
     <section class="content">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-            <form action="{{ route('updatedatapost',$posts->id_post) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('update-post', $post->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-7">
                     <div class="box box-danger">
@@ -24,25 +24,19 @@
                             <h3 class="box-title">Thông tin cơ bản</h3>
                         </div>
                         <div class="box-body">
-                            <div class="form-group ">
+                            <div class="form-group">
                                 <label for="a_name">Name</label>
-                                <input type="text" name="name" class="form-control" value="{{ $posts->name }}"
-                                    placeholder="Name ....">
-
+                                <input type="text" name="name" class="form-control" value="{{ old('name', $post->name) }}" placeholder="Name ...."> <!-- Sử dụng old() để giữ giá trị cũ -->
                             </div>
-                            <div class="form-group ">
+                            <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control" name="description" rows="3" placeholder="Enter ...">{{ $posts->description }}</textarea>
+                                <textarea class="form-control" name="description" rows="3" placeholder="Enter ...">{{ old('description', $post->description) }}</textarea> <!-- Sử dụng old() -->
                             </div>
                             <div class="form-group">
                                 <label>Danh mục bài viết</label>
-                                <select name="category_id" class="form-control">
-                                    @foreach ($categorypost as $item)
-                                        @if ($item->checkstatus == 1)
-                                            <option value="{{ $item->id_category }}"
-                                                @if ($item->id_category == $selectedCategoryId) selected @endif>{{ $item->name }}
-                                            </option>
-                                        @endif
+                                <select name="id_list_post" class="form-control">
+                                    @foreach ($listposts as $item)
+                                        <option value="{{ $item->id }}" @if ($item->id == $post->id_list_post) selected @endif>{{ $item->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -56,41 +50,30 @@
                             <h3 class="box-title">Ảnh Đại Diện</h3>
                         </div>
                         <div class="box-body">
-                            {{-- <div class="form-group">
-                                <label>Ảnh Mới</label>
-                                <div style="margin-bottom:10px">
-
-                                    <img id="image_preview_container"
-                                        src="{{ asset('images/no-image.jpg') }}"class="img-thumbnail"
-                                        style="width: 170px;height:170px" alt="">
-                                </div>
-                                <input type="file" name="avatar" id="image" class="js-upload">
-                            </div> --}}
-                            <div class="form-group">
-                                <img src="{{ asset($posts->avatar) }}" alt="Ảnh hiện tại" height="300px" width="350px">
-                                {{-- <label for="new_avatar">Chọn ảnh mới (nếu có)</label> --}}
-                                <input type="file" name="avatar" id="image" class="js-upload">
-                            </div>
+                            <img src="{{ asset('post-images/' . $post->image) }}" alt="Ảnh hiện tại" height="300px" width="350px">
+                            <input type="file" name="image" class="js-upload">
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-12">
                     <div class="box box-success">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Content</h3>
+                            <h3 class="box-title">Nội Dung</h3>
                         </div>
                         <div class="box-body">
                             <div class="form-group">
                                 <label>Nội Dung</label>
-                                <textarea class="form-control" id="editor_js" name="content" rows="3" placeholder="Enter ...">{{ $posts->content }}</textarea>
+                                <textarea class="form-control" name="content" rows="3" placeholder="Enter ...">{{ old('content', $post->content) }}</textarea>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-12">
                     <div class="box-footer" style="text-align: center;">
-                        <a href="{{route('index-post')}}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
-                        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Submit</button>
+                        <a href="{{ route('index-post') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
+                        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Cập Nhật</button> <!-- Thay đổi từ "Submit" thành "Cập Nhật" -->
                     </div>
                 </div>
             </form>
@@ -112,17 +95,4 @@
         <!-- /.row (main row) -->
     </section>
     <!-- /.content -->
-@endsection
-@section('script')
-    <script>
-        $(function() {
-            $('#image').change(function() {
-                let reader = new FileReader();
-                reader.onload = (e) => {
-                    $('#image_preview_container').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(this.files[0]);
-            });
-        });
-    </script>
 @endsection

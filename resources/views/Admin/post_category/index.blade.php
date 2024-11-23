@@ -13,6 +13,27 @@
     </section>
     <!-- Main content -->
     <section class="content">
+        @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
+
+    @if (Session::has('success'))
+        <div class="alert alert-success">
+            {{ Session::get('success') }}
+        </div>
+    @endif
+
+    @if (Session::has('error'))
+        <div class="alert alert-danger">
+            {{ Session::get('error') }}
+        </div>
+    @endif
+
+    @if ($errors->has('description'))
+        <div class="alert alert-danger">{{ $errors->first('description') }}</div>
+    @endif
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-xs-12">

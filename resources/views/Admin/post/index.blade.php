@@ -64,7 +64,6 @@
                                     <th>Tiêu đề</th>
                                     <th>hình ảnh</th>
                                     <th>description</th>
-                                    <th>active</th>
                                     <th>Times</th>
                                     <th>Action</th>
                                 </tr>@php
@@ -80,19 +79,11 @@
                                             <td> {{ $item->name }} </td>
                                             <td><img src="post-images/<?= $item->image ?>" alt="" height="80px"></td>
                                             <td> {{ $item->description }} </td>
-                                            <td>
-                                                @if ($item->checkactive == 1)
-                                                    <a href="#" class="label label-info status-active">Show</a>
-                                                @else
-                                                    <a href="#" class="label label-default status-active">Hide</a>
-                                                @endif
-                                            </td>
                                             <td>{{ $item->created_at }}</td>
                                             <td>
-                                                <a href="#" class="btn btn-xs btn-primary"
-                                                    onclick="return confirm('Bạn chắc sửa không nè')"><i
-                                                        class="fa fa-pencil"></i> Edit</a>
-
+                                                <a href="{{ route('edit-post', ['id' => $item->id]) }}" class="btn btn-xs btn-primary">
+                                                    <i class="fa fa-pencil"></i> Edit
+                                                </a>                                                                                                
                                                 <form action="{{ route('delete-posts', ['id' => $item->id]) }}"
                                                     method="POST" style="display:inline;">
                                                     @csrf

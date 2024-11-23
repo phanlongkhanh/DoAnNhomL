@@ -6,7 +6,6 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\ProductType;
 use App\Models\Suppliers;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminProductController extends Controller
@@ -14,13 +13,6 @@ class AdminProductController extends Controller
     // Hiển thị danh sách các sản phẩm.
     public function ShowIndexProduct()
     {
-
-        $user = auth()->user();
-
-        if (!$user || $user->role_id != 1) {
-            return redirect()->route('index-homepage')->with('error', 'Bạn không có quyền truy cập trang này');
-        }
-
         $products = Product::with('category', 'productType', 'supplier')->get();
         return view('Admin.product.index', compact('products'));
     }
@@ -37,6 +29,19 @@ class AdminProductController extends Controller
     // Lưu trữ một sản phẩm mới được tạo trong
     public function store(Request $request)
     {
+        // Validate the input
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'description' => 'nullable|string|max:1000',
+            'discount' => 'nullable|numeric|min:0|max:100',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category_id' => 'required|exists:categories,id',
+            'typeproduct_id' => 'required|exists:product_types,id',
+            'supplier_id' => 'required|exists:suppliers,id',
+            'amount' => 'required|integer|min:1',
+        ]);
+
         // Xử lý lưu hình ảnh
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -72,13 +77,25 @@ class AdminProductController extends Controller
         $productTypes = ProductType::all();
         $suppliers = Suppliers::all();
         return view('Admin.product.update', compact('product', 'categories', 'productTypes', 'suppliers'));
-        
     }
 
     // Hàm cập nhật sản phẩm
     public function update(Request $request, $id)
     {
         try {
+            // Validate the input
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'price' => 'required|numeric|min:0',
+                'description' => 'nullable|string|max:1000',
+                'discount' => 'nullable|numeric|min:0|max:100',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'category_id' => 'required|exists:categories,id',
+                'typeproduct_id' => 'required|exists:product_types,id',
+                'supplier_id' => 'required|exists:suppliers,id',
+                'amount' => 'required|integer|min:1',
+            ]);
+
             $product = Product::findOrFail($id);
 
             // Xử lý upload ảnh nếu có
@@ -120,6 +137,7 @@ class AdminProductController extends Controller
         }
     }
 
+    // Hàm xóa sản phẩm
     public function destroy($id)
     {
         $product = Product::findOrFail($id);

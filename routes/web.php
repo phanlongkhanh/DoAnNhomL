@@ -151,13 +151,17 @@ Route::prefix('account')->group(function () {
     Route::get('Account/banned/{id}', action: [AccountController::class, 'BannedAccount'])->name('banned-account');
 });
 
-//Bài Viết Admin
+//Bài Viết Admin :
 Route::prefix('post')->group(function () {
     Route::get('/', [PostController::class, 'ShowIndexPost'])->name('index-post');
     Route::get('/list', [PostController::class, 'ShowIndexPostHomePage'])->name('index-post-user');
     Route::get('/create', [PostController::class, 'ShowCreatePost'])->name('create-post');
     Route::post('/add', [PostController::class, 'AddPost'])->name('add-posts');
-    Route::delete('/{id}', [PostController::class, 'DeletePost'])->name('delete-posts');
+    Route::delete('/{id}', [PostController::class, 'DeletePost'])->name('delete-posts');   
+    // Hiển thị form chỉnh sửa bài viết
+    Route::get('/edit/{id}', [PostController::class, 'ShowEditPost'])->name('edit-post'); 
+    // Cập nhật bài viết
+    Route::post('/update/{id}', [PostController::class, 'UpdatePost'])->name('update-post');
 });
 
 // //Danh Mục Bài Viết
