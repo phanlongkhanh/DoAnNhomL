@@ -27,7 +27,6 @@
                         {{-- <td>{{ $item->amount }} - {{ ($item->pro_number-$item->pro_pay) }}</td> --}}
                         <td>{{ $item->amount }}</td>
                         <td>{{ $item->category->name ?? 'Không có danh mục'}}</td>
-                        {{-- <td><span class="label label-warning">{{ $item->category->c_name ?? "[N\A]" }}</span></td> --}}
                         <td><img src="images/<?= $item->image ?>" alt="" width="200px" height="150px"></td>
                         <td>{{ $item->price }}</td>
                         <td>
