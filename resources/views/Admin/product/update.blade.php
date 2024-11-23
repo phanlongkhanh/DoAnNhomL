@@ -110,12 +110,14 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-
                             <div class="col-md-12">
                                 <div class="box box-warning">
+                                    <div class="box-header">
+                                        <h3 class="box-title">Thuộc Tính</h3>
+                                    </div>
                                     <div class="box-body">
                                         <div class="form-group col-sm-6">
-                                            <label>Size</label>
+                                            <label>Số Lượng</label>
                                             <input type="number" name="amount" class="form-control" value="{{ old('amount', $product->amount) }}">
                                             @error('amount')
                                                 <div class="alert alert-danger">{{ $message }}</div>

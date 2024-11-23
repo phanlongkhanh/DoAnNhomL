@@ -99,12 +99,13 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-
                             <div class="col-md-12">
                                 <div class="box box-warning">
+                                    <div class="box-header">
+                                        <h3 class="box-title">Thuộc Tính</h3>
+                                    </div>
                                     <div class="box-body">
                                         <div class="form-group col-sm-6">
-                                            <label>Size</label>
                                             <input type="number" name="amount" class="form-control" placeholder="0" value="{{ old('amount') }}">
                                             @error('amount')
                                                 <div class="text-danger">{{ $message }}</div>
@@ -118,11 +119,6 @@
                 </div>
 
                 <div class="col-md-5">
-                    <div class="box box-success">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Content</h3>
-                        </div>
-                    </div>
                     <div class="box box-info">
                         <div class="box-header with-border">
                             <h3 class="box-title">Ảnh Đại Diện</h3>
