@@ -9,7 +9,6 @@
             <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="">Product</a></li>
             <li class="active">Update</li>
-
         </ol>
     </section>
     <!-- Main content -->
@@ -38,69 +37,89 @@
                             <div class="form-group">
                                 <label for="pro_name">Name</label>
                                 <input type="text" name="id_product" value="{{ $product->id_product }}" hidden>
-                                <input type="text" name="name" class="form-control" value={{ $product->name }}>
+                                <input type="text" name="name" class="form-control" value="{{ old('name', $product->name) }}">
+                                @error('name')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+
                             <div class="form-group col-sm-6">
                                 <label for="pro_price">Giá</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                                    <input type="number" name="price" class="form-control" value={{ $product->price }}>
+                                    <input type="number" name="price" class="form-control" value="{{ old('price', $product->price) }}">
                                     <span class="input-group-addon"></span>
                                 </div>
-                                <small id="emailHelp" class="form-text text-muted"></small>
+                                @error('price')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+
                             <div class="form-group">
                                 <label for="pro_sale">% Giảm Giá</label>
                                 <div class="input-group">
                                     <span class="input-group-addon">$</span>
-                                    <input type="number" name="discount" class="form-control" value={{ $product->discount }}>
+                                    <input type="number" name="discount" class="form-control" value="{{ old('discount', $product->discount) }}">
                                     <span class="input-group-addon"><i class="fa fa-check"></i></span>
                                 </div>
+                                @error('discount')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control" name="description" rows="3" placeholder="Enter ...">{{ $product->description }}</textarea>
+                                <textarea class="form-control" name="description" rows="3">{{ old('description', $product->description) }}</textarea>
+                                @error('description')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+
                             <div class="form-group">
                                 <label>Danh Mục (*)</label>
                                 <select name="category_id" class="form-control js-check-type" id="category" required>
-                        
                                     @foreach($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        <option value="{{ $category->id }}" {{ old('category_id', $product->category_id) == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                                     @endforeach
-                                
                                 </select>
+                                @error('category_id')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+
                             <div class="form-group">
                                 <label>Type Product (*)</label>
                                 <select name="typeproduct_id" class="form-control js-type-product" id="product_type_id" required>
                                     @foreach($productTypes as $productType)
-                                        <option value="{{ $productType->id }}">{{ $productType->name }}</option>
+                                        <option value="{{ $productType->id }}" {{ old('typeproduct_id', $product->typeproduct_id) == $productType->id ? 'selected' : '' }}>{{ $productType->name }}</option>
                                     @endforeach
                                 </select>
+                                @error('typeproduct_id')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+
                             <div class="form-group">
                                 <label>Supplier (*)</label>
                                 <select name="supplier_id" id="supplier_id" class="form-control js-type-product" required>
                                     @foreach($suppliers as $supplier)
-                                        <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
+                                        <option value="{{ $supplier->id }}" {{ old('supplier_id', $product->supplier_id) == $supplier->id ? 'selected' : '' }}>{{ $supplier->name }}</option>
                                     @endforeach
                                 </select>
+                                @error('supplier_id')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
-                            <div class="form-group">
-                                <label for="pro_name">Size</label>
-                                <input type="text" name="sizes" class="form-control" placeholder="Enter sizes separated by commas">
-                                <small class="form-text text-muted">Enter sizes separated by commas (e.g., Small, Medium, Large).</small>
-                            </div>
+
                             <div class="col-md-12">
                                 <div class="box box-warning">
-                                    <div class="box-header">
-                                        <h3 class="box-title">Thuộc Tính</h3>
-                                    </div>
                                     <div class="box-body">
                                         <div class="form-group col-sm-6">
-                                            <label>Số Lượng</label>
-                                            <input type="number" name="amount" class="form-control" value={{ $product->amount }}>
+                                            <label>Size</label>
+                                            <input type="number" name="amount" class="form-control" value="{{ old('amount', $product->amount) }}">
+                                            @error('amount')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -108,18 +127,8 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-5">
-                    <div class="box box-success">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Content</h3>
-                        </div>
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label>Nội Dung</label>
-                                <textarea class="form-control" name="content" rows="3" placeholder="Enter ..."></textarea>
-                            </div>
-                        </div>
-                    </div>
                     <div class="box box-info">
                         <div class="box-header with-border">
                             <h3 class="box-title">Ảnh Đại Diện</h3>
@@ -131,42 +140,35 @@
                                     <img id="image_preview_container" src="{{ asset('images/' . $product->image) }}" class="img-thumbnail" style="width: 220px;height:200px" alt="">
                                 </div>
                                 <input type="file" name="image" id="image" class="js-upload">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box box-info">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Album ảnh</h3>
-                        </div>
-                        <div class="box-body">
-                            <div class="form-group">
-                                <div class="file-loading">
-                                    <input type="file" name="file[]" id="file" multiple class="file" data-overwrite-initial="false" data-min-file-count="0">
-                                </div>
+                                @error('image')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                     </div>
                 </div>
-            @endif
-            <div class="col-md-12">
-                <div class="box-footer" style="text-align: center;">
-                    <a href="{{ url('product') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
-                    <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Submit</button>
+
+                <div class="col-md-12">
+                    <div class="box-footer" style="text-align: center;">
+                        <a href="{{ url('product') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
+                        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Submit</button>
+                    </div>
                 </div>
-            </div>
             </form>
+            @endif
         </div>
     </section>
     <!-- /.content -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/css/fileinput.css" />
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/js/fileinput.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/themes/fa/theme.js"></script>
 @endsection
+
 @section('script')
     <script>
         $(function() {
-
             $('#image').change(function() {
                 let reader = new FileReader();
                 reader.onload = (e) => {
@@ -174,15 +176,14 @@
                 }
                 reader.readAsDataURL(this.files[0]);
             });
-            //run js-select2-keyword
+
+            // run js-select2-keyword
             if ($('.js-select2-keyword').length > 0) {
                 $('.js-select2-keyword').select2({
                     placeholder: 'Chọn Keyword',
                     maximumSelectionLength: 3
                 });
-
             }
-
 
             $('.js-check-type').change(function() {
                 let $this = $(this);
@@ -191,12 +192,9 @@
                 if (URL) {
                     $.ajax({
                         url: URL,
-                        // data:{
-                        //     idCategory:idCategory
-                        // },
                         success: function(results) {
-                            $('.js-type-product').html(results.type_product)
-                            $('.js-attribute').html(results.attribute)
+                            $('.js-type-product').html(results.type_product);
+                            $('.js-attribute').html(results.attribute);
                         },
                         error: function(error) {
                             console.log(error.messages);
@@ -204,15 +202,6 @@
                     });
                 }
             });
-
-            // $(document).on('keyup','.pro_price_js',function(e){
-            //     e.preventDefault();
-            //     var res = $(this).val();
-            //     res = new Intl.NumberFormat('en-IN').format(res);
-            //     $('.convert-price-js').html(res + ' vnd');
-            // });
         });
     </script>
 @endsection
-
-  
