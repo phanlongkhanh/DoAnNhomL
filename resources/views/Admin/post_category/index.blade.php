@@ -18,9 +18,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title"><a href="#" class="btn btn-primary">Thêm mới
-                            </a>
-                        </h3>
+                        <h3 class="box-title"><a href="{{ route('create-category-post') }}" class="btn btn-primary">Thêm mới</a></h3>
                         <div class="box-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
                                 <input type="text" name="table_search" class="form-control pull-right ajax-search-table"
@@ -60,8 +58,7 @@
                                         <tr>
                                             <td>{{ $count }}</td>
                                             <td>{{ $item->id }}</td>
-                                            <td><img src="images/<?= $item->image ?>" alt="" width="200px"
-                                                    height="150px"></td>
+                                            <td><img src="{{ asset($item->image) }}" alt="" width="200px" height="150px"></td>
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->description }}</td>
                                             <td>
@@ -76,29 +73,23 @@
                                             <td>{{ $item->created_at }}</td>
                                             <td>{{ $item->updated_at }}</td>
                                             <td>{{ $item->user->name }}</td>
-
-
-
-
                                             <td>
-                                                <a href="{{ route('editcategory', ['id' => $item->id]) }}"
+                                                {{-- <a href="{{ route('editcategory', ['id' => $item->id]) }}"
                                                     class="btn btn-xs btn-primary"
                                                     onclick="return confirm('Bạn chắc chắn là sửa chứ?')">
                                                     <i class="fa fa-pencil"></i> Edit
-                                                </a>
-
-                                                <form action="{{ route('deletecategory', ['id' => $item->id]) }}"
-                                                    method="POST" style="display:inline;">
+                                                </a> --}}
+                                                <a href="{{ route('edit-category-post', ['id' => $item->id]) }}" class="btn btn-xs btn-primary" 
+                                                    onclick="return confirm('Bạn chắc chắn là sửa chứ?')">
+                                                    <i class="fa fa-pencil"></i> Edit
+                                                </a>                                                
+                                                <form action="{{ route('delete-category-post', ['id' => $item->id]) }}" method="POST" style="display:inline;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-xs btn-danger js-delete-confirm"
-                                                        onclick="return confirm('Bạn chắc chắn là xóa chứ?')"><i
-                                                            class="fa fa-trash"></i> Delete</button>
+                                                        onclick="return confirm('Bạn chắc chắn là xóa chứ?')"><i class="fa fa-trash"></i> Delete</button>
                                                 </form>
-
-
                                             </td>
-
                                         </tr>
                                     @endforeach
                                 @else
@@ -149,6 +140,4 @@
     </section>
     <!-- /.content -->
 @endsection
-{{-- @section('script')
 
-@endsection --}}

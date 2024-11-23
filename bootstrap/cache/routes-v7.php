@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::hftcZo0CoUB7b1EQ',
+            '_route' => 'generated::TQET595ypyprkrFN',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Rb9CIPGODgHOPygH',
+            '_route' => 'generated::GYLgTIbDHdUvt5a6',
           ),
           1 => NULL,
           2 => 
@@ -1006,6 +1006,25 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/category-post/store' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'store-category-post',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/forgot' => 
       array (
         0 => 
@@ -1243,7 +1262,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/a(?|pi/([^/]++)/products(*:32)|ccount/(?|([^/]++)(?|(*:60))|Account/banned/([^/]++)(*:91)))|/homepage/details\\-product/([^/]++)(*:135)|/p(?|ro(?|duct(?|types/(?|([^/]++)(*:177)|add(*:188)|([^/]++)(?|(*:207))|product\\-type/active/([^/]++)(*:245))|/([^/]++)(?|(*:266)))|file(?|/([^/]++)(*:292)|\\-controlelr/(?|update\\-password/([^/]++)(*:341)|([^/]++)(*:357))))|ays/(?|([^/]++)(*:383)|add(*:394)|pays/([^/]++)/update\\-status/([^/]++)(*:439))|ost/([^/]++)(*:460))|/transports/(?|([^/]++)(?|(*:495))|transport/active/([^/]++)(*:529))|/suppliers/([^/]++)(?|(*:560))|/f(?|avorites/([^/]++)(*:591)|orgot/update/([^/]++)(*:620))|/orders/(?|([^/]++)(?|(*:651))|orders/active/([^/]++)(*:682))|/c(?|a(?|rts/([^/]++)(*:712)|tegories/(?|edit\\-category/([^/]++)(*:755)|update\\-category/([^/]++)(*:788)|admin/categories/(?|delete/([^/]++)(*:831)|active/([^/]++)(*:854))))|hat/chat/([^/]++)(*:882))|/live(?|/([^/]++)(*:908)|streams/(?|([^/]++)(*:935)|add(*:946))))/?$}sDu',
+      0 => '{^(?|/a(?|pi/([^/]++)/products(*:32)|ccount/(?|([^/]++)(?|(*:60))|Account/banned/([^/]++)(*:91)))|/homepage/details\\-product/([^/]++)(*:135)|/p(?|ro(?|duct(?|types/(?|([^/]++)(*:177)|add(*:188)|([^/]++)(?|(*:207))|product\\-type/active/([^/]++)(*:245))|/([^/]++)(?|(*:266)))|file(?|/([^/]++)(*:292)|\\-controlelr/(?|update\\-password/([^/]++)(*:341)|([^/]++)(*:357))))|ays/(?|([^/]++)(*:383)|add(*:394)|pays/([^/]++)/update\\-status/([^/]++)(*:439))|ost/([^/]++)(*:460))|/transports/(?|([^/]++)(?|(*:495))|transport/active/([^/]++)(*:529))|/suppliers/([^/]++)(?|(*:560))|/f(?|avorites/([^/]++)(*:591)|orgot/update/([^/]++)(*:620))|/orders/(?|([^/]++)(?|(*:651))|orders/active/([^/]++)(*:682))|/c(?|a(?|rts/([^/]++)(*:712)|tegor(?|ies/(?|edit\\-category/([^/]++)(*:758)|update\\-category/([^/]++)(*:791)|admin/categories/(?|delete/([^/]++)(*:834)|active/([^/]++)(*:857)))|y\\-post/category\\-post/(?|delete/([^/]++)(*:908)|edit/([^/]++)(*:929)|update/([^/]++)(*:952))))|hat/chat/([^/]++)(*:980))|/live(?|/([^/]++)(*:1006)|streams/(?|([^/]++)(*:1034)|add(*:1046))))/?$}sDu',
     ),
     3 => 
     array (
@@ -1979,7 +1998,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      755 => 
+      758 => 
       array (
         0 => 
         array (
@@ -2002,7 +2021,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      788 => 
+      791 => 
       array (
         0 => 
         array (
@@ -2024,7 +2043,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      831 => 
+      834 => 
       array (
         0 => 
         array (
@@ -2046,7 +2065,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      854 => 
+      857 => 
       array (
         0 => 
         array (
@@ -2069,7 +2088,74 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      882 => 
+      908 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'delete-category-post',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      929 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'edit-category-post',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      952 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'update-category-post',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      980 => 
       array (
         0 => 
         array (
@@ -2091,7 +2177,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      908 => 
+      1006 => 
       array (
         0 => 
         array (
@@ -2113,7 +2199,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      935 => 
+      1034 => 
       array (
         0 => 
         array (
@@ -2136,7 +2222,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      946 => 
+      1046 => 
       array (
         0 => 
         array (
@@ -2318,7 +2404,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::hftcZo0CoUB7b1EQ' => 
+    'generated::TQET595ypyprkrFN' => 
     array (
       'methods' => 
       array (
@@ -2341,7 +2427,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::hftcZo0CoUB7b1EQ',
+        'as' => 'generated::TQET595ypyprkrFN',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2394,7 +2480,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Rb9CIPGODgHOPygH' => 
+    'generated::GYLgTIbDHdUvt5a6' => 
     array (
       'methods' => 
       array (
@@ -2416,7 +2502,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::Rb9CIPGODgHOPygH',
+        'as' => 'generated::GYLgTIbDHdUvt5a6',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5238,6 +5324,151 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'create-category-post',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'store-category-post' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'category-post/store',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\CategoryPostController@StoreCategoryPost',
+        'controller' => 'App\\Http\\Controllers\\CategoryPostController@StoreCategoryPost',
+        'namespace' => NULL,
+        'prefix' => '/category-post',
+        'where' => 
+        array (
+        ),
+        'as' => 'store-category-post',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'delete-category-post' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'category-post/category-post/delete/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\CategoryPostController@destroy',
+        'controller' => 'App\\Http\\Controllers\\CategoryPostController@destroy',
+        'namespace' => NULL,
+        'prefix' => '/category-post',
+        'where' => 
+        array (
+        ),
+        'as' => 'delete-category-post',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'edit-category-post' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'category-post/category-post/edit/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\CategoryPostController@showEditForm',
+        'controller' => 'App\\Http\\Controllers\\CategoryPostController@showEditForm',
+        'namespace' => NULL,
+        'prefix' => '/category-post',
+        'where' => 
+        array (
+        ),
+        'as' => 'edit-category-post',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'update-category-post' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'category-post/category-post/update/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\CategoryPostController@updateCategoryPost',
+        'controller' => 'App\\Http\\Controllers\\CategoryPostController@updateCategoryPost',
+        'namespace' => NULL,
+        'prefix' => '/category-post',
+        'where' => 
+        array (
+        ),
+        'as' => 'update-category-post',
       ),
       'fallback' => false,
       'defaults' => 
