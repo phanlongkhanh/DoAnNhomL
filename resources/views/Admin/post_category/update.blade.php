@@ -1,0 +1,61 @@
+@extends('ControllerAdmin.dashboard_admin')
+@section('content')
+    <section class="content-header">
+        <h1>
+            Category Post
+            <small>Edit</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href=""><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href=""> Category Post</a></li>
+            <li class="active">Update</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            @if (isset($category))
+                <div class="box box-primary">
+                    <form role="form" action="{{ route('update-category-post', $category->id) }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="box-body">
+                            <div class="col-sm-8">
+                                <div class="form-group {{ $errors->first('category_name') ? 'has-error' : '' }}">
+                                    <label for="name">Name<span class="text-danger">(*)</span></label>
+                                    <input type="text" class="form-control" name="category_name" value="{{ $category->name }}" placeholder="Name ......" required>
+                                    @if ($errors->first('category_name'))
+                                        <span class="text-danger">{{ $errors->first('category_name') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group {{ $errors->first('category_description') ? 'has-error' : '' }}">
+                                    <label>Description<span class="text-danger">(*)</span></label>
+                                    <textarea class="form-control" name="category_description" rows="3" placeholder="Enter ..." required>{{ $category->description }}</textarea>
+                                    @if ($errors->first('category_description'))
+                                        <span class="text-danger">{{ $errors->first('category_description') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="fileInput">Image</label>
+                                    <input type="file" class="form-control-file" id="fileInput" name="category_image">
+                                </div>
+                                @if($category->image)
+                                    <div>
+                                        <img src="{{ asset($category->image) }}" alt="Ảnh hiện tại" height="300px">
+                                    </div>
+                                @endif                                
+                            </div>
+                        </div>
+            @endif
+            <div class="box-footer">
+                <a href="{{ route('index-category-post') }}" class="btn btn-danger"><i class="fa fa-undo"></i> Trở Lại</a>
+                <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Submit</button>
+            </div>
+            </form>
+        </div>
+        </div>
+        <!-- /.row -->
+        <!-- Main row -->
+        <!-- /.row (main row) -->
+    </section>
+@endsection

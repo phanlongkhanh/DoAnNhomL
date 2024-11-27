@@ -1,0 +1,100 @@
+<div class="box-body table-responsive no-padding">
+    <table class="table table-hover">
+        <tbody>
+            <tr>
+                <th>STT</th>
+                <th>Name</th>
+                <th>SL - còn</th>
+                <th>Category</th>
+                <th>Avatar</th>
+                <th>Price</th>
+                <th>Discount</th>
+                <th>Status</th>
+                <th>Times</th>
+                <th>Action</th>
+            </tr>
+            @php
+                $i = 0;
+            @endphp
+            @if (isset($products))
+                @foreach ($products as $item)
+                    @php
+                        $i++;
+                    @endphp
+                    <tr>
+                        <td>{{ $i }}</td>
+                        <td>{{ $item->name }}</td>
+                        {{-- <td>{{ $item->amount }} - {{ ($item->pro_number-$item->pro_pay) }}</td> --}}
+                        <td>{{ $item->amount }}</td>
+                        <td>{{ $item->category->name ?? 'Không có danh mục'}}</td>
+                        <td><img src="images/<?= $item->image ?>" alt="" width="200px" height="150px"></td>
+                        <td>{{ $item->price }}</td>
+                        <td>
+                            @if ($item->discount)
+                                <span class="label label-default"
+                                    style="text-decoration: line-through;">{{ number_format($item->price, 0, ',', '.') }}
+                                    VND</span><br>
+                                @php
+                                    $price = $item->price * (1 - $item->discount / 100);
+                                @endphp
+                                <span class="label label-success">{{ number_format($price, 0, ',', '.') }} VND</span><br>
+                                <span>Giảm {{ $item->discount }}%</span>
+                            @else
+                                <span class="label label-success">{{ number_format($item->price, 0, ',', '.') }}
+                                    VND</span>
+                            @endif
+                        </td>
+                        <td>
+                            @if ($item->checkactive == 1)
+                                <a href="" class="label label-info status-active">Hot</a>
+                            @else
+                                <a href="" class="label label-default status-active">No</a>
+                            @endif
+                        </td>
+
+                        <td>{{ $item->created_at }}</td>
+                        
+                        <td>
+                            <a href="{{ route('products.edit', $item->id_product) }}" class="btn btn-xs btn-primary">
+                                <i class="fa fa-pencil"></i> Edit
+                            </a>                                                                                      
+                            <form action="{{ route('products.destroy', $item->id_product) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-xs btn-danger" onclick="return confirm('Bạn có chắc muốn xóa không?')">
+                                    <i class="fa fa-trash"></i> Delete
+                                </button>
+                            </form>                          
+                        </td>
+                    </tr>
+                @endforeach
+            @endif
+        </tbody>
+
+    </table>
+    <div id="pageNavPosition" class="text-right">
+        {{-- <ul class="pagination">
+            <!-- Hiển thị link đến trang trước (Previous Page) -->
+            @if ($products->onFirstPage())
+                <li class="disabled"><span>&laquo;</span></li>
+            @else
+                <li><a href="{{ $products->previousPageUrl() }}" rel="prev">&laquo;</a></li>
+            @endif
+    
+            <!-- Hiển thị các số trang đã có -->
+            @for ($i = 1; $i <= $products->lastPage(); $i++)
+                <li class="{{ $i == $products->currentPage() ? 'active' : '' }}">
+                    <a href="{{ $products->url($i) }}">{{ $i }}</a>
+                </li>
+            @endfor
+            <!-- Hiển thị link đến trang tiếp theo (Next Page) -->
+            @if ($products->hasMorePages())
+                <li><a href="{{ $products->nextPageUrl() }}" rel="next">&raquo;</a></li>
+            @else
+                <li class="disabled"><span>&raquo;</span></li>
+            @endif
+        </ul> --}}
+
+
+    </div>
+</div>
